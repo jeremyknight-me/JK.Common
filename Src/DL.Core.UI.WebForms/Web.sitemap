@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Default.aspx" title="Home"  description="">
+        <siteMapNode url="" title="Controls"  description="">
+            <siteMapNode url="~/Controls/BinaryDropDownListControlTests.aspx" title="Binary Drop Down"  description="" />
+            <siteMapNode url="~/Controls/BootstrapMenuTests.aspx" title="Bootstrap Menu"  description="" />
+            <siteMapNode url="~/Controls/CalendarDisplayControlTests.aspx" title="Calendar Display"  description="" />
+            <siteMapNode url="~/Controls/ListBoxToListBoxControlTests.aspx" title="ListBox to ListBox"  description="" />
+            <siteMapNode url="~/Controls/TernaryDropDownListControlTests.aspx" title="Ternary Drop Down"  description="" />
+        </siteMapNode>
+        <siteMapNode url="" title="Security"  description="">
+            <siteMapNode url="~/Security/Roles.aspx" title="Roles"  description="" />
+            <siteMapNode url="~/Security/UserDetails.aspx" title="User Details"  description="" />
+            <siteMapNode url="~/Security/Users.aspx" title="Users"  description="" />
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>
