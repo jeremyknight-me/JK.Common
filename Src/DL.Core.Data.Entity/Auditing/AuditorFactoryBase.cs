@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace DL.Core.Data.Entity.Auditing
 {
-    public abstract class AuditorFactoryBase
+    public class AuditorFactoryBase
     {
         private readonly Dictionary<Type, Type> auditors;
+        private readonly DbContext context;
 
-        protected AuditorFactoryBase()
+        public AuditorFactoryBase(DbContext contextToUse)
         {
             this.auditors = new Dictionary<Type, Type>();
+            this.context = contextToUse;
         }
 
         public IAuditor MakeAuditor(Type type)
         {
             if (!this.auditors.ContainsKey(type))
             {
-                return new AuditorBase();
+                return new AuditorBase(this.context);
             }
 
             Type objectType = this.auditors[type];
-            return (IAuditor)Activator.CreateInstance(objectType);
+            object[] args = { this.context };
+            return (IAuditor)Activator.CreateInstance(objectType, args);
         }
 
         protected void AddAuditor(Type type, Type auditor)
         {
             if (auditor.GetInterfaces().All(x => x.FullName != typeof(IAuditor).FullName))
             {
-                throw new ArgumentException("'auditor' must implement IAuditor.", "auditor");
+                throw new ArgumentException("'auditor' must implement IAuditor.", nameof(auditor));
             }
 
             if (!this.auditors.ContainsKey(type))
@@ -41,7 +45,7 @@ namespace DL.Core.Data.Entity.Auditing
         {
             if (!this.auditors.ContainsKey(type))
             {
-                throw new ArgumentOutOfRangeException("type", "Auditor not found.");
+                throw new ArgumentOutOfRangeException(nameof(type), "Auditor not found.");
             }
 
             this.auditors.Remove(type);

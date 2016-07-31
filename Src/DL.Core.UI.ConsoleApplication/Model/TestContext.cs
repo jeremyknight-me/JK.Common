@@ -15,7 +15,7 @@ namespace DL.Core.UI.ConsoleApplication.Model
         
         protected override AuditorFactoryBase GetAuditorFactory()
         {
-            return new TestAuditorFactory();
+            return new TestAuditorFactory(this);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -23,8 +23,7 @@ namespace DL.Core.UI.ConsoleApplication.Model
             modelBuilder.Configurations.Add(new AuditLogMap("dbo"));
 
             var entity = modelBuilder.Entity<EntityTest>();
-            entity.ToTable("EntityTest", "dbo");
-            entity.HasKey(x => x.Id);
+            entity.ToTable("EntityTest", "dbo").HasKey(x => x.Id);
             entity.Property(x => x.Title).IsRequired();
             entity.Property(x => x.Name).IsRequired();
         }

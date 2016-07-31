@@ -63,7 +63,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Auditing\MockAuditorFactory.cs" />
     <Compile Include="MockObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

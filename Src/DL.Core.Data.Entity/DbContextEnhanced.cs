@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
-using System.Data.Objects;
 using System.Linq;
 using DL.Core.Data.Entity.Auditing;
 
@@ -66,7 +65,15 @@ namespace DL.Core.Data.Entity
             return this.ProcessChanges(userId);
         }
 
-        protected abstract AuditorFactoryBase GetAuditorFactory();
+        public int SaveChangesNoAudit()
+        {
+            return base.SaveChanges();
+        }
+
+        protected virtual AuditorFactoryBase GetAuditorFactory()
+        {
+            return new AuditorFactoryBase(this);
+        }
 
         protected int ProcessChanges(string userToken)
         {

@@ -1,8 +1,8 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Core.Mapping;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Text;
 
 namespace DL.Core.Data.Entity.Auditing
@@ -10,12 +10,13 @@ namespace DL.Core.Data.Entity.Auditing
     public class AuditorBase : IAuditor
     {
         private const string format = "[{0}]={1} || ";
-
         private readonly DateTimeOffset changeTime;
+        private readonly DbContext context;
 
-        public AuditorBase()
+        public AuditorBase(DbContext contextToUse)
         {
             this.changeTime = DateTimeOffset.UtcNow;
+            this.context = contextToUse;
         }
 
         public AuditLog AuditChange(DbEntityEntry entry, string userToken)
@@ -34,7 +35,7 @@ namespace DL.Core.Data.Entity.Auditing
                     action = this.GetModifiedAudit;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("entry", "EntityState of DbEntityEntry object is not valid for this function.");
+                    throw new ArgumentOutOfRangeException(nameof(entry), "EntityState of DbEntityEntry object is not valid for this function.");
             }
 
             return action(userToken, entry);
@@ -57,25 +58,28 @@ namespace DL.Core.Data.Entity.Auditing
 
         protected virtual string GetTableName(DbEntityEntry entry)
         {
-            var tableAttribute = entry.Entity.GetType()
-                .GetCustomAttributes(typeof(TableAttribute), false)
-                .SingleOrDefault() as TableAttribute;
+            var objectContext = ((IObjectContextAdapter)this.context).ObjectContext;
+            var t = entry.Entity.GetType();
 
-            if (tableAttribute != null)
+            if (t.BaseType != null && t.Namespace == "System.Data.Entity.DynamicProxies")
             {
-                return tableAttribute.Name;
+                t = t.BaseType;
             }
 
-            Type entryType = entry.Entity.GetType();
-            string name = entryType.Name;
+            var metadata = objectContext.MetadataWorkspace.GetItems<EntityContainerMapping>(DataSpace.CSSpace);
+            string result = string.Empty;
 
-            if (name.Contains("_"))
+            foreach (EntityContainerMapping ecm in metadata)
             {
-                int position = name.IndexOf("_");
-                return name.Substring(0, position);
+                EntitySet entitySet;
+                if (ecm.StoreEntityContainer.TryGetEntitySetByName(t.Name, true, out entitySet))
+                {
+                    result = entitySet.Schema + "." + entitySet.Table;
+                    break;
+                }
             }
 
-            return entryType.Name;
+            return result;
         }
 
         private AuditLog GetBaseLog(string userToken, DbEntityEntry entry)
@@ -117,17 +121,8 @@ namespace DL.Core.Data.Entity.Auditing
             var currentBuilder = new StringBuilder();
             var originalBuilder = new StringBuilder();
             this.RecurseProperties(entry.OriginalValues, entry.CurrentValues, currentBuilder, originalBuilder);
-
-            if (currentBuilder.Length > 0)
-            {
-                currentBuilder = currentBuilder.Remove(currentBuilder.Length - 3, 3);
-            }
-
-            if (originalBuilder.Length > 0)
-            {
-                originalBuilder = originalBuilder.Remove(originalBuilder.Length - 3, 3);
-            }
-
+            currentBuilder = this.CleanStringBuilder(currentBuilder);
+            originalBuilder = this.CleanStringBuilder(originalBuilder);
             audit.NewValue = currentBuilder.ToString();
             audit.OriginalValue = originalBuilder.ToString();
             return audit;
@@ -136,44 +131,64 @@ namespace DL.Core.Data.Entity.Auditing
         private string ListAllProperties(DbPropertyValues values)
         {
             var builder = new StringBuilder();
+            this.RecurseProperties(values, builder);
+            builder = this.CleanStringBuilder(builder);
+            return builder.ToString();
+        }
 
-            foreach (var propertyName in values.PropertyNames)
-            {
-                var currentValueObject = values.GetValue<object>(propertyName);
-                var currentValue = currentValueObject == null ? "NULL" : currentValueObject.ToString();
-                builder.AppendFormat(format, propertyName, currentValue);
-            }
-
+        private StringBuilder CleanStringBuilder(StringBuilder builder)
+        {
             if (builder.Length > 0)
             {
                 builder = builder.Remove(builder.Length - 3, 3);
             }
 
-            return builder.ToString();
+            return builder;
         }
 
-        private void RecurseProperties(DbPropertyValues originalValues, DbPropertyValues currentValues, StringBuilder currentBuider, StringBuilder originalBuilder)
+        private void RecurseProperties(DbPropertyValues propertyValues, StringBuilder builder, string recursivePropertyName = null)
+        {
+            foreach (var propertyName in propertyValues.PropertyNames)
+            {
+                var fullPropertyName = string.IsNullOrWhiteSpace(recursivePropertyName) ? propertyName : $"{recursivePropertyName}.{propertyName}";
+                var valueObject = propertyValues.GetValue<object>(propertyName);
+
+                if (valueObject != null && valueObject.GetType() == typeof(DbPropertyValues))
+                {
+                    var childPropertyValues = propertyValues.GetValue<DbPropertyValues>(propertyName);
+                    this.RecurseProperties(childPropertyValues, builder, fullPropertyName);
+                }
+                else
+                {
+                    var value = valueObject?.ToString() ?? "NULL";
+                    builder.AppendFormat(format, fullPropertyName, value);
+                }
+            }
+        }
+
+        private void RecurseProperties(DbPropertyValues originalValues, DbPropertyValues currentValues, StringBuilder currentBuider, StringBuilder originalBuilder, string recursivePropertyName = null)
         {
             foreach (var propertyName in originalValues.PropertyNames)
             {
+                var fullPropertyName = string.IsNullOrWhiteSpace(recursivePropertyName) ? propertyName : $"{recursivePropertyName}.{propertyName}";
                 var originalValueObject = originalValues.GetValue<object>(propertyName);
 
                 if (originalValueObject != null && originalValueObject.GetType() == typeof(DbPropertyValues))
                 {
                     var childOriginalValues = originalValues.GetValue<DbPropertyValues>(propertyName);
                     var childCurrentValues = currentValues.GetValue<DbPropertyValues>(propertyName);
-                    this.RecurseProperties(childOriginalValues, childCurrentValues, currentBuider, originalBuilder);
+                    this.RecurseProperties(childOriginalValues, childCurrentValues, currentBuider, originalBuilder, fullPropertyName);
                 }
                 else
                 {
-                    var originalValue = originalValueObject == null ? "NULL" : originalValueObject.ToString();
+                    var originalValue = originalValueObject?.ToString() ?? "NULL";
                     var currentValueObject = currentValues.GetValue<object>(propertyName);
-                    var currentValue = currentValueObject == null ? "NULL" : currentValueObject.ToString();
+                    var currentValue = currentValueObject?.ToString() ?? "NULL";
 
                     if (originalValue != currentValue)
                     {
-                        currentBuider.AppendFormat(format, propertyName, currentValue);
-                        originalBuilder.AppendFormat(format, propertyName, originalValue);    
+                        currentBuider.AppendFormat(format, fullPropertyName, currentValue);
+                        originalBuilder.AppendFormat(format, fullPropertyName, originalValue);
                     }
                 }
             }
