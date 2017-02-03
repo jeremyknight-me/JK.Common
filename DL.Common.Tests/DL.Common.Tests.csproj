@@ -53,6 +53,10 @@
     <Compile Include="ComplexObject.cs" />
     <Compile Include="DeepClonerTests.cs" />
     <Compile Include="Extensions\QueryableExtensionsTests.cs" />
+    <Compile Include="Geospatial\CoordinateHtmlFormatterTests.cs" />
+    <Compile Include="Geospatial\CoordinateTextFormatterTests.cs" />
+    <Compile Include="Geospatial\LatitudeTests.cs" />
+    <Compile Include="Geospatial\LongitudeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleObject.cs" />
     <Compile Include="Specifications\AlphabeticalSpecificationTests.cs" />
@@ -73,6 +77,8 @@
     <Compile Include="Text\StringDelimiterTests.cs" />
     <Compile Include="Text\StringTruncaterTests.cs" />
     <Compile Include="Text\TemplateProcessorTests.cs" />
+    <Compile Include="TypeHelpers\DateTimeHelperTests.cs" />
+    <Compile Include="TypeHelpers\StringHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DL.Common\DL.Common.csproj">
@@ -80,6 +86,7 @@
       <Name>DL.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -48,6 +48,16 @@
     <Compile Include="Extensions\QueryableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Geospatial\CoordinateBase.cs" />
+    <Compile Include="Geospatial\CoordinateFactory.cs" />
+    <Compile Include="Geospatial\CoordinateFormatterBase.cs" />
+    <Compile Include="Geospatial\CoordinateHtmlFormatter.cs" />
+    <Compile Include="Geospatial\CoordinateTextFormatter.cs" />
+    <Compile Include="Geospatial\CoordinateType.cs" />
+    <Compile Include="Geospatial\Direction.cs" />
+    <Compile Include="Geospatial\DisplayFormat.cs" />
+    <Compile Include="Geospatial\Latitude.cs" />
+    <Compile Include="Geospatial\Longitude.cs" />
     <Compile Include="Patterns\Specification\AndSpecification.cs" />
     <Compile Include="Patterns\Specification\CompositeSpecification.cs" />
     <Compile Include="Patterns\Specification\ISpecification.cs" />
@@ -76,6 +86,7 @@
     <Compile Include="TypeHelpers\DateTimeFormatter.cs" />
     <Compile Include="TypeHelpers\DateTimeHelper.cs" />
     <Compile Include="TypeHelpers\StringHelper.cs" />
+    <Compile Include="Xml\XmlSerializationFacade.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
