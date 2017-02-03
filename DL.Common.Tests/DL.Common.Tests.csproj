@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -51,6 +52,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ComplexObject.cs" />
+    <Compile Include="Data\SqlParameterFactoryTests.cs" />
+    <Compile Include="Data\DbParameterFactoryTests.cs" />
     <Compile Include="DeepClonerTests.cs" />
     <Compile Include="Extensions\QueryableExtensionsTests.cs" />
     <Compile Include="Geospatial\CoordinateHtmlFormatterTests.cs" />
