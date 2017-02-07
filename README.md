@@ -1,4 +1,5 @@
 # Code Library
+
 A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.
 
 **Components**
@@ -6,3 +7,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
  - Deep Cloner
  - Latitude and Longitude Classes
  - Template Processing
+
+**NuGet Packages**
+
+ - DL.Common: https://www.nuget.org/packages/DL.Common/
