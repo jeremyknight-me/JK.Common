@@ -38,6 +38,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DatabaseValueParser.cs" />
+    <Compile Include="Data\Extensions\DataRecordExtensions.cs" />
     <Compile Include="Data\SqlParameterFactory.cs" />
     <Compile Include="Data\DbParameterFactory.cs" />
     <Compile Include="Data\ParameterFactoryBase.cs" />
@@ -58,6 +60,9 @@
     <Compile Include="Geospatial\DisplayFormat.cs" />
     <Compile Include="Geospatial\Latitude.cs" />
     <Compile Include="Geospatial\Longitude.cs" />
+    <Compile Include="Math\MathHelper.cs" />
+    <Compile Include="Math\TemperatureConverter.cs" />
+    <Compile Include="Math\TimeConverter.cs" />
     <Compile Include="Patterns\Specification\AndSpecification.cs" />
     <Compile Include="Patterns\Specification\CompositeSpecification.cs" />
     <Compile Include="Patterns\Specification\ISpecification.cs" />
