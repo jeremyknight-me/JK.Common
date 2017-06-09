@@ -90,6 +90,10 @@
     <Compile Include="Text\TemplateProcessor.cs" />
     <Compile Include="TypeHelpers\DateTimeFormatter.cs" />
     <Compile Include="TypeHelpers\DateTimeHelper.cs" />
+    <Compile Include="TypeHelpers\DateTimeOffsetProvider.cs" />
+    <Compile Include="TypeHelpers\DateTimeProvider.cs" />
+    <Compile Include="TypeHelpers\DefaultDateTimeOffsetProvider.cs" />
+    <Compile Include="TypeHelpers\DefaultDateTimeProvider.cs" />
     <Compile Include="TypeHelpers\StringHelper.cs" />
     <Compile Include="Xml\XmlSerializationFacade.cs" />
   </ItemGroup>
