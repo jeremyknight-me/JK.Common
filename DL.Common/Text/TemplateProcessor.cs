@@ -139,10 +139,7 @@ namespace DL.Common.Text
                         }
 
                         object propertyValue = property.GetValue(item, null);
-                        if (propertyValue != null)
-                        {
-                            pairs.Add(key, propertyValue.ToString());
-                        }
+                        pairs.Add(key, propertyValue?.ToString() ?? string.Empty);
                     }
                 }
             }
