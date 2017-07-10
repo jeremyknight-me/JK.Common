@@ -7,9 +7,7 @@ namespace DL.Common.Specifications.UnitedStates
     {
         public override bool IsSatisfiedBy(string candidate)
         {
-            return Regex.IsMatch(
-                    candidate,
-                    @"^(?!000)([0-6]\d{2}|7([0-6]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$");
+            return Regex.IsMatch(candidate, @"^(?!000)(?!666)(?!9)\d{3}([- ]?)(?!00)\d{2}\1(?!0000)\d{4}$");
         }
     }
 }

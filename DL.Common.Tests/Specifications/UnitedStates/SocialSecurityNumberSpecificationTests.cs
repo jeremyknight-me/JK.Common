@@ -6,60 +6,77 @@ namespace DL.Common.Tests.Specifications.UnitedStates
     [TestClass]
     public class SocialSecurityNumberSpecificationTests
     {
-        private SocialSecurityNumberSpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [TestMethod]
+        public void IsSatisfiedBy_NoFormatting_True()
         {
-            this.specification = new SocialSecurityNumberSpecification();
+            this.RunTest("078051120", true);
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_ValidNoFormatting_ReturnsTrue()
+        public void IsSatisfiedBy_Spaces_True()
         {
-            const string ssn = "078051120";
-            bool actual = this.specification.IsSatisfiedBy(ssn);
-            Assert.IsTrue(actual);
+            this.RunTest("078 05 1120", true);
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_ValidWithSpaces_ReturnsTrue()
+        public void IsSatisfiedBy_Dashes_True()
         {
-            const string ssn = "078 05 1120";
-            bool actual = this.specification.IsSatisfiedBy(ssn);
-            Assert.IsTrue(actual);
+            this.RunTest("078-05-1120", true);
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_ValidWithDashes_ReturnsTrue()
+        public void IsSatisfiedBy_Left800Less_True()
         {
-            const string ssn = "078-05-1120";
-            bool actual = this.specification.IsSatisfiedBy(ssn);
-            Assert.IsTrue(actual);
+            this.RunTest("899-05-1120", true);
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_InvalidNoFormatting_ReturnsFalse()
+        public void IsSatisfiedBy_NoFormatting_False()
         {
-            const string ssn = "000000000";
-            bool actual = this.specification.IsSatisfiedBy(ssn);
-            Assert.IsFalse(actual);
+            this.RunTest("000000000", false);
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_InvalidWithSpaces_ReturnsFalse()
+        public void IsSatisfiedBy_Spaces_False()
         {
-            const string ssn = "000 00 0000";
-            bool actual = this.specification.IsSatisfiedBy(ssn);
-            Assert.IsFalse(actual);
+            this.RunTest("000 00 0000", false);
         }
 
         [TestMethod]
-        public void IsSatisfiedBy_InvalidWithDashes_ReturnsFalse()
+        public void IsSatisfiedBy_Dashes_False()
         {
-            const string ssn = "000-00-0000";
-            bool actual = this.specification.IsSatisfiedBy(ssn);
-            Assert.IsFalse(actual);
+            this.RunTest("000-00-0000", false);
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_MiddleAllZeroes_False()
+        {
+            this.RunTest("111-00-1111", false);
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_RightAllZeroes_False()
+        {
+            this.RunTest("111-11-0000", false);
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_Left666_False()
+        {
+            this.RunTest("666-12-4321", false);
+        }
+
+        [TestMethod]
+        public void IsSatisfiedBy_Left900Plus_False()
+        {
+            this.RunTest("900-12-4321", false);
+        }
+
+        private void RunTest(string ssn, bool expected)
+        {
+            var specification = new SocialSecurityNumberSpecification();
+            bool actual = specification.IsSatisfiedBy(ssn);
+            Assert.AreEqual(expected, actual);
         }
     }
 }
