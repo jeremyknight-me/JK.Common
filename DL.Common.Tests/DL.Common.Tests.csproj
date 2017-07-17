@@ -85,6 +85,7 @@
     <Compile Include="Text\StringTruncaterTests.cs" />
     <Compile Include="Text\TemplateProcessorTests.cs" />
     <Compile Include="TypeHelpers\DateTimeHelperTests.cs" />
+    <Compile Include="TypeHelpers\EnumHelperTests.cs" />
     <Compile Include="TypeHelpers\StringHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
