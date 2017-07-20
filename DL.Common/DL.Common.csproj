@@ -32,17 +32,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IIdentifiable.cs" />
+    <Compile Include="Data\Ado\AdoBaseOperation.cs" />
+    <Compile Include="Data\Ado\AdoBaseRepository.cs" />
+    <Compile Include="Data\Ado\AdoNonQueryOperation.cs" />
+    <Compile Include="Data\Ado\AdoQueryOperation.cs" />
+    <Compile Include="Data\Ado\AdoScalarOperation.cs" />
+    <Compile Include="Data\Contracts\INonQueryOperation.cs" />
+    <Compile Include="Data\Contracts\IQueryOperation.cs" />
+    <Compile Include="Data\Contracts\IScalarOperation.cs" />
     <Compile Include="Data\DatabaseValueParser.cs" />
     <Compile Include="Data\Extensions\DataRecordExtensions.cs" />
     <Compile Include="Data\SqlParameterFactory.cs" />
-    <Compile Include="Data\DbParameterFactory.cs" />
+    <Compile Include="Data\Ado\AdoParameterFactory.cs" />
     <Compile Include="Data\ParameterFactoryBase.cs" />
     <Compile Include="DeepCloner.cs" />
     <Compile Include="Extensions\BooleanExtensions.cs" />

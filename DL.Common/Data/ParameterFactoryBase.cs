@@ -28,7 +28,7 @@ namespace DL.Common.Data
             }
         }
 
-        public abstract IDbDataParameter Make(string name, TDbType databaseType);
+        public abstract IDbDataParameter Make(string name, TDbType databaseType, ParameterDirection direction);
 
         /// <summary>
         /// Uses the ADO DbProviderFactory to create a DbParameter of the correct type.
@@ -37,10 +37,10 @@ namespace DL.Common.Data
         /// <param name="name">Name of parameter.</param>
         /// <param name="value">Value to insert into parameter.</param>
         /// <returns>DbParameter object for the provider.</returns>
-        public IDbDataParameter Make<T>(string name, T value)
+        public IDbDataParameter Make<T>(string name, T value, ParameterDirection direction = ParameterDirection.Input)
         {
             TDbType databaseType = this.Strategies[typeof(T)];
-            var parameter = this.Make(name, databaseType);
+            var parameter = this.Make(name, databaseType, direction);
             parameter.Value = value;
             return parameter;
         }
@@ -52,10 +52,10 @@ namespace DL.Common.Data
         /// <param name="name">Name of parameter.</param>
         /// <param name="value">Value to insert into parameter.</param>
         /// <returns>DbParameter object for the provider.</returns>
-        public IDbDataParameter Make<T>(string name, T? value) where T : struct
+        public IDbDataParameter Make<T>(string name, T? value, ParameterDirection direction = ParameterDirection.Input) where T : struct
         {
             TDbType databaseType = this.Strategies[typeof(T)];
-            var parameter = this.Make(name, databaseType);
+            var parameter = this.Make(name, databaseType, direction);
             parameter.Value = this.LoadValue(value);
             return parameter;
         }
@@ -66,9 +66,9 @@ namespace DL.Common.Data
         /// <param name="name">Name of parameter.</param>
         /// <param name="value">String value to insert into parameter.</param>
         /// <returns>DbParameter object for the provider.</returns>
-        public IDbDataParameter Make(string name, string value)
+        public IDbDataParameter Make(string name, string value, ParameterDirection direction = ParameterDirection.Input)
         {
-            var parameter = this.Make(name);
+            var parameter = this.Make(name, direction);
             parameter.DbType = DbType.String;
             parameter.Value = this.LoadValue(value);
             return parameter;
@@ -76,10 +76,11 @@ namespace DL.Common.Data
 
         protected abstract void DefineStrategies();
 
-        protected IDbDataParameter Make(string name)
+        protected IDbDataParameter Make(string name, ParameterDirection direction)
         {
             var parameter = this.command.CreateParameter();
             parameter.ParameterName = name;
+            parameter.Direction = direction;
             return parameter;
         }
 

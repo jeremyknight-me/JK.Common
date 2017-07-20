@@ -6,13 +6,13 @@ namespace DL.Common.Data
     /// <summary>
     /// Class which created and sets up DbParameters for ADO use.
     /// </summary>
-    public class DbParameterFactory : ParameterFactoryBase<DbType>
+    public class AdoParameterFactory : ParameterFactoryBase<DbType>
     {
         /// <summary>
         /// Initializes a new instance of the DbParameterFactory class.
         /// </summary>
         /// <param name="commandToUse">The ADO DB Command.</param>
-        public DbParameterFactory(IDbCommand commandToUse)
+        public AdoParameterFactory(IDbCommand commandToUse)
             : base(commandToUse)
         {
         }
@@ -23,9 +23,9 @@ namespace DL.Common.Data
         /// <param name="name">Name of parameter.</param>
         /// <param name="databaseType">Database type of parameter.</param>
         /// <returns>DbParameter object for the provider.</returns>
-        public override IDbDataParameter Make(string name, DbType databaseType)
+        public override IDbDataParameter Make(string name, DbType databaseType, ParameterDirection direction = ParameterDirection.Input)
         {
-            var parameter = this.Make(name);
+            var parameter = this.Make(name, direction);
             parameter.DbType = databaseType;
             return parameter;
         }

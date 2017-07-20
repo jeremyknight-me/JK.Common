@@ -24,9 +24,9 @@ namespace DL.Common.Data
         /// <param name="name">Name of parameter.</param>
         /// <param name="databaseType">Database type of parameter.</param>
         /// <returns>DbParameter object for the provider.</returns>
-        public override IDbDataParameter Make(string name, SqlDbType databaseType)
+        public override IDbDataParameter Make(string name, SqlDbType databaseType, ParameterDirection direction = ParameterDirection.Input)
         {
-            var parameter = this.Make(name) as SqlParameter;
+            var parameter = this.Make(name, direction) as SqlParameter;
             if (parameter == null)
             {
                 return null;
