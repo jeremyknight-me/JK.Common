@@ -1,51 +1,38 @@
-﻿using DL.Common.Data;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
+using DL.Common.Data;
 using Xunit;
 
 namespace DL.Common.Tests.Data
 {
-    public class SqlParameterFactoryTests
+    public class AdoParameterFactoryTests
     {
         private const string parameterName = "test";
 
         [Fact]
         public void Make_NameAndType_Equal()
         {
-            var databaseType = SqlDbType.NVarChar;
+            DbType databaseType = DbType.String;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, databaseType) as SqlParameter;
+            var parameter = target.Make(parameterName, databaseType);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.String, parameter.DbType);
-            Assert.Equal(SqlDbType.NVarChar, parameter.SqlDbType);
         }
 
         #region Boolean Tests
 
-        [Fact]
-        public void Make_NameAndBooleanTrue_Equal()
+        [Theory]
+        [InlineData(true, DbType.Boolean, true)]
+        [InlineData(false, DbType.Boolean, false)]
+        public void Make_Boolean(bool parameterValue, DbType expectedType, object expectedValue )
         {
-            bool parameterValue = true;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
-            Assert.Equal("test", parameter.ParameterName);
-            Assert.Equal(DbType.Boolean, parameter.DbType);
-            Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);
-            Assert.Equal(true, parameter.Value);
-        }
+            var parameter = target.Make(parameterName, parameterValue);
 
-        [Fact]
-        public void Make_NameAndBooleanFalse_Equal()
-        {
-            bool parameterValue = false;
-            var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
             Assert.Equal("test", parameter.ParameterName);
-            Assert.Equal(DbType.Boolean, parameter.DbType);
-            Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);
-            Assert.Equal(false, parameter.Value);
+            Assert.Equal(expectedType, parameter.DbType);
+            Assert.Equal(expectedValue, parameter.Value);
         }
 
         [Fact]
@@ -53,10 +40,10 @@ namespace DL.Common.Tests.Data
         {
             bool? parameterValue = true;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
+
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Boolean, parameter.DbType);
-            Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);
             Assert.Equal(true, parameter.Value);
         }
 
@@ -65,10 +52,10 @@ namespace DL.Common.Tests.Data
         {
             bool? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
+
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Boolean, parameter.DbType);
-            Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -81,10 +68,9 @@ namespace DL.Common.Tests.Data
         {
             DateTime parameterValue = DateTime.Now;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.DateTime, parameter.DbType);
-            Assert.Equal(SqlDbType.DateTime, parameter.SqlDbType);
             Assert.Equal(parameterValue, parameter.Value);
         }
 
@@ -93,10 +79,9 @@ namespace DL.Common.Tests.Data
         {
             DateTime? parameterValue = DateTime.Now;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.DateTime, parameter.DbType);
-            Assert.Equal(SqlDbType.DateTime, parameter.SqlDbType);
             Assert.Equal(parameterValue, parameter.Value);
         }
 
@@ -105,10 +90,9 @@ namespace DL.Common.Tests.Data
         {
             DateTime? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.DateTime, parameter.DbType);
-            Assert.Equal(SqlDbType.DateTime, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -121,10 +105,9 @@ namespace DL.Common.Tests.Data
         {
             DateTimeOffset parameterValue = DateTimeOffset.Now;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.DateTimeOffset, parameter.DbType);
-            Assert.Equal(SqlDbType.DateTimeOffset, parameter.SqlDbType);
             Assert.Equal(parameterValue, parameter.Value);
         }
 
@@ -133,10 +116,9 @@ namespace DL.Common.Tests.Data
         {
             DateTimeOffset? parameterValue = DateTimeOffset.Now;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.DateTimeOffset, parameter.DbType);
-            Assert.Equal(SqlDbType.DateTimeOffset, parameter.SqlDbType);
             Assert.Equal(parameterValue, parameter.Value);
         }
 
@@ -145,10 +127,9 @@ namespace DL.Common.Tests.Data
         {
             DateTimeOffset? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.DateTimeOffset, parameter.DbType);
-            Assert.Equal(SqlDbType.DateTimeOffset, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -161,10 +142,9 @@ namespace DL.Common.Tests.Data
         {
             decimal parameterValue = 1;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Decimal, parameter.DbType);
-            Assert.Equal(SqlDbType.Decimal, parameter.SqlDbType);
             Assert.Equal(1m, parameter.Value);
         }
 
@@ -173,10 +153,9 @@ namespace DL.Common.Tests.Data
         {
             decimal parameterValue = 0;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Decimal, parameter.DbType);
-            Assert.Equal(SqlDbType.Decimal, parameter.SqlDbType);
             Assert.Equal(0m, parameter.Value);
         }
 
@@ -185,10 +164,9 @@ namespace DL.Common.Tests.Data
         {
             decimal? parameterValue = 1;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Decimal, parameter.DbType);
-            Assert.Equal(SqlDbType.Decimal, parameter.SqlDbType);
             Assert.Equal(1m, parameter.Value);
         }
 
@@ -197,10 +175,9 @@ namespace DL.Common.Tests.Data
         {
             decimal? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Decimal, parameter.DbType);
-            Assert.Equal(SqlDbType.Decimal, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -213,10 +190,9 @@ namespace DL.Common.Tests.Data
         {
             double parameterValue = 1;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Double, parameter.DbType);
-            Assert.Equal(SqlDbType.Float, parameter.SqlDbType);
             Assert.Equal(1D, parameter.Value);
         }
 
@@ -225,10 +201,9 @@ namespace DL.Common.Tests.Data
         {
             double parameterValue = 0;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Double, parameter.DbType);
-            Assert.Equal(SqlDbType.Float, parameter.SqlDbType);
             Assert.Equal(0D, parameter.Value);
         }
 
@@ -237,10 +212,9 @@ namespace DL.Common.Tests.Data
         {
             double? parameterValue = 1;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Double, parameter.DbType);
-            Assert.Equal(SqlDbType.Float, parameter.SqlDbType);
             Assert.Equal(1D, parameter.Value);
         }
 
@@ -249,10 +223,9 @@ namespace DL.Common.Tests.Data
         {
             double? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Double, parameter.DbType);
-            Assert.Equal(SqlDbType.Float, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -265,10 +238,9 @@ namespace DL.Common.Tests.Data
         {
             var parameterValue = Guid.NewGuid();
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Guid, parameter.DbType);
-            Assert.Equal(SqlDbType.UniqueIdentifier, parameter.SqlDbType);
             Assert.Equal(parameterValue, parameter.Value);
         }
 
@@ -277,10 +249,9 @@ namespace DL.Common.Tests.Data
         {
             Guid? parameterValue = Guid.NewGuid();
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Guid, parameter.DbType);
-            Assert.Equal(SqlDbType.UniqueIdentifier, parameter.SqlDbType);
             Assert.Equal(parameterValue, parameter.Value);
         }
 
@@ -289,10 +260,9 @@ namespace DL.Common.Tests.Data
         {
             Guid? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Guid, parameter.DbType);
-            Assert.Equal(SqlDbType.UniqueIdentifier, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -305,10 +275,9 @@ namespace DL.Common.Tests.Data
         {
             int parameterValue = 1;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Int32, parameter.DbType);
-            Assert.Equal(SqlDbType.Int, parameter.SqlDbType);
             Assert.Equal(1, parameter.Value);
         }
 
@@ -317,10 +286,9 @@ namespace DL.Common.Tests.Data
         {
             int parameterValue = 0;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Int32, parameter.DbType);
-            Assert.Equal(SqlDbType.Int, parameter.SqlDbType);
             Assert.Equal(0, parameter.Value);
         }
 
@@ -329,10 +297,9 @@ namespace DL.Common.Tests.Data
         {
             int? parameterValue = 1;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Int32, parameter.DbType);
-            Assert.Equal(SqlDbType.Int, parameter.SqlDbType);
             Assert.Equal(1, parameter.Value);
         }
 
@@ -341,10 +308,9 @@ namespace DL.Common.Tests.Data
         {
             int? parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.Int32, parameter.DbType);
-            Assert.Equal(SqlDbType.Int, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
@@ -357,10 +323,9 @@ namespace DL.Common.Tests.Data
         {
             string parameterValue = "string";
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.String, parameter.DbType);
-            Assert.Equal(SqlDbType.NVarChar, parameter.SqlDbType);
             Assert.Equal("string", parameter.Value);
         }
 
@@ -369,19 +334,18 @@ namespace DL.Common.Tests.Data
         {
             string parameterValue = null;
             var target = this.GetFactory();
-            var parameter = target.Make(parameterName, parameterValue) as SqlParameter;
+            var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);
             Assert.Equal(DbType.String, parameter.DbType);
-            Assert.Equal(SqlDbType.NVarChar, parameter.SqlDbType);
             Assert.Equal(DBNull.Value, parameter.Value);
         }
 
         #endregion
 
-        private SqlParameterFactory GetFactory()
+        private AdoParameterFactory GetFactory()
         {
             var factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
-            return new SqlParameterFactory(factory.CreateCommand());
+            return new AdoParameterFactory(factory.CreateCommand());
         }
     }
 }

@@ -1,57 +1,21 @@
 ﻿using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class LatitudeSpecificationTests
     {
-        private LatitudeSpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData("-91", false)]
+        [InlineData("-90", true)]
+        [InlineData("0", true)]
+        [InlineData("90", true)]
+        [InlineData("91", false)]
+        public void IsSatisfiedBy(decimal input, bool expected)
         {
-            this.specification = new LatitudeSpecification();
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_LessThanNegative90_ReturnsFalse()
-        {
-            const decimal longitudeToTest = -91;
-            bool actual = this.specification.IsSatisfiedBy(longitudeToTest);
-            Assert.IsFalse(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_EqualToNegative90_ReturnsTrue()
-        {
-            const decimal longitudeToTest = -90;
-            bool actual = this.specification.IsSatisfiedBy(longitudeToTest);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_BetweenNegative180And180_ReturnsTrue()
-        {
-            const decimal longitudeToTest = 0;
-            bool actual = this.specification.IsSatisfiedBy(longitudeToTest);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_EqualTo90_ReturnsTrue()
-        {
-            const decimal longitudeToTest = 90;
-            bool actual = this.specification.IsSatisfiedBy(longitudeToTest);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_GreaterThan90_ReturnsFalse()
-        {
-            const decimal longitudeToTest = 91;
-            bool actual = this.specification.IsSatisfiedBy(longitudeToTest);
-            Assert.IsFalse(actual);
+            var specification = new LatitudeSpecification();
+            bool actual = specification.IsSatisfiedBy(input);
+            Assert.Equal(expected, actual);
         }
     }
 }

@@ -1,171 +1,98 @@
 ﻿using DL.Common.TypeHelpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.TypeHelpers
 {
-    [TestClass]
     public class StringUtilityTests
     {
-        private StringHelper target;
-
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            this.target = new StringHelper();
-        }
-
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            this.target = null;
-        }
-
         #region GetNullableDecimal() Tests
 
-        [TestMethod]
-        public void GetNullableDecimal_Null_Null()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("  ")]
+        [InlineData("abc")]
+        public void GetNullableDecimal_EmptyOrAlpha_Null(string value)
         {
-            var actual = this.target.GetNullableDecimal(null);
-            Assert.IsNull(actual);
+            var target = new StringHelper();
+            var actual = target.GetNullableDecimal(value);
+            Assert.Null(actual);
         }
 
-        [TestMethod]
-        public void GetNullableDecimal_Empty_Null()
+        [Theory]
+        [InlineData("123", "123")]
+        [InlineData("123.456", "123.456")]
+        public void GetNullableDecimal_Numeric_Decimal(string input, decimal expected)
         {
-            var actual = this.target.GetNullableDecimal(string.Empty);
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableDecimal_Whitespace_Null()
-        {
-            var actual = this.target.GetNullableDecimal("   ");
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableDecimal_Alpha_Null()
-        {
-            var actual = this.target.GetNullableDecimal("abc");
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableDecimal_Integer_Number()
-        {
-            var actual = this.target.GetNullableDecimal("123");
-            Assert.IsNotNull(actual);
-            Assert.AreEqual(123m, actual.Value);
-        }
-
-        [TestMethod]
-        public void GetNullableDecimal_Decimal_Number()
-        {
-            var actual = this.target.GetNullableDecimal("123.456");
-            Assert.IsNotNull(actual);
-            Assert.AreEqual(123.456m, actual.Value);
+            var target = new StringHelper();
+            var actual = target.GetNullableDecimal(input);
+            Assert.Equal(expected, actual);
         }
 
         #endregion
 
         #region GetNullableInteger() Tests
 
-        [TestMethod]
-        public void GetNullableInteger_Null_Null()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("  ")]
+        [InlineData("abc")]
+        [InlineData("123.456")]
+        public void GetNullableInteger_EmptyAlphaOrDecimal_Null(string value)
         {
-            var actual = this.target.GetNullableInteger(null);
-            Assert.IsNull(actual);
+            var target = new StringHelper();
+            var actual = target.GetNullableInteger(value);
+            Assert.Null(actual);
         }
 
-        [TestMethod]
-        public void GetNullableInteger_Empty_Null()
+        [Fact]
+        public void GetNullableInteger_Numeric_Int()
         {
-            var actual = this.target.GetNullableInteger(string.Empty);
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableInteger_Whitespace_Null()
-        {
-            var actual = this.target.GetNullableInteger("   ");
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableInteger_Alpha_Null()
-        {
-            var actual = this.target.GetNullableInteger("abc");
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableInteger_Decimal_Null()
-        {
-            var actual = this.target.GetNullableInteger("123.456");
-            Assert.IsNull(actual);
-        }
-
-        [TestMethod]
-        public void GetNullableInteger_Integer_Number()
-        {
-            var actual = this.target.GetNullableInteger("123");
-            Assert.IsNotNull(actual);
-            Assert.AreEqual(123, actual.Value);
+            var target = new StringHelper();
+            var actual = target.GetNullableInteger("123");
+            Assert.Equal(123, actual.Value);
         }
 
         #endregion
 
         #region RemoveUSCurrencyFormat() Tests
 
-        [TestMethod]
-        public void RemoveUnitedStatesCurrencyFormat_WithCharacters()
+        [Theory]
+        [InlineData("$1,000,000.00", "1000000.00")]
+        [InlineData("1000.00", "1000.00")]
+        [InlineData("$,", "0")]
+        public void RemoveUnitedStatesCurrencyFormat_WithCharacters(string input, string expected)
         {
-            const string currency = "$1,000,000.00";
-            string actual = this.target.RemoveUnitedStatesCurrencyFormat(currency);
-            Assert.AreEqual("1000000.00", actual);
-        }
-
-        [TestMethod]
-        public void RemoveUnitedStatesCurrencyFormat_WithoutCharacters()
-        {
-            const string currency = "1000.00";
-            string actual = this.target.RemoveUnitedStatesCurrencyFormat(currency);
-            Assert.AreEqual("1000.00", actual);
-        }
-
-        [TestMethod]
-        public void RemoveUnitedStatesCurrencyFormat_WithOnlyFormatting()
-        {
-            const string currency = "$,";
-            string actual = this.target.RemoveUnitedStatesCurrencyFormat(currency);
-            Assert.AreEqual("0", actual);
+            var target = new StringHelper();
+            string actual = target.RemoveUnitedStatesCurrencyFormat(input);
+            Assert.Equal(expected, actual);
         }
 
         #endregion
 
         #region Reverse() Tests
 
-        [TestMethod]
+        [Fact]
         public void Reverse_Test()
         {
             const string s = "Sample Text";
-            string actual = this.target.Reverse(s);
-            Assert.AreEqual("txeT elpmaS", actual);
+            var target = new StringHelper();
+            string actual = target.Reverse(s);
+            Assert.Equal("txeT elpmaS", actual);
         }
 
         #endregion
 
         #region StripXml() Tests
 
-        /// <summary>
-        /// A test for StringXML() that ensures XML/HTML tags are removed.
-        /// </summary>
-        [TestMethod]
+        [Fact]
         public void StripXml_Test()
         {
             const string s = "<xml>Inner Text</xml>";
-            string actual = this.target.StripXml(s);
-            Assert.AreEqual("Inner Text", actual);
+            var target = new StringHelper();
+            string actual = target.StripXml(s);
+            Assert.Equal("Inner Text", actual);
         }
 
         #endregion  

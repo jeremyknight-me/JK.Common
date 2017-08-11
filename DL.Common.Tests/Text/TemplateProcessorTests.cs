@@ -1,14 +1,13 @@
 ﻿using DL.Common.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Text
 {
-    [TestClass]
     public class TemplateProcessorTests
     {
         #region ProcessTemplate() Tests
 
-        [TestMethod]
+        [Fact]
         public void ProcessTemplate_DefaultSettings_TokensReplaced()
         {
             var testObject = new TemplateTester { StringValue = "WIN" };
@@ -19,10 +18,10 @@ namespace DL.Common.Tests.Text
             templateProcessor.Objects.Add(testObject);
 
             string actual = templateProcessor.ProcessTemplate();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ProcessTemplate_DefaultSettingsNullProperty_TokensReplaced()
         {
             var testObject = new TemplateTester();
@@ -33,10 +32,10 @@ namespace DL.Common.Tests.Text
             templateProcessor.Objects.Add(testObject);
 
             string actual = templateProcessor.ProcessTemplate();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ProcessTemplate_DefaultSettingsDuplicateTokens_TokensReplaced()
         {
             var testObject = new TemplateTester { StringValue = "WIN" };
@@ -47,10 +46,10 @@ namespace DL.Common.Tests.Text
             templateProcessor.Objects.Add(testObject);
 
             string actual = templateProcessor.ProcessTemplate();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ProcessTemplate_CustomTokenWrappers_TokensReplaced()
         {
             var testObject = new TemplateTester { StringValue = "WIN" };
@@ -61,10 +60,10 @@ namespace DL.Common.Tests.Text
             templateProcessor.Objects.Add(testObject);
 
             string actual = templateProcessor.ProcessTemplate();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ProcessTemplate_ValidObjectInvalidTemplateProperty_LeavesToken()
         {
             var testObject = new TemplateTester { StringValue = "WIN" };
@@ -75,7 +74,7 @@ namespace DL.Common.Tests.Text
             templateProcessor.Objects.Add(testObject);
 
             string actual = templateProcessor.ProcessTemplate();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         #endregion

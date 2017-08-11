@@ -1,33 +1,18 @@
 ﻿using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class EmailSpecificationTests
     {
-        private EmailSpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData("someemail@domain.com", true)]
+        [InlineData("some@email@domain.com", false)]
+        public void IsSatisfiedBy(string input, bool expected)
         {
-            this.specification = new EmailSpecification();
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_ValidEmailAddress_ReturnsTrue()
-        {
-            const string email = "someemail@domain.com";
-            bool actual = this.specification.IsSatisfiedBy(email);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_InvalidEmailAddress_ReturnsFalse()
-        {
-            const string email = "some@email@domain.com";
-            bool actual = this.specification.IsSatisfiedBy(email);
-            Assert.IsFalse(actual);
+            var specification = new EmailSpecification();
+            bool actual = specification.IsSatisfiedBy(input);
+            Assert.Equal(expected, actual);
         }
     }
 }

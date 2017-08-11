@@ -1,49 +1,20 @@
 ﻿using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class NotEmptySpecificationTests
     {
-        private NotEmptySpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("", false)]
+        [InlineData("  ", false)]
+        [InlineData("x", true)]
+        public void IsSatisfiedBy(string input, bool expected)
         {
-            this.specification = new NotEmptySpecification();
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_Empty_ReturnsFalse()
-        {
-            string target = string.Empty;
-            bool actual = this.specification.IsSatisfiedBy(target);
-            Assert.IsFalse(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_Null_ReturnsFalse()
-        {
-            string target = null;
-            bool actual = this.specification.IsSatisfiedBy(target);
-            Assert.IsFalse(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_Whitespace_ReturnsFalse()
-        {
-            const string target = "  ";
-            bool actual = this.specification.IsSatisfiedBy(target);
-            Assert.IsFalse(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_ContainsText_ReturnsTrue()
-        {
-            const string target = "something";
-            bool actual = this.specification.IsSatisfiedBy(target);
-            Assert.IsTrue(actual);
+            var specification = new NotEmptySpecification();
+            bool actual = specification.IsSatisfiedBy(input);
+            Assert.Equal(expected, actual);
         }
     }
 }

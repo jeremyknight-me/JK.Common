@@ -1,33 +1,18 @@
 ﻿using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class AlphabeticalSpecificationTests
     {
-        private AlphabeticalSpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData("abc", true)]
+        [InlineData("asdf234", false)]
+        public void IsSatisfiedBy(string input, bool expected)
         {
-            this.specification = new AlphabeticalSpecification();
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_ValidCharacters_ReturnsTrue()
-        {
-            const string stringToValidate = "abc";
-            bool actual = this.specification.IsSatisfiedBy(stringToValidate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_InvalidCharacters_ReturnsFalse()
-        {
-            const string stringToValidate = "asdf234";
-            bool actual = this.specification.IsSatisfiedBy(stringToValidate);
-            Assert.IsFalse(actual);
+            var specification = new AlphabeticalSpecification();
+            bool actual = specification.IsSatisfiedBy(input);
+            Assert.Equal(expected, actual);
         }
     }
 }

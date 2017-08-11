@@ -1,27 +1,26 @@
 ﻿using DL.Common.Math;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Math
 {
-    [TestClass]
     public class TemperatureConverterTests
     {
-        [TestMethod]
+        [Fact]
         public void ConvertFahrenheitToCelsiusTest()
         {
             double fahrenheitTemperature = 212; 
             double expected = 100; 
             double actual = TemperatureConverter.ConvertFahrenheitToCelsius(fahrenheitTemperature);
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ConvertCelsiusToFahrenheitTest()
         {
             double celsiusTemperature = 100;
             double expected = 212;
             double actual = TemperatureConverter.ConvertCelsiusToFahrenheit(celsiusTemperature);
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }

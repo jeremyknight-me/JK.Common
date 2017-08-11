@@ -1,42 +1,21 @@
 ﻿using System;
 using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class SqlDateSpecificationTests
     {
-        private SqlDateSpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData(1752, 12, 31, false)] // < 1753
+        [InlineData(1753, 1, 1, true)] // = 1753
+        [InlineData(1754, 1, 1, true)] // > 1753
+        public void IsSatisfiedBy(int year, int month, int day, bool expected)
         {
-            this.specification = new SqlDateSpecification();
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_LessThan1753_ReturnsFalse()
-        {
-            var date = new DateTime(1752, 12, 31);
-            bool actual = this.specification.IsSatisfiedBy(date);
-            Assert.IsFalse(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_EqualTo1753_ReturnsTrue()
-        {
-            var date = new DateTime(1753, 1, 1);
-            bool actual = this.specification.IsSatisfiedBy(date);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_GreaterThan1753_ReturnsTrue()
-        {
-            var date = new DateTime(1754, 1, 1);
-            bool actual = this.specification.IsSatisfiedBy(date);
-            Assert.IsTrue(actual);
+            var date = new DateTime(year, month, day);
+            var specification = new SqlDateSpecification();
+            bool actual = specification.IsSatisfiedBy(date);
+            Assert.Equal(expected, actual);
         }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using DL.Common.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Text
 {
-    [TestClass]
     public class StringDelimiterTests
     {
-        [TestMethod]
+        [Fact]
         public void DelimitedText_FirstAddition_TextWithoutDelimiter()
         {
             string addition = "first";
@@ -17,10 +16,10 @@ namespace DL.Common.Tests.Text
             string actual = stringDelimiter.DelimitedText;
             string expected = "first";
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void DelimitedText_AddWithPriorData_DelimitedText()
         {
             string original = "data";
@@ -33,7 +32,7 @@ namespace DL.Common.Tests.Text
             
             string expected = "data|first";
             string actual = stringDelimiter.DelimitedText;
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }

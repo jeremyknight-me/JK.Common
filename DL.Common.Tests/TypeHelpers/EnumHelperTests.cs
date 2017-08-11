@@ -1,10 +1,9 @@
 ﻿using DL.Common.TypeHelpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Xunit;
 
 namespace DL.Common.Tests.TypeHelpers
 {
-    [TestClass]
     public class EnumHelperTests
     {
         private enum Colors
@@ -13,63 +12,61 @@ namespace DL.Common.Tests.TypeHelpers
         }
 
         #region GetByInteger() Tests
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GetByInteger_NonEnumValue_Exception()
+        
+        [Fact]
+        public void GetByInteger_NonEnumValue_ArgumentException()
         {
-            new EnumHelper().GetByInteger<int>(0);
+            var ex = Assert.Throws<ArgumentException>(() => new EnumHelper().GetByInteger<int>(0));
+            Assert.Equal("T must be an enumerated type", ex.Message);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void GetByInteger_InvalidLowOrdinal_Exception()
+        [Fact]
+        public void GetByInteger_InvalidLowOrdinal_ArgumentOutOfRangeException()
         {
-            new EnumHelper().GetByInteger<Colors>(0);
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new EnumHelper().GetByInteger<Colors>(0));
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void GetByInteger_InvalidHighOrdinal_Exception()
+        [Fact]
+        public void GetByInteger_InvalidHighOrdinal_ArgumentOutOfRangeException()
         {
-            new EnumHelper().GetByInteger<Colors>(5);
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new EnumHelper().GetByInteger<Colors>(5));
         }
 
-        [TestMethod]
+        [Fact]
         public void GetByInteger_ValidOrdinal()
         {
             var actual = new EnumHelper().GetByInteger<Colors>(2);
-            Assert.AreEqual(Colors.Green, actual);
+            Assert.Equal(Colors.Green, actual);
         }
 
         #endregion
 
         #region GetInteger(T) Tests
 
-        [TestMethod]
+        [Fact]
         public void GetInteger_ValidEnumValue()
         {
             int actual = new EnumHelper().GetInteger(Colors.Green);
-            Assert.AreEqual(2, actual);
+            Assert.Equal(2, actual);
         }
 
         #endregion
 
         #region GetInteger(T?) Tests
 
-        [TestMethod]
+        [Fact]
         public void GetInteger_NullableEnumNull_Null()
         {
             int? actual = new EnumHelper().GetInteger((Colors?)null);
-            Assert.IsNull(actual);
+            Assert.Null(actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetInteger_NullableEnumValue_Integer()
         {
             Colors? color = Colors.Green;
             int? actual = new EnumHelper().GetInteger(color);
-            Assert.AreEqual(2, actual);
+            Assert.Equal(2, actual);
         }
 
         #endregion

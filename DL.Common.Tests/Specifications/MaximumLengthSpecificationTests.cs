@@ -1,41 +1,19 @@
 ﻿using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class MaximumLengthSpecificationTests
     {
-        private MaximumLengthSpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData("xxxxx", true)] // 5
+        [InlineData("xxxxxxxxxx", true)] // 10 
+        [InlineData("xxxxxxxxxxxxxxx", false)] // 15
+        public void IsSatisfiedBy(string input, bool expected)
         {
-            this.specification = new MaximumLengthSpecification(20);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_LessThanMax_ReturnsTrue()
-        {
-            string stringToValidate = string.Empty.PadRight(15);
-            bool actual = this.specification.IsSatisfiedBy(stringToValidate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_EqualToMax_ReturnsTrue()
-        {
-            string stringToValidate = string.Empty.PadRight(20);
-            bool actual = this.specification.IsSatisfiedBy(stringToValidate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_GreaterThanMax_ReturnsTrue()
-        {
-            string stringToValidate = string.Empty.PadRight(25);
-            bool actual = this.specification.IsSatisfiedBy(stringToValidate);
-            Assert.IsFalse(actual);
+            var specification = new MaximumLengthSpecification(10);
+            bool actual = specification.IsSatisfiedBy(input);
+            Assert.Equal(expected, actual);
         }
     }
 }

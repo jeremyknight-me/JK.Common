@@ -1,20 +1,18 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests
 {
-    [TestClass]
     public class DeepClonerTests
     {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Clone_Null_Exception()
+        [Fact]
+        public void Clone_Null_ArgumentNullException()
         {
             var cloner = new DeepCloner();
-            cloner.Clone(null);
+            var ex = Assert.Throws<ArgumentNullException>(() => cloner.Clone(null));
         }
 
-        [TestMethod]
+        [Fact]
         public void Clone_FilledObject_NotSameReference()
         {
             var original
@@ -33,15 +31,15 @@ namespace DL.Common.Tests
             var cloner = new DeepCloner();
             var actual = (ComplexObject)cloner.Clone(original);
 
-            Assert.AreNotSame(original, actual);
-            Assert.IsTrue(actual.BooleanProperty);
-            Assert.AreEqual(123, actual.ChildObjectSimple.Id);
-            Assert.AreEqual("foo bar", actual.ChildObjectSimple.Title);
-            Assert.AreEqual(12.34m, actual.DecimalProperty);
-            Assert.AreEqual(23.45D, actual.DoubleProperty);
-            Assert.AreEqual(34.56F, actual.FloatProperty);
-            Assert.AreEqual(4567, actual.IntProperty);
-            Assert.AreEqual("hello world", actual.StringProperty);
+            Assert.NotSame(original, actual);
+            Assert.True(actual.BooleanProperty);
+            Assert.Equal(123, actual.ChildObjectSimple.Id);
+            Assert.Equal("foo bar", actual.ChildObjectSimple.Title);
+            Assert.Equal(12.34m, actual.DecimalProperty);
+            Assert.Equal(23.45D, actual.DoubleProperty);
+            Assert.Equal(34.56F, actual.FloatProperty);
+            Assert.Equal(4567, actual.IntProperty);
+            Assert.Equal("hello world", actual.StringProperty);
         }
     }
 }

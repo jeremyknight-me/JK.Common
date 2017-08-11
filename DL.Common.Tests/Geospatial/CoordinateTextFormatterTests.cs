@@ -1,122 +1,38 @@
 ﻿using DL.Common.Geospatial;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Geospatial
 {
-    [TestClass]
     public class CoordinateTextFormatterTests
     {
-        private CoordinateTextFormatter positiveFormatter;
-
-        private CoordinateTextFormatter negativeFormatter;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData(DisplayFormat.Degrees, "40.44611\u00B0")]
+        [InlineData(DisplayFormat.DegreesMinutes, "40\u00B0 26.767'")]
+        [InlineData(DisplayFormat.DegreesMinutesSeconds, "40\u00B0 26' 46\"")]
+        [InlineData(DisplayFormat.DegreesDirection, "40.44611\u00B0 N")]
+        [InlineData(DisplayFormat.DegreesMinutesDirection, "40\u00B0 26.767' N")]
+        [InlineData(DisplayFormat.DegreesMinutesSecondsDirection, "40\u00B0 26' 46\" N")]
+        public void Format_Positive(DisplayFormat format, string expected)
         {
-            var positiveCoordinate = new Latitude(40, 26, 46);
-            this.positiveFormatter = new CoordinateTextFormatter(positiveCoordinate);
-
-            var negativeCoordinate = new Longitude(-79, 58, 56);
-            this.negativeFormatter = new CoordinateTextFormatter(negativeCoordinate);
+            var coordinate = new Latitude(40, 26, 46);
+            var formatter = new CoordinateTextFormatter(coordinate);
+            string actual = formatter.Format(format);
+            Assert.Equal(expected, actual);
         }
 
-        [TestCleanup]
-        public void TestCleanup()
+        [Theory]
+        [InlineData(DisplayFormat.Degrees, "-79.98222\u00B0")]
+        [InlineData(DisplayFormat.DegreesMinutes, "-79\u00B0 58.933'")]
+        [InlineData(DisplayFormat.DegreesMinutesSeconds, "-79\u00B0 58' 56\"")]
+        [InlineData(DisplayFormat.DegreesDirection, "79.98222\u00B0 W")]
+        [InlineData(DisplayFormat.DegreesMinutesDirection, "79\u00B0 58.933' W")]
+        [InlineData(DisplayFormat.DegreesMinutesSecondsDirection, "79\u00B0 58' 56\" W")]
+        public void Format_Negative(DisplayFormat format, string expected)
         {
-            this.positiveFormatter = null;
-            this.negativeFormatter = null;
+            var coordinate = new Longitude(-79, 58, 56);
+            var formatter = new CoordinateTextFormatter(coordinate);
+            string actual = formatter.Format(format);
+            Assert.Equal(expected, actual);
         }
-
-        #region Format() Positive Coordinate Values
-
-        [TestMethod]
-        public void Format_PositiveDegrees()
-        {
-            string actual = this.positiveFormatter.Format(DisplayFormat.Degrees);
-            Assert.AreEqual("40.44611\u00B0", actual);
-        }
-
-        [TestMethod]
-        public void Format_PositiveDegreesMinutes()
-        {
-            string actual = this.positiveFormatter.Format(DisplayFormat.DegreesMinutes);
-            Assert.AreEqual("40\u00B0 26.767'", actual);
-        }
-
-        [TestMethod]
-        public void Format_PositiveDegreesMinutesSeconds()
-        {
-            string actual = this.positiveFormatter.Format(DisplayFormat.DegreesMinutesSeconds);
-            Assert.AreEqual("40\u00B0 26' 46\"", actual);
-        }
-
-        [TestMethod]
-        public void Format_PositiveDegreesDirection()
-        {
-            string actual = this.positiveFormatter.Format(DisplayFormat.DegreesDirection);
-            Assert.AreEqual("40.44611\u00B0 N", actual);
-        }
-
-        [TestMethod]
-        public void Format_PositiveDegreesMinutesDirection()
-        {
-            string actual = this.positiveFormatter.Format(DisplayFormat.DegreesMinutesDirection);
-            Assert.AreEqual("40\u00B0 26.767' N", actual);
-        }
-
-        [TestMethod]
-        public void Format_PositiveDegreesMinutesSecondsDirection()
-        {
-            string actual = this.positiveFormatter.Format(DisplayFormat.DegreesMinutesSecondsDirection);
-            Assert.AreEqual("40\u00B0 26' 46\" N", actual);
-        }
-
-        #endregion
-
-        #region Format() Negative Coordinate Values
-
-        [TestMethod]
-        public void Format_NegativeDegrees()
-        {
-            string actual = this.negativeFormatter.Format(DisplayFormat.Degrees);
-            Assert.AreEqual("-79.98222\u00B0", actual);
-        }
-
-        [TestMethod]
-        public void Format_NegativeDegreesMinutes()
-        {
-            string actual = this.negativeFormatter.Format(DisplayFormat.DegreesMinutes);
-            Assert.AreEqual("-79\u00B0 58.933'", actual);
-        }
-
-        [TestMethod]
-        public void Format_NegativeDegreesMinutesSeconds()
-        {
-            string actual = this.negativeFormatter.Format(DisplayFormat.DegreesMinutesSeconds);
-            Assert.AreEqual("-79\u00B0 58' 56\"", actual);
-        }
-
-        [TestMethod]
-        public void Format_NegativeDegreesDirection()
-        {
-            string actual = this.negativeFormatter.Format(DisplayFormat.DegreesDirection);
-            Assert.AreEqual("79.98222\u00B0 W", actual);
-        }
-
-        [TestMethod]
-        public void Format_NegativeDegreesMinutesDirection()
-        {
-            string actual = this.negativeFormatter.Format(DisplayFormat.DegreesMinutesDirection);
-            Assert.AreEqual("79\u00B0 58.933' W", actual);
-        }
-
-        [TestMethod]
-        public void Format_NegativeDegreesMinutesSecondsDirection()
-        {
-            string actual = this.negativeFormatter.Format(DisplayFormat.DegreesMinutesSecondsDirection);
-            Assert.AreEqual("79\u00B0 58' 56\" W", actual);
-        }
-
-        #endregion
     }
 }

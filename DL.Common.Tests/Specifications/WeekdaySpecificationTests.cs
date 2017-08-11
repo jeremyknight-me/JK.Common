@@ -1,74 +1,25 @@
 ﻿using System;
 using DL.Common.Specifications;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Specifications
 {
-    [TestClass]
     public class WeekdaySpecificationTests
     {
-        private WeekdaySpecification specification;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [Theory]
+        [InlineData(2011, 1, 17, true)] // Monday Jan 17, 2011
+        [InlineData(2011, 1, 18, true)] // Tuesday Jan 18, 2011
+        [InlineData(2011, 1, 19, true)] // Wednesday Jan 19, 2011
+        [InlineData(2011, 1, 20, true)] // Thursday Jan 20, 2011
+        [InlineData(2011, 1, 21, true)] // Friday Jan 21, 2011
+        [InlineData(2011, 1, 22, false)] // Saturday Jan 22, 2011
+        [InlineData(2011, 1, 23, false)] // Sunday Jan 23, 2011
+        public void IsSatisfiedBy(int year, int month, int day, bool expected)
         {
-            this.specification = new WeekdaySpecification();
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_MondayDate_ReturnsTrue()
-        {
-            var testDate = new DateTime(2011, 1, 17); // Monday Jan 17, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_TuesdayDate_ReturnsTrue()
-        {
-            var testDate = new DateTime(2011, 1, 18); // Tuesday Jan 18, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_WednesdayDate_ReturnsTrue()
-        {
-            var testDate = new DateTime(2011, 1, 19); // Wednesday Jan 19, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_ThursdayDate_ReturnsTrue()
-        {
-            var testDate = new DateTime(2011, 1, 20); // Thursday Jan 20, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_FridayDate_ReturnsTrue()
-        {
-            var testDate = new DateTime(2011, 1, 21); // Friday Jan 21, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsTrue(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_SaturdayDate_ReturnsFalse()
-        {
-            var testDate = new DateTime(2011, 1, 22); // Saturday Jan 22, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsFalse(actual);
-        }
-
-        [TestMethod]
-        public void IsSatisfiedBy_SundayDate_ReturnsFalse()
-        {
-            var testDate = new DateTime(2011, 1, 23); // Sunday Jan 23, 2011
-            bool actual = this.specification.IsSatisfiedBy(testDate);
-            Assert.IsFalse(actual);
+            var testDate = new DateTime(year, month, day);
+            var specification = new WeekdaySpecification();
+            bool actual = specification.IsSatisfiedBy(testDate);
+            Assert.Equal(expected, actual);
         }
     }
 }

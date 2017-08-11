@@ -1,169 +1,164 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using DL.Common.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
+using System;
 
 namespace DL.Common.Tests.Extensions
 {
-    [TestClass]
     public class QueryableExtensionsTests
     {
-        private IQueryable<SimpleObject> list;
-            
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            this.list = SimpleObject.GetMockDataSetAsQueryable();
-        }
-
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            this.list = null;
-        }
-
         #region SortBy(string) Tests
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Fact]
         public void SortBy_NoSource_Exception()
         {
-            this.list = null;
-            this.list.SortBy("Title");
+            IQueryable<SimpleObject> list = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => list.SortBy("Title"));
         }
 
-        [TestMethod]
+        [Fact]
         public void SortBy_NoKeySelector_Source()
         {
             Func<SimpleObject, dynamic> key = null;
-            var items = this.list.SortBy(key);
-            Assert.AreEqual(this.list, items);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy(key);
+            Assert.Equal(list, items);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortBy_NoPropertyName_UnsortedList()
         {
-            var items = this.list.SortBy(null).ToArray();
-            Assert.AreEqual(1, items[0].Id);
-            Assert.AreEqual("Title 1", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy(null).ToArray();
+            Assert.Equal(1, items[0].Id);
+            Assert.Equal("Title 1", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortBy_Ascending_SortedList()
         {
-            var items = this.list.SortBy("Title").ToArray();
-            Assert.AreEqual(1, items[0].Id);
-            Assert.AreEqual("Title 1", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy("Title").ToArray();
+            Assert.Equal(1, items[0].Id);
+            Assert.Equal("Title 1", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortBy_Descending_SortedList()
         {
-            var items = this.list.SortBy("Title", false).ToArray();
-            Assert.AreEqual(5, items[0].Id);
-            Assert.AreEqual("Title 5", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy("Title", false).ToArray();
+            Assert.Equal(5, items[0].Id);
+            Assert.Equal("Title 5", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortBy_AscendingWithSkip_SortedList()
         {
-            var items = this.list.SortBy("Title").Skip(2).ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy("Title").Skip(2).ToArray();
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortBy_DescendingWithSkip_SortedList()
         {
-            var items = this.list.SortBy("Title", false).Skip(2).ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy("Title", false).Skip(2).ToArray();
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
         #endregion
 
         #region SortBy(predicate) Tests
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Fact]
         public void SortByPredicate_NoSource_Exception()
         {
-            this.list = null;
-            this.list.SortBy(x => x.Title);
+            IQueryable<SimpleObject> list = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => list.SortBy(x => x.Title));            
         }
 
-        [TestMethod]
+        [Fact]
         public void SortByPredicate_Ascending_SortedList()
         {
-            var items = this.list.SortBy(x => x.Title).ToArray();
-            Assert.AreEqual(1, items[0].Id);
-            Assert.AreEqual("Title 1", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy(x => x.Title).ToArray();
+            Assert.Equal(1, items[0].Id);
+            Assert.Equal("Title 1", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortByPredicate_Descending_SortedList()
         {
-            var items = this.list.SortBy(x => x.Title, false).ToArray();
-            Assert.AreEqual(5, items[0].Id);
-            Assert.AreEqual("Title 5", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy(x => x.Title, false).ToArray();
+            Assert.Equal(5, items[0].Id);
+            Assert.Equal("Title 5", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortByPredicate_AscendingWithSkip_SortedList()
         {
-            var items = this.list.SortBy(x => x.Title).Skip(2).ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy(x => x.Title).Skip(2).ToArray();
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void SortByPredicate_DescendingWithSkip_SortedList()
         {
-            var items = this.list.SortBy(x => x.Title, false).Skip(2).ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.SortBy(x => x.Title, false).Skip(2).ToArray();
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
         #endregion
 
         #region WhereIf() Tests
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Fact]
         public void WhereIf_NoSource_Exception()
         {
-            this.list = null;
-            this.list.WhereIf(true, x => x.Id == 0);
+            IQueryable<SimpleObject> list = null;
+            var ex = Assert.Throws<ArgumentNullException>(() => list.WhereIf(true, x => x.Id == 0));
         }
 
-        [TestMethod]
+        [Fact]
         public void WhereIf_SingleTrueCondition_FilteredList()
         {
-            var items = this.list.WhereIf(true, x => x.Id == 3).ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list.WhereIf(true, x => x.Id == 3).ToArray();
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhereIf_MultipleAllTrueCondition_FilteredList()
         {
-            var items = this.list
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list
                 .WhereIf(true, x => x.Id == 3)
                 .WhereIf(true, x => x.Title == "Title 3")
                 .ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
-        [TestMethod]
+        [Fact]
         public void WhereIf_MultipleSomeTrueCondition_FilteredList()
         {
-            var items = this.list
+            var list = SimpleObject.GetMockDataSetAsQueryable();
+            var items = list
                 .WhereIf(true, x => x.Id == 3)
                 .WhereIf(false, x => x.Id == 4)
                 .ToArray();
-            Assert.AreEqual(3, items[0].Id);
-            Assert.AreEqual("Title 3", items[0].Title);
+            Assert.Equal(3, items[0].Id);
+            Assert.Equal("Title 3", items[0].Title);
         }
 
         #endregion

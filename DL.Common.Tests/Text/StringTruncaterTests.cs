@@ -1,12 +1,11 @@
 ﻿using DL.Common.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace DL.Common.Tests.Text
 {
-    [TestClass]
     public class StringTruncaterTests
     {
-        [TestMethod]
+        [Fact]
         public void TruncateToLength_NoIndicator_TruncatedTextWithoutIndicator()
         {
             const string original = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -14,10 +13,10 @@ namespace DL.Common.Tests.Text
 
             var truncater = new StringTruncater(original);
             string actual = truncater.TruncateToLength(length);
-            Assert.AreEqual("abcdefghijklmnopqrstuvwxyz", actual);
+            Assert.Equal("abcdefghijklmnopqrstuvwxyz", actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void TruncateToLength_Indicator_TruncatedTextWithIndicator()
         {
             const string original = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -26,10 +25,10 @@ namespace DL.Common.Tests.Text
 
             var truncater = new StringTruncater(original, indicator);
             string actual = truncater.TruncateToLength(length);
-            Assert.AreEqual("abcdefghijklmnopqrstuvw...", actual);
+            Assert.Equal("abcdefghijklmnopqrstuvw...", actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void TruncateToLength_NoTruncationNeededNoIndicator_OriginalText()
         {
             const string original = "abcdefghijklmnopqrstuvwxyz";
@@ -37,10 +36,10 @@ namespace DL.Common.Tests.Text
 
             var truncater = new StringTruncater(original);
             string actual = truncater.TruncateToLength(length);
-            Assert.AreEqual("abcdefghijklmnopqrstuvwxyz", actual);
+            Assert.Equal("abcdefghijklmnopqrstuvwxyz", actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void TruncateToLength_NoTruncationNeededIndicator_OriginalText()
         {
             const string original = "abcdefghijklmnopqrstuvwxyz";
@@ -49,7 +48,7 @@ namespace DL.Common.Tests.Text
 
             var truncater = new StringTruncater(original, indicator);
             string actual = truncater.TruncateToLength(length);
-            Assert.AreEqual("abcdefghijklmnopqrstuvwxyz", actual);
+            Assert.Equal("abcdefghijklmnopqrstuvwxyz", actual);
         }
     }
 }
