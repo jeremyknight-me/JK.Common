@@ -68,6 +68,7 @@
     <Compile Include="Math\MathHelperTests.cs" />
     <Compile Include="Math\TemperatureConverterTests.cs" />
     <Compile Include="Math\TimeConverterTests.cs" />
+    <Compile Include="OptionsEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleObject.cs" />
     <Compile Include="Specifications\AlphabeticalSpecificationTests.cs" />
