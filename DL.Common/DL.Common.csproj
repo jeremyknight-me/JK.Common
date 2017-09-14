@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>Copyright Digital Lagniappe. All rights reserved.</Copyright>
     <Version>1.0.5</Version>
     <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
