@@ -97,13 +97,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DL.Common\DL.Common.csproj">
-      <Project>{772bf152-9af1-4044-b4fc-02529f43af92}</Project>
-      <Name>DL.Common</Name>
-    </ProjectReference>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <ProjectReference Include="..\DL.Common.Data\DL.Common.Data.csproj">
+      <Project>{9a4b001f-41ee-47b2-b305-949f1863c3e8}</Project>
+      <Name>DL.Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DL.Common\DL.Common.csproj">
+      <Project>{67349880-f896-484b-999c-755c018888fe}</Project>
+      <Name>DL.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

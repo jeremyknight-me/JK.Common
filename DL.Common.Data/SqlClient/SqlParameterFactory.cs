@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DL.Common.Data
+namespace DL.Common.Data.SqlClient
 {
     /// <summary>
     /// Class which created and sets up DbParameters for ADO use.

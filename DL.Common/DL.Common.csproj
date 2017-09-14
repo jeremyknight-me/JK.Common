@@ -1,126 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{772BF152-9AF1-4044-B4FC-02529F43AF92}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DL.Common</RootNamespace>
-    <AssemblyName>DL.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Copyright>Copyright Digital Lagniappe. All rights reserved.</Copyright>
+    <Version>1.0.5</Version>
+    <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
+    <Company>Digital Lagniappe</Company>
+    <Authors>Digital Lagniappe</Authors>
+    <PackageLicenseUrl>https://github.com/digital-lagniappe/codelibrary/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/digital-lagniappe/codelibrary</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\DL.Common.XML</DocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Contracts\IIdentifiable.cs" />
-    <Compile Include="Data\Ado\AdoBaseOperation.cs" />
-    <Compile Include="Data\Ado\AdoBaseRepository.cs" />
-    <Compile Include="Data\Ado\AdoNonQueryOperation.cs" />
-    <Compile Include="Data\Ado\AdoQueryOperation.cs" />
-    <Compile Include="Data\Ado\AdoScalarOperation.cs" />
-    <Compile Include="Data\Contracts\INonQueryOperation.cs" />
-    <Compile Include="Data\Contracts\IQueryOperation.cs" />
-    <Compile Include="Data\Contracts\IScalarOperation.cs" />
-    <Compile Include="Data\DatabaseValueParser.cs" />
-    <Compile Include="Data\Extensions\DataRecordExtensions.cs" />
-    <Compile Include="Data\SqlParameterFactory.cs" />
-    <Compile Include="Data\Ado\AdoParameterFactory.cs" />
-    <Compile Include="Data\ParameterFactoryBase.cs" />
-    <Compile Include="DeepCloner.cs" />
-    <Compile Include="Extensions\BooleanExtensions.cs" />
-    <Compile Include="Extensions\ClassExtensions.cs" />
-    <Compile Include="Extensions\DateTimeExtensions.cs" />
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\QueryableExtensions.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="Geospatial\CoordinateBase.cs" />
-    <Compile Include="Geospatial\CoordinateFactory.cs" />
-    <Compile Include="Geospatial\CoordinateFormatterBase.cs" />
-    <Compile Include="Geospatial\CoordinateHtmlFormatter.cs" />
-    <Compile Include="Geospatial\CoordinateTextFormatter.cs" />
-    <Compile Include="Geospatial\CoordinateType.cs" />
-    <Compile Include="Geospatial\Direction.cs" />
-    <Compile Include="Geospatial\DisplayFormat.cs" />
-    <Compile Include="Geospatial\Latitude.cs" />
-    <Compile Include="Geospatial\Longitude.cs" />
-    <Compile Include="ListItemT.cs" />
-    <Compile Include="ListItem.cs" />
-    <Compile Include="Math\MathHelper.cs" />
-    <Compile Include="Math\TemperatureConverter.cs" />
-    <Compile Include="Math\TimeConverter.cs" />
-    <Compile Include="Patterns\Specification\AndSpecification.cs" />
-    <Compile Include="Patterns\Specification\CompositeSpecification.cs" />
-    <Compile Include="Patterns\Specification\ISpecification.cs" />
-    <Compile Include="Patterns\Specification\NotSpecification.cs" />
-    <Compile Include="Patterns\Specification\OrSpecification.cs" />
-    <Compile Include="Patterns\Specification\Specification.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Specifications\AlphabeticalSpecification.cs" />
-    <Compile Include="Specifications\AlphanumericSpecification.cs" />
-    <Compile Include="Specifications\DateTimeSpecification.cs" />
-    <Compile Include="Specifications\EmailSpecification.cs" />
-    <Compile Include="Specifications\InternetProtocolAddressSpecification.cs" />
-    <Compile Include="Specifications\LatitudeSpecification.cs" />
-    <Compile Include="Specifications\LongitudeSpecification.cs" />
-    <Compile Include="Specifications\MaximumLengthSpecification.cs" />
-    <Compile Include="Specifications\NotEmptySpecification.cs" />
-    <Compile Include="Specifications\NumericSpecification.cs" />
-    <Compile Include="Specifications\SqlDateSpecification.cs" />
-    <Compile Include="Specifications\UnitedStates\PhoneNumberSpecification.cs" />
-    <Compile Include="Specifications\UnitedStates\SocialSecurityNumberSpecification.cs" />
-    <Compile Include="Specifications\WeekdaySpecification.cs" />
-    <Compile Include="Specifications\ZipCodeSpecification.cs" />
-    <Compile Include="Text\StringDelimiter.cs" />
-    <Compile Include="Text\StringTruncater.cs" />
-    <Compile Include="Text\TemplateProcessor.cs" />
-    <Compile Include="TypeHelpers\DateTimeFormatter.cs" />
-    <Compile Include="TypeHelpers\DateTimeHelper.cs" />
-    <Compile Include="TypeHelpers\DateTimeOffsetProvider.cs" />
-    <Compile Include="TypeHelpers\DateTimeProvider.cs" />
-    <Compile Include="TypeHelpers\DefaultDateTimeOffsetProvider.cs" />
-    <Compile Include="TypeHelpers\DefaultDateTimeProvider.cs" />
-    <Compile Include="TypeHelpers\EnumHelper.cs" />
-    <Compile Include="TypeHelpers\StringHelper.cs" />
-    <Compile Include="Xml\XmlSerializationFacade.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DL.Common.nuspec" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

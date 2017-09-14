@@ -1,8 +1,8 @@
-﻿using DL.Common.Data;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using DL.Common.Data.SqlClient;
 using Xunit;
 
 namespace DL.Common.Tests.Data
