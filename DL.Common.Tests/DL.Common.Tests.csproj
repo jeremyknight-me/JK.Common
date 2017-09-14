@@ -58,7 +58,6 @@
     <Compile Include="ComplexObject.cs" />
     <Compile Include="Data\DatabaseValueParserTests.cs" />
     <Compile Include="Data\AdoParameterFactoryTests.cs" />
-    <Compile Include="Data\SqlParameterFactoryTests.cs" />
     <Compile Include="DeepClonerTests.cs" />
     <Compile Include="Extensions\QueryableExtensionsTests.cs" />
     <Compile Include="Geospatial\CoordinateHtmlFormatterTests.cs" />
@@ -100,10 +99,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DL.Common.Data\DL.Common.Data.csproj">
-      <Project>{9a4b001f-41ee-47b2-b305-949f1863c3e8}</Project>
-      <Name>DL.Common.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DL.Common\DL.Common.csproj">
       <Project>{67349880-f896-484b-999c-755c018888fe}</Project>
       <Name>DL.Common</Name>
