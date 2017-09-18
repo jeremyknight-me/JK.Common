@@ -11,3 +11,5 @@ A utility library containing boilerplate code, extension methods, new classes, a
 **NuGet Packages**
 
  - DL.Common: https://www.nuget.org/packages/DL.Common/
+ - DL.Common.FluentValidation: https://www.nuget.org/packages/DL.Common.FluentValidation/
+ - DL.Common.OpenXml: https://www.nuget.org/packages/DL.Common.OpenXml/ 
