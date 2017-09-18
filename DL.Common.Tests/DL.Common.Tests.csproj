@@ -59,6 +59,7 @@
     <Compile Include="Data\DatabaseValueParserTests.cs" />
     <Compile Include="Data\AdoParameterFactoryTests.cs" />
     <Compile Include="DeepClonerTests.cs" />
+    <Compile Include="Extensions\BooleanExtensionsTests.cs" />
     <Compile Include="Extensions\QueryableExtensionsTests.cs" />
     <Compile Include="Geospatial\CoordinateHtmlFormatterTests.cs" />
     <Compile Include="Geospatial\CoordinateTextFormatterTests.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Text\StringDelimiterTests.cs" />
     <Compile Include="Text\StringTruncaterTests.cs" />
     <Compile Include="Text\TemplateProcessorTests.cs" />
+    <Compile Include="TypeHelpers\BooleanConverterTests.cs" />
     <Compile Include="TypeHelpers\DateTimeHelperTests.cs" />
     <Compile Include="TypeHelpers\EnumHelperTests.cs" />
     <Compile Include="TypeHelpers\StringHelperTests.cs" />
