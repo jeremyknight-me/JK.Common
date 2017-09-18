@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DL.Common.FluentValidation</PackageId>
+    <Authors>Digital Lagniappe</Authors>
+    <Company>Digital Lagniappe</Company>
+    <Description>A utility library containing extensions to FluentValidation.</Description>
+    <PackageLicenseUrl>https://github.com/digital-lagniappe/codelibrary/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/digital-lagniappe/codelibrary</PackageProjectUrl>
+    <Copyright>Copyright Digital Lagniappe. All rights reserved.</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DL.Common" Version="2.0.1" />
+    <PackageReference Include="FluentValidation" Version="7.1.1" />
+  </ItemGroup>
+
+</Project>

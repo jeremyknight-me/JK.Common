@@ -59,7 +59,6 @@
     <Compile Include="Data\DatabaseValueParserTests.cs" />
     <Compile Include="Data\AdoParameterFactoryTests.cs" />
     <Compile Include="DeepClonerTests.cs" />
-    <Compile Include="Extensions\BooleanExtensionsTests.cs" />
     <Compile Include="Extensions\QueryableExtensionsTests.cs" />
     <Compile Include="Geospatial\CoordinateHtmlFormatterTests.cs" />
     <Compile Include="Geospatial\CoordinateTextFormatterTests.cs" />
