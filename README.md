@@ -1,4 +1,4 @@
-# Code Library
+# DL.Common Code Library
 
 A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.
 
@@ -13,4 +13,5 @@ A utility library containing boilerplate code, extension methods, new classes, a
  - Deep Cloner
  - Latitude and Longitude Classes
  - Template Processing
- - Custom Validators (FluentValidation)
+ - Custom Validators for FluentValidation
+ - OpenXml Spreadsheet Extension Methods
