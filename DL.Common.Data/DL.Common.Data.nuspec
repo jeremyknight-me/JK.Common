@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>https://github.com/digital-lagniappe/codelibrary/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/digital-lagniappe/codelibrary</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>$description$</description>
+        <releaseNotes></releaseNotes>
+        <copyright>Copyright &#x00A9; Digital Lagniappe. All rights reserved.</copyright>
+        <tags></tags>
+    </metadata>
+</package>
