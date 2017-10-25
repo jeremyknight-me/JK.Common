@@ -20,8 +20,8 @@ namespace DL.Common.Tests.TypeHelpers
         }
 
         [Theory]
-        [InlineData("123", "123")]
-        [InlineData("123.456", "123.456")]
+        [InlineData("123", 123)]
+        [InlineData("123.456", 123.456)]
         public void GetNullableDecimal_Numeric_Decimal(string input, decimal expected)
         {
             var target = new StringHelper();

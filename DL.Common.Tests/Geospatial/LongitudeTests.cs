@@ -16,8 +16,8 @@ namespace DL.Common.Tests.Geospatial
         #region SetDegrees() Invalid Values
 
         [Theory]
-        [InlineData("200")]
-        [InlineData("-200")]
+        [InlineData(200)]
+        [InlineData(-200)]
         public void SetDegrees_InvalidDegrees_Exception(decimal degrees)
         {
             var longitude = new Longitude();

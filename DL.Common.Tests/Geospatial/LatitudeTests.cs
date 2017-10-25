@@ -16,8 +16,8 @@ namespace DL.Common.Tests.Geospatial
         #region SetDegrees() Invalid Values
 
         [Theory]
-        [InlineData("100")]
-        [InlineData("-100")]
+        [InlineData(100)]
+        [InlineData(-100)]
         public void SetDegrees_InvalidDegrees_Exception(decimal degrees)
         {
             var latitude = new Latitude();
@@ -25,8 +25,8 @@ namespace DL.Common.Tests.Geospatial
         }
 
         [Theory]
-        [InlineData("100", "26.767")]
-        [InlineData("-100", "26.767")]
+        [InlineData(100, 26.767)]
+        [InlineData(-100, 26.767)]
         public void SetDegrees_InvalidDegreesMinutes_Exception(decimal degrees, decimal minutes)
         {
             var latitude = new Latitude();
