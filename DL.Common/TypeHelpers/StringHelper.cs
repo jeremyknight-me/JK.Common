@@ -66,6 +66,18 @@ namespace DL.Common.TypeHelpers
             return new string(c);
         }
 
+        public string Right(string value, int length)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return string.Empty;
+            }
+
+            return value.Length <= length
+                ? value
+                : value.Substring(value.Length - length);
+        }
+
         /// <summary>
         /// Removes XML/HTML from given text block.
         /// </summary>

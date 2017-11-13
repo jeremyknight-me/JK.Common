@@ -65,7 +65,7 @@ namespace DL.Common.Tests.TypeHelpers
         public void RemoveUnitedStatesCurrencyFormat_WithCharacters(string input, string expected)
         {
             var target = new StringHelper();
-            string actual = target.RemoveUnitedStatesCurrencyFormat(input);
+            var actual = target.RemoveUnitedStatesCurrencyFormat(input);
             Assert.Equal(expected, actual);
         }
 
@@ -80,6 +80,22 @@ namespace DL.Common.Tests.TypeHelpers
             var target = new StringHelper();
             string actual = target.Reverse(s);
             Assert.Equal("txeT elpmaS", actual);
+        }
+
+        #endregion
+
+        #region Right() Tests
+
+        [Theory]
+        [InlineData("", 2, "")]
+        [InlineData("Test", 2, "st")]
+        [InlineData("Test", 4, "Test")]
+        [InlineData("Test", 6, "Test")]
+        public void Right_(string input, int length, string expected)
+        {
+            var sut = new StringHelper();
+            var actual = sut.Right(input, length);
+            Assert.Equal(expected, actual);
         }
 
         #endregion

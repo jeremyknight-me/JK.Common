@@ -21,8 +21,7 @@ namespace DL.Common.Extensions
         /// <returns>True if a date, otherwise false.</returns>
         public static bool IsDateTime(this string valueToValidate)
         {
-            var specification = new DateTimeSpecification();
-            return specification.IsSatisfiedBy(valueToValidate);
+            return new DateTimeSpecification().IsSatisfiedBy(valueToValidate);
         }
 
         /// <summary>
@@ -33,8 +32,7 @@ namespace DL.Common.Extensions
         /// <returns>True if a number, otherwise false.</returns>
         public static bool IsNumeric(this string valueToValidate)
         {
-            var specification = new NumericSpecification();
-            return specification.IsSatisfiedBy(valueToValidate);
+            return new NumericSpecification().IsSatisfiedBy(valueToValidate);
         }
 
         /// <summary>
@@ -45,8 +43,7 @@ namespace DL.Common.Extensions
         /// <returns>True if valid email otherwise false.</returns>
         public static bool IsValidEmailAddress(this string valueToValidate)
         {
-            var specification = new EmailSpecification();
-            return specification.IsSatisfiedBy(valueToValidate);
+            return new EmailSpecification().IsSatisfiedBy(valueToValidate);
         }
 
         /// <summary>
@@ -69,8 +66,7 @@ namespace DL.Common.Extensions
         /// <returns>True if valid US phone number otherwise false.</returns>
         public static bool IsValidUnitedStatesPhoneNumber(this string valueToValidate)
         {
-            var specification = new PhoneNumberSpecification();
-            return specification.IsSatisfiedBy(valueToValidate);
+            return new PhoneNumberSpecification().IsSatisfiedBy(valueToValidate);
         }
 
         /// <summary>
@@ -81,8 +77,7 @@ namespace DL.Common.Extensions
         /// <returns>True if valid zip code otherwise false.</returns>
         public static bool IsValidZip(this string valueToValidate)
         {
-            var specification = new ZipCodeSpecification();
-            return specification.IsSatisfiedBy(valueToValidate);
+            return new ZipCodeSpecification().IsSatisfiedBy(valueToValidate);
         }
 
         /// <summary>
@@ -92,8 +87,7 @@ namespace DL.Common.Extensions
         /// <returns>String that can be parsed into a number.</returns>
         public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat)
         {
-            var utility = new StringHelper();
-            return utility.RemoveUnitedStatesCurrencyFormat(valueToFormat);
+            return new StringHelper().RemoveUnitedStatesCurrencyFormat(valueToFormat);
         }
 
         /// <summary>
@@ -103,8 +97,12 @@ namespace DL.Common.Extensions
         /// <returns>The original string in reverse.</returns>
         public static string Reverse(this string valueToReverse)
         {
-            var utility = new StringHelper();
-            return utility.Reverse(valueToReverse);
+            return new StringHelper().Reverse(valueToReverse);
+        }
+
+        public static string Right(this string value, int length)
+        {
+            return new StringHelper().Right(value, length);
         }
 
         /// <summary>
@@ -114,8 +112,7 @@ namespace DL.Common.Extensions
         /// <returns>Clean string with no XML/HTML.</returns>
         public static string StripXml(this string valueToStrip)
         {
-            var utility = new StringHelper();
-            return utility.StripXml(valueToStrip);
+            return new StringHelper().StripXml(valueToStrip);
         }
 
         /// <summary>
