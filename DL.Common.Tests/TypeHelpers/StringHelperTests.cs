@@ -91,7 +91,7 @@ namespace DL.Common.Tests.TypeHelpers
         [InlineData("Test", 2, "st")]
         [InlineData("Test", 4, "Test")]
         [InlineData("Test", 6, "Test")]
-        public void Right_(string input, int length, string expected)
+        public void Right_Theories(string input, int length, string expected)
         {
             var sut = new StringHelper();
             var actual = sut.Right(input, length);
