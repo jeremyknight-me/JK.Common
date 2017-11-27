@@ -11,7 +11,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>$description$</description>
         <releaseNotes></releaseNotes>
-        <copyright>Copyright &#x00A9; Digital Lagniappe. All rights reserved.</copyright>
+        <copyright>Copyright Digital Lagniappe. All rights reserved.</copyright>
         <tags></tags>
     </metadata>
 </package>

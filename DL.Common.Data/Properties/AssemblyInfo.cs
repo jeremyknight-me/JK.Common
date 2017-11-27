@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DL.Common.Data")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("An ADO and SqlClient utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Digital Lagniappe")]
 [assembly: AssemblyProduct("DL.Common.Data")]
