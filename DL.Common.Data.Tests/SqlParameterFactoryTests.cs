@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using DL.Common.Data.SqlClient;
 using Xunit;
 
-namespace DL.Common.Tests.Data
+namespace DL.Common.Data.Tests
 {
     public class SqlParameterFactoryTests
     {
