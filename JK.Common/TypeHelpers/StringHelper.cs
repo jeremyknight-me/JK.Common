@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace JK.Common.TypeHelpers
@@ -87,5 +88,37 @@ namespace JK.Common.TypeHelpers
         {
             return Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
         }
+
+        #region Base64 Conversion
+
+        /// <summary>Converts a string from base 64.</summary>
+        /// <param name="base64Text">Text to convert from base 64.</param>
+        /// <returns>String converted from base 64.</returns>
+        public static string FromBase64(string base64Text)
+        {
+            if (string.IsNullOrEmpty(base64Text))
+            {
+                return base64Text;
+            }
+
+            var encoding = new ASCIIEncoding();
+            return encoding.GetString(Convert.FromBase64String(base64Text));
+        }
+
+        /// <summary>Converts a string to base 64.</summary>
+        /// <param name="text">Text to convert to base 64.</param>
+        /// <returns>String converted to base 64.</returns>
+        public static string ToBase64(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return text;
+            }
+
+            var encoding = new ASCIIEncoding();
+            return Convert.ToBase64String(encoding.GetBytes(text));
+        }
+
+        #endregion
     }
 }
