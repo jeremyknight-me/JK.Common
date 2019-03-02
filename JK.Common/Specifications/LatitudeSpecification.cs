@@ -2,9 +2,9 @@
 
 namespace JK.Common.Specifications
 {
-    public class LatitudeSpecification : Specification<decimal>
+    public class LatitudeSpecification : Specification<double>
     {
-        public override bool IsSatisfiedBy(decimal candidate)
+        public override bool IsSatisfiedBy(double candidate)
         {
             return candidate >= -90 && candidate <= 90;
         }

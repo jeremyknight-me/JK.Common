@@ -13,37 +13,37 @@ namespace JK.Common.Geospatial
         {
         }
 
-        protected CoordinateBase(decimal degrees) 
+        protected CoordinateBase(double degrees) 
             : this()
         {
             this.SetCoordinate(degrees);
         }
 
-        protected CoordinateBase(decimal degrees, decimal minutes)
+        protected CoordinateBase(double degrees, double minutes)
             : this()
         {
             this.SetCoordinate(degrees, minutes);
         }
 
-        protected CoordinateBase(decimal degrees, decimal minutes, decimal seconds)
+        protected CoordinateBase(double degrees, double minutes, double seconds)
             : this()
         {
             this.SetCoordinate(degrees, minutes, seconds);
         }
 
-        protected CoordinateBase(decimal degrees, Direction direction)
+        protected CoordinateBase(double degrees, Direction direction)
             : this()
         {
             this.SetCoordinate(degrees, direction);
         }
 
-        protected CoordinateBase(decimal degrees, decimal minutes, Direction direction)
+        protected CoordinateBase(double degrees, double minutes, Direction direction)
             : this()
         {
             this.SetCoordinate(degrees, minutes, direction);
         }
 
-        protected CoordinateBase(decimal degrees, decimal minutes, decimal seconds, Direction direction)
+        protected CoordinateBase(double degrees, double minutes, double seconds, Direction direction)
             : this()
         {
             this.SetCoordinate(degrees, minutes, seconds, direction);
@@ -61,22 +61,22 @@ namespace JK.Common.Geospatial
         /// <summary>
         /// Gets or sets the absolute value of the coordinate.
         /// </summary>
-        public decimal Coordinate { get; private set; }
+        public double Coordinate { get; private set; }
 
         /// <summary>
         /// Gets the signed value of the coordinate.
         /// </summary>
-        public decimal CoordinateSigned => this.IsNegative ? this.Coordinate * -1 : this.Coordinate;
+        public double CoordinateSigned => this.IsNegative ? this.Coordinate * -1 : this.Coordinate;
 
         /// <summary>
         /// Gets the unsigned degrees rounded to 10 decimal places.
         /// </summary>
-        public decimal DecimalDegrees => System.Math.Round(this.Coordinate, 10);
+        public double DecimalDegrees => Math.Round(this.Coordinate, 10);
 
         /// <summary>
         /// Gets the signed degrees rounded to 10 decimal places.
         /// </summary>
-        public decimal DecimalDegreesSigned => System.Math.Round(this.IsNegative ? this.Coordinate * -1 : this.Coordinate, 10);
+        public double DecimalDegreesSigned => Math.Round(this.IsNegative ? this.Coordinate * -1 : this.Coordinate, 10);
 
         /// <summary>
         /// Gets the signed degrees as an integer.
@@ -85,7 +85,7 @@ namespace JK.Common.Geospatial
         {
             get
             {
-                var floored = (int)this.Floor(this.Coordinate);
+                var floored = (int)Math.Floor(this.Coordinate);
 
                 if (this.IsNegative)
                 {
@@ -99,24 +99,24 @@ namespace JK.Common.Geospatial
         /// <summary>
         /// Gets the unsigned degrees as an integer.
         /// </summary>
-        public int Degrees => (int)this.Floor(this.Coordinate);
+        public int Degrees => (int)Math.Floor(this.Coordinate);
 
         /// <summary>
         /// Gets the minutes to 3 decimal places.
         /// </summary>
-        public decimal DecimalMinutes
+        public double DecimalMinutes
         {
             get
             {
-                decimal minutes = (this.Coordinate - this.Floor(this.Coordinate)) * 60;
-                return System.Math.Round(minutes, 3);
+                var minutes = (this.Coordinate - Math.Floor(this.Coordinate)) * 60.0;
+                return Math.Round(minutes, 3);
             }
         }
 
         /// <summary>
         /// Gets the minutes as an integer.
         /// </summary>
-        public int Minutes => (int)((this.Coordinate - this.Floor(this.Coordinate)) * 60);
+        public int Minutes => (int)((this.Coordinate - Math.Floor(this.Coordinate)) * 60);
 
         /// <summary>
         /// Gets the seconds as an integer.
@@ -125,8 +125,8 @@ namespace JK.Common.Geospatial
         {
             get
             {
-                decimal minutes = (this.Coordinate - this.Floor(this.Coordinate)) * 60;
-                return (int)System.Math.Round((minutes - this.Minutes) * 60);
+                var minutes = (this.Coordinate - Math.Floor(this.Coordinate)) * 60.0;
+                return (int)Math.Round((minutes - this.Minutes) * 60);
             }
         }
 
@@ -139,74 +139,69 @@ namespace JK.Common.Geospatial
 
         public abstract CoordinateType CoordinateType { get; }
 
-        protected abstract ISpecification<decimal> ValidationSpecification { get; }       
+        protected abstract ISpecification<double> ValidationSpecification { get; }       
 
         #region Public Methods - SetCoordinate Overloads
 
         /// <summary>Sets the coordinate details.</summary>
         /// <param name="degrees">The amount of degrees.</param>
-        public void SetCoordinate(decimal degrees)
+        public void SetCoordinate(double degrees)
         {
             this.Validate(degrees);
             this.SetIsNegative(degrees);
 
-            this.Coordinate = System.Math.Abs(degrees);
+            this.Coordinate = Math.Abs(degrees);
         }
 
         /// <summary>Sets the coordinate details.</summary>
         /// <param name="degrees">The amount of degrees.</param>
         /// <param name="minutes">The amount of minutes.</param>
-        public void SetCoordinate(decimal degrees, decimal minutes)
+        public void SetCoordinate(double degrees, double minutes)
         {
             this.Validate(degrees);
             this.SetIsNegative(degrees);
-
-            decimal absoluteDegrees = System.Math.Abs(degrees);
-            decimal absoluteMinutes = System.Math.Abs(minutes);
-
-            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60m);
+            var absoluteDegrees = Math.Abs(degrees);
+            var absoluteMinutes = Math.Abs(minutes);
+            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0);
         }
 
         /// <summary>Sets the coordinate details.</summary>
         /// <param name="degrees">The amount of degrees.</param>
         /// <param name="minutes">The amount of minutes.</param>
         /// <param name="seconds">The amount of seconds.</param>
-        public void SetCoordinate(decimal degrees, decimal minutes, decimal seconds)
+        public void SetCoordinate(double degrees, double minutes, double seconds)
         {
             this.Validate(degrees);
             this.SetIsNegative(degrees);
 
-            decimal absoluteDegrees = System.Math.Abs(degrees);
-            decimal absoluteMinutes = System.Math.Abs(minutes);
-            decimal absoluteSeconds = System.Math.Abs(seconds);
+            var absoluteDegrees = Math.Abs(degrees);
+            var absoluteMinutes = Math.Abs(minutes);
+            var absoluteSeconds = Math.Abs(seconds);
 
-            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60m) + (absoluteSeconds / 3600);
+            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0) + (absoluteSeconds / 3600.0);
         }
 
         /// <summary>Sets the coordinate details.</summary>
         /// <param name="degrees">The amount of degrees.</param>
         /// <param name="direction">The cardinal direction.</param>
-        public void SetCoordinate(decimal degrees, Direction direction)
+        public void SetCoordinate(double degrees, Direction direction)
         {
             this.Validate(degrees);
             this.SetIsNegative(direction);
-
-            this.Coordinate = System.Math.Abs(degrees);
+            this.Coordinate = Math.Abs(degrees);
         }
 
         /// <summary>Sets the coordinate details.</summary>
         /// <param name="degrees">The amount of degrees.</param>
         /// <param name="minutes">The amount of minutes.</param>
         /// <param name="direction">The cardinal direction</param>
-        public void SetCoordinate(decimal degrees, decimal minutes, Direction direction)
+        public void SetCoordinate(double degrees, double minutes, Direction direction)
         {
             this.Validate(degrees);
             this.SetIsNegative(direction);
-
-            decimal absoluteDegrees = System.Math.Abs(degrees);
-            decimal absoluteMinutes = System.Math.Abs(minutes);
-
-            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60m);
+            var absoluteDegrees = Math.Abs(degrees);
+            var absoluteMinutes = Math.Abs(minutes);
+            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0);
         }
 
         /// <summary>Sets the coordinate details.</summary>
@@ -214,16 +209,14 @@ namespace JK.Common.Geospatial
         /// <param name="minutes">The amount of minutes.</param>
         /// <param name="seconds">The amount of seconds.</param>
         /// <param name="direction">The cardinal direction</param>
-        public void SetCoordinate(decimal degrees, decimal minutes, decimal seconds, Direction direction)
+        public void SetCoordinate(double degrees, double minutes, double seconds, Direction direction)
         {
             this.Validate(degrees, direction);
             this.SetIsNegative(direction);
-
-            decimal absoluteDegrees = System.Math.Abs(degrees);
-            decimal absoluteMinutes = System.Math.Abs(minutes);
-            decimal absoluteSeconds = System.Math.Abs(seconds);
-
-            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60m) + (absoluteSeconds / 3600);
+            var absoluteDegrees = Math.Abs(degrees);
+            var absoluteMinutes = Math.Abs(minutes);
+            var absoluteSeconds = Math.Abs(seconds);
+            this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0) + (absoluteSeconds / 3600.0);
         }
 
         #endregion
@@ -256,14 +249,14 @@ namespace JK.Common.Geospatial
 
         public abstract ICollection<Direction> GetValidDirections();
 
-        protected void SetIsNegative(decimal degress)
+        protected void SetIsNegative(double degress)
         {
             this.IsNegative = degress < 0;
         }
 
         protected abstract void SetIsNegative(Direction direction);
 
-        private void Validate(decimal value)
+        private void Validate(double value)
         {
             if (!this.ValidationSpecification.IsSatisfiedBy(value))
             {
@@ -271,7 +264,7 @@ namespace JK.Common.Geospatial
             }
         }
 
-        private void Validate(decimal value, Direction direction)
+        private void Validate(double value, Direction direction)
         {
             this.Validate(value);
 
@@ -282,10 +275,9 @@ namespace JK.Common.Geospatial
             }
         }
 
-        private decimal Floor(decimal value)
-        {
-            double doubleValue = Convert.ToDouble(value);
-            return Convert.ToDecimal(System.Math.Floor(doubleValue));
-        }
+        //private double Floor(double value)
+        //{
+        //    return Math.Floor(value);
+        //}
     }
 }

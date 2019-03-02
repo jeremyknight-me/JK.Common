@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace JK.Common.Math
+namespace JK.Common.TypeHelpers
 {
     public class MathHelper
     {
         public bool IsPrime(long number)
         {
-            long boundary = Convert.ToInt64(System.Math.Floor(System.Math.Sqrt(number)));
+            long boundary = Convert.ToInt64(Math.Floor(Math.Sqrt(number)));
 
             if (number == 1) return false;
             if (number == 2) return true;

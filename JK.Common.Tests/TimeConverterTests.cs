@@ -1,7 +1,6 @@
-﻿using JK.Common.Math;
-using Xunit;
+﻿using Xunit;
 
-namespace JK.Common.Tests.Math
+namespace JK.Common.Tests
 {
     public class TimeConverterTests
     {

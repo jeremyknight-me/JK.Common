@@ -18,7 +18,7 @@ namespace JK.Common.Tests.Geospatial
         [Theory]
         [InlineData(200)]
         [InlineData(-200)]
-        public void SetDegrees_InvalidDegrees_Exception(decimal degrees)
+        public void SetDegrees_InvalidDegrees_Exception(double degrees)
         {
             var longitude = new Longitude();
             var ex = Assert.Throws<ArgumentOutOfRangeException>(() => longitude.SetCoordinate(degrees));
@@ -28,14 +28,14 @@ namespace JK.Common.Tests.Geospatial
         public void SetDegrees_InvalidDegreesMinutes_Exception()
         {
             var longitude = new Longitude();
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => longitude.SetCoordinate(200, 26.767m));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => longitude.SetCoordinate(200, 26.767));
         }
 
         [Fact]
         public void SetDegrees_NegativeInvalidDegreesMinutes_Exception()
         {
             var longitude = new Longitude();
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => longitude.SetCoordinate(-200, 26.767m));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => longitude.SetCoordinate(-200, 26.767));
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace JK.Common.Tests.Geospatial
         public void SetDegrees_Degrees()
         {
             var longitude = new Longitude();
-            longitude.SetCoordinate(-79.9822166667m);
+            longitude.SetCoordinate(-79.9822166667);
 
             this.AssertCoordinateData(longitude);
         }
@@ -69,7 +69,7 @@ namespace JK.Common.Tests.Geospatial
         public void SetDegrees_DegreesMinutes()
         {
             var longitude = new Longitude();
-            longitude.SetCoordinate(-79, 58.933m);
+            longitude.SetCoordinate(-79, 58.933);
 
             this.AssertCoordinateData(longitude);
         }
@@ -87,7 +87,7 @@ namespace JK.Common.Tests.Geospatial
         public void SetDegrees_DegreesDirection()
         {
             var longitude = new Longitude();
-            longitude.SetCoordinate(79.9822166667m, Direction.W);
+            longitude.SetCoordinate(79.9822166667, Direction.W);
 
             this.AssertCoordinateData(longitude);
         }
@@ -96,7 +96,7 @@ namespace JK.Common.Tests.Geospatial
         public void SetDegrees_DegreesMinutesDirection()
         {
             var longitude = new Longitude();
-            longitude.SetCoordinate(79, 58.933m, Direction.W);
+            longitude.SetCoordinate(79, 58.933, Direction.W);
 
             this.AssertCoordinateData(longitude);
         }
@@ -117,25 +117,25 @@ namespace JK.Common.Tests.Geospatial
         [Fact]
         public void Ctor_InvalidDegrees_Exception()
         {
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(200m));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(200));
         }
 
         [Fact]
         public void Ctor_NegativeInvalidDegrees_Exception()
         {
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(-200m));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(-200));
         }
 
         [Fact]
         public void Ctor_InvalidDegreesMinutes_Exception()
         {
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(200, 26.767m));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(200, 26.767));
         }
 
         [Fact]
         public void Ctor_NegativeInvalidDegreesMinutes_Exception()
         {
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(-200, 26.767m));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Longitude(-200, 26.767));
         }
 
         [Fact]
@@ -157,14 +157,14 @@ namespace JK.Common.Tests.Geospatial
         [Fact]
         public void Ctor_Degrees()
         {
-            var longitude = new Longitude(-79.98222m);
+            var longitude = new Longitude(-79.98222);
             this.AssertCoordinateData(longitude);
         }
 
         [Fact]
         public void Ctor_DegreesMinutes()
         {
-            var longitude = new Longitude(-79, 58.933m);
+            var longitude = new Longitude(-79, 58.933);
             this.AssertCoordinateData(longitude);
         }
 
@@ -178,14 +178,14 @@ namespace JK.Common.Tests.Geospatial
         [Fact]
         public void Ctor_DegreesDirection()
         {
-            var longitude = new Longitude(79.9822166667m, Direction.W);
+            var longitude = new Longitude(79.9822166667, Direction.W);
             this.AssertCoordinateData(longitude);
         }
 
         [Fact]
         public void Ctor_DegreesMinutesDirection()
         {
-            var longitude = new Longitude(79, 58.933m, Direction.W);
+            var longitude = new Longitude(79, 58.933, Direction.W);
             this.AssertCoordinateData(longitude);
         }
 
@@ -203,7 +203,7 @@ namespace JK.Common.Tests.Geospatial
             //Assert.AreEqual(-79.9822166667m, longitude.DecimalDegreesSigned);
             Assert.Equal(79, longitude.Degrees);
             Assert.Equal(-79, longitude.DegreesSigned);
-            Assert.Equal(58.933m, longitude.DecimalMinutes);
+            Assert.Equal(58.933, longitude.DecimalMinutes);
             Assert.Equal(58, longitude.Minutes);
             Assert.Equal(56, longitude.Seconds);
             Assert.Equal(Direction.W, longitude.Direction);

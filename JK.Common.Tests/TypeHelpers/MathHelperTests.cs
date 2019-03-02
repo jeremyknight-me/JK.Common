@@ -1,7 +1,7 @@
-﻿using JK.Common.Math;
+﻿using JK.Common.TypeHelpers;
 using Xunit;
 
-namespace JK.Common.Tests.Math
+namespace JK.Common.Tests.TypeHelpers
 {
     public class MathHelperTests
     {
@@ -13,8 +13,8 @@ namespace JK.Common.Tests.Math
         [InlineData(6857, true)]
         public void IsPrime(int input, bool expected)
         {
-            var utility = new MathHelper();
-            bool actual = utility.IsPrime(input);
+            var helper = new MathHelper();
+            bool actual = helper.IsPrime(input);
             Assert.Equal(expected, actual);
         }
     }

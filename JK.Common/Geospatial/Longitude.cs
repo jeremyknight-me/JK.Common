@@ -13,32 +13,32 @@ namespace JK.Common.Geospatial
         {
         }
 
-        public Longitude(decimal degrees) 
+        public Longitude(double degrees) 
             : base(degrees)
         {
         }
 
-        public Longitude(decimal degrees, decimal minutes)
+        public Longitude(double degrees, double minutes)
             : base(degrees, minutes)
         {
         }
 
-        public Longitude(decimal degrees, decimal minutes, decimal seconds)
+        public Longitude(double degrees, double minutes, double seconds)
             : base(degrees, minutes, seconds)
         {
         }
 
-        public Longitude(decimal degrees, Direction direction)
+        public Longitude(double degrees, Direction direction)
             : base(degrees, direction)
         {
         }
 
-        public Longitude(decimal degrees, decimal minutes, Direction direction)
+        public Longitude(double degrees, double minutes, Direction direction)
             : base(degrees, minutes, direction)
         {
         }
 
-        public Longitude(decimal degrees, decimal minutes, decimal seconds, Direction direction)
+        public Longitude(double degrees, double minutes, double seconds, Direction direction)
             : base(degrees, minutes, seconds, direction)
         {
         }
@@ -54,7 +54,7 @@ namespace JK.Common.Geospatial
             return new List<Direction> { Direction.E, Direction.W };
         }
 
-        protected override ISpecification<decimal> ValidationSpecification => new LongitudeSpecification();
+        protected override ISpecification<double> ValidationSpecification => new LongitudeSpecification();
 
         protected override void SetIsNegative(Direction direction)
         {

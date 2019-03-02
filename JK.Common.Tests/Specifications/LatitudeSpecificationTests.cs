@@ -11,7 +11,7 @@ namespace JK.Common.Tests.Specifications
         [InlineData(0, true)]
         [InlineData(90, true)]
         [InlineData(91, false)]
-        public void IsSatisfiedBy(decimal input, bool expected)
+        public void IsSatisfiedBy(double input, bool expected)
         {
             var specification = new LatitudeSpecification();
             bool actual = specification.IsSatisfiedBy(input);
