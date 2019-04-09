@@ -11,5 +11,3 @@ Coming Soon
  - Deep Cloner
  - Latitude and Longitude Classes
  - Template Processing
- - Custom Validators for FluentValidation
- - OpenXml Spreadsheet Extension Methods
