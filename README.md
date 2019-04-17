@@ -4,7 +4,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
 
 **NuGet Packages**
 
-Coming Soon
+https://www.nuget.org/packages/JK.Common/
 
 **Components**
 
