@@ -11,3 +11,4 @@ https://www.nuget.org/packages/JK.Common/
  - Deep Cloner
  - Latitude and Longitude Classes
  - Template Processing
+ - More To Come!
