@@ -8,8 +8,8 @@
     <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
     <Company></Company>
     <Authors>Jeremy Knight</Authors>
-    <PackageLicenseUrl>https://github.com/knight0323/JK.Common/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/knight0323/JK.Common</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/jeremyknight-me/JK.Common/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <RepositoryUrl>https://github.com/knight0323/JK.Common</RepositoryUrl>
