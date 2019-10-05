@@ -6,6 +6,29 @@ namespace JK.Common.TypeHelpers
     public class DateTimeHelper
     {
         /// <summary>
+        /// Adds given number of business days to a date.
+        /// </summary>
+        /// <param name="date">Start date</param>
+        /// <param name="days">Number of days to add (can be negative).</param>
+        /// <returns>The date the given amount of business days from the start date.</returns>
+        public DateTime AddWorkDays(DateTime date, int days)
+        {
+            int direction = days < 0 ? -1 : 1;
+            int completeWeeks = days / 5;
+            DateTime newDate = date.AddDays(completeWeeks * 7);
+            days = days % 5;
+            for (int i = 0; i < Math.Abs(days); i++)
+            {
+                newDate = newDate.AddDays(direction);
+                while (!this.IsWeekday(newDate))
+                {
+                    newDate = newDate.AddDays(direction);
+                }
+            }
+            return newDate;
+        }
+
+        /// <summary>
         /// Calculates age of an individual.
         /// </summary>
         /// <param name="currentDate">Date to calculate age from.</param>
