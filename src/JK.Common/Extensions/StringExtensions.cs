@@ -19,10 +19,7 @@ namespace JK.Common.Extensions
         /// </summary>
         /// <param name="valueToValidate">Current string object from extension method.</param>
         /// <returns>True if a date, otherwise false.</returns>
-        public static bool IsDateTime(this string valueToValidate)
-        {
-            return new DateTimeSpecification().IsSatisfiedBy(valueToValidate);
-        }
+        public static bool IsDateTime(this string valueToValidate) => new DateTimeSpecification().IsSatisfiedBy(valueToValidate);
 
         /// <summary>
         /// Determines if the given string is a number.
@@ -30,10 +27,7 @@ namespace JK.Common.Extensions
         /// </summary>
         /// <param name="valueToValidate">Current string object from extension method.</param>
         /// <returns>True if a number, otherwise false.</returns>
-        public static bool IsNumeric(this string valueToValidate)
-        {
-            return new NumericSpecification().IsSatisfiedBy(valueToValidate);
-        }
+        public static bool IsNumeric(this string valueToValidate) => new NumericSpecification().IsSatisfiedBy(valueToValidate);
 
         /// <summary>
         /// Validates that a string is a valid email address.
@@ -41,10 +35,7 @@ namespace JK.Common.Extensions
         /// </summary>
         /// <param name="valueToValidate">Current string object from extension method.</param>
         /// <returns>True if valid email otherwise false.</returns>
-        public static bool IsValidEmailAddress(this string valueToValidate)
-        {
-            return new EmailSpecification().IsSatisfiedBy(valueToValidate);
-        }
+        public static bool IsValidEmailAddress(this string valueToValidate) => new EmailSpecification().IsSatisfiedBy(valueToValidate);
 
         /// <summary>
         /// Validates that a string is a valid IP v4 address.
@@ -52,11 +43,7 @@ namespace JK.Common.Extensions
         /// </summary>
         /// <param name="valueToValidate">Current string object from extension method.</param>
         /// <returns>True if valid IP v4 address otherwise false.</returns>
-        public static bool IsValidIpAddress(this string valueToValidate)
-        {
-            var specification = new InternetProtocolAddressSpecification();
-            return specification.IsSatisfiedBy(valueToValidate);
-        }
+        public static bool IsValidIpAddress(this string valueToValidate) => new InternetProtocolAddressSpecification().IsSatisfiedBy(valueToValidate);
 
         /// <summary>
         /// Validates that a string is a valid United States phone number.
@@ -64,10 +51,7 @@ namespace JK.Common.Extensions
         /// </summary>
         /// <param name="valueToValidate">Current string object from extension method.</param>
         /// <returns>True if valid US phone number otherwise false.</returns>
-        public static bool IsValidUnitedStatesPhoneNumber(this string valueToValidate)
-        {
-            return new PhoneNumberSpecification().IsSatisfiedBy(valueToValidate);
-        }
+        public static bool IsValidUnitedStatesPhoneNumber(this string valueToValidate) => new PhoneNumberSpecification().IsSatisfiedBy(valueToValidate);
 
         /// <summary>
         /// Validates that a string is a valid zip code.
@@ -75,45 +59,30 @@ namespace JK.Common.Extensions
         /// </summary>
         /// <param name="valueToValidate">Current string object from extension method.</param>
         /// <returns>True if valid zip code otherwise false.</returns>
-        public static bool IsValidZip(this string valueToValidate)
-        {
-            return new ZipCodeSpecification().IsSatisfiedBy(valueToValidate);
-        }
+        public static bool IsValidZip(this string valueToValidate) => new ZipCodeSpecification().IsSatisfiedBy(valueToValidate);
 
         /// <summary>
         /// Removes US (dollar) currency format characters from a string.
         /// </summary>
         /// <param name="valueToFormat">Current string object from extension method.</param>
         /// <returns>String that can be parsed into a number.</returns>
-        public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat)
-        {
-            return new StringHelper().RemoveUnitedStatesCurrencyFormat(valueToFormat);
-        }
+        public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat) => new StringHelper().RemoveUnitedStatesCurrencyFormat(valueToFormat);
 
         /// <summary>
         /// Reverses the characters within a string.
         /// </summary>
         /// <param name="valueToReverse">Current string object from extension method.</param>
         /// <returns>The original string in reverse.</returns>
-        public static string Reverse(this string valueToReverse)
-        {
-            return new StringHelper().Reverse(valueToReverse);
-        }
+        public static string Reverse(this string valueToReverse) => new StringHelper().Reverse(valueToReverse);
 
-        public static string Right(this string value, int length)
-        {
-            return new StringHelper().Right(value, length);
-        }
+        public static string Right(this string value, int length) => new StringHelper().Right(value, length);
 
         /// <summary>
         /// Removes XML/HTML from given text block.
         /// </summary>
         /// <param name="valueToStrip">Current string object from extension method.</param>
         /// <returns>Clean string with no XML/HTML.</returns>
-        public static string StripXml(this string valueToStrip)
-        {
-            return new StringHelper().StripXml(valueToStrip);
-        }
+        public static string StripXml(this string valueToStrip) => new StringHelper().StripXml(valueToStrip);
 
         /// <summary>
         /// Trims a block of text to a specified length. The string will be trimmed to 
@@ -123,11 +92,7 @@ namespace JK.Common.Extensions
         /// <param name="valueToTruncate">Current string object from extension method.</param>
         /// <param name="length">Number of characters to keep from the original string.</param>
         /// <returns>Truncated, or shortened, text.</returns>
-        public static string Truncate(this string valueToTruncate, int length)
-        {
-            var truncater = new StringTruncater(valueToTruncate);
-            return truncater.TruncateToLength(length);
-        }
+        public static string Truncate(this string valueToTruncate, int length) => new StringTruncater(valueToTruncate).TruncateToLength(length);
 
         /// <summary>
         /// Trims a block of text to a specified length. The string will be trimmed to 
