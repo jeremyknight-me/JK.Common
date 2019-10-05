@@ -6,6 +6,22 @@ namespace JK.Common.Tests.TypeHelpers
 {
     public class DateTimeUtilityTests
     {
+        #region AddWorkDays() Tests
+
+        [Theory]
+        [InlineData(16, 5, 23)] // start on monday
+        [InlineData(16, 4, 20)]
+        [InlineData(16, -5, 9)]
+        public void AddWorkDays_Tests(int startDay, int daysToAdd, int expectedDay)
+        {
+            var original = new DateTime(2019, 9, startDay); // monday
+            var helper = new DateTimeHelper();
+            var actual = helper.AddWorkDays(original, daysToAdd);
+            Assert.Equal(expectedDay, actual.Day);
+        }
+
+        #endregion
+
         #region CalculateAge() Tests
 
         [Fact]
