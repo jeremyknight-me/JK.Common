@@ -48,6 +48,25 @@ namespace JK.Common.Tests.TypeHelpers
 
         #endregion
 
+        #region GetAttribute<T>() Tests
+
+        [Fact]
+        public void GetAttribute_Exists_Attribute()
+        {
+            var actual = new EnumHelper().GetAttribute<DisplayAttribute>(Colors.Blue);
+            Assert.NotNull(actual);
+            Assert.IsType<DisplayAttribute>(actual);
+        }
+
+        [Fact]
+        public void GetAttribute_DoesNotExists_Null()
+        {
+            var actual = new EnumHelper().GetAttribute<DisplayAttribute>(Colors.Green);
+            Assert.Null(actual);
+        }
+
+        #endregion
+
         #region GetByByte() Tests
 
         [Fact]
