@@ -20,6 +20,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added AddWorkDays function to DateTimeHelper.
 - Added DoesImplement<T> to TypeExtensions.
 - Added GetAttribute<T> to EnumHelper.
+- Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
 
 ### Changed
 - Updated email validation regex.
