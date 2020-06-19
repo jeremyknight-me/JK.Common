@@ -12,15 +12,15 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Added
 
 - DistinctBy extension to IEnumerable.
+- Added DoesImplement<T> to TypeExtensions.
+- Added GetAttribute<T> to EnumHelper.
+- Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
 
 ## [1.0.6] - 05 Oct 2019
 
 ### Added
 
 - Added AddWorkDays function to DateTimeHelper.
-- Added DoesImplement<T> to TypeExtensions.
-- Added GetAttribute<T> to EnumHelper.
-- Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
 
 ### Changed
 - Updated email validation regex.
