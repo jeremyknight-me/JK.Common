@@ -15,6 +15,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added DoesImplement<T> to TypeExtensions.
 - Added GetAttribute<T> to EnumHelper.
 - Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
+- Added generic ADO classes for reference purposes (migrated from older code). 
 
 ## [1.0.6] - 05 Oct 2019
 
