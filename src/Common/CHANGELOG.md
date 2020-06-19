@@ -11,7 +11,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Added
 
-- DistinctBy extension to IEnumerable.
+- Added DistinctBy extension to IEnumerable.
 - Added DoesImplement<T> to TypeExtensions.
 - Added GetAttribute<T> to EnumHelper.
 - Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
