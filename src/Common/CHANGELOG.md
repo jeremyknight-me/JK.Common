@@ -19,6 +19,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added Gzip helper class with CompressFile and DecompressFile methods. 
 - Added ServiceLocator namespace with basic pattern implementation.
 - Added DistanceConverter class and DistanceUnit enum. 
+- Added InMemory data repositories for reference purposes (migrated from older code).
 
 ### Changed
 
