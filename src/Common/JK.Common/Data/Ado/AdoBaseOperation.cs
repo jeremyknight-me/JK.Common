@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace JK.Common.Data
+namespace JK.Common.Data.Ado
 {
     [Obsolete("Generic ADO classes have not been tested in .NET Core. Left in for reference purposes.")]
     public abstract class AdoBaseOperation

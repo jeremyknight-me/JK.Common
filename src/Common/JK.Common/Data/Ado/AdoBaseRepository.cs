@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace JK.Common.Data
+namespace JK.Common.Data.Ado
 {
     /// <summary>
     /// Abstract base repository class which supporst ADO Database Factories.

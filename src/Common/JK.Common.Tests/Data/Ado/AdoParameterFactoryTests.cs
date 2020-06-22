@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
-using JK.Common.Data;
+using JK.Common.Data.Ado;
 using Moq;
 using Xunit;
 
-namespace JK.Common.Tests.Data
+namespace JK.Common.Tests.Data.Ado
 {
     public class AdoParameterFactoryTests
     {

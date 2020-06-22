@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace JK.Common.Data
+namespace JK.Common.Data.Ado
 {
     /// <summary>
     /// Class which created and sets up DbParameters for ADO use.
