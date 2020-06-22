@@ -1,8 +1,9 @@
-﻿using System;
+﻿using JK.Common.Contracts;
+using System;
 
 namespace JK.Common.Tests
 {
-    public class ComplexObject
+    public class ComplexObject : IIdentifiable<int>
     {
         public ComplexObject()
         {
@@ -15,6 +16,11 @@ namespace JK.Common.Tests
             this.FloatProperty = 0;
             this.BooleanProperty = false;
             this.ChildObjectSimple = new SimpleObject();
+        }
+
+        public ComplexObject(DateTime dateTime) : this()
+        {
+            this.DateTimeProperty = dateTime;
         }
 
         public string StringProperty { get; set; }
@@ -35,6 +41,6 @@ namespace JK.Common.Tests
 
         public ComplexObject ChildObjectComplex { get; set; }
 
-        public object Id { get; set; }
+        public int Id { get; set; }
     }
 }

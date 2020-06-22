@@ -1,4 +1,4 @@
-﻿namespace JK.Common
+﻿namespace JK.Common.Converters
 {
     /// <summary>
     /// Class which contains temperature conversion logic.

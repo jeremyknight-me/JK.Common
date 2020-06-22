@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common", "JK.Common\JK.Common.csproj", "{1338320E-2B9B-40EF-B7AF-87CFA8572453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.Tests", "JK.Common.Tests\JK.Common.Tests.csproj", "{0DC1B63A-1731-4E90-BA5F-F227DE39939F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Tests", "JK.Common.Tests\JK.Common.Tests.csproj", "{0DC1B63A-1731-4E90-BA5F-F227DE39939F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

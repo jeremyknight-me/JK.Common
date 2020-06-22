@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace JK.Common.TypeHelpers
+namespace JK.Common.Converters
 {
     /// <summary>
     /// Class initially built to aid in data imports.

@@ -44,6 +44,14 @@ namespace JK.Common.TypeHelpers
             }
         }
 
+        public T GetAttribute<T>(Enum enumVal) where T : Attribute
+        {
+            var type = enumVal.GetType();
+            var memInfo = type.GetMember(enumVal.ToString());
+            var attributes = memInfo[0].GetCustomAttributes(typeof(T), false);
+            return (attributes.Length > 0) ? (T)attributes[0] : null;
+        }
+
         public string GetDisplayName<T>(T value) where T : struct, IConvertible
         {
             this.EnsureValidEnum<T>();
@@ -185,13 +193,5 @@ namespace JK.Common.TypeHelpers
                 throw new ArgumentOutOfRangeException(parameter);
             }
         }
-
-        //private void EnsureNonNull(object value)
-        //{
-        //    if (value == null)
-        //    {
-        //        throw new ArgumentNullException(nameof(value));
-        //    }
-        //}
     }
 }
