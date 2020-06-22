@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JK.Common.TypeHelpers
+namespace JK.Common.DateTimeProviders
 {
     public abstract class DateTimeOffsetProvider
     {

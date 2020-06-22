@@ -17,6 +17,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
 - Added generic ADO classes for reference purposes (migrated from older code). 
 
+### Changed
+
+- Moved testable DateTime providers to their own folder/namespace.
+
 ## [1.0.6] - 05 Oct 2019
 
 ### Added
