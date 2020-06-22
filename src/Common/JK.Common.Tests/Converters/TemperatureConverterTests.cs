@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using JK.Common.Converters;
+using Xunit;
 
-namespace JK.Common.Tests.Math
+namespace JK.Common.Tests.Converters
 {
     public class TemperatureConverterTests
     {

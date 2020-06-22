@@ -1,7 +1,7 @@
-﻿using JK.Common.TypeHelpers;
+﻿using JK.Common.Converters;
 using Xunit;
 
-namespace JK.Common.Tests.TypeHelpers
+namespace JK.Common.Tests.Converters
 {
     public class BooleanConverterTests
     {
