@@ -18,6 +18,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added generic ADO classes for reference purposes (migrated from older code). 
 - Added Gzip helper class with CompressFile and DecompressFile methods. 
 - Added ServiceLocator namespace with basic pattern implementation.
+- Added DistanceConverter class and DistanceUnit enum. 
 
 ### Changed
 
