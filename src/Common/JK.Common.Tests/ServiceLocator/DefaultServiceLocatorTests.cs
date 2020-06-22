@@ -9,8 +9,8 @@ namespace JK.Common.Tests.ServiceLocator
         [Fact]
         public void Locate_GetCorrectTypeInstance()
         {
-            DefaultServiceLocator.Instance.Register<IIdentifiable<object>>(new ComplexObject());
-            var actual = DefaultServiceLocator.Instance.Locate<IIdentifiable<object>>();
+            DefaultServiceLocator.Instance.Register<IIdentifiable<int>>(new ComplexObject());
+            var actual = DefaultServiceLocator.Instance.Locate<IIdentifiable<int>>();
             Assert.IsType<ComplexObject>(actual);
         }
     }
