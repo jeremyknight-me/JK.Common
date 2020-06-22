@@ -20,6 +20,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Changed
 
 - Moved testable DateTime providers to their own folder/namespace.
+- Moved converters to their own folder/namespace.
 
 ## [1.0.6] - 05 Oct 2019
 
