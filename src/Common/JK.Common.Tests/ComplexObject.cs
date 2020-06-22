@@ -1,8 +1,9 @@
-﻿using System;
+﻿using JK.Common.Contracts;
+using System;
 
 namespace JK.Common.Tests
 {
-    public class ComplexObject
+    public class ComplexObject : IIdentifiable<object>
     {
         public ComplexObject()
         {
