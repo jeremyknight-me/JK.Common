@@ -9,6 +9,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## [Unreleased]
 
+Nothing...
+
+## [2.0.6] - 23 June 2020
+
 ### Common
 
 #### Added
@@ -53,5 +57,6 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Updated email validation regex.
 - Upgraded .NET version to Core 3.0.
 
-[Unreleased]: https://github.com/jeremyknight-me/JK.Common/compare/1.0.6...HEAD
+[Unreleased]: https://github.com/jeremyknight-me/JK.Common/compare/2.0.6...HEAD
+[2.0.6]: https://github.com/jeremyknight-me/JK.Common/compare/1.0.6...2.0.6
 [1.0.6]: https://github.com/jeremyknight-me/JK.Common/compare/1.0.5...1.0.6
