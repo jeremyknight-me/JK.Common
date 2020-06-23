@@ -19,8 +19,7 @@ namespace JK.Common.FluentValidation.Validators
 
         protected override bool IsValid(PropertyValidatorContext context)
         {
-            decimal longitude = Convert.ToDecimal(context.PropertyValue);
-
+            double longitude = Convert.ToDouble(context.PropertyValue); 
             var specification = new LongitudeSpecification();
             return specification.IsSatisfiedBy(longitude);
         }
