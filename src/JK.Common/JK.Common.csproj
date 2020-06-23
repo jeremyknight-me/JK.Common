@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
     <Version>2.0.0</Version>
     <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
