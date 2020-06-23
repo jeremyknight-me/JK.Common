@@ -7,7 +7,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | JK.Common.EntityFrameworkCore  | Coming Soon  |
 | JK.Common.EntityFrameworkCore.SqlServer  | Coming Soon  |
 | JK.Common.FluentValidation  | Coming Soon  |
-| Cross Library CI | ![Build status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/master-CI) |
+| Cross Library CI | ![.NET Core CI](https://github.com/jeremyknight-me/JK.Common/workflows/.NET%20Core%20CI/badge.svg) |
 
 ## Components
 
