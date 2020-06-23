@@ -4,9 +4,9 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | Library | Status |
 | ------------ | ------------ |
 | JK.Common | [![Nuget](https://img.shields.io/nuget/v/JK.Common.svg)](https://www.nuget.org/packages/JK.Common/) |
-| JK.Common.EntityFrameworkCore  | Coming Soon  |
-| JK.Common.EntityFrameworkCore.SqlServer  | Coming Soon  |
-| JK.Common.FluentValidation  | Coming Soon  |
+| JK.Common.EntityFrameworkCore  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
+| JK.Common.EntityFrameworkCore.SqlServer  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
+| JK.Common.FluentValidation  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
 | Cross Library CI | ![.NET Core CI](https://github.com/jeremyknight-me/JK.Common/workflows/.NET%20Core%20CI/badge.svg) |
 
 ## Components
