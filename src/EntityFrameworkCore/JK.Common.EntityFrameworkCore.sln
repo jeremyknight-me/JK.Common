@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.EntityFrameworkCore", "JK.Common.EntityFrameworkCore\JK.Common.EntityFrameworkCore.csproj", "{56086FF5-C11E-4C97-B5CD-814BE64D0D7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore", "JK.Common.EntityFrameworkCore\JK.Common.EntityFrameworkCore.csproj", "{56086FF5-C11E-4C97-B5CD-814BE64D0D7C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore.SqlServer", "JK.Common.EntityFrameworkCore.SqlServer\JK.Common.EntityFrameworkCore.SqlServer.csproj", "{B3279841-355F-4759-AD43-E1362523505E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.EntityFrameworkCore.Tests", "JK.Common.EntityFrameworkCore.Tests\JK.Common.EntityFrameworkCore.Tests.csproj", "{CACB1F44-DD3B-45DB-9DFC-77050538E50D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B3279841-355F-4759-AD43-E1362523505E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3279841-355F-4759-AD43-E1362523505E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3279841-355F-4759-AD43-E1362523505E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CACB1F44-DD3B-45DB-9DFC-77050538E50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACB1F44-DD3B-45DB-9DFC-77050538E50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACB1F44-DD3B-45DB-9DFC-77050538E50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACB1F44-DD3B-45DB-9DFC-77050538E50D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
