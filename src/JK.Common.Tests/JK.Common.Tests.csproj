@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JK.Common\JK.Common.csproj" />
+  </ItemGroup>
+
 </Project>
