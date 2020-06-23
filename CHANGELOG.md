@@ -9,7 +9,9 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## [Unreleased]
 
-### Added
+### Common
+
+#### Added
 
 - Added DistinctBy extension to IEnumerable.
 - Added DoesImplement<T> to TypeExtensions.
@@ -22,10 +24,24 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added InMemory data repositories for reference purposes (migrated from older code).
 - Added ADO Auditing for reference purposes (migrated from older code).
 
-### Changed
+#### Changed
 
 - Moved testable DateTime providers to their own folder/namespace.
 - Moved converters to their own folder/namespace.
+
+### EntityFrameworkCore
+
+#### Added
+
+- Added ReadOnlyDbContext.
+- Added AuditableEntity and AuditableEntitySaveChangesHelper.
+- Added AuditLog and AuditLogSaveChangesHelper.
+
+### EntityFrameworkCore.SqlServer
+
+#### Added
+
+- Added PropertyBuilderExtensions.
 
 ## [1.0.6] - 05 Oct 2019
 
