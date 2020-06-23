@@ -1,11 +1,11 @@
-﻿using JK.Common.EntityFrameworkCore.Auditing;
+﻿using JK.Common.EntityFrameworkCore.Auditing.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Xunit;
 
-namespace JK.Common.EntityFrameworkCore.Tests.Auditing
+namespace JK.Common.EntityFrameworkCore.Tests.Auditing.Entities
 {
     public class AuditableEntitySaveChangesHelperTests
     {
@@ -13,7 +13,7 @@ namespace JK.Common.EntityFrameworkCore.Tests.Auditing
         public void SaveChanges_Create()
         {
             var builder = new DbContextOptionsBuilder<AuditableEntityContext>();
-            builder.UseInMemoryDatabase("SaveChanges_Create");
+            builder.UseInMemoryDatabase("AuditableEntitySaveChangesHelperTests_SaveChanges_Create");
             var options = builder.Options;
             Guid entityId;
             using (var context = new AuditableEntityContext(options))
@@ -38,7 +38,7 @@ namespace JK.Common.EntityFrameworkCore.Tests.Auditing
         public void SaveChanges_Update()
         {
             var builder = new DbContextOptionsBuilder<AuditableEntityContext>();
-            builder.UseInMemoryDatabase("SaveChanges_Update");
+            builder.UseInMemoryDatabase("AuditableEntitySaveChangesHelperTests_SaveChanges_Update");
             var options = builder.Options;
             Guid entityId;
             using (var context = new AuditableEntityContext(options))

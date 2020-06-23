@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JK.Common.EntityFrameworkCore.Auditing
+namespace JK.Common.EntityFrameworkCore.Auditing.Entities
 {
     public class AuditableEntity
     {

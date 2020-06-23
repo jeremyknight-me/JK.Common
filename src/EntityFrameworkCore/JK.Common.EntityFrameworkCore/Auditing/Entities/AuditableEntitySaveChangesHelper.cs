@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
 
-namespace JK.Common.EntityFrameworkCore.Auditing
+namespace JK.Common.EntityFrameworkCore.Auditing.Entities
 {
     public class AuditableEntitySaveChangesHelper
     {

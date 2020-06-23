@@ -15,3 +15,4 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added ReadOnlyDbContext to EFCore library.
 - Added PropertyBuilderExtensions to EFCore.SqlServer library.
 - Added AuditableEntity and AuditableEntitySaveChangesHelper to EFCore library.
+- Added AuditLog and AuditLogSaveChangesHelper to EFCore library.
