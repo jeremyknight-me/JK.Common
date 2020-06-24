@@ -6,4 +6,7 @@
 /**/packages/
 /**/bin/
 /**/obj/
+_exported_templates
 _site
+api/**/*.manifest
+api/**/*.yml
