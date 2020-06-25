@@ -1,0 +1,1719 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/src/gh/jk/JK.Common/docs-project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Contracts.IIdentifiable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Contracts.IIdentifiable-1.html",
+          "hash": "knx3GrKl6bASu/g/WoH7rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Contracts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Contracts.html",
+          "hash": "z889ZNqVaW2SncdgVir27w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Converters.BooleanConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Converters.BooleanConverter.html",
+          "hash": "zoSyprUzhZQcLoAbnl/Fiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Converters.DistanceConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Converters.DistanceConverter.html",
+          "hash": "lh1eHE1qf/In3OU1xsMPew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Converters.TemperatureConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Converters.TemperatureConverter.html",
+          "hash": "6qOU2Id/Sg/iNARlgszClw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Converters.TimeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Converters.TimeConverter.html",
+          "hash": "R0G31unuyKri0eolB41c7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Converters.html",
+          "hash": "pmlHBPdm/vBVZ854OdP3Gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.AdoBaseOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.AdoBaseOperation.html",
+          "hash": "YiB4gLylufTFuzfMj0Xf1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.AdoBaseRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.AdoBaseRepository.html",
+          "hash": "vJkSG7xAQ7euXmPeS+lAMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.AdoNonQueryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.AdoNonQueryOperation.html",
+          "hash": "XmbTELzob7a2D9wjhlvARQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.AdoParameterFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.AdoParameterFactory.html",
+          "hash": "zxyGkI5jTB06cyzRsqNtcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.AdoQueryOperation-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.AdoQueryOperation-1.html",
+          "hash": "Nd/A8nsV0gfepe7se8Ei0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.AdoScalarOperation-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.AdoScalarOperation-1.html",
+          "hash": "ZKA9qAePx8DuzleqwCTGAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.Auditing.AdoAuditRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.Auditing.AdoAuditRepository.html",
+          "hash": "O+icWMzKbkwxyTEhcox5xA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.Auditing.AuditRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.Auditing.AuditRecord.html",
+          "hash": "HRb7zuqo3f09pQG2jaFNDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.Auditing.IAuditRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.Auditing.IAuditRepository.html",
+          "hash": "TsT0zNXnXh7VG3qCiJB/DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.Auditing.IAuditingService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.Auditing.IAuditingService.html",
+          "hash": "nn7l6aSTzgSB04CeY8Y42w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.Auditing.XmlAuditingService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.Auditing.XmlAuditingService.html",
+          "hash": "magDR9qi0Tbmfmzjqk64NA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.Auditing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.Auditing.html",
+          "hash": "apdHbwEhWIaU/RuOADGJrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Ado.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Ado.html",
+          "hash": "K6UPKNitp+M17ybPs92jeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Contracts.INonQueryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Contracts.INonQueryOperation.html",
+          "hash": "OFG75VGLJLdxo3t3I9c1pA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Contracts.IQueryOperation-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Contracts.IQueryOperation-1.html",
+          "hash": "TIuP6K82RE7BKa0xtHk2ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Contracts.IScalarOperation-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Contracts.IScalarOperation-1.html",
+          "hash": "5Odu81OWCJ1BIa1gz32FDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Contracts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Contracts.html",
+          "hash": "+Fgz7/iznk6R+3AyRZaIig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.DatabaseValueParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.DatabaseValueParser.html",
+          "hash": "HGFBYJwut1ztytox5zZ5Ew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Extensions.DataRecordExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Extensions.DataRecordExtensions.html",
+          "hash": "erWwnv98m7ePQbzUAnxM8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.Extensions.html",
+          "hash": "sDgK35S/3bIEq6mUKKhGAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryBase-2.html",
+          "hash": "eEZMRFtODVQ7aphAk4TnBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryGuidBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryGuidBase-1.html",
+          "hash": "w/hhdbJF6WfkRHQhCk91VQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryIntBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryIntBase-1.html",
+          "hash": "yZ29gzVo0yrM8VvCreXX9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryLongBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryLongBase-1.html",
+          "hash": "Hl8dgf75PZ2JQZvnvKqWmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryNumericBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.InMemory.InMemoryRepositoryNumericBase-2.html",
+          "hash": "cNHE6uVZzRjJvqScoxPpWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.InMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.InMemory.html",
+          "hash": "tUdkYAbeSU9nHSJFKm8B1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.ParameterFactoryBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.ParameterFactoryBase-1.html",
+          "hash": "1g3rAGHpVismiSSAytrEjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Data.html",
+          "hash": "w9zcXUHslSKrvWBgBxQSoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.DateTimeProviders.DateTimeOffsetProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.DateTimeProviders.DateTimeOffsetProvider.html",
+          "hash": "3qtmnW4vIO9S06WFQS0FgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.DateTimeProviders.DateTimeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.DateTimeProviders.DateTimeProvider.html",
+          "hash": "IGuW+GSQQlll88vknYsB4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.DateTimeProviders.DefaultDateTimeOffsetProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.DateTimeProviders.DefaultDateTimeOffsetProvider.html",
+          "hash": "8mb8+20d9VF+UimBY6brsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.DateTimeProviders.DefaultDateTimeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.DateTimeProviders.DefaultDateTimeProvider.html",
+          "hash": "5AljHYTVnsVtJCKswu3qPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.DateTimeProviders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.DateTimeProviders.html",
+          "hash": "WLFAACaPd9L0+yNgxT+wYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.DeepCloner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.DeepCloner.html",
+          "hash": "+nmJKXcflS77kEpV9xpy/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Enumerations.DistanceUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Enumerations.DistanceUnit.html",
+          "hash": "zuaWXMCiVMQlqVaRCbc43A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Enumerations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Enumerations.html",
+          "hash": "VY+6IXkjfgvW1vYQ7CsWpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.BooleanExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.BooleanExtensions.html",
+          "hash": "Y+9LyTOJ9wnPd0iQgu78xA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.ClassExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.ClassExtensions.html",
+          "hash": "GfAOVgi9zEI71amfz9VoMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.ConcurrentBagExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.ConcurrentBagExtensions.html",
+          "hash": "ZMVuQAoXuOczPP09SQIRtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.DateTimeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.DateTimeExtensions.html",
+          "hash": "xrWlANLedQ7sSmOHDuCjnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.EnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.EnumerableExtensions.html",
+          "hash": "IdRZ/pO4VoTxNJpnhuzqsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.QueryableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.QueryableExtensions.html",
+          "hash": "Hd777E0nG1oqG84NklOWUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.StringExtensions.html",
+          "hash": "yyWTNRwn8LAczENTh52H2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.TypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.TypeExtensions.html",
+          "hash": "sFeWEA8yCNfiLLgAmo6NBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Extensions.html",
+          "hash": "1P93G4dMJUG7G/5R6FqblQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.CoordinateBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.CoordinateBase.html",
+          "hash": "/v9DxUbRU7zPwX4H5q9iFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.CoordinateFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.CoordinateFactory.html",
+          "hash": "OQHj33e69sr5Um72UVvEbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.CoordinateFormatterBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.CoordinateFormatterBase.html",
+          "hash": "3emROyH/be5/6sHmKQDVjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.CoordinateHtmlFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.CoordinateHtmlFormatter.html",
+          "hash": "yUXHq2vduJXcaF3oI4ytcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.CoordinateTextFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.CoordinateTextFormatter.html",
+          "hash": "BNvqQd3e///SE/o920JfAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.CoordinateType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.CoordinateType.html",
+          "hash": "pbhcD6eocYjLgUbJshPXsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.Direction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.Direction.html",
+          "hash": "MuU+fdUEiq/G4/4S+M7CKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.DisplayFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.DisplayFormat.html",
+          "hash": "pueePT7+hcd0YGPyxo5kRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.Latitude.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.Latitude.html",
+          "hash": "j9G5KJ8x6IO69TGuOnaA6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.Longitude.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.Longitude.html",
+          "hash": "MmhsikP9a++Z19ne7O1LZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Geospatial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Geospatial.html",
+          "hash": "htnPidIDRtH8TWmY1jaOjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.ListItem-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.ListItem-1.html",
+          "hash": "oSj5byIdQLl8+eCzlVessA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.ListItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.ListItem.html",
+          "hash": "SCse3WW/g2P0XY0gZhDjIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.AndSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.AndSpecification-1.html",
+          "hash": "VyqrLEWLuVRWjEZnGDO0VA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.CompositeSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.CompositeSpecification-1.html",
+          "hash": "K9SvSyOtzT6ZxqLZrRcpjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.ISpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.ISpecification-1.html",
+          "hash": "fAXaTj6TSj9gloauTtiyfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.NotSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.NotSpecification-1.html",
+          "hash": "F4eknwXWtr52JEj6jpJBJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.OrSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.OrSpecification-1.html",
+          "hash": "5ePYMNZla48sI2HisZmHuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.Specification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.Specification-1.html",
+          "hash": "uY87kzG+DIb8yCMGkE64nw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Patterns.Specification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Patterns.Specification.html",
+          "hash": "barevUhR//OfctSpQlwGZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.ServiceLocator.DefaultServiceLocator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.ServiceLocator.DefaultServiceLocator.html",
+          "hash": "3tEl2/p+zbv14UpwMAr+zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.ServiceLocator.IServiceLocator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.ServiceLocator.IServiceLocator.html",
+          "hash": "wFhxokW0TYpmLmPTXfd3Tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.ServiceLocator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.ServiceLocator.html",
+          "hash": "W01/WaMerNHvT2ixSjYJyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.AlphabeticalSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.AlphabeticalSpecification.html",
+          "hash": "UKdDGwts+qV2fVFyZR4TMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.AlphanumericSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.AlphanumericSpecification.html",
+          "hash": "kYosxuUYDjnppApcI5WRTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.DateTimeSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.DateTimeSpecification.html",
+          "hash": "29pD3L/WCJFQxyxNjackFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.EmailSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.EmailSpecification.html",
+          "hash": "ARVKlPsJXZSJnGl8x+cHhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.InternetProtocolAddressSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.InternetProtocolAddressSpecification.html",
+          "hash": "dJHJw/g0NpW2fh/rmkHEpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.LatitudeSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.LatitudeSpecification.html",
+          "hash": "PiH/q/X0THH5R8szcRPiaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.LongitudeSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.LongitudeSpecification.html",
+          "hash": "uaZ2Wywq8LsN1gjqmUfp6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.MaximumLengthSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.MaximumLengthSpecification.html",
+          "hash": "Aljutzb+G6QOUfNLiRNHjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.NotEmptySpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.NotEmptySpecification.html",
+          "hash": "lDiQgqKw495+XzlZVl+ibw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.NumericSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.NumericSpecification.html",
+          "hash": "PzhvsbyQkSqzOTBKevv15Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.SqlDateSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.SqlDateSpecification.html",
+          "hash": "tf5SQvYsnXqpVIp42HePpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.UnitedStates.PhoneNumberSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.UnitedStates.PhoneNumberSpecification.html",
+          "hash": "Okq12O3zeXe2Z++5WnbWaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.UnitedStates.SocialSecurityNumberSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.UnitedStates.SocialSecurityNumberSpecification.html",
+          "hash": "mzBesWlRmEqBrUvj5WjwYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.UnitedStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.UnitedStates.html",
+          "hash": "QaX1sSfRcfufaJceKUsLag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.WeekdaySpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.WeekdaySpecification.html",
+          "hash": "OzVLGdiVr3lyONrGNAbVgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.ZipCodeSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.ZipCodeSpecification.html",
+          "hash": "rND8Jedg+v75gWqpLjSeYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Specifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Specifications.html",
+          "hash": "wYynVxvP3R3V1ovF/9dc3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Text.StringDelimiter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Text.StringDelimiter.html",
+          "hash": "uPsx4ulX3a+WPlkkqu3/Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Text.StringTruncater.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Text.StringTruncater.html",
+          "hash": "koYA6OgjYpBl3EvMrEe8uA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Text.TemplateProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Text.TemplateProcessor.html",
+          "hash": "GBiBtISIFiVgcdYXEDdX0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Text.html",
+          "hash": "0DsZoNgr7WDTPKZ/i6JD2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.DateTimeFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.DateTimeFormatter.html",
+          "hash": "iw21a0+Shi0njNYmpZ2J9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.DateTimeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.DateTimeHelper.html",
+          "hash": "GDY2ISXgz5sV27oz3BSbtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.EnumHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.EnumHelper.html",
+          "hash": "5fm6gp7gCOm8wtDBK93mfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.ExcelHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.ExcelHelper.html",
+          "hash": "DVonBXpnyAy1AcgRU55CDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.GZipHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.GZipHelper.html",
+          "hash": "N/WLYD3eZvVmZCUtzbGDgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.MathHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.MathHelper.html",
+          "hash": "9G7tUJiirmb00O6tMbOdeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.ProjectionComparer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.ProjectionComparer-1.html",
+          "hash": "GA1IssPW6xkHLj/zGWq0Jw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.StringHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.StringHelper.html",
+          "hash": "sVwdsJ8G+DCqOhYNlpP4Jw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.TypeHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.TypeHelpers.html",
+          "hash": "itRkyRjeGQNzyGgUoi1c7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Xml.XmlSerializationFacade.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Xml.XmlSerializationFacade.html",
+          "hash": "B2xguU8ul5N14VyPc49NnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.Xml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.Xml.html",
+          "hash": "s7bFwNBfktXYmXDmMLESKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/common/JK.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/JK.Common.html",
+          "hash": "wrAoGaMEyvjzC/vzmUZg1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/common/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/common/toc.html",
+          "hash": "vV1CT5fLaMQbsZd9zgAiuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore.sql/JK.Common.EntityFrameworkCore.SqlServer.Extensions.PropertyBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore.sql/JK.Common.EntityFrameworkCore.SqlServer.Extensions.PropertyBuilderExtensions.html",
+          "hash": "xZsBH0fcTGgJ11zqDNb9eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore.sql/JK.Common.EntityFrameworkCore.SqlServer.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore.sql/JK.Common.EntityFrameworkCore.SqlServer.Extensions.html",
+          "hash": "K+lXrECqus/xZf9kfNe27w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/efcore.sql/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore.sql/toc.html",
+          "hash": "ehF4584yzs5jVPFLatRo/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Entities.AuditableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Entities.AuditableEntity.html",
+          "hash": "eYp1qFvcueNExnSwsU9VEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Entities.AuditableEntitySaveChangesHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Entities.AuditableEntitySaveChangesHelper.html",
+          "hash": "vAtmmJ7bEoXXX/MPPTl7SA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Entities.html",
+          "hash": "p5u/zHyYX4a0P9AsJNr3Tw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.AuditEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.AuditEntry.html",
+          "hash": "+OAcv1xVhTdAJ3yu5UooRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.AuditLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.AuditLog.html",
+          "hash": "ZF84+pDGFOnQk/tX54/EDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.AuditLogSaveChangesHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.AuditLogSaveChangesHelper.html",
+          "hash": "nYwHLulS2UEVcy8sAyPflA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.IAuditableContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.IAuditableContext.html",
+          "hash": "+8usW4nWTP8aTsOR3XlS5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.Auditing.Sets.html",
+          "hash": "yZktR5hucETtRqR3G5HqTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.ReadOnlyDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.ReadOnlyDbContext.html",
+          "hash": "6EFWBYitQ5a4ovWHhhd+Pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/efcore/JK.Common.EntityFrameworkCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/JK.Common.EntityFrameworkCore.html",
+          "hash": "MvIPQGf4h7DlcSzQKZdNQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/efcore/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/efcore/toc.html",
+          "hash": "64FPzOyfONkufLekajPdig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.AlphaNumericValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.AlphaNumericValidator.html",
+          "hash": "wxUTiTP0dei4VvvYyalF9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.AlphabeticalValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.AlphabeticalValidator.html",
+          "hash": "vQExrhVYG7u66o6aeBdOhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.LatitudeValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.LatitudeValidator.html",
+          "hash": "/8/pbsgNSMUIToprNYAqcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.LongitudeValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.LongitudeValidator.html",
+          "hash": "zTA8iNiBrj+N6zw8WN4mKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.NullValidator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.NullValidator-1.html",
+          "hash": "B6xB+NAwZinewO/34wqZIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.SocialSecurityNumberValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.SocialSecurityNumberValidator.html",
+          "hash": "VoH+2lLDF1spq8EaG0Oknw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.SqlDateValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.SqlDateValidator.html",
+          "hash": "S3praNb7uomVxf8Vsdnm1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.UnitedStatesPhoneNumberValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.UnitedStatesPhoneNumberValidator.html",
+          "hash": "/0fnemNd2WJjDnGveb+WnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.ZipCodeValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.ZipCodeValidator.html",
+          "hash": "/jsWLQq2H1YoB/QcWJPV7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/JK.Common.FluentValidation.Validators.html",
+          "hash": "y8ElstufXV9attewDHZ81g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/fluentvalidation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/fluentvalidation/toc.html",
+          "hash": "dmmovMalQZmg+0gHjCVaeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "SauuXJ3Nhz16A6C7QQDprA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "+h6vPsxbvkL23KmhurMSQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "07zK6gVTtKruSpPa6ALmeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 1
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 130,
+          "skipped_file_count": 130
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
