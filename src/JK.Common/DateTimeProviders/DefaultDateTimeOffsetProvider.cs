@@ -2,37 +2,9 @@
 
 namespace JK.Common.DateTimeProviders
 {
-    public sealed class DefaultDateTimeOffsetProvider : DateTimeOffsetProvider
+    public sealed class DefaultDateTimeOffsetProvider : IDateTimeOffsetProvider
     {
-        #region Singleton Pattern Implementation
-
-        private static readonly object threadLock = new object();
-
-        private static DefaultDateTimeOffsetProvider instance;
-
-        private DefaultDateTimeOffsetProvider()
-        {
-        }
-
-        public static DefaultDateTimeOffsetProvider Instance
-        {
-            get
-            {
-                lock (threadLock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new DefaultDateTimeOffsetProvider();
-                    }
-                }
-
-                return instance;
-            }
-        }
-
-        #endregion
-
-        public override DateTimeOffset Now => DateTimeOffset.Now;
-        public override DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
+        public DateTimeOffset Now => DateTimeOffset.Now;
+        public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
     }
 }
