@@ -29,7 +29,7 @@ namespace JK.Common.Data.Ado
             //string providerName = ;
             //this.connectionString = ;
             this.connString = connectionString;
-            this.factory = DbProviderFactories.GetFactory(providerName);
+            //this.factory = DbProviderFactories.GetFactory(providerName);
         }
 
         /// <summary>
