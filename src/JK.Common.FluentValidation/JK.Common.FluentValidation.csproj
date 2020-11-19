@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="FluentValidation" Version="8.6.3" />
     <PackageReference Include="JK.Common" Version="1.0.6" />
   </ItemGroup>
 
