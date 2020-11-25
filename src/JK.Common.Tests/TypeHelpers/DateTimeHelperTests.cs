@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using JK.Common.TypeHelpers;
 using Xunit;
 
 namespace JK.Common.Tests.TypeHelpers
 {
-    public class DateTimeUtilityTests
+    public class DateTimeHelperTests
     {
         #region AddWorkDays() Tests
 
@@ -53,6 +54,28 @@ namespace JK.Common.Tests.TypeHelpers
             int actual = utility.CalculateAge(now, birthday);
             Assert.Equal(9, actual);
         }
+
+        #endregion
+
+        #region IsBetween() Tests
+
+        [Theory]
+        [MemberData(nameof(IsBetween_Data))]
+        public void IsBetween_Theories(bool expected, DateTime date, DateTime start, DateTime end)
+        {
+            var sut = new DateTimeHelper();
+            var actual = sut.IsBetween(date, start, end);
+            Assert.Equal(expected, actual);
+        }
+
+        public static IEnumerable<object[]> IsBetween_Data =>
+            new List<object[]>
+            {
+                new object[] { true, new DateTime(2020, 10, 26), new DateTime(2020, 10, 20), new DateTime(2020, 10, 30) },
+                new object[] { false, new DateTime(2020, 10, 15), new DateTime(2020, 10, 20), new DateTime(2020, 10, 30) },
+                new object[] { true, new DateTime(2020, 10, 26, 12, 0, 0), new DateTime(2020, 10, 26, 11, 59, 59), new DateTime(2020, 10, 26, 12, 0, 1) },
+                new object[] { false, new DateTime(2020, 10, 26, 11, 59, 58), new DateTime(2020, 10, 26, 11, 59, 59), new DateTime(2020, 10, 26, 12, 0, 1) }
+            };
 
         #endregion
 

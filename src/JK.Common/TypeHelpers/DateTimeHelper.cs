@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace JK.Common.TypeHelpers
 {
+    /// <summary>
+    /// Class which contains methods for DateTime manipulation
+    /// </summary>
     public class DateTimeHelper
     {
         /// <summary>
@@ -52,20 +55,14 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="birthday">Date of birth.</param>
         /// <returns>Age from birth date to date today.</returns>
-        public int CalculateAge(DateTime birthday)
-        {
-            return this.CalculateAge(DateTime.Today, birthday);
-        }
+        public int CalculateAge(DateTime birthday) => this.CalculateAge(DateTime.Today, birthday);
 
         /// <summary>
         /// Gets the abbreviated day name.
         /// </summary>
         /// <param name="date">Date of day.</param>
         /// <returns>Abbreviated day name.</returns>
-        public string GetAbbreviatedDayName(DateTime date)
-        {
-            return this.GetAbbreviatedDayName(date, CultureInfo.CurrentCulture);
-        }
+        public string GetAbbreviatedDayName(DateTime date) => this.GetAbbreviatedDayName(date, CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Gets the abbreviated day name.
@@ -73,20 +70,14 @@ namespace JK.Common.TypeHelpers
         /// <param name="date">Date of day.</param>
         /// <param name="currentCulture">Culture to use when getting day name.</param>
         /// <returns>Abbreviated day name.</returns>
-        public string GetAbbreviatedDayName(DateTime date, CultureInfo currentCulture)
-        {
-            return currentCulture.DateTimeFormat.GetAbbreviatedDayName(date.DayOfWeek);
-        }
+        public string GetAbbreviatedDayName(DateTime date, CultureInfo currentCulture) => currentCulture.DateTimeFormat.GetAbbreviatedDayName(date.DayOfWeek);
 
         /// <summary>
         /// Gets the abbreviated month name.
         /// </summary>
         /// <param name="date">Date within the month to abbreviate.</param>
         /// <returns>Abbreviated month name.</returns>
-        public string GetAbbreviatedMonthName(DateTime date)
-        {
-            return this.GetAbbreviatedMonthName(date, CultureInfo.CurrentCulture);
-        }
+        public string GetAbbreviatedMonthName(DateTime date) => this.GetAbbreviatedMonthName(date, CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Gets the abbreviated month name.
@@ -94,20 +85,14 @@ namespace JK.Common.TypeHelpers
         /// <param name="date">Date within the month to abbreviate.</param>
         /// <param name="currentCulture">Culture to use when getting month name.</param>
         /// <returns>Abbreviated month name.</returns>
-        public string GetAbbreviatedMonthName(DateTime date, CultureInfo currentCulture)
-        {
-            return currentCulture.DateTimeFormat.GetAbbreviatedMonthName(date.Month);
-        }
+        public string GetAbbreviatedMonthName(DateTime date, CultureInfo currentCulture) => currentCulture.DateTimeFormat.GetAbbreviatedMonthName(date.Month);
 
         /// <summary>
         /// Gets the full name of a given day.
         /// </summary>
         /// <param name="date">Date of day.</param>
         /// <returns>Full day name.</returns>
-        public string GetDayName(DateTime date)
-        {
-            return this.GetDayName(date, CultureInfo.CurrentCulture);
-        }
+        public string GetDayName(DateTime date) => this.GetDayName(date, CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Gets the full name of a given day.
@@ -115,20 +100,14 @@ namespace JK.Common.TypeHelpers
         /// <param name="date">Date of day.</param>
         /// <param name="currentCulture">Culture to use when getting day name.</param>
         /// <returns>Full day name.</returns>
-        public string GetDayName(DateTime date, CultureInfo currentCulture)
-        {
-            return currentCulture.DateTimeFormat.GetDayName(date.DayOfWeek);
-        }
+        public string GetDayName(DateTime date, CultureInfo currentCulture) => currentCulture.DateTimeFormat.GetDayName(date.DayOfWeek);
 
         /// <summary>
         /// Gets the full name of a month.
         /// </summary>
         /// <param name="date">Date within the month.</param>
         /// <returns>Full month name.</returns>
-        public string GetMonthName(DateTime date)
-        {
-            return this.GetMonthName(date, CultureInfo.CurrentCulture);
-        }
+        public string GetMonthName(DateTime date) => this.GetMonthName(date, CultureInfo.CurrentCulture);
 
         /// <summary>
         /// Gets the full name of a month.
@@ -136,10 +115,16 @@ namespace JK.Common.TypeHelpers
         /// <param name="date">Date within the month.</param>
         /// <param name="currentCulture">Culture to use when getting month name.</param>
         /// <returns>Full month name.</returns>
-        public string GetMonthName(DateTime date, CultureInfo currentCulture)
-        {
-            return currentCulture.DateTimeFormat.GetMonthName(date.Month);
-        }
+        public string GetMonthName(DateTime date, CultureInfo currentCulture) => currentCulture.DateTimeFormat.GetMonthName(date.Month);
+
+        /// <summary>
+        /// Determines whether or not a given date is between (inclusive) the given start and end dates.
+        /// </summary>
+        /// <param name="date">Date to check</param>
+        /// <param name="start">Start of date range to check</param>
+        /// <param name="end">End of date range to check</param>
+        /// <returns>True if date falls within range, otherwise false</returns>
+        public bool IsBetween(DateTime date, DateTime start, DateTime end) => start <= date && end >= date;
 
         /// <summary>
         /// Determines whether or not a given date is valid to place in a
@@ -147,10 +132,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="date">Date to check against SQL date.</param>
         /// <returns>True if valid SQL date, otherwise false.</returns>
-        public bool IsSqlDate(DateTime date)
-        {
-            return date.Year > 1753;
-        }
+        public bool IsSqlDate(DateTime date) => date.Year > 1753;
 
         /// <summary>
         /// Determines whether or not the given date is a weekday.
@@ -169,9 +151,6 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="date">Date to check.</param>
         /// <returns>True if weekend, otherwise false.</returns>
-        public bool IsWeekend(DateTime date)
-        {
-            return !this.IsWeekday(date);
-        }
+        public bool IsWeekend(DateTime date) => !this.IsWeekday(date);
     }
 }

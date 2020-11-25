@@ -84,6 +84,15 @@ namespace JK.Common.Extensions
         public static string GetMonthName(this DateTime dt, CultureInfo currentCulture) => new DateTimeHelper().GetMonthName(dt, currentCulture);
 
         /// <summary>
+        /// Determines whether or not a given date is between (inclusive) the given start and end dates.
+        /// </summary>
+        /// <param name="dt">Current DateTime object from extension method.</param>
+        /// <param name="start">Start of date range to check</param>
+        /// <param name="end">End of date range to check</param>
+        /// <returns>True if date falls within range, otherwise false</returns>
+        public static bool IsBetween(this DateTime dt, DateTime start, DateTime end) => new DateTimeHelper().IsBetween(dt, start, end);
+
+        /// <summary>
         /// Determines if given date is a weekday.
         /// </summary>
         /// <param name="dt">Current DateTime object from extension method.</param>
