@@ -58,6 +58,16 @@ namespace JK.Common.TypeHelpers
         public int CalculateAge(DateTime birthday) => this.CalculateAge(DateTime.Today, birthday);
 
         /// <summary>
+        /// Determines whether or not two date ranges overlap.
+        /// </summary>
+        /// <param name="startOne">Start date of range one</param>
+        /// <param name="endOne">End date of range one</param>
+        /// <param name="startTwo">Start date of range two</param>
+        /// <param name="endTwo">End date of range two</param>
+        /// <returns>True if overlap, otherwise false</returns>
+        public bool DoesOverlap(DateTime startOne, DateTime endOne, DateTime startTwo, DateTime endTwo) => startOne < endTwo && startTwo < endOne;
+
+        /// <summary>
         /// Gets the abbreviated day name.
         /// </summary>
         /// <param name="date">Date of day.</param>

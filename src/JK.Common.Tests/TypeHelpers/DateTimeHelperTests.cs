@@ -32,6 +32,27 @@ namespace JK.Common.Tests.TypeHelpers
             Assert.Equal(expected, actual);
         }
 
+
+        #region DoesOverlap() Tests
+
+        [Theory]
+        [MemberData(nameof(DoesOverlap_Data))]
+        public void DoesOverlap_Theories(bool expected, DateTime startOne, DateTime endOne, DateTime startTwo, DateTime endTwo)
+        {
+            var sut = new DateTimeHelper();
+            var actual = sut.DoesOverlap(startOne, endOne, startTwo, endTwo);
+            Assert.Equal(expected, actual);
+        }
+
+        public static IEnumerable<object[]> DoesOverlap_Data =>
+            new List<object[]>
+            {
+                new object[] { true, new DateTime(2020, 10, 1), new DateTime(2020, 10, 31), new DateTime(2020, 10, 20), new DateTime(2020, 11, 30) },
+                new object[] { false, new DateTime(2020, 10, 1), new DateTime(2020, 10, 31), new DateTime(2020, 11, 1), new DateTime(2020, 11, 30) }
+            };
+
+        #endregion
+
         #region IsBetween() Tests
 
         [Theory]
