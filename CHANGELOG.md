@@ -9,7 +9,23 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## [Unreleased]
 
-Nothing...
+### Common
+
+#### Added
+
+- Added EquatableFacade<T>
+- Added IsBetween DateTimeHelper/Extension method
+- Added DoesOverlap DateTimeHelper method
+  
+#### Changed
+
+- Changed DateTime/DateTimeOffset providers to use interfaces for dependency injection
+
+### EntityFrameworkCore.SqlServer
+
+#### Changed
+
+- Changed PropertyBuilderExtensions to be type specific
 
 ## [2.0.6] - 23 June 2020
 
