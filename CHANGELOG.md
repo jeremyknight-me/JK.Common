@@ -9,6 +9,12 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## [Unreleased]
 
+### All
+
+#### Added
+
+- Added .editorconfig file
+
 ### Common
 
 #### Added
