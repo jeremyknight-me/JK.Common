@@ -33,7 +33,7 @@ namespace JK.Common.Tests.Data.Ado.Auditing
         [Fact]
         public void AreEqual_OneIsNotNullTwoIsNull_NullException()
         {
-            ComplexObject objectOne = new ComplexObject(DateTime.Now);
+            var objectOne = new ComplexObject(DateTime.Now);
             ComplexObject objectTwo = null;
             var auditRepo = new Mock<IAuditRepository>();
             var auditService = new XmlAuditingService(auditRepo.Object);
@@ -44,7 +44,7 @@ namespace JK.Common.Tests.Data.Ado.Auditing
         public void AreEqual_OneIsNullTwoIsNotNull_NullException()
         {
             ComplexObject objectOne = null;
-            ComplexObject objectTwo = new ComplexObject(DateTime.Now);
+            var objectTwo = new ComplexObject(DateTime.Now);
             var auditRepo = new Mock<IAuditRepository>();
             var auditService = new XmlAuditingService(auditRepo.Object);
             var ex = Assert.Throws<ArgumentNullException>(() => auditService.AreEqual<int, ComplexObject>(objectOne, objectTwo));

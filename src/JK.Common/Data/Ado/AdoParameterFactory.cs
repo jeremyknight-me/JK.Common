@@ -22,6 +22,7 @@ namespace JK.Common.Data.Ado
         /// </summary>
         /// <param name="name">Name of parameter.</param>
         /// <param name="databaseType">Database type of parameter.</param>
+        /// <param name="direction">Parameter direction. Defaults to 'input'.</param>
         /// <returns>DbParameter object for the provider.</returns>
         public override IDbDataParameter Make(string name, DbType databaseType, ParameterDirection direction = ParameterDirection.Input)
         {

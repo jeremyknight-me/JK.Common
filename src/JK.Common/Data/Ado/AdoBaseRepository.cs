@@ -38,8 +38,7 @@ namespace JK.Common.Data.Ado
         /// <returns>DbConnection object for the provider.</returns>
         public DbConnection GetConnection()
         {
-            DbConnection connection = this.factory.CreateConnection();
-
+            var connection = this.factory.CreateConnection();
             if (connection != null)
             {
                 connection.ConnectionString = this.connString;
@@ -52,9 +51,6 @@ namespace JK.Common.Data.Ado
         /// Creates a DbParameterFactory which uses the correct DB factory type.
         /// </summary>
         /// <returns>DbParameterFactory object.</returns>
-        public AdoParameterFactory GetParameterFactory(IDbCommand command)
-        {
-            return new AdoParameterFactory(command);
-        }
+        public AdoParameterFactory GetParameterFactory(IDbCommand command) => new AdoParameterFactory(command);
     }
 }
