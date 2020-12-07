@@ -36,10 +36,11 @@ namespace JK.Common.Data
         /// <typeparam name="T">Generic type to use.</typeparam>
         /// <param name="name">Name of parameter.</param>
         /// <param name="value">Value to insert into parameter.</param>
+        /// <param name="direction">Parameter direction. Defaults to 'input'</param>
         /// <returns>DbParameter object for the provider.</returns>
         public IDbDataParameter Make<T>(string name, T value, ParameterDirection direction = ParameterDirection.Input)
         {
-            TDbType databaseType = this.Strategies[typeof(T)];
+            var databaseType = this.Strategies[typeof(T)];
             var parameter = this.Make(name, databaseType, direction);
             parameter.Value = value;
             return parameter;
@@ -51,10 +52,11 @@ namespace JK.Common.Data
         /// <typeparam name="T">Generic type to use.</typeparam>
         /// <param name="name">Name of parameter.</param>
         /// <param name="value">Value to insert into parameter.</param>
+        /// <param name="direction">Parameter direction. Defaults to 'input'</param>
         /// <returns>DbParameter object for the provider.</returns>
         public IDbDataParameter Make<T>(string name, T? value, ParameterDirection direction = ParameterDirection.Input) where T : struct
         {
-            TDbType databaseType = this.Strategies[typeof(T)];
+            var databaseType = this.Strategies[typeof(T)];
             var parameter = this.Make(name, databaseType, direction);
             parameter.Value = this.LoadValue(value);
             return parameter;
@@ -65,6 +67,7 @@ namespace JK.Common.Data
         /// </summary>
         /// <param name="name">Name of parameter.</param>
         /// <param name="value">String value to insert into parameter.</param>
+        /// <param name="direction">Parameter direction. Defaults to 'input'</param>
         /// <returns>DbParameter object for the provider.</returns>
         public IDbDataParameter Make(string name, string value, ParameterDirection direction = ParameterDirection.Input)
         {
@@ -84,19 +87,8 @@ namespace JK.Common.Data
             return parameter;
         }
 
-        private object LoadValue(string value)
-        {
-            if (!string.IsNullOrEmpty(value))
-            {
-                return value;
-            }
+        private object LoadValue(string value) => !string.IsNullOrEmpty(value) ? value : (object)DBNull.Value;
 
-            return DBNull.Value;
-        }
-
-        private object LoadValue<T>(T? value) where T : struct
-        {
-            return value.HasValue ? (object)value.Value : DBNull.Value;
-        }
+        private object LoadValue<T>(T? value) where T : struct => value.HasValue ? (object)value.Value : DBNull.Value;
     }
 }

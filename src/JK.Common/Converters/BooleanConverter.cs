@@ -26,17 +26,12 @@ namespace JK.Common.Converters
                 value = value.ToString().Trim();
             }
 
-            if (this.IsTrue(value))
+            return value switch
             {
-                return true;
-            }
-
-            if (this.IsFalse(value))
-            {
-                return false;
-            }
-
-            throw new ArgumentException("Value is not supported.");
+                var t when this.IsTrue(t) => true,
+                var f when this.IsFalse(f) => false,
+                _ => throw new ArgumentException("Value is not supported."),
+            };
         }
 
         public bool? ConvertToNullable(object value)
@@ -46,27 +41,15 @@ namespace JK.Common.Converters
                 value = value.ToString().Trim();
             }
 
-            if (this.IsNull(value))
-            {
-                return null;
-            }
-
-            return this.Convert(value);
+            return this.IsNull(value)
+                ? null
+                : (bool?)this.Convert(value);
         }
 
-        private bool IsTrue(object value)
-        {
-            return this.trueItems.Contains(value);
-        }
+        private bool IsTrue(object value) => this.trueItems.Contains(value);
 
-        private bool IsFalse(object value)
-        {
-            return this.falseItems.Contains(value);
-        }
+        private bool IsFalse(object value) => this.falseItems.Contains(value);
 
-        private bool IsNull(object value)
-        {
-            return this.nullItems.Contains(value);
-        }
+        private bool IsNull(object value) => this.nullItems.Contains(value);
     }
 }

@@ -12,7 +12,8 @@ namespace JK.Common.Data.Ado.Auditing
         /// <summary>
         /// Initializes a new instance of the AdoAuditRepository class.
         /// </summary>
-        /// <param name="connectionStringName">Name of the connection string as set up in the *.config file.</param>
+        /// <param name="providerName">Name of the provider</param>
+        /// <param name="connectionString">Name of the connection string as set up in the *.config file.</param>
         public AdoAuditRepository(string providerName, string connectionString)
             : base(providerName, connectionString)
         {
