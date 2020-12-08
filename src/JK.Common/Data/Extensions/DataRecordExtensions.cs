@@ -23,7 +23,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            object value = dataRecord[name];
+            var value = dataRecord[name];
             return DatabaseValueParser.GetValueOrDefault<T>(value);
         }
 
@@ -43,7 +43,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            object value = dataRecord[name];
+            var value = dataRecord[name];
             return DatabaseValueParser.GetValueOrDefault(value, defaultValue);
         }
 
@@ -62,7 +62,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            object value = dataRecord[index];
+            var value = dataRecord[index];
             return DatabaseValueParser.GetValueOrDefault<T>(value);
         }
 
@@ -82,7 +82,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            object value = dataRecord[index];
+            var value = dataRecord[index];
             return DatabaseValueParser.GetValueOrDefault(value, defaultValue);
         }
 
@@ -100,7 +100,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            object value = dataRecord[name];
+            var value = dataRecord[name];
             return DatabaseValueParser.GetValueOrNull<T>(value);
         }
 
@@ -118,7 +118,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            object value = dataRecord[index];
+            var value = dataRecord[index];
             return DatabaseValueParser.GetValueOrNull<T>(value);
         }
 
@@ -135,7 +135,7 @@ namespace JK.Common.Data.Extensions
                 throw new ArgumentNullException(nameof(dataRecord));
             }
 
-            for (int i = 0; i < dataRecord.FieldCount; i++)
+            for (var i = 0; i < dataRecord.FieldCount; i++)
             {
                 if (dataRecord.GetName(i).Equals(columnName, StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -152,14 +152,8 @@ namespace JK.Common.Data.Extensions
         /// <param name="dataRecord">Current IDataRecord object from extension method.</param>
         /// <param name="name">Name of field within IDataRecord.</param>
         /// <returns>True if DBNull, otherwise false.</returns>
-        public static bool IsDbNull(this IDataRecord dataRecord, string name)
-        {
-            if (dataRecord == null)
-            {
-                throw new ArgumentNullException(nameof(dataRecord));
-            }
-
-            return dataRecord.IsDBNull(dataRecord.GetOrdinal(name));
-        }
+        public static bool IsDbNull(this IDataRecord dataRecord, string name) => dataRecord is null
+                ? throw new ArgumentNullException(nameof(dataRecord))
+                : dataRecord.IsDBNull(dataRecord.GetOrdinal(name));
     }
 }

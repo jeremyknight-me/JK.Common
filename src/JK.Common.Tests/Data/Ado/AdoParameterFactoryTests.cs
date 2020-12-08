@@ -66,7 +66,7 @@ namespace JK.Common.Tests.Data.Ado
         [Fact]
         public void Make_NameAndDateTimeNotNull_Equal()
         {
-            DateTime parameterValue = DateTime.Now;
+            var parameterValue = DateTime.Now;
             var target = this.GetFactory();
             var parameter = target.Make(parameterName, parameterValue);
             Assert.Equal("test", parameter.ParameterName);

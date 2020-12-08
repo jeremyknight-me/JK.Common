@@ -376,9 +376,6 @@ namespace JK.Common.Data.Sql.Tests
 
         #endregion
 
-        private SqlParameterFactory GetFactory()
-        {
-            return new SqlParameterFactory(new SqlCommand());
-        }
+        private SqlParameterFactory GetFactory() => new SqlParameterFactory(new SqlCommand());
     }
 }

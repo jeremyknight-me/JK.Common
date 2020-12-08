@@ -15,10 +15,7 @@ namespace JK.Common.Data.InMemory
 
         public Dictionary<TKey, TEntityType> Dictionary { get; }
 
-        public void Delete(TEntityType entity)
-        {
-            this.Dictionary.Remove(entity.Id);
-        }
+        public void Delete(TEntityType entity) => _ = this.Dictionary.Remove(entity.Id);
 
         public abstract TKey GetNewId();
 
@@ -34,30 +31,18 @@ namespace JK.Common.Data.InMemory
             }
         }
 
-        public IEnumerable<TEntityType> SelectAll()
-        {
-            return this.Dictionary.Values.Where(x => x != null).ToArray();
-        }
+        public IEnumerable<TEntityType> SelectAll() => this.Dictionary.Values.Where(x => x != null).ToArray();
 
-        public TEntityType SelectById(TKey id)
-        {
-            return this.Dictionary.ContainsKey(id) ? this.Dictionary[id] : null;
-        }
+        public TEntityType SelectById(TKey id) => this.Dictionary.ContainsKey(id) ? this.Dictionary[id] : null;
 
-        private bool ContainsItem(TEntityType entity)
-        {
-            return this.Dictionary.ContainsKey(entity.Id) && this.Dictionary[entity.Id] != null;
-        }
+        private bool ContainsItem(TEntityType entity) => this.Dictionary.ContainsKey(entity.Id) && this.Dictionary[entity.Id] != null;
 
         private void Add(TEntityType entity)
         {
-            TKey newId = this.GetNewId();
+            var newId = this.GetNewId();
             this.Dictionary.Add(newId, entity);
         }
 
-        private void Update(TEntityType entity)
-        {
-            this.Dictionary[entity.Id] = entity;
-        }
+        private void Update(TEntityType entity) => this.Dictionary[entity.Id] = entity;
     }
 }
