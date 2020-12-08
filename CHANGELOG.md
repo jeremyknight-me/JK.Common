@@ -26,6 +26,14 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 #### Changed
 
 - Changed DateTime/DateTimeOffset providers to use interfaces for dependency injection
+- Changed ADO operation classes to work in .NET Core
+
+### Common.Data.Sql
+
+#### Added
+
+- Added library
+- Added SqlParameterFactory
 
 ### EntityFrameworkCore.SqlServer
 
