@@ -7,7 +7,7 @@ namespace JK.Common.Data.Ado
         /// <summary>
         /// Initializes a new instance of the <see cref="OperationBase"/> class.
         /// </summary>
-        /// <param name="DataContextBase">The ADO base data context to use.</param>
+        /// <param name="context">The ADO base data context to use.</param>
         protected OperationBase(DataContextBase context)
         {
             this.Context = context;
