@@ -7,7 +7,7 @@ namespace JK.Common.Data.Sql
     /// <summary>
     /// Class which created and sets up DbParameters for ADO use.
     /// </summary>
-    public class SqlParameterFactory : ParameterFactoryBase<SqlDbType>, IParameterFactory
+    public class SqlParameterFactory : ParameterFactoryBase<SqlDbType>
     {
         /// <summary>
         /// Initializes a new instance of the SqlParameterFactory class.
