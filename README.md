@@ -4,6 +4,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | Library | Status |
 | ------------ | ------------ |
 | JK.Common | [![Nuget](https://img.shields.io/nuget/v/JK.Common.svg)](https://www.nuget.org/packages/JK.Common/) |
+| JK.Common.Data.Sql | [![Nuget](https://img.shields.io/nuget/v/JK.Common.Data.Sql.svg)](https://www.nuget.org/packages/JK.Common.Data.Sql/) |
 | JK.Common.EntityFrameworkCore  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
 | JK.Common.EntityFrameworkCore.SqlServer  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
 | JK.Common.FluentValidation  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
@@ -17,6 +18,9 @@ A utility library containing boilerplate code, extension methods, new classes, a
  - Deep Cloner
  - Latitude and Longitude Classes
  - Template Processing
+
+### JK.Common.Data.Sql
+ - Generic SqlBulkCopy Operation
 
 ### JK.Common.EntityFrameworkCore Components
 
