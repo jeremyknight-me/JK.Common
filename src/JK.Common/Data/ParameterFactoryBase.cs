@@ -4,7 +4,7 @@ using System.Data;
 
 namespace JK.Common.Data
 {
-    public abstract class ParameterFactoryBase<TDbType> where TDbType : struct, IConvertible
+    public abstract class ParameterFactoryBase<TDbType> : IParameterFactory where TDbType : struct, IConvertible
     {
         private readonly IDbCommand command;
         private Dictionary<Type, TDbType> strategies;
