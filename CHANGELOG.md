@@ -34,6 +34,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added library
 - Added SqlParameterFactory
+- Added SqlBulkInsertOperation
 
 ### EntityFrameworkCore.SqlServer
 
