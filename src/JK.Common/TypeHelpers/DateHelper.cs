@@ -111,6 +111,13 @@ namespace JK.Common.TypeHelpers
         /// <returns>True if date falls within range, otherwise false</returns>
         public static bool IsBetween(DateTime date, DateTime start, DateTime end) => start <= date && end >= date;
 
+        /// <summary>Determines whether or not a given date is between (inclusive) the given start and end dates.</summary>
+        /// <param name="date">Date to check</param>
+        /// <param name="start">Start of date range to check</param>
+        /// <param name="end">End of date range to check</param>
+        /// <returns>True if date falls within range, otherwise false</returns>
+        public static bool IsBetween(DateTimeOffset date, DateTimeOffset start, DateTimeOffset end) => start <= date && end >= date;
+
         /// <summary>Determines whether or not a given date is valid to place in a SQL datetime column.</summary>
         /// <param name="date">Date to check against SQL datetime.</param>
         /// <returns>True if valid SQL date, otherwise false.</returns>
