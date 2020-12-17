@@ -9,7 +9,18 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## [Unreleased]
 
- - Nothing at this time. 
+### Common
+
+#### Added 
+
+- Added DateTimeOffsetFactory to allow creating of DateTimeOffset from DateTime and TimeZoneId.
+- Added DateTimeOffset overloads for all DateHelper methods.
+- Added DateTimeOffset extension methods to match current DateTime extensions.
+
+#### Changed
+
+- Renamed DateTimeHelper to DateHelper to add DateTimeOffset overloads.
+- Changed all DateHelper methods to static.
 
 ## [2.0.9] - 10 Dec 2020
 
