@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions
@@ -24,44 +23,20 @@ namespace JK.Common.Extensions
         /// <returns>Abbreviated day name.</returns>
         public static string GetAbbreviatedDayName(this DateTime dt) => DateHelper.GetAbbreviatedDayName(dt);
 
-        /// <summary>Gets the abbreviated day name.</summary>
-        /// <param name="dt">Current DateTime object from extension method.</param>
-        /// <param name="currentCulture">Culture to use when getting day name.</param>
-        /// <returns>Abbreviated day name.</returns>
-        public static string GetAbbreviatedDayName(this DateTime dt, CultureInfo currentCulture) => DateHelper.GetAbbreviatedDayName(dt, currentCulture);
-
         /// <summary>Gets the abbreviated month name.</summary>
         /// <param name="dt">Current DateTime object from extension method.</param>
         /// <returns>Abbreviated month name.</returns>
         public static string GetAbbreviatedMonthName(this DateTime dt) => DateHelper.GetAbbreviatedMonthName(dt);
-
-        /// <summary>Gets the abbreviated month name.</summary>
-        /// <param name="dt">Current DateTime object from extension method.</param>
-        /// <param name="currentCulture">Culture to use when getting month name.</param>
-        /// <returns>Abbreviated month name.</returns>
-        public static string GetAbbreviatedMonthName(this DateTime dt, CultureInfo currentCulture) => DateHelper.GetAbbreviatedMonthName(dt, currentCulture);
 
         /// <summary>Gets the full name of a given day.</summary>
         /// <param name="dt">Current DateTime object from extension method.</param>
         /// <returns>Full day name.</returns>
         public static string GetDayName(this DateTime dt) => DateHelper.GetDayName(dt);
 
-        /// <summary>Gets the full name of a given day.</summary>
-        /// <param name="dt">Current DateTime object from extension method.</param>
-        /// <param name="currentCulture">Culture to use when getting day name.</param>
-        /// <returns>Full day name.</returns>
-        public static string GetDayName(this DateTime dt, CultureInfo currentCulture) => DateHelper.GetDayName(dt, currentCulture);
-
         /// <summary>Gets the full name of a month.</summary>
         /// <param name="dt">Current DateTime object from extension method.</param>
         /// <returns>Full month name.</returns>
         public static string GetMonthName(this DateTime dt) => DateHelper.GetMonthName(dt);
-
-        /// <summary>Gets the full name of a month.</summary>
-        /// <param name="dt">Current DateTime object from extension method.</param>
-        /// <param name="currentCulture">Culture to use when getting month name.</param>
-        /// <returns>Full month name.</returns>
-        public static string GetMonthName(this DateTime dt, CultureInfo currentCulture) => DateHelper.GetMonthName(dt, currentCulture);
 
         /// <summary>Determines whether or not a given date is between (inclusive) the given start and end dates.</summary>
         /// <param name="dt">Current DateTime object from extension method.</param>

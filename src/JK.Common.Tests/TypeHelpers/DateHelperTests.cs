@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using JK.Common.TypeHelpers;
 using Xunit;
 
@@ -7,16 +6,31 @@ namespace JK.Common.Tests.TypeHelpers
 {
     public class DateHelperTests
     {
+        #region AddWorkDays() Tests
+
         [Theory]
         [InlineData("2019-09-16", 5, 23)] // start on monday
         [InlineData("2019-09-16", 4, 20)]
         [InlineData("2019-09-16", -5, 9)]
-        public void AddWorkDays_Theories(string startDay, int daysToAdd, int expectedDay)
+        public void AddWorkDays_DateTime_Theories(string startDay, int daysToAdd, int expectedDay)
         {
             var original = DateTime.Parse(startDay);
             var actual = DateHelper.AddWorkDays(original, daysToAdd);
             Assert.Equal(expectedDay, actual.Day);
         }
+
+        [Theory]
+        [InlineData("2019-09-16", 5, 23)] // start on monday
+        [InlineData("2019-09-16", 4, 20)]
+        [InlineData("2019-09-16", -5, 9)]
+        public void AddWorkDays_DateTimeOffset_Theories(string startDay, int daysToAdd, int expectedDay)
+        {
+            var original = DateTimeOffset.Parse(startDay);
+            var actual = DateHelper.AddWorkDays(original, daysToAdd);
+            Assert.Equal(expectedDay, actual.Day);
+        }
+
+        #endregion
 
         [Theory]
         [InlineData(29, "1983-03-15", "2012-06-12")]
@@ -33,19 +47,22 @@ namespace JK.Common.Tests.TypeHelpers
         #region DoesOverlap() Tests
 
         [Theory]
-        [MemberData(nameof(DoesOverlap_Data))]
-        public void DoesOverlap_Theories(bool expected, DateTime startOne, DateTime endOne, DateTime startTwo, DateTime endTwo)
+        [InlineData(true, "2020-10-01", "2020-10-31", "2020-10-20", "2020-11-30")]
+        [InlineData(false, "2020-10-01", "2020-10-31", "2020-11-01", "2020-11-30")]
+        public void DoesOverlap_DateTime_Theories(bool expected, string startOne, string endOne, string startTwo, string endTwo)
         {
-            var actual = DateHelper.DoesOverlap(startOne, endOne, startTwo, endTwo);
+            var actual = DateHelper.DoesOverlap(DateTime.Parse(startOne), DateTime.Parse(endOne), DateTime.Parse(startTwo), DateTime.Parse(endTwo));
             Assert.Equal(expected, actual);
         }
 
-        public static IEnumerable<object[]> DoesOverlap_Data =>
-            new List<object[]>
-            {
-                new object[] { true, new DateTime(2020, 10, 1), new DateTime(2020, 10, 31), new DateTime(2020, 10, 20), new DateTime(2020, 11, 30) },
-                new object[] { false, new DateTime(2020, 10, 1), new DateTime(2020, 10, 31), new DateTime(2020, 11, 1), new DateTime(2020, 11, 30) }
-            };
+        [Theory]
+        [InlineData(true, "2020-10-01", "2020-10-31", "2020-10-20", "2020-11-30")]
+        [InlineData(false, "2020-10-01", "2020-10-31", "2020-11-01", "2020-11-30")]
+        public void DoesOverlap_DateTimeOffset_Theories(bool expected, string startOne, string endOne, string startTwo, string endTwo)
+        {
+            var actual = DateHelper.DoesOverlap(DateTimeOffset.Parse(startOne), DateTimeOffset.Parse(endOne), DateTimeOffset.Parse(startTwo), DateTimeOffset.Parse(endTwo));
+            Assert.Equal(expected, actual);
+        }
 
         #endregion
 
