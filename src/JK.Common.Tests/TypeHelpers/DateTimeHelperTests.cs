@@ -28,7 +28,7 @@ namespace JK.Common.Tests.TypeHelpers
             var birthday = new DateTime(bdayYear, bdayMonth, bdayDay);
             var now = new DateTime(nowYear, nowMonth, nowDay);
             var sut = new DateTimeHelper();
-            int actual = sut.CalculateAge(now, birthday);
+            var actual = sut.CalculateAge(now, birthday);
             Assert.Equal(expected, actual);
         }
 
