@@ -5,33 +5,30 @@ using Xunit;
 
 namespace JK.Common.Tests.TypeHelpers
 {
-    public class DateTimeHelperTests
+    public class DateHelperTests
     {
         [Theory]
-        [InlineData(16, 5, 23)] // start on monday
-        [InlineData(16, 4, 20)]
-        [InlineData(16, -5, 9)]
-        public void AddWorkDays_Theories(int startDay, int daysToAdd, int expectedDay)
+        [InlineData("2019-09-16", 5, 23)] // start on monday
+        [InlineData("2019-09-16", 4, 20)]
+        [InlineData("2019-09-16", -5, 9)]
+        public void AddWorkDays_Theories(string startDay, int daysToAdd, int expectedDay)
         {
-            var original = new DateTime(2019, 9, startDay); // monday
-            var helper = new DateTimeHelper();
-            var actual = helper.AddWorkDays(original, daysToAdd);
+            var original = DateTime.Parse(startDay);
+            var actual = DateHelper.AddWorkDays(original, daysToAdd);
             Assert.Equal(expectedDay, actual.Day);
         }
 
         [Theory]
-        [InlineData(29, 1983, 3, 15, 2012, 6, 12)]
-        [InlineData(8, 2000, 2, 29, 2009, 2, 28)] // leap year not reached
-        [InlineData(9, 2000, 2, 29, 2009, 3, 1)] // leap year reached
-        public void CalculateAge_Theories(int expected, int bdayYear, int bdayMonth, int bdayDay, int nowYear, int nowMonth, int nowDay)
+        [InlineData(29, "1983-03-15", "2012-06-12")]
+        [InlineData(8,  "2000-02-29", "2009-02-28")] // leap year not reached
+        [InlineData(9,  "2000-02-29", "2009-03-01")] // leap year reached
+        public void CalculateAge_Theories(int expected, string birthday, string now)
         {
-            var birthday = new DateTime(bdayYear, bdayMonth, bdayDay);
-            var now = new DateTime(nowYear, nowMonth, nowDay);
-            var sut = new DateTimeHelper();
-            var actual = sut.CalculateAge(now, birthday);
+            var birthdayDate = DateTime.Parse(birthday);
+            var nowDate = DateTime.Parse(now);
+            var actual = DateHelper.CalculateAge(nowDate, birthdayDate);
             Assert.Equal(expected, actual);
         }
-
 
         #region DoesOverlap() Tests
 
@@ -39,8 +36,7 @@ namespace JK.Common.Tests.TypeHelpers
         [MemberData(nameof(DoesOverlap_Data))]
         public void DoesOverlap_Theories(bool expected, DateTime startOne, DateTime endOne, DateTime startTwo, DateTime endTwo)
         {
-            var sut = new DateTimeHelper();
-            var actual = sut.DoesOverlap(startOne, endOne, startTwo, endTwo);
+            var actual = DateHelper.DoesOverlap(startOne, endOne, startTwo, endTwo);
             Assert.Equal(expected, actual);
         }
 
@@ -59,8 +55,7 @@ namespace JK.Common.Tests.TypeHelpers
         [MemberData(nameof(IsBetween_Data))]
         public void IsBetween_Theories(bool expected, DateTime date, DateTime start, DateTime end)
         {
-            var sut = new DateTimeHelper();
-            var actual = sut.IsBetween(date, start, end);
+            var actual = DateHelper.IsBetween(date, start, end);
             Assert.Equal(expected, actual);
         }
 
@@ -75,26 +70,25 @@ namespace JK.Common.Tests.TypeHelpers
 
         #endregion
 
+
         [Theory]
-        [InlineData(true, 2011, 1, 18)] // Tuesday Jan 18, 2011
-        [InlineData(false, 2011, 1, 15)] // Saturday Jan 15, 2011
-        public void IsWeekday_Theories(bool expected, int year, int month, int day)
+        [InlineData(false, "1700-01-18")]
+        [InlineData(true, "2011-01-15")]
+        public void IsSqlDate_Theories(bool expected, string dateInput)
         {
-            var date = new DateTime(year, month, day);
-            var sut = new DateTimeHelper();
-            var actual = sut.IsWeekday(date);
+            var date = DateTime.Parse(dateInput);
+            var actual = DateHelper.IsSqlDate(date);
             Assert.Equal(expected, actual);
         }
 
         [Theory]
-        [InlineData(false, 2011, 1, 18)] // Tuesday Jan 18, 2011
-        [InlineData(true, 2011, 1, 15)] // Saturday Jan 15, 2011
-        public void IsWeekend_Theories(bool expected, int year, int month, int day)
+        [InlineData(true,  "2011-01-18")] // Tuesday Jan 18, 2011
+        [InlineData(false, "2011-01-15")] // Saturday Jan 15, 2011
+        public void IsWeekday_Theories(bool expected, string dateInput)
         {
-            var date = new DateTime(year, month, day);
-            var sut = new DateTimeHelper();
-            var actual = sut.IsWeekend(date);
-            Assert.Equal(expected, actual);
+            var date = DateTime.Parse(dateInput);
+            Assert.Equal(expected, DateHelper.IsWeekday(date));
+            Assert.Equal(!expected, DateHelper.IsWeekend(date));
         }
     }
 }

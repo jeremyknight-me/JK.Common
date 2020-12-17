@@ -5,7 +5,7 @@ namespace JK.Common.TypeHelpers
     /// <summary>
     /// Class which contains methods which formats a DateTime into a string.
     /// </summary>
-    public class DateTimeFormatter
+    public static class DateTimeFormatter
     {
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
