@@ -13,10 +13,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: Sunday, January 31, 2010 12:45:30 PM</returns>
-        public static string FormatAsFullDateLongTimeString(DateTime dateTime)
-        {
-            return $"{dateTime:f}";
-        }
+        public static string FormatAsFullDateLongTimeString(DateTime dateTime) => $"{dateTime:f}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -24,10 +21,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: Sunday, January 31, 2010 12:45 PM</returns>
-        public static string FormatAsFullDateShortTimeString(DateTime dateTime)
-        {
-            return $"{dateTime:f}";
-        }
+        public static string FormatAsFullDateShortTimeString(DateTime dateTime) => $"{dateTime:f}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -35,10 +29,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: 1/31/2010 12:45 PM</returns>
-        public static string FormatAsGeneralDateShortTimeString(DateTime dateTime)
-        {
-            return $"{dateTime:g}";
-        }
+        public static string FormatAsGeneralDateShortTimeString(DateTime dateTime) => $"{dateTime:g}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -46,10 +37,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: January 31</returns>
-        public static string FormatAsMonthDayString(DateTime dateTime)
-        {
-            return $"{dateTime:M}";
-        }
+        public static string FormatAsMonthDayString(DateTime dateTime) => $"{dateTime:M}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -57,10 +45,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: Sun, 31 Jan 2010 12:45:30 GMT</returns>
-        public static string FormatAsRfc1123String(DateTime dateTime)
-        {
-            return $"{dateTime:R}";
-        }
+        public static string FormatAsRfc1123String(DateTime dateTime) => $"{dateTime:R}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -68,10 +53,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: 2010-01-31T12:45:30</returns>
-        public static string FormatAsSortableDateTimeString(DateTime dateTime)
-        {
-            return $"{dateTime:s}";
-        }
+        public static string FormatAsSortableDateTimeString(DateTime dateTime) => $"{dateTime:s}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -79,10 +61,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: 2010-01-31 12:45:30Z</returns>
-        public static string FormatAsUniversalSortableString(DateTime dateTime)
-        {
-            return $"{dateTime:u}";
-        }
+        public static string FormatAsUniversalSortableString(DateTime dateTime) => $"{dateTime:u}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -91,10 +70,7 @@ namespace JK.Common.TypeHelpers
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: Sunday, January 31, 2010 6:45:30 PM
         /// (This takes into account time zone and returns UTC time)</returns>
-        public static string FormatAsUniversalString(DateTime dateTime)
-        {
-            return $"{dateTime:U}";
-        }
+        public static string FormatAsUniversalString(DateTime dateTime) => $"{dateTime:U}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
@@ -102,9 +78,6 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="dateTime">DateTime to convert to a string.</param>
         /// <returns>Date and time string in the format: January, 2010</returns>
-        public static string FormatAsYearMonthString(DateTime dateTime)
-        {
-            return $"{dateTime:Y}";
-        }
+        public static string FormatAsYearMonthString(DateTime dateTime) => $"{dateTime:Y}";
     }
 }
