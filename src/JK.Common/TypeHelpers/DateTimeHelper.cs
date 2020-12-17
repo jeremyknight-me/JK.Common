@@ -16,11 +16,11 @@ namespace JK.Common.TypeHelpers
         /// <returns>The date the given amount of business days from the start date.</returns>
         public DateTime AddWorkDays(DateTime date, int days)
         {
-            int direction = days < 0 ? -1 : 1;
-            int completeWeeks = days / 5;
-            DateTime newDate = date.AddDays(completeWeeks * 7);
-            days = days % 5;
-            for (int i = 0; i < Math.Abs(days); i++)
+            var direction = days < 0 ? -1 : 1;
+            var completeWeeks = days / 5;
+            var newDate = date.AddDays(completeWeeks * 7);
+            days %= 5;
+            for (var i = 0; i < Math.Abs(days); i++)
             {
                 newDate = newDate.AddDays(direction);
                 while (!this.IsWeekday(newDate))
@@ -39,8 +39,8 @@ namespace JK.Common.TypeHelpers
         /// <returns>Age from birth date to given date.</returns>
         public int CalculateAge(DateTime currentDate, DateTime birthday)
         {
-            DateTime now = currentDate.Date;
-            int age = now.Year - birthday.Year;
+            var now = currentDate.Date;
+            var age = now.Year - birthday.Year;
 
             if (birthday > now.AddYears(-age))
             {
@@ -151,7 +151,7 @@ namespace JK.Common.TypeHelpers
         /// <returns>True if weekday, otherwise false.</returns>
         public bool IsWeekday(DateTime date)
         {
-            DayOfWeek dayOfWeek = date.DayOfWeek;
+            var dayOfWeek = date.DayOfWeek;
             return dayOfWeek != DayOfWeek.Saturday
                 && dayOfWeek != DayOfWeek.Sunday;
         }
