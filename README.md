@@ -8,7 +8,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | JK.Common.EntityFrameworkCore  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
 | JK.Common.EntityFrameworkCore.SqlServer  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
 | JK.Common.FluentValidation  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
-| Cross Library CI | [![Build status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/master%20CI)](https://dev.azure.com/knight0323/Common%20Library/_build/latest?definitionId=5) |
+| Cross Library CI | [![Build status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/ci-master)](https://dev.azure.com/knight0323/Common%20Library/_build/latest?definitionId=5) |
 
 ## Components
 
