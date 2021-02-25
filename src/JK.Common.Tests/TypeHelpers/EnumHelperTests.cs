@@ -40,7 +40,7 @@ namespace JK.Common.Tests.TypeHelpers
         [Fact]
         public void ConvertToListItems_Test()
         {
-            var data = new EnumHelper().ConvertToListItems(typeof(Colors));
+            var data = EnumHelper.ConvertToListItems(typeof(Colors));
             Assert.Equal(2, data.Count());
             Assert.Equal("Green", data.First().Text);
             Assert.Equal("Cyan", data.Last().Text);

@@ -17,7 +17,7 @@ namespace JK.Common.TypeHelpers
         /// </summary>
         /// <param name="type">Enum Type to use. Ex: typeof(EnumTypeName</param>
         /// <returns>A list of ListItem for the given enum.</returns>
-        public IEnumerable<ListItem> ConvertToListItems(Type type)
+        public static IEnumerable<ListItem> ConvertToListItems(Type type)
         {
             if (type == null)
             {
@@ -29,7 +29,7 @@ namespace JK.Common.TypeHelpers
                 throw new ArgumentException("The 'type' parameter must contain an Enum type.");
             }
 
-            foreach (string name in Enum.GetNames(type))
+            foreach (var name in Enum.GetNames(type))
             {
                 var field = type.GetField(name);
                 var attribute = field.GetCustomAttributes(typeof(DisplayAttribute), false);

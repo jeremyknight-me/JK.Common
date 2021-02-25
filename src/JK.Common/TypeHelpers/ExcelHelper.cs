@@ -6,8 +6,8 @@ namespace JK.Common.TypeHelpers
     {
         public string GetColumnName(int columnNumber)
         {
-            int dividend = columnNumber;
-            string columnName = string.Empty;
+            var dividend = columnNumber;
+            var columnName = string.Empty;
 
             while (dividend > 0)
             {
