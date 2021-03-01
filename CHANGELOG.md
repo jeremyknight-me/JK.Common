@@ -93,7 +93,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added PropertyBuilderExtensions.
 
-## [1.0.6] - 05 Oct 2019
+## 1.0.6 - 05 Oct 2019
 
 ### Added
 
@@ -106,4 +106,3 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 [Unreleased]: https://github.com/jeremyknight-me/JK.Common/compare/v2.0.9...HEAD
 [2.0.9]: https://github.com/jeremyknight-me/JK.Common/compare/2.0.6...v2.0.9
 [2.0.6]: https://github.com/jeremyknight-me/JK.Common/compare/1.0.6...2.0.6
-[1.0.6]: https://github.com/jeremyknight-me/JK.Common/compare/1.0.5...1.0.6
