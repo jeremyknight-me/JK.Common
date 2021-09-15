@@ -1,6 +1,7 @@
 ﻿using JK.Common.TypeHelpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JK.Common.Extensions
 {
@@ -19,5 +20,8 @@ namespace JK.Common.Extensions
                 action(item);
             }
         }
+
+        public static IEnumerable<(T item, int index)> AsIndexedEnumerable<T>(this IEnumerable<T> source)
+            => source.Select((item, index) => (item, index));
     }
 }
