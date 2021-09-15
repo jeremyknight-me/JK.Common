@@ -7,6 +7,8 @@ namespace JK.Common.Tests.Extensions
 {
     public class EnumerableExtensionsTests
     {
+        #region DistinctBy() Tests
+
         [Fact]
         public void DistinctByTestDate()
         {
@@ -86,6 +88,21 @@ namespace JK.Common.Tests.Extensions
             Assert.Equal(4, distinctDateList.Count);
             Assert.Equal(200, distinctIntList.Count);
         }
+
+        #endregion
+
+        #region AsIndexedEnumerable() Tests
+
+        [Fact]
+        public void AsIndexedEnumerable_Alphabet()
+        {
+            var list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            var indexedList = list.AsIndexedEnumerable();
+            Assert.Equal("A", indexedList.FirstOrDefault(x => x.index == 0).item.ToString());
+            Assert.Equal("Z", indexedList.FirstOrDefault(x => x.index == 25).item.ToString());
+        }
+
+        #endregion
 
         private struct EqualityStructTester
         {
