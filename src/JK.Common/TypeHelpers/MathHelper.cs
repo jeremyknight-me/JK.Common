@@ -1,22 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace JK.Common.TypeHelpers
 {
-    public class MathHelper
+    public static class MathHelper
     {
-        public bool IsPrime(long number)
+        public static bool IsEven(long number) => number % 2 == 0;
+
+        public static bool IsOdd(long number) => !IsEven(number);
+
+        public static bool IsPrime(long number)
         {
-            long boundary = Convert.ToInt64(Math.Floor(Math.Sqrt(number)));
+            switch (number)
+            {
+                case 1:
+                    return false;
+                case 2:
+                    return true;
+            }
 
-            if (number == 1) return false;
-            if (number == 2) return true;
-
+            var boundary = Convert.ToInt64(Math.Floor(Math.Sqrt(number)));
             for (long i = 2; i <= boundary; ++i)
             {
-                if (number % i == 0) return false;
+                if (IsEven(number))
+                {
+                    return false;
+                }
             }
 
             return true;
+        }
+
+        public static IEnumerable<long> Fibonacci(long first, long second, int limit)
+        {
+            var list = new List<long> { first, second };
+            var indexA = 0;
+            var indexB = 1;
+            while (list.Count <= limit)
+            {
+                list.Add(list[indexA++] + list[indexB++]);
+            }
+
+            return list;
         }
     }
 }
