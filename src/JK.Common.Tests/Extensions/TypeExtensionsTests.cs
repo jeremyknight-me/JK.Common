@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using JK.Common.Extensions;
 using Xunit;
 
@@ -27,6 +28,25 @@ namespace JK.Common.Tests.Extensions
             var actual = typeof(TestWithoutInterface).DoesImplement<IInterface>();
             Assert.False(actual);
         }
+
+        #endregion
+
+        #region IsNullable
+
+        [Theory]
+        [MemberData(nameof(IsNullable_Data))]
+        public void IsNullable_Tests(Type type, bool expected)
+        {
+            var actual = type.IsNullable();
+            Assert.Equal(expected, actual);
+        }
+
+        public static IEnumerable<object[]> IsNullable_Data()
+            => new List<object[]>
+            {
+                new object[] { typeof(int), false },
+                new object[] { typeof(int?), true }
+            };
 
         #endregion
 
