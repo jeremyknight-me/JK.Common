@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions
 {
@@ -30,5 +31,12 @@ namespace JK.Common.Extensions
             }
             return type;
         }
+
+        /// <summary>
+        /// Determines whether or not a type uses <see cref="Nullable{T}"/>, aka T?
+        /// </summary>
+        /// <param name="type">The type to check</param>
+        /// <returns>True if <see cref="Nullable{T}"/>, otherwise false</returns>
+        public static bool IsNullable(this Type type) => TypeHelper.IsNullable(type);
     }
 }
