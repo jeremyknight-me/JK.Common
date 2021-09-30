@@ -16,6 +16,9 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added DateTimeOffsetFactory to allow creating of DateTimeOffset from DateTime and TimeZoneId.
 - Added DateTimeOffset overloads for all DateHelper methods.
 - Added DateTimeOffset extension methods to match current DateTime extensions.
+- Added math helpers for Fibonacci, IsEven, and IsOdd
+- Added AsIndexedEnumerable extension method
+- Added IsNullable check to determine if a type is using Nullable<T>
 
 #### Changed
 
