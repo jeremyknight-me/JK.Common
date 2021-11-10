@@ -3,16 +3,15 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JK.Common.EntityFrameworkCore.Auditing.Sets
+namespace JK.Common.EntityFrameworkCore.Auditing.Sets;
+
+public interface IAuditableContext
 {
-    public interface IAuditableContext
-    {
-        DbSet<AuditLog> AuditLogs { get; set; }
+    DbSet<AuditLog> AuditLogs { get; set; }
 
-        ChangeTracker ChangeTracker { get; }
+    ChangeTracker ChangeTracker { get; }
 
-        int SaveChanges();
+    int SaveChanges();
 
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-    }
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

@@ -1,107 +1,102 @@
 ﻿using JK.Common.EntityFrameworkCore.Auditing.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using Xunit;
 
-namespace JK.Common.EntityFrameworkCore.Tests.Auditing.Entities
+namespace JK.Common.EntityFrameworkCore.Tests.Auditing.Entities;
+
+public class AuditableEntitySaveChangesHelperTests
 {
-    public class AuditableEntitySaveChangesHelperTests
+    [Fact]
+    public void SaveChanges_Create()
     {
-        [Fact]
-        public void SaveChanges_Create()
+        var builder = new DbContextOptionsBuilder<AuditableEntityContext>();
+        builder.UseInMemoryDatabase("AuditableEntitySaveChangesHelperTests_SaveChanges_Create");
+        var options = builder.Options;
+        Guid entityId;
+        using (var context = new AuditableEntityContext(options))
         {
-            var builder = new DbContextOptionsBuilder<AuditableEntityContext>();
-            builder.UseInMemoryDatabase("AuditableEntitySaveChangesHelperTests_SaveChanges_Create");
-            var options = builder.Options;
-            Guid entityId;
-            using (var context = new AuditableEntityContext(options))
-            {
-                context.UserName = "Jane Doe";
-                var entity = new SimpleAuditableEntity { Text = "Hello World" };
-                context.SimpleEntities.Add(entity);
-                context.SaveChanges();
-                entityId = entity.Id;
-            }
-
-            using (var context = new AuditableEntityContext(options))
-            {
-                var entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
-                Assert.Equal(entity.DateCreated, entity.DateModified);
-                Assert.Equal("Jane Doe", entity.CreatedBy);
-                Assert.Equal("Jane Doe", entity.ModifiedBy);
-            }
+            context.UserName = "Jane Doe";
+            var entity = new SimpleAuditableEntity { Text = "Hello World" };
+            context.SimpleEntities.Add(entity);
+            context.SaveChanges();
+            entityId = entity.Id;
         }
 
-        [Fact]
-        public void SaveChanges_Update()
+        using (var context = new AuditableEntityContext(options))
         {
-            var builder = new DbContextOptionsBuilder<AuditableEntityContext>();
-            builder.UseInMemoryDatabase("AuditableEntitySaveChangesHelperTests_SaveChanges_Update");
-            var options = builder.Options;
-            Guid entityId;
-            using (var context = new AuditableEntityContext(options))
-            {
-                // create
-                context.UserName = "Jane Doe";
-                var entityToCreate = new SimpleAuditableEntity { Text = "Hello World" };
-                context.SimpleEntities.Add(entityToCreate);
-                context.SaveChanges();
-                entityId = entityToCreate.Id;
+            var entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
+            Assert.Equal(entity.DateCreated, entity.DateModified);
+            Assert.Equal("Jane Doe", entity.CreatedBy);
+            Assert.Equal("Jane Doe", entity.ModifiedBy);
+        }
+    }
 
-                // modify
-                context.UserName = "John Deaux";
-                var entityToModify = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
-                entityToModify.Text = "Change Me!";
-                context.SaveChanges();
-            }
+    [Fact]
+    public void SaveChanges_Update()
+    {
+        var builder = new DbContextOptionsBuilder<AuditableEntityContext>();
+        builder.UseInMemoryDatabase("AuditableEntitySaveChangesHelperTests_SaveChanges_Update");
+        var options = builder.Options;
+        Guid entityId;
+        using (var context = new AuditableEntityContext(options))
+        {
+            // create
+            context.UserName = "Jane Doe";
+            var entityToCreate = new SimpleAuditableEntity { Text = "Hello World" };
+            context.SimpleEntities.Add(entityToCreate);
+            context.SaveChanges();
+            entityId = entityToCreate.Id;
 
-            using (var context = new AuditableEntityContext(options))
-            {
-                var entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
-                Assert.NotEqual(entity.DateCreated, entity.DateModified);
-                Assert.Equal("Jane Doe", entity.CreatedBy);
-                Assert.Equal("John Deaux", entity.ModifiedBy);
-            }
+            // modify
+            context.UserName = "John Deaux";
+            var entityToModify = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
+            entityToModify.Text = "Change Me!";
+            context.SaveChanges();
         }
 
-        private class SimpleAuditableEntity : AuditableEntity
+        using (var context = new AuditableEntityContext(options))
         {
-            public SimpleAuditableEntity()
-            {
-                this.Id = Guid.NewGuid();
-            }
+            var entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
+            Assert.NotEqual(entity.DateCreated, entity.DateModified);
+            Assert.Equal("Jane Doe", entity.CreatedBy);
+            Assert.Equal("John Deaux", entity.ModifiedBy);
+        }
+    }
 
-            [Key]
-            public Guid Id { get; private set; }
-            
-            public string Text { get; set; }
+    private class SimpleAuditableEntity : AuditableEntity
+    {
+        public SimpleAuditableEntity()
+        {
+            this.Id = Guid.NewGuid();
         }
 
-        private class AuditableEntityContext : DbContext
+        [Key]
+        public Guid Id { get; private set; }
+
+        public string Text { get; set; }
+    }
+
+    private class AuditableEntityContext : DbContext
+    {
+        private const string contextName = "AuditableEntityContext";
+        private readonly AuditableEntitySaveChangesHelper auditableEntitySaveChangesHelper = new AuditableEntitySaveChangesHelper(contextName);
+
+        public AuditableEntityContext()
         {
-            private const string contextName = "AuditableEntityContext";
-            private readonly AuditableEntitySaveChangesHelper auditableEntitySaveChangesHelper = new AuditableEntitySaveChangesHelper(contextName);
+        }
 
-            public AuditableEntityContext()
-            {
-            }
+        public AuditableEntityContext(DbContextOptions options)
+        : base(options)
+        {
+        }
 
-            public AuditableEntityContext(DbContextOptions options)
-            : base(options)
-            {
-            }
+        public string UserName { get; set; } = contextName;
 
-            public string UserName { get; set; } = contextName;
+        public DbSet<SimpleAuditableEntity> SimpleEntities { get; set; }
 
-            public DbSet<SimpleAuditableEntity> SimpleEntities { get; set; }
-
-            public override int SaveChanges()
-            {
-                this.auditableEntitySaveChangesHelper.AuditChanges(this.ChangeTracker, this.Entry, this.UserName);
-                return base.SaveChanges();
-            }
+        public override int SaveChanges()
+        {
+            this.auditableEntitySaveChangesHelper.AuditChanges(this.ChangeTracker, this.Entry, this.UserName);
+            return base.SaveChanges();
         }
     }
 }

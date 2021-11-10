@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JK.Common.EntityFrameworkCore\JK.Common.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 </Project>

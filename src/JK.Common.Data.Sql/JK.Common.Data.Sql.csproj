@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Authors>Jeremy Knight</Authors>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
     <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
     <Description>A utility library containing extensions to System.Data.SqlClient</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

@@ -6,8 +6,8 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>A utility library containing extensions to Microsoft.EntityFrameworkCore</Description>
     <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <Version>2.0.0</Version>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <Version>3.0.0</Version>
     <Authors>Jeremy Knight</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
