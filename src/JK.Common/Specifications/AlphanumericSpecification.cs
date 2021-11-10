@@ -1,13 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class AlphanumericSpecification : Specification<string>
 {
-    public class AlphanumericSpecification : Specification<string>
-    {
-        public override bool IsSatisfiedBy(string candidate)
-        {
-            return Regex.IsMatch(candidate, @"^[a-zA-Z0-9]+$");
-        }
-    }
+    public override bool IsSatisfiedBy(string candidate)
+        => Regex.IsMatch(candidate, @"^[a-zA-Z0-9]+$");
 }

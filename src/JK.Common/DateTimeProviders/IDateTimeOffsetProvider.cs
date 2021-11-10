@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace JK.Common.DateTimeProviders
+namespace JK.Common.DateTimeProviders;
+
+public interface IDateTimeOffsetProvider
 {
-    public interface IDateTimeOffsetProvider
-    {
-        DateTimeOffset Now { get; }
-        DateTimeOffset UtcNow { get; }
-    }
+    DateTimeOffset Now { get; }
+    DateTimeOffset UtcNow { get; }
 }

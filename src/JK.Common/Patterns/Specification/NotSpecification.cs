@@ -1,17 +1,13 @@
-﻿namespace JK.Common.Patterns.Specification
+﻿namespace JK.Common.Patterns.Specification;
+
+public class NotSpecification<TEntity> : Specification<TEntity>
 {
-    public class NotSpecification<TEntity> : Specification<TEntity>
+    private readonly ISpecification<TEntity> specification;
+
+    public NotSpecification(ISpecification<TEntity> specificationToUse)
     {
-        private readonly ISpecification<TEntity> specification;
-
-        public NotSpecification(ISpecification<TEntity> specificationToUse)
-        {
-            this.specification = specificationToUse;
-        }
-
-        public override bool IsSatisfiedBy(TEntity candidate)
-        {
-            return !this.specification.IsSatisfiedBy(candidate);
-        }
+        this.specification = specificationToUse;
     }
+
+    public override bool IsSatisfiedBy(TEntity candidate) => !this.specification.IsSatisfiedBy(candidate);
 }

@@ -1,20 +1,17 @@
 ﻿using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class NumericSpecification : Specification<string>
 {
-    public class NumericSpecification : Specification<string>
+    public override bool IsSatisfiedBy(string candidate)
     {
-        public override bool IsSatisfiedBy(string candidate)
+        var result = false;
+        if (!string.IsNullOrWhiteSpace(candidate))
         {
-            bool result = false;
-
-            if (!string.IsNullOrWhiteSpace(candidate))
-            {
-                double value;
-                result = double.TryParse(candidate, out value);
-            }
-
-            return result;
+            result = double.TryParse(candidate, out var value);
         }
+
+        return result;
     }
 }

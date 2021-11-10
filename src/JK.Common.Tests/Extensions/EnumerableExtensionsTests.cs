@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using JK.Common.Extensions;
-using Xunit;
 
-namespace JK.Common.Tests.Extensions
+namespace JK.Common.Tests.Extensions;
+
+public class EnumerableExtensionsTests
 {
-    public class EnumerableExtensionsTests
-    {
-        #region DistinctBy() Tests
+#if (!NET6_0_OR_GREATER)
+    #region DistinctBy() Tests
 
         [Fact]
         public void DistinctByTestDate()
@@ -89,47 +88,47 @@ namespace JK.Common.Tests.Extensions
             Assert.Equal(200, distinctIntList.Count);
         }
 
-        #endregion
+    #endregion
+#endif
 
-        #region AsIndexedEnumerable() Tests
+    #region AsIndexedEnumerable() Tests
 
-        [Fact]
-        public void AsIndexedEnumerable_Alphabet()
+    [Fact]
+    public void AsIndexedEnumerable_Alphabet()
+    {
+        var list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        var indexedList = list.AsIndexedEnumerable();
+        Assert.Equal("A", indexedList.FirstOrDefault(x => x.index == 0).item.ToString());
+        Assert.Equal("Z", indexedList.FirstOrDefault(x => x.index == 25).item.ToString());
+    }
+
+    #endregion
+
+    private struct EqualityStructTester
+    {
+        public readonly int Index;
+        public readonly DateTime Date;
+
+        public EqualityStructTester(int index, DateTime date) : this()
         {
-            var list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-            var indexedList = list.AsIndexedEnumerable();
-            Assert.Equal("A", indexedList.FirstOrDefault(x => x.index == 0).item.ToString());
-            Assert.Equal("Z", indexedList.FirstOrDefault(x => x.index == 25).item.ToString());
+            this.Index = index;
+            this.Date = date;
+        }
+    }
+
+    private class EqualityClassTester
+    {
+        public readonly int Index;
+        public readonly DateTime Date;
+
+        public EqualityClassTester()
+        {
         }
 
-        #endregion
-
-        private struct EqualityStructTester
+        public EqualityClassTester(int index, DateTime date) : this()
         {
-            public readonly int Index;
-            public readonly DateTime Date;
-
-            public EqualityStructTester(int index, DateTime date) : this()
-            {
-                Index = index;
-                Date = date;
-            }
-        }
-
-        private class EqualityClassTester
-        {
-            public readonly int Index;
-            public readonly DateTime Date;
-
-            public EqualityClassTester()
-            {
-            }
-
-            public EqualityClassTester(int index, DateTime date) : this()
-            {
-                Index = index;
-                Date = date;
-            }
+            this.Index = index;
+            this.Date = date;
         }
     }
 }

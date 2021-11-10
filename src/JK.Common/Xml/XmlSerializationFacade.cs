@@ -1,45 +1,42 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace JK.Common.Xml
+namespace JK.Common.Xml;
+
+/// <summary>
+/// Wrapper/facade for XML Serialization/Deserialization functionality of .NET.
+/// </summary>
+public class XmlSerializationFacade
 {
     /// <summary>
-    /// Wrapper/facade for XML Serialization/Deserialization functionality of .NET.
+    /// Uses XML serialization to convert an object into its XML representation.
     /// </summary>
-    public class XmlSerializationFacade
+    /// <typeparam name="T">Type of object to turn into XML.</typeparam>
+    /// <param name="entity">Object to turn into XML.</param>
+    /// <returns>An XML representation of an object as a string.</returns>
+    public string GetXmlAsString<T>(T entity)
     {
-        /// <summary>
-        /// Uses XML serialization to convert an object into its XML representation.
-        /// </summary>
-        /// <typeparam name="T">Type of object to turn into XML.</typeparam>
-        /// <param name="entity">Object to turn into XML.</param>
-        /// <returns>An XML representation of an object as a string.</returns>
-        public string GetXmlAsString<T>(T entity)
+        string xml;
+        using (var stream = new MemoryStream())
         {
-            string xml;
+            var serializer = new XmlSerializer(entity.GetType());
+            serializer.Serialize(stream, entity);
+            stream.Position = 0;
 
-            using (var stream = new MemoryStream())
-            {
-                var serializer = new XmlSerializer(entity.GetType());
-                serializer.Serialize(stream, entity);
-                stream.Position = 0;
-
-                xml = this.GetStringFromStream(stream);
-            }
-
-            return xml;
+            xml = this.GetStringFromStream(stream);
         }
 
-        private string GetStringFromStream(Stream stream)
+        return xml;
+    }
+
+    private string GetStringFromStream(Stream stream)
+    {
+        string streamString;
+        using (var reader = new StreamReader(stream))
         {
-            string streamString;
-
-            using (var reader = new StreamReader(stream))
-            {
-                streamString = reader.ReadToEnd();
-            }
-
-            return streamString;
+            streamString = reader.ReadToEnd();
         }
+
+        return streamString;
     }
 }

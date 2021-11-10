@@ -1,21 +1,18 @@
 ﻿using System;
 using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class DateTimeSpecification : Specification<string>
 {
-    public class DateTimeSpecification : Specification<string>
+    public override bool IsSatisfiedBy(string candidate)
     {
-        public override bool IsSatisfiedBy(string candidate)
+        var result = false;
+        if (!string.IsNullOrEmpty(candidate))
         {
-            bool result = false;
-
-            if (!string.IsNullOrEmpty(candidate))
-            {
-                DateTime dateTime;
-                result = DateTime.TryParse(candidate, out dateTime);
-            }
-
-            return result;
+            result = DateTime.TryParse(candidate, out var dateTime);
         }
+
+        return result;
     }
 }

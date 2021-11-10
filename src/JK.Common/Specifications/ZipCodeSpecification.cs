@@ -1,13 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class ZipCodeSpecification : Specification<string>
 {
-    public class ZipCodeSpecification : Specification<string>
-    {
-        public override bool IsSatisfiedBy(string candidate)
-        {
-            return Regex.IsMatch(candidate, @"^\d{5}(\-\d{4})?$");
-        }
-    }
+    public override bool IsSatisfiedBy(string candidate) => Regex.IsMatch(candidate, @"^\d{5}(\-\d{4})?$");
 }

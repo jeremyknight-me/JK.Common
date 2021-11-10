@@ -2,15 +2,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace JK.Common.Converters
-{
-    public class DistanceConverter
-    {
-        private readonly IDictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> strategies;
+namespace JK.Common.Converters;
 
-        public DistanceConverter()
-        {
-            this.strategies = new Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal>
+public class DistanceConverter
+{
+    private readonly IDictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> strategies;
+
+    public DistanceConverter()
+    {
+        this.strategies = new Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal>
             {
                 // Convert Centimeter to New Unit Of Measure
                 { Tuple.Create(DistanceUnit.Centimeters, DistanceUnit.Feet), 0.0328084m },
@@ -29,23 +29,22 @@ namespace JK.Common.Converters
                 { Tuple.Create(DistanceUnit.Meters, DistanceUnit.Feet), 3.28084m },
                 { Tuple.Create(DistanceUnit.Meters, DistanceUnit.Inches), 39.3701m }
             };
-        }
+    }
 
-        public decimal Convert(decimal originalDistance, DistanceUnit originalUnit, DistanceUnit newUnit)
+    public decimal Convert(decimal originalDistance, DistanceUnit originalUnit, DistanceUnit newUnit)
+    {
+        if (originalUnit == newUnit)
         {
-            if (originalUnit == newUnit)
-            {
-                return originalDistance;
-            }
-
-            var tuple = Tuple.Create(originalUnit, newUnit);
-            if (!this.strategies.ContainsKey(tuple))
-            {
-                throw new NotSupportedException("Unit pairing is not supported.");
-            }
-
-            var conversionFactor = this.strategies[tuple];
-            return originalDistance * conversionFactor;
+            return originalDistance;
         }
+
+        var tuple = Tuple.Create(originalUnit, newUnit);
+        if (!this.strategies.ContainsKey(tuple))
+        {
+            throw new NotSupportedException("Unit pairing is not supported.");
+        }
+
+        var conversionFactor = this.strategies[tuple];
+        return originalDistance * conversionFactor;
     }
 }

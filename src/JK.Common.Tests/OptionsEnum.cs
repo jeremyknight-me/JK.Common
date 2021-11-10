@@ -1,8 +1,7 @@
-﻿namespace JK.Common.Tests
+﻿namespace JK.Common.Tests;
+
+public enum OptionsEnum
 {
-    public enum OptionsEnum
-    {
-        Option1,
-        Option2
-    }
+    Option1,
+    Option2
 }

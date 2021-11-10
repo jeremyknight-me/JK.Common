@@ -1,8 +1,7 @@
-﻿namespace JK.Common.Geospatial
+﻿namespace JK.Common.Geospatial;
+
+public enum CoordinateType
 {
-    public enum CoordinateType
-    {
-        Latitude = 0,
-        Longitude = 1
-    }
+    Latitude = 0,
+    Longitude = 1
 }
