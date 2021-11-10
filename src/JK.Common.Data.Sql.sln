@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Data.Sql", "JK.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Data.Sql.Tests", "JK.Common.Data.Sql.Tests\JK.Common.Data.Sql.Tests.csproj", "{B8500E6A-A152-449E-8D04-B52F3352F300}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F6B8B455-E1B4-4626-BCD4-C8754B5A843B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
