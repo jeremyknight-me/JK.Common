@@ -1,14 +1,13 @@
 # JK.Common Code Library
 
 A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.
-| Library | Status |
-| ------------ | ------------ |
-| JK.Common | [![Nuget](https://img.shields.io/nuget/v/JK.Common.svg)](https://www.nuget.org/packages/JK.Common/) |
-| JK.Common.Data.Sql | [![Nuget](https://img.shields.io/nuget/v/JK.Common.Data.Sql.svg)](https://www.nuget.org/packages/JK.Common.Data.Sql/) |
-| JK.Common.EntityFrameworkCore  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
-| JK.Common.EntityFrameworkCore.SqlServer  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
-| JK.Common.FluentValidation  | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
-| Cross Library CI | [![Build status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/ci-master)](https://dev.azure.com/knight0323/Common%20Library/_build/latest?definitionId=5) |
+| Library | CI | Download |
+| ------------ | ------------ | ------------ |
+| [JK.Common](src/JK.Common/CHANGELOG.md) | ![JK.Common CI Status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/common/ci-common) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.svg)](https://www.nuget.org/packages/JK.Common/) |
+| JK.Common.Data.Sql | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.Data.Sql.svg)](https://www.nuget.org/packages/JK.Common.Data.Sql/) |
+| JK.Common.EntityFrameworkCore | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
+| JK.Common.EntityFrameworkCore.SqlServer | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
+| JK.Common.FluentValidation | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
 
 ## Components
 
