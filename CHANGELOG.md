@@ -7,23 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## [Unreleased]
+## FUTURE RELEASES
 
-### Common
-
-#### Added 
-
-- Added DateTimeOffsetFactory to allow creating of DateTimeOffset from DateTime and TimeZoneId.
-- Added DateTimeOffset overloads for all DateHelper methods.
-- Added DateTimeOffset extension methods to match current DateTime extensions.
-- Added math helpers for Fibonacci, IsEven, and IsOdd
-- Added AsIndexedEnumerable extension method
-- Added IsNullable check to determine if a type is using Nullable<T>
-
-#### Changed
-
-- Renamed DateTimeHelper to DateHelper to add DateTimeOffset overloads.
-- Changed all DateHelper methods to static.
+- Please see the separate per solution/project CHANGELOG files.
 
 ## [2.0.9] - 10 Dec 2020
 
