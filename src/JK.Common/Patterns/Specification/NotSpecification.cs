@@ -9,5 +9,5 @@ public class NotSpecification<TEntity> : Specification<TEntity>
         this.specification = specificationToUse;
     }
 
-    public override bool IsSatisfiedBy(TEntity candidate) => !this.specification.IsSatisfiedBy(candidate);
+    public override bool IsSatisfiedBy(in TEntity candidate) => !this.specification.IsSatisfiedBy(candidate);
 }

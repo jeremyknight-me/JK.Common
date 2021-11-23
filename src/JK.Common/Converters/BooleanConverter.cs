@@ -46,9 +46,9 @@ public class BooleanConverter
             : (bool?)this.Convert(value);
     }
 
-    private bool IsTrue(object value) => this.trueItems.Contains(value);
+    private bool IsTrue(in object value) => this.trueItems.Contains(value);
 
-    private bool IsFalse(object value) => this.falseItems.Contains(value);
+    private bool IsFalse(in object value) => this.falseItems.Contains(value);
 
-    private bool IsNull(object value) => this.nullItems.Contains(value);
+    private bool IsNull(in object value) => this.nullItems.Contains(value);
 }

@@ -6,7 +6,7 @@ namespace JK.Common.TypeHelpers;
 
 public class StringHelper
 {
-    public decimal? GetNullableDecimal(string value)
+    public decimal? GetNullableDecimal(in string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -16,7 +16,7 @@ public class StringHelper
         return !decimal.TryParse(value, out var number) ? null : number;
     }
 
-    public int? GetNullableInteger(string value)
+    public int? GetNullableInteger(in string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -26,7 +26,7 @@ public class StringHelper
         return !int.TryParse(value, out var number) ? null : number;
     }
 
-    public string RemoveUnitedStatesCurrencyFormat(string valueToFormat)
+    public string RemoveUnitedStatesCurrencyFormat(in string valueToFormat)
     {
         if (string.IsNullOrEmpty(valueToFormat))
         {
@@ -43,7 +43,7 @@ public class StringHelper
     /// </summary>
     /// <param name="valueToReverse">Current string object from extension method.</param>
     /// <returns>The original string in reverse.</returns>
-    public string Reverse(string valueToReverse)
+    public string Reverse(in string valueToReverse)
     {
         if (string.IsNullOrEmpty(valueToReverse))
         {
@@ -55,7 +55,7 @@ public class StringHelper
         return new string(c);
     }
 
-    public string Right(string value, int length)
+    public string Right(in string value, in int length)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -72,14 +72,14 @@ public class StringHelper
     /// </summary>
     /// <param name="valueToStrip">Current string object from extension method.</param>
     /// <returns>Clean string with no XML/HTML.</returns>
-    public string StripXml(string valueToStrip) => Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
+    public string StripXml(in string valueToStrip) => Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
 
     #region Base64 Conversion
 
     /// <summary>Converts a string from base 64.</summary>
     /// <param name="base64Text">Text to convert from base 64.</param>
     /// <returns>String converted from base 64.</returns>
-    public static string FromBase64(string base64Text)
+    public static string FromBase64(in string base64Text)
     {
         if (string.IsNullOrEmpty(base64Text))
         {
@@ -93,7 +93,7 @@ public class StringHelper
     /// <summary>Converts a string to base 64.</summary>
     /// <param name="text">Text to convert to base 64.</param>
     /// <returns>String converted to base 64.</returns>
-    public static string ToBase64(string text)
+    public static string ToBase64(in string text)
     {
         if (string.IsNullOrEmpty(text))
         {

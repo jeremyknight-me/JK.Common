@@ -6,7 +6,7 @@ namespace JK.Common.Extensions;
 
 public static class ConcurrentBagExtensions
 {
-    public static void AddRange<T>(this ConcurrentBag<T> bag, IEnumerable<T> list)
+    public static void AddRange<T>(this ConcurrentBag<T> bag, in IEnumerable<T> list)
         => _ = Parallel.ForEach(list, item =>
             {
                 bag.Add(item);

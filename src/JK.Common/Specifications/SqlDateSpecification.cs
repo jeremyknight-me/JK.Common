@@ -5,5 +5,5 @@ namespace JK.Common.Specifications;
 
 public class SqlDateSpecification : Specification<DateTime>
 {
-    public override bool IsSatisfiedBy(DateTime candidate) => candidate.Year >= 1753;
+    public override bool IsSatisfiedBy(in DateTime candidate) => candidate.Year >= 1753;
 }

@@ -93,20 +93,20 @@ public class TemplateProcessor
         return tokenKeys;
     }
 
-    private int GetTokenStartIndex(int startIndex)
+    private int GetTokenStartIndex(in int startIndex)
         => this.template.IndexOf(this.TokenStart, startIndex, StringComparison.OrdinalIgnoreCase);
 
-    private int GetTokenEndIndex(int startIndex)
+    private int GetTokenEndIndex(in int startIndex)
         => this.template.IndexOf(this.TokenEnd, startIndex, StringComparison.OrdinalIgnoreCase);
 
-    private string GetTokenKeyFromTemplate(int tokenStartIndex, int tokenEndIndex)
+    private string GetTokenKeyFromTemplate(in int tokenStartIndex, in int tokenEndIndex)
     {
         var startPosition = tokenStartIndex + this.TokenStart.Length;
         var length = tokenEndIndex - tokenStartIndex - this.TokenEnd.Length;
         return this.template.Substring(startPosition, length);
     }
 
-    private bool ContainsToken(int startIndex)
+    private bool ContainsToken(in int startIndex)
         => this.template.Substring(startIndex).Contains(this.TokenStart)
            && this.template.Substring(startIndex).Contains(this.TokenEnd);
 
@@ -140,7 +140,7 @@ public class TemplateProcessor
         return pairs;
     }
 
-    private string GetTokenFromTokenKey(string tokenKey)
+    private string GetTokenFromTokenKey(in string tokenKey)
         => string.Concat(this.TokenStart, tokenKey, this.TokenEnd);
 
     #endregion

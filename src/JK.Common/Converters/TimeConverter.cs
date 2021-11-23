@@ -10,7 +10,7 @@ public static class TimeConverter
     /// </summary>
     /// <param name="hours">Number of hours to convert.</param>
     /// <returns>Number of minutes in the given number of hours.</returns>
-    public static int ConvertHoursToMinutes(int hours)
+    public static int ConvertHoursToMinutes(in int hours)
     {
         checked
         {
@@ -23,7 +23,7 @@ public static class TimeConverter
     /// </summary>
     /// <param name="minutes">Number of minutes to convert.</param>
     /// <returns>Number of seconds in the given number of minutes.</returns>
-    public static int ConvertMinutesToSeconds(int minutes)
+    public static int ConvertMinutesToSeconds(in int minutes)
     {
         checked
         {
@@ -36,7 +36,7 @@ public static class TimeConverter
     /// </summary>
     /// <param name="seconds">Number of seconds to convert.</param>
     /// <returns>Number of milliseconds in the given number of seconds.</returns>
-    public static int ConvertSecondsToMilliseconds(int seconds)
+    public static int ConvertSecondsToMilliseconds(in int seconds)
     {
         checked
         {
@@ -49,7 +49,7 @@ public static class TimeConverter
     /// </summary>
     /// <param name="hours">Number of hours to convert.</param>
     /// <returns>Number of milliseconds in the given number of hours.</returns>
-    public static int ConvertHoursToMilliseconds(int hours)
+    public static int ConvertHoursToMilliseconds(in int hours)
     {
         var minutes = ConvertHoursToMinutes(hours);
         return ConvertMinutesToMilliseconds(minutes);
@@ -60,7 +60,7 @@ public static class TimeConverter
     /// </summary>
     /// <param name="minutes">Number of minutes to convert.</param>
     /// <returns>Number of milliseconds in the given number of minutes.</returns>
-    public static int ConvertMinutesToMilliseconds(int minutes)
+    public static int ConvertMinutesToMilliseconds(in int minutes)
     {
         var seconds = ConvertMinutesToSeconds(minutes);
         return ConvertSecondsToMilliseconds(seconds);

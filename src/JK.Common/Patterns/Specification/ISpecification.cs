@@ -4,7 +4,7 @@ public interface ISpecification<TEntity>
 {
     ISpecification<TEntity> And(ISpecification<TEntity> specification);
 
-    bool IsSatisfiedBy(TEntity candidate);
+    bool IsSatisfiedBy(in TEntity candidate);
 
     ISpecification<TEntity> Not();
 

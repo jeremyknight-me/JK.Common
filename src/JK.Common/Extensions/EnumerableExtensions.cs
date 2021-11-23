@@ -18,7 +18,7 @@ public static class EnumerableExtensions
         }
 #endif
 
-    public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
+    public static void ForEach<T>(this IEnumerable<T> source, in Action<T> action)
     {
         foreach (var item in source)
         {

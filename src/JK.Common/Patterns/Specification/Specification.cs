@@ -11,7 +11,7 @@ public abstract class Specification<TEntity> : ISpecification<TEntity>
     /// </summary>
     /// <param name="candidate">The candidate.</param>
     /// <returns>True if is satisfied by the specified candidate; otherwise false.</returns>
-    public abstract bool IsSatisfiedBy(TEntity candidate);
+    public abstract bool IsSatisfiedBy(in TEntity candidate);
 
     /// <summary>
     /// Ands the specified specification.

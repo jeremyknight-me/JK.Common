@@ -53,5 +53,5 @@ public sealed class Latitude : CoordinateBase
 
     protected override ISpecification<double> ValidationSpecification => new LatitudeSpecification();
 
-    protected override void SetIsNegative(Direction direction) => this.IsNegative = direction == Direction.S;
+    protected override void SetIsNegative(in Direction direction) => this.IsNegative = direction == Direction.S;
 }

@@ -4,7 +4,7 @@ namespace JK.Common.Geospatial;
 
 public class CoordinateFactory
 {
-    public CoordinateBase Make(CoordinateType coordinateType)
+    public CoordinateBase Make(in CoordinateType coordinateType)
         => coordinateType switch
         {
             CoordinateType.Latitude => new Latitude(),

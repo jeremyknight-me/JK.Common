@@ -5,14 +5,6 @@ namespace JK.Common.Specifications;
 
 public class DateTimeSpecification : Specification<string>
 {
-    public override bool IsSatisfiedBy(string candidate)
-    {
-        var result = false;
-        if (!string.IsNullOrEmpty(candidate))
-        {
-            result = DateTime.TryParse(candidate, out var dateTime);
-        }
-
-        return result;
-    }
+    public override bool IsSatisfiedBy(in string candidate)
+        => string.IsNullOrEmpty(candidate) ? false : DateTime.TryParse(candidate, out _);
 }

@@ -6,7 +6,7 @@ namespace JK.Common.Extensions;
 
 public static class QueryableExtensions
 {
-    public static IQueryable<TSource> SortBy<TSource, TKey>(this IQueryable<TSource> source, Func<TSource, TKey> keySelector, bool isAscending = true)
+    public static IQueryable<TSource> SortBy<TSource, TKey>(this IQueryable<TSource> source, in Func<TSource, TKey> keySelector, in bool isAscending = true)
     {
         if (source == null)
         {
@@ -23,7 +23,7 @@ public static class QueryableExtensions
             : source.OrderByDescending(keySelector).AsQueryable();
     }
 
-    public static IQueryable<T> SortBy<T>(this IQueryable<T> source, string propertyName, bool ascending = true)
+    public static IQueryable<T> SortBy<T>(this IQueryable<T> source, in string propertyName, in bool ascending = true)
     {
         if (source == null)
         {
@@ -50,7 +50,7 @@ public static class QueryableExtensions
         return source.Provider.CreateQuery<T>(methodCallExpression);
     }
 
-    public static IQueryable<TSource> WhereIf<TSource>(this IQueryable<TSource> source, bool condition, Expression<Func<TSource, bool>> predicate)
+    public static IQueryable<TSource> WhereIf<TSource>(this IQueryable<TSource> source, in bool condition, in Expression<Func<TSource, bool>> predicate)
     {
         if (source == null)
         {

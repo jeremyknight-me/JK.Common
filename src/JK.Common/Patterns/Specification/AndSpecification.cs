@@ -21,6 +21,6 @@ public class AndSpecification<TEntity> : CompositeSpecification<TEntity>
     /// </summary>
     /// <param name="candidate">The candidate.</param>
     /// <returns>True if is satisfied by the specified candidate; otherwise false.</returns>
-    public override bool IsSatisfiedBy(TEntity candidate)
+    public override bool IsSatisfiedBy(in TEntity candidate)
         => this.Left.IsSatisfiedBy(candidate) && this.Right.IsSatisfiedBy(candidate);
 }

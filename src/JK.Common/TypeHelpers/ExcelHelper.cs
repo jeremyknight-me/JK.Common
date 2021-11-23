@@ -4,7 +4,7 @@ namespace JK.Common.TypeHelpers;
 
 public class ExcelHelper
 {
-    public string GetColumnName(int columnNumber)
+    public string GetColumnName(in int columnNumber)
     {
         var dividend = columnNumber;
         var columnName = string.Empty;

@@ -19,7 +19,7 @@ public class SocialSecurityNumberSpecificationTests
     public void IsSatisfiedBy(string input, bool expected)
     {
         var specification = new SocialSecurityNumberSpecification();
-        bool actual = specification.IsSatisfiedBy(input);
+        var actual = specification.IsSatisfiedBy(input);
         Assert.Equal(expected, actual);
     }
 }

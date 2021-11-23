@@ -141,37 +141,27 @@ public abstract class CoordinateBase
     /// <summary>
     /// Gets the cardinal direction of the coordinate.
     /// </summary>
-    public abstract Direction Direction
-    {
-        get;
-    }
+    public abstract Direction Direction { get; }
 
-    public abstract CoordinateType CoordinateType
-    {
-        get;
-    }
+    public abstract CoordinateType CoordinateType { get; }
 
-    protected abstract ISpecification<double> ValidationSpecification
-    {
-        get;
-    }
+    protected abstract ISpecification<double> ValidationSpecification { get; }
 
     #region Public Methods - SetCoordinate Overloads
 
     /// <summary>Sets the coordinate details.</summary>
     /// <param name="degrees">The amount of degrees.</param>
-    public void SetCoordinate(double degrees)
+    public void SetCoordinate(in double degrees)
     {
         this.Validate(degrees);
         this.SetIsNegative(degrees);
-
         this.Coordinate = Math.Abs(degrees);
     }
 
     /// <summary>Sets the coordinate details.</summary>
     /// <param name="degrees">The amount of degrees.</param>
     /// <param name="minutes">The amount of minutes.</param>
-    public void SetCoordinate(double degrees, double minutes)
+    public void SetCoordinate(in double degrees, in double minutes)
     {
         this.Validate(degrees);
         this.SetIsNegative(degrees);
@@ -184,7 +174,7 @@ public abstract class CoordinateBase
     /// <param name="degrees">The amount of degrees.</param>
     /// <param name="minutes">The amount of minutes.</param>
     /// <param name="seconds">The amount of seconds.</param>
-    public void SetCoordinate(double degrees, double minutes, double seconds)
+    public void SetCoordinate(in double degrees, in double minutes, in double seconds)
     {
         this.Validate(degrees);
         this.SetIsNegative(degrees);
@@ -192,14 +182,13 @@ public abstract class CoordinateBase
         var absoluteDegrees = Math.Abs(degrees);
         var absoluteMinutes = Math.Abs(minutes);
         var absoluteSeconds = Math.Abs(seconds);
-
         this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0) + (absoluteSeconds / 3600.0);
     }
 
     /// <summary>Sets the coordinate details.</summary>
     /// <param name="degrees">The amount of degrees.</param>
     /// <param name="direction">The cardinal direction.</param>
-    public void SetCoordinate(double degrees, Direction direction)
+    public void SetCoordinate(in double degrees, in Direction direction)
     {
         this.Validate(degrees);
         this.SetIsNegative(direction);
@@ -210,7 +199,7 @@ public abstract class CoordinateBase
     /// <param name="degrees">The amount of degrees.</param>
     /// <param name="minutes">The amount of minutes.</param>
     /// <param name="direction">The cardinal direction</param>
-    public void SetCoordinate(double degrees, double minutes, Direction direction)
+    public void SetCoordinate(in double degrees, in double minutes, in Direction direction)
     {
         this.Validate(degrees);
         this.SetIsNegative(direction);
@@ -224,7 +213,7 @@ public abstract class CoordinateBase
     /// <param name="minutes">The amount of minutes.</param>
     /// <param name="seconds">The amount of seconds.</param>
     /// <param name="direction">The cardinal direction</param>
-    public void SetCoordinate(double degrees, double minutes, double seconds, Direction direction)
+    public void SetCoordinate(in double degrees, in double minutes, in double seconds, in Direction direction)
     {
         this.Validate(degrees, direction);
         this.SetIsNegative(direction);
@@ -247,13 +236,13 @@ public abstract class CoordinateBase
     /// </summary>
     /// <param name="format">The format to use.</param>
     /// <returns>The value of the current coordinate in the specified format.</returns>
-    public virtual string ToString(DisplayFormat format)
+    public virtual string ToString(in DisplayFormat format)
     {
         var formatter = new CoordinateTextFormatter(this);
         return formatter.Format(format);
     }
 
-    public virtual string ToHtmlString(DisplayFormat format)
+    public virtual string ToHtmlString(in DisplayFormat format)
     {
         var formatter = new CoordinateHtmlFormatter(this);
         return formatter.Format(format);
@@ -261,11 +250,11 @@ public abstract class CoordinateBase
 
     public abstract ICollection<Direction> GetValidDirections();
 
-    protected void SetIsNegative(double degress) => this.IsNegative = degress < 0;
+    protected void SetIsNegative(in double degress) => this.IsNegative = degress < 0;
 
-    protected abstract void SetIsNegative(Direction direction);
+    protected abstract void SetIsNegative(in Direction direction);
 
-    private void Validate(double value)
+    private void Validate(in double value)
     {
         if (!this.ValidationSpecification.IsSatisfiedBy(value))
         {
@@ -273,7 +262,7 @@ public abstract class CoordinateBase
         }
     }
 
-    private void Validate(double value, Direction direction)
+    private void Validate(in double value, in Direction direction)
     {
         this.Validate(value);
 
@@ -283,9 +272,4 @@ public abstract class CoordinateBase
             throw new ArgumentOutOfRangeException(nameof(direction), "Not a valid direction for this type of coordinate.");
         }
     }
-
-    //private double Floor(double value)
-    //{
-    //    return Math.Floor(value);
-    //}
 }

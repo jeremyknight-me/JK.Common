@@ -31,7 +31,7 @@ public class DistanceConverter
             };
     }
 
-    public decimal Convert(decimal originalDistance, DistanceUnit originalUnit, DistanceUnit newUnit)
+    public decimal Convert(in decimal originalDistance, in DistanceUnit originalUnit, in DistanceUnit newUnit)
     {
         if (originalUnit == newUnit)
         {

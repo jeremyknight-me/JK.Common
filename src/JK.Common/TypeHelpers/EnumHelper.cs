@@ -33,7 +33,6 @@ public class EnumHelper
         {
             var field = type.GetField(name);
             var attribute = field.GetCustomAttributes(typeof(DisplayAttribute), false);
-
             var item = new ListItem
             {
                 Text = attribute.Length > 0 ? ((DisplayAttribute)attribute[0]).Name : name,
@@ -44,7 +43,7 @@ public class EnumHelper
         }
     }
 
-    public T GetAttribute<T>(Enum enumVal) where T : Attribute
+    public T GetAttribute<T>(in Enum enumVal) where T : Attribute
     {
         var type = enumVal.GetType();
         var memInfo = type.GetMember(enumVal.ToString());
@@ -52,7 +51,7 @@ public class EnumHelper
         return (attributes.Length > 0) ? (T)attributes[0] : null;
     }
 
-    public string GetDisplayName<T>(T value) where T : struct, IConvertible
+    public string GetDisplayName<T>(in T value) where T : struct, IConvertible
     {
         this.EnsureValidEnum<T>();
         var type = typeof(T);
@@ -64,14 +63,14 @@ public class EnumHelper
 
     #region Byte Conversion
 
-    public T GetByByte<T>(byte value) where T : struct, IConvertible
+    public T GetByByte<T>(in byte value) where T : struct, IConvertible
     {
         this.EnsureValidEnum<T>();
         this.EnsureValidValue<T>(value, nameof(value));
         return (T)Enum.ToObject(typeof(T), value);
     }
 
-    public T? GetByByte<T>(byte? value) where T : struct, IConvertible
+    public T? GetByByte<T>(in byte? value) where T : struct, IConvertible
     {
         this.EnsureValidEnum<T>();
 
@@ -84,13 +83,13 @@ public class EnumHelper
         return (T)Enum.ToObject(typeof(T), value);
     }
 
-    public byte GetByte<T>(T value) where T : struct, IConvertible
+    public byte GetByte<T>(in T value) where T : struct, IConvertible
     {
         this.EnsureValidEnum<T>();
         return Convert.ToByte(value);
     }
 
-    public int? GetByte<T>(T? value) where T : struct, IConvertible
+    public int? GetByte<T>(in T? value) where T : struct, IConvertible
         => value.HasValue ? (byte?)Convert.ToByte(value) : null;
 
     #endregion
@@ -103,7 +102,7 @@ public class EnumHelper
     /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
     /// <param name="value">Integer value.</param>
     /// <returns>Enumeration value of type T.</returns>
-    public T GetByInteger<T>(int value) where T : struct, IConvertible
+    public T GetByInteger<T>(in int value) where T : struct, IConvertible
     {
         this.EnsureValidEnum<T>();
         this.EnsureValidValue<T>(value, nameof(value));
@@ -116,12 +115,12 @@ public class EnumHelper
     /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
     /// <param name="value">Integer value.</param>
     /// <returns>Enumeration value of type T.</returns>
-    public T? GetByInteger<T>(int? value) where T : struct, IConvertible
+    public T? GetByInteger<T>(in int? value) where T : struct, IConvertible
         => value.HasValue
             ? this.GetByInteger<T>(value.Value)
             : null;
 
-    public int GetInteger<T>(T value) where T : struct, IConvertible
+    public int GetInteger<T>(in T value) where T : struct, IConvertible
     {
         this.EnsureValidEnum<T>();
         return Convert.ToInt32(value);
@@ -132,7 +131,7 @@ public class EnumHelper
     /// </summary>
     /// <param name="value">Enumeration type value.</param>
     /// <returns>Integer value.</returns>
-    public int? GetInteger<T>(T? value) where T : struct, IConvertible
+    public int? GetInteger<T>(in T? value) where T : struct, IConvertible
         => value.HasValue
             ? Convert.ToInt32(value)
             : null;
@@ -171,7 +170,7 @@ public class EnumHelper
         }
     }
 
-    private void EnsureValidValue<T>(byte value, string parameter) where T : struct, IConvertible
+    private void EnsureValidValue<T>(in byte value, in string parameter) where T : struct, IConvertible
     {
         if (!this.IsValidValue<T>(value))
         {
@@ -179,7 +178,7 @@ public class EnumHelper
         }
     }
 
-    private void EnsureValidValue<T>(int value, string parameter) where T : struct, IConvertible
+    private void EnsureValidValue<T>(in int value, in string parameter) where T : struct, IConvertible
     {
         if (!this.IsValidValue<T>(value))
         {

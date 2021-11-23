@@ -30,7 +30,7 @@ public class StringDelimiter
     /// Adds a block of text to the current string and delimits if necessary.
     /// </summary>
     /// <param name="addition">The string to add to the current string.</param>
-    public void AddText(string addition)
+    public void AddText(in string addition)
     {
         if (this.builder.Length > 0)
         {

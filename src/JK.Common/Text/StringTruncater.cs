@@ -45,14 +45,14 @@ public class StringTruncater
     /// </summary>
     /// <param name="length">Length of string to output.</param>
     /// <returns>Original text truncated to given length.</returns>
-    public string TruncateToLength(int length)
+    public string TruncateToLength(in int length)
         => this.NeedsTruncation(length)
             ? this.TruncateWithIndicator(length)
             : this.originalText;
 
-    private bool NeedsTruncation(int length) => this.originalText.Length > length;
+    private bool NeedsTruncation(in int length) => this.originalText.Length > length;
 
-    private string TruncateWithIndicator(int length)
+    private string TruncateWithIndicator(in int length)
     {
         var totalLength = this.HasIndicator() ? this.GetTotalLength(length) : length;
         var text = this.originalText.Substring(0, totalLength).Trim();
@@ -65,12 +65,12 @@ public class StringTruncater
         return this.AddIndicator(text);
     }
 
-    private int GetTotalLength(int length) => this.HasIndicator() ? length - this.Indicator.Length : length;
+    private int GetTotalLength(in int length) => this.HasIndicator() ? length - this.Indicator.Length : length;
 
     private bool HasIndicator() => !string.IsNullOrEmpty(this.Indicator);
 
-    private bool IsTruncatedInMiddleOfWord(int length, int lastSpaceIndex)
+    private bool IsTruncatedInMiddleOfWord(in int length, in int lastSpaceIndex)
         => this.originalText[length] != ' ' && lastSpaceIndex >= 0;
 
-    private string AddIndicator(string text) => string.Concat(text, this.Indicator);
+    private string AddIndicator(in string text) => string.Concat(text, this.Indicator);
 }

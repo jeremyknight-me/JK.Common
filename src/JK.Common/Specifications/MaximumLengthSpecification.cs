@@ -11,5 +11,5 @@ public class MaximumLengthSpecification : Specification<string>
 
     public int MaximumLength { get; }
 
-    public override bool IsSatisfiedBy(string candidate) => candidate.Length <= this.MaximumLength;
+    public override bool IsSatisfiedBy(in string candidate) => candidate.Length <= this.MaximumLength;
 }

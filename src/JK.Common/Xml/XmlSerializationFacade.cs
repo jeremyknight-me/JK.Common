@@ -14,22 +14,17 @@ public class XmlSerializationFacade
     /// <typeparam name="T">Type of object to turn into XML.</typeparam>
     /// <param name="entity">Object to turn into XML.</param>
     /// <returns>An XML representation of an object as a string.</returns>
-    public string GetXmlAsString<T>(T entity)
+    public string GetXmlAsString<T>(in T entity)
     {
-        string xml;
-        using (var stream = new MemoryStream())
-        {
-            var serializer = new XmlSerializer(entity.GetType());
-            serializer.Serialize(stream, entity);
-            stream.Position = 0;
-
-            xml = this.GetStringFromStream(stream);
-        }
-
+        using var stream = new MemoryStream();
+        var serializer = new XmlSerializer(entity.GetType());
+        serializer.Serialize(stream, entity);
+        stream.Position = 0;
+        var xml = this.GetStringFromStream(stream);
         return xml;
     }
 
-    private string GetStringFromStream(Stream stream)
+    private string GetStringFromStream(in Stream stream)
     {
         string streamString;
         using (var reader = new StreamReader(stream))

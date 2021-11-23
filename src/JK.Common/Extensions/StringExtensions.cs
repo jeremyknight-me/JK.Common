@@ -72,7 +72,7 @@ public static class StringExtensions
     /// <returns>The original string in reverse.</returns>
     public static string Reverse(this string valueToReverse) => new StringHelper().Reverse(valueToReverse);
 
-    public static string Right(this string value, int length) => new StringHelper().Right(value, length);
+    public static string Right(this string value, in int length) => new StringHelper().Right(value, length);
 
     /// <summary>
     /// Removes XML/HTML from given text block.
@@ -89,7 +89,7 @@ public static class StringExtensions
     /// <param name="valueToTruncate">Current string object from extension method.</param>
     /// <param name="length">Number of characters to keep from the original string.</param>
     /// <returns>Truncated, or shortened, text.</returns>
-    public static string Truncate(this string valueToTruncate, int length) => new StringTruncater(valueToTruncate).TruncateToLength(length);
+    public static string Truncate(this string valueToTruncate, in int length) => new StringTruncater(valueToTruncate).TruncateToLength(length);
 
     /// <summary>
     /// Trims a block of text to a specified length. The string will be trimmed to 
@@ -100,7 +100,7 @@ public static class StringExtensions
     /// <param name="length">Number of characters to keep from the original string.</param>
     /// <param name="indicator">String of characters to indicate that a truncation has occurred.</param>
     /// <returns>Truncated, or shortened, text with an indicator marking where the truncation occurred.</returns>
-    public static string Truncate(this string valueToTruncate, int length, string indicator)
+    public static string Truncate(this string valueToTruncate, in int length, in string indicator)
     {
         var truncater = new StringTruncater(valueToTruncate) { Indicator = indicator };
         return truncater.TruncateToLength(length);

@@ -10,7 +10,7 @@ public static class TemperatureConverter
     /// </summary>
     /// <param name="celsiusTemperature">Celsius temperature to convert.</param>
     /// <returns>Converted fahrenheit temperature.</returns>
-    public static double ConvertCelsiusToFahrenheit(double celsiusTemperature)
+    public static double ConvertCelsiusToFahrenheit(in double celsiusTemperature)
         => (celsiusTemperature * 9 / 5) + 32;
 
     /// <summary>
@@ -18,6 +18,6 @@ public static class TemperatureConverter
     /// </summary>
     /// <param name="fahrenheitTemperature">Fahrenheit temperature to convert.</param>
     /// <returns>Converted celsius temperature.</returns>
-    public static double ConvertFahrenheitToCelsius(double fahrenheitTemperature)
+    public static double ConvertFahrenheitToCelsius(in double fahrenheitTemperature)
         => (fahrenheitTemperature - 32) * 5 / 9;
 }

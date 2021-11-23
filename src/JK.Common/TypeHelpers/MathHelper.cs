@@ -5,11 +5,11 @@ namespace JK.Common.TypeHelpers;
 
 public static class MathHelper
 {
-    public static bool IsEven(long number) => number % 2 == 0;
+    public static bool IsEven(in long number) => number % 2 == 0;
 
-    public static bool IsOdd(long number) => !IsEven(number);
+    public static bool IsOdd(in long number) => !IsEven(number);
 
-    public static bool IsPrime(long number)
+    public static bool IsPrime(in long number)
     {
         switch (number)
         {
@@ -31,7 +31,7 @@ public static class MathHelper
         return true;
     }
 
-    public static IEnumerable<long> Fibonacci(long first, long second, int limit)
+    public static IEnumerable<long> Fibonacci(in long first, in long second, in int limit)
     {
         var list = new List<long> { first, second };
         var indexA = 0;

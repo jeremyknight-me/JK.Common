@@ -20,7 +20,7 @@ public abstract class CoordinateFormatterBase
         get; set;
     }
 
-    public string Format(DisplayFormat format)
+    public string Format(in DisplayFormat format)
         => this.displayFormatStrategies.ContainsKey(format)
             ? this.displayFormatStrategies[format]()
             : string.Empty;

@@ -13,7 +13,7 @@ public class PhoneNumberSpecificationTests
     public void IsSatisfiedBy(string input, bool expected)
     {
         var specification = new PhoneNumberSpecification();
-        bool actual = specification.IsSatisfiedBy(input);
+        var actual = specification.IsSatisfiedBy(input);
         Assert.Equal(expected, actual);
     }
 }

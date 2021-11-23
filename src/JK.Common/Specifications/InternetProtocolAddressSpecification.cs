@@ -5,7 +5,7 @@ namespace JK.Common.Specifications;
 
 public class InternetProtocolAddressSpecification : Specification<string>
 {
-    public override bool IsSatisfiedBy(string candidate)
+    public override bool IsSatisfiedBy(in string candidate)
         => Regex.IsMatch(
             candidate,
             @"\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b");

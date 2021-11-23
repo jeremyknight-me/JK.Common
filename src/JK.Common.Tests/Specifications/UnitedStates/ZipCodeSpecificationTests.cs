@@ -1,6 +1,6 @@
-﻿using JK.Common.Specifications;
+﻿using JK.Common.Specifications.UnitedStates;
 
-namespace JK.Common.Tests.Specifications;
+namespace JK.Common.Tests.Specifications.UnitedStates;
 
 public class ZipCodeSpecificationTests
 {
@@ -13,7 +13,7 @@ public class ZipCodeSpecificationTests
     public void IsSatisfiedBy(string input, bool expected)
     {
         var specification = new ZipCodeSpecification();
-        bool actual = specification.IsSatisfiedBy(input);
+        var actual = specification.IsSatisfiedBy(input);
         Assert.Equal(expected, actual);
     }
 }

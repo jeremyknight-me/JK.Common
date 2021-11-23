@@ -53,5 +53,5 @@ public sealed class Longitude : CoordinateBase
 
     protected override ISpecification<double> ValidationSpecification => new LongitudeSpecification();
 
-    protected override void SetIsNegative(Direction direction) => this.IsNegative = direction == Direction.W;
+    protected override void SetIsNegative(in Direction direction) => this.IsNegative = direction == Direction.W;
 }

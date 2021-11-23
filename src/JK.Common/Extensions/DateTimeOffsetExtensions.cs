@@ -10,7 +10,7 @@ public static class DateTimeOffsetExtensions
     /// <param name="dt">Current DateTimeOffset object from extension method.</param>
     /// <param name="days">Number of days to add (can be negative).</param>
     /// <returns>The date the given amount of business days from the start date.</returns>
-    public static DateTimeOffset AddWorkDays(this DateTimeOffset dt, int days) => DateHelper.AddWorkDays(dt, days);
+    public static DateTimeOffset AddWorkDays(this DateTimeOffset dt, in int days) => DateHelper.AddWorkDays(dt, days);
 
     /// <summary>Gets the abbreviated day name.</summary>
     /// <param name="dt">Current DateTimeOffset object from extension method.</param>
@@ -37,7 +37,7 @@ public static class DateTimeOffsetExtensions
     /// <param name="start">Start of date range to check</param>
     /// <param name="end">End of date range to check</param>
     /// <returns>True if date falls within range, otherwise false</returns>
-    public static bool IsBetween(this DateTimeOffset dt, DateTimeOffset start, DateTimeOffset end) => DateHelper.IsBetween(dt, start, end);
+    public static bool IsBetween(this DateTimeOffset dt, in DateTimeOffset start, in DateTimeOffset end) => DateHelper.IsBetween(dt, start, end);
 
     /// <summary>Determines if given date is a weekday.</summary>
     /// <param name="dt">Current DateTimeOffset object from extension method.</param>

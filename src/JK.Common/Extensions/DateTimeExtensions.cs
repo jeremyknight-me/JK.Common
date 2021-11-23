@@ -10,13 +10,13 @@ public static class DateTimeExtensions
     /// <param name="dt">Current DateTime object from extension method.</param>
     /// <param name="days">Number of days to add (can be negative).</param>
     /// <returns>The date the given amount of business days from the start date.</returns>
-    public static DateTime AddWorkDays(this DateTime dt, int days) => DateHelper.AddWorkDays(dt, days);
+    public static DateTime AddWorkDays(this DateTime dt, in int days) => DateHelper.AddWorkDays(dt, days);
 
     /// <summary>Calculates age of an individual.</summary>
     /// <param name="dt">Current DateTime object from extension method.</param>
     /// <param name="birthday">Date of birth.</param>
     /// <returns>Age from birth date to given date.</returns>
-    public static int CalculateAge(this DateTime dt, DateTime birthday) => DateHelper.CalculateAge(dt, birthday);
+    public static int CalculateAge(this DateTime dt, in DateTime birthday) => DateHelper.CalculateAge(dt, birthday);
 
     /// <summary>Gets the abbreviated day name.</summary>
     /// <param name="dt">Current DateTime object from extension method.</param>
@@ -43,7 +43,7 @@ public static class DateTimeExtensions
     /// <param name="start">Start of date range to check</param>
     /// <param name="end">End of date range to check</param>
     /// <returns>True if date falls within range, otherwise false</returns>
-    public static bool IsBetween(this DateTime dt, DateTime start, DateTime end) => DateHelper.IsBetween(dt, start, end);
+    public static bool IsBetween(this DateTime dt, in DateTime start, in DateTime end) => DateHelper.IsBetween(dt, start, end);
 
     /// <summary>Determines if given date is a weekday.</summary>
     /// <param name="dt">Current DateTime object from extension method.</param>
