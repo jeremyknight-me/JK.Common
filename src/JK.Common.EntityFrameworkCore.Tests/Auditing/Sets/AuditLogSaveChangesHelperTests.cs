@@ -1,154 +1,146 @@
 ﻿using JK.Common.EntityFrameworkCore.Auditing.Sets;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit;
 
-namespace JK.Common.EntityFrameworkCore.Tests.Auditing.Sets
+namespace JK.Common.EntityFrameworkCore.Tests.Auditing.Sets;
+
+public class AuditLogSaveChangesHelperTests
 {
-    public class AuditLogSaveChangesHelperTests
+    [Fact]
+    public void SaveChanges_Create()
     {
-        [Fact]
-        public void SaveChanges_Create()
+        var builder = new DbContextOptionsBuilder<AuditableContext>();
+        builder.UseInMemoryDatabase("AuditLogSaveChangesHelperTests_SaveChanges_Create");
+        var options = builder.Options;
+        Guid entityOneId;
+        Guid entityTwoId;
+        using (var context = new AuditableContext(options))
         {
-            var builder = new DbContextOptionsBuilder<AuditableContext>();
-            builder.UseInMemoryDatabase("AuditLogSaveChangesHelperTests_SaveChanges_Create");
-            var options = builder.Options;
-            Guid entityOneId;
-            Guid entityTwoId;
-            using (var context = new AuditableContext(options))
-            {
-                var entityOne = new EntityOne { Text = "Hello World 123" };
-                context.EntityOnes.Add(entityOne);
-                var entityTwo = new EntityTwo { Text = "Hello World 234" };
-                context.EntityTwos.Add(entityTwo);
-                context.SaveChanges();
-                entityOneId = entityOne.Id;
-                entityTwoId = entityTwo.Id;
-            }
-
-            using (var context = new AuditableContext(options))
-            {
-                var entityOne = context.EntityOnes.FirstOrDefault(x => x.Id == entityOneId);
-                var entityTwo = context.EntityTwos.FirstOrDefault(x => x.Id == entityTwoId);
-                var logs = context.AuditLogs.ToArray();
-
-                Assert.Equal("Hello World 123", entityOne.Text);
-                Assert.Equal("Hello World 234", entityTwo.Text);
-                Assert.Equal(2, logs.Count());
-                Assert.Contains(logs, x => x.KeyValues.Contains(entityOneId.ToString()));
-                Assert.Contains(logs, x => x.KeyValues.Contains(entityTwoId.ToString()));
-                Assert.All(logs, x => Assert.Equal("Added", x.EventType));
-            }
+            var entityOne = new EntityOne { Text = "Hello World 123" };
+            context.EntityOnes.Add(entityOne);
+            var entityTwo = new EntityTwo { Text = "Hello World 234" };
+            context.EntityTwos.Add(entityTwo);
+            context.SaveChanges();
+            entityOneId = entityOne.Id;
+            entityTwoId = entityTwo.Id;
         }
 
-        [Fact]
-        public void SaveChanges_Update()
+        using (var context = new AuditableContext(options))
         {
-            var builder = new DbContextOptionsBuilder<AuditableContext>();
-            builder.UseInMemoryDatabase("AuditLogSaveChangesHelperTests_SaveChanges_Update");
-            var options = builder.Options;
-            Guid entityOneId;
-            Guid entityTwoId;
-            using (var context = new AuditableContext(options))
-            {
-                var entityOne = new EntityOne { Text = "Hello World 123" };
-                context.EntityOnes.Add(entityOne);
-                var entityTwo = new EntityTwo { Text = "Hello World 234" };
-                context.EntityTwos.Add(entityTwo);
-                context.SaveChanges();
-                entityOneId = entityOne.Id;
-                entityTwoId = entityTwo.Id;
+            var entityOne = context.EntityOnes.FirstOrDefault(x => x.Id == entityOneId);
+            var entityTwo = context.EntityTwos.FirstOrDefault(x => x.Id == entityTwoId);
+            var logs = context.AuditLogs.ToArray();
 
-                entityOne.Text = "Hi World 123";
-                entityTwo.Text = "Hi World 234";
-                context.SaveChanges();
-            }
+            Assert.Equal("Hello World 123", entityOne.Text);
+            Assert.Equal("Hello World 234", entityTwo.Text);
+            Assert.Equal(2, logs.Count());
+            Assert.Contains(logs, x => x.KeyValues.Contains(entityOneId.ToString()));
+            Assert.Contains(logs, x => x.KeyValues.Contains(entityTwoId.ToString()));
+            Assert.All(logs, x => Assert.Equal("Added", x.EventType));
+        }
+    }
 
-            using (var context = new AuditableContext(options))
-            {
-                var entityOne = context.EntityOnes.FirstOrDefault(x => x.Id == entityOneId);
-                var entityTwo = context.EntityTwos.FirstOrDefault(x => x.Id == entityTwoId);
-                var logs = context.AuditLogs.ToArray();
+    [Fact]
+    public void SaveChanges_Update()
+    {
+        var builder = new DbContextOptionsBuilder<AuditableContext>();
+        builder.UseInMemoryDatabase("AuditLogSaveChangesHelperTests_SaveChanges_Update");
+        var options = builder.Options;
+        Guid entityOneId;
+        Guid entityTwoId;
+        using (var context = new AuditableContext(options))
+        {
+            var entityOne = new EntityOne { Text = "Hello World 123" };
+            context.EntityOnes.Add(entityOne);
+            var entityTwo = new EntityTwo { Text = "Hello World 234" };
+            context.EntityTwos.Add(entityTwo);
+            context.SaveChanges();
+            entityOneId = entityOne.Id;
+            entityTwoId = entityTwo.Id;
 
-                Assert.Equal("Hi World 123", entityOne.Text);
-                Assert.Equal("Hi World 234", entityTwo.Text);
-                Assert.Equal(4, logs.Count());
-                Assert.Contains(logs, x => x.KeyValues.Contains(entityOneId.ToString()));
-                Assert.Contains(logs, x => x.KeyValues.Contains(entityTwoId.ToString()));
-                Assert.Equal(2, logs.Count(x => x.EventType == "Added"));
-                Assert.Equal(2, logs.Count(x => x.EventType == "Modified"));
-            }
+            entityOne.Text = "Hi World 123";
+            entityTwo.Text = "Hi World 234";
+            context.SaveChanges();
         }
 
-        private class EntityOne
+        using (var context = new AuditableContext(options))
         {
-            public EntityOne()
-            {
-                this.Id = Guid.NewGuid();
-            }
+            var entityOne = context.EntityOnes.FirstOrDefault(x => x.Id == entityOneId);
+            var entityTwo = context.EntityTwos.FirstOrDefault(x => x.Id == entityTwoId);
+            var logs = context.AuditLogs.ToArray();
 
-            [Key]
-            public Guid Id { get; private set; }
+            Assert.Equal("Hi World 123", entityOne.Text);
+            Assert.Equal("Hi World 234", entityTwo.Text);
+            Assert.Equal(4, logs.Count());
+            Assert.Contains(logs, x => x.KeyValues.Contains(entityOneId.ToString()));
+            Assert.Contains(logs, x => x.KeyValues.Contains(entityTwoId.ToString()));
+            Assert.Equal(2, logs.Count(x => x.EventType == "Added"));
+            Assert.Equal(2, logs.Count(x => x.EventType == "Modified"));
+        }
+    }
 
-            public string Text { get; set; }
+    private class EntityOne
+    {
+        public EntityOne()
+        {
+            this.Id = Guid.NewGuid();
         }
 
-        [Table("Entity_Two")]
-        private class EntityTwo
+        [Key]
+        public Guid Id { get; private set; }
+
+        public string Text { get; set; }
+    }
+
+    [Table("Entity_Two")]
+    private class EntityTwo
+    {
+        public EntityTwo()
         {
-            public EntityTwo()
-            {
-                this.Id = Guid.NewGuid();
-            }
-
-            [Key]
-            public Guid Id { get; private set; }
-
-            public string Text { get; set; }
+            this.Id = Guid.NewGuid();
         }
 
-        private class AuditableContext : DbContext, IAuditableContext
+        [Key]
+        public Guid Id { get; private set; }
+
+        public string Text { get; set; }
+    }
+
+    private class AuditableContext : DbContext, IAuditableContext
+    {
+        private readonly AuditLogSaveChangesHelper auditLogSaveChangesHelper;
+
+        public AuditableContext()
         {
-            private readonly AuditLogSaveChangesHelper auditLogSaveChangesHelper;
+            this.auditLogSaveChangesHelper = new AuditLogSaveChangesHelper(this);
+        }
 
-            public AuditableContext()
-            {
-                this.auditLogSaveChangesHelper = new AuditLogSaveChangesHelper(this);
-            }
+        public AuditableContext(DbContextOptions options)
+        : base(options)
+        {
+            this.auditLogSaveChangesHelper = new AuditLogSaveChangesHelper(this);
+        }
 
-            public AuditableContext(DbContextOptions options)
-            : base(options)
-            {
-                this.auditLogSaveChangesHelper = new AuditLogSaveChangesHelper(this);
-            }
+        public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<EntityOne> EntityOnes { get; set; }
+        public DbSet<EntityTwo> EntityTwos { get; set; }
 
-            public DbSet<AuditLog> AuditLogs { get; set; }
-            public DbSet<EntityOne> EntityOnes { get; set; }
-            public DbSet<EntityTwo> EntityTwos { get; set; }
+        public override int SaveChanges()
+        {
+            var auditEntries = this.auditLogSaveChangesHelper.OnBeforeSaveChanges();
+            var result = base.SaveChanges();
+            this.auditLogSaveChangesHelper.OnAfterSaveChanges(auditEntries);
+            return result;
+        }
 
-            public override int SaveChanges()
-            {
-                var auditEntries = this.auditLogSaveChangesHelper.OnBeforeSaveChanges();
-                var result = base.SaveChanges();
-                this.auditLogSaveChangesHelper.OnAfterSaveChanges(auditEntries);
-                return result;
-            }
-
-            public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-            {
-                var auditEntries = this.auditLogSaveChangesHelper.OnBeforeSaveChanges();
-                var result = await base.SaveChangesAsync(cancellationToken);
-                await this.auditLogSaveChangesHelper.OnAfterSaveChangesAsync(auditEntries);
-                return result;
-            }
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var auditEntries = this.auditLogSaveChangesHelper.OnBeforeSaveChanges();
+            var result = await base.SaveChangesAsync(cancellationToken);
+            await this.auditLogSaveChangesHelper.OnAfterSaveChangesAsync(auditEntries);
+            return result;
         }
     }
 }

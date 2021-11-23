@@ -1,38 +1,36 @@
 ﻿using JK.Common.Text;
-using Xunit;
 
-namespace JK.Common.Tests.Text
+namespace JK.Common.Tests.Text;
+
+public class StringDelimiterTests
 {
-    public class StringDelimiterTests
+    [Fact]
+    public void DelimitedText_FirstAddition_TextWithoutDelimiter()
     {
-        [Fact]
-        public void DelimitedText_FirstAddition_TextWithoutDelimiter()
-        {
-            string addition = "first";
-            string delimiter = "|";
-            var stringDelimiter = new StringDelimiter(delimiter);
-            stringDelimiter.AddText(addition);
+        var addition = "first";
+        var delimiter = "|";
+        var stringDelimiter = new StringDelimiter(delimiter);
+        stringDelimiter.AddText(addition);
 
-            string actual = stringDelimiter.DelimitedText;
-            string expected = "first";
+        var actual = stringDelimiter.DelimitedText;
+        var expected = "first";
 
-            Assert.Equal(expected, actual);
-        }
+        Assert.Equal(expected, actual);
+    }
 
-        [Fact]
-        public void DelimitedText_AddWithPriorData_DelimitedText()
-        {
-            string original = "data";
-            string delimiter = "|";
-            string addition = "first";
+    [Fact]
+    public void DelimitedText_AddWithPriorData_DelimitedText()
+    {
+        var original = "data";
+        var delimiter = "|";
+        var addition = "first";
 
-            var stringDelimiter = new StringDelimiter(delimiter);
-            stringDelimiter.AddText(original);
-            stringDelimiter.AddText(addition);
-            
-            string expected = "data|first";
-            string actual = stringDelimiter.DelimitedText;
-            Assert.Equal(expected, actual);
-        }
+        var stringDelimiter = new StringDelimiter(delimiter);
+        stringDelimiter.AddText(original);
+        stringDelimiter.AddText(addition);
+
+        var expected = "data|first";
+        var actual = stringDelimiter.DelimitedText;
+        Assert.Equal(expected, actual);
     }
 }

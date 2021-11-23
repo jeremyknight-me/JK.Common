@@ -1,28 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common", "JK.Common\JK.Common.csproj", "{496C2C34-DFB8-440E-BA6A-B67F579C7BEE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Tests", "JK.Common.Tests\JK.Common.Tests.csproj", "{B3FFCD85-FBB3-4045-96AA-2434D723BF52}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore", "JK.Common.EntityFrameworkCore\JK.Common.EntityFrameworkCore.csproj", "{67F2F54A-D40A-44DC-AE06-6CE7367CE0EF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore.SqlServer", "JK.Common.EntityFrameworkCore.SqlServer\JK.Common.EntityFrameworkCore.SqlServer.csproj", "{93BA6B22-E576-46FD-B540-C77FCA2B6E12}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore.Tests", "JK.Common.EntityFrameworkCore.Tests\JK.Common.EntityFrameworkCore.Tests.csproj", "{F2AEEF92-E69A-46DD-AB19-BAFDA53F130E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.FluentValidation", "JK.Common.FluentValidation\JK.Common.FluentValidation.csproj", "{71B24D6E-04D5-456B-9A91-BCDC93265EB9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A59DA4E8-21AA-4D88-A452-6C8152C9FE07}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Data.Sql", "JK.Common.Data.Sql\JK.Common.Data.Sql.csproj", "{6350E6FE-29BA-4C3C-BBE8-79721C9A38D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common", "JK.Common\JK.Common.csproj", "{AC77BD4A-BA38-449D-8647-F0B780CEF220}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.Data.Sql.Tests", "JK.Common.Data.Sql.Tests\JK.Common.Data.Sql.Tests.csproj", "{BB888E16-92CC-42CB-87F0-F20C52B37F87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Tests", "JK.Common.Tests\JK.Common.Tests.csproj", "{394FFA2C-7AF4-404E-AAB1-79386F9A0BB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,38 +18,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{496C2C34-DFB8-440E-BA6A-B67F579C7BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{496C2C34-DFB8-440E-BA6A-B67F579C7BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{496C2C34-DFB8-440E-BA6A-B67F579C7BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{496C2C34-DFB8-440E-BA6A-B67F579C7BEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3FFCD85-FBB3-4045-96AA-2434D723BF52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3FFCD85-FBB3-4045-96AA-2434D723BF52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3FFCD85-FBB3-4045-96AA-2434D723BF52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3FFCD85-FBB3-4045-96AA-2434D723BF52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67F2F54A-D40A-44DC-AE06-6CE7367CE0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67F2F54A-D40A-44DC-AE06-6CE7367CE0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67F2F54A-D40A-44DC-AE06-6CE7367CE0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67F2F54A-D40A-44DC-AE06-6CE7367CE0EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93BA6B22-E576-46FD-B540-C77FCA2B6E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93BA6B22-E576-46FD-B540-C77FCA2B6E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93BA6B22-E576-46FD-B540-C77FCA2B6E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93BA6B22-E576-46FD-B540-C77FCA2B6E12}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2AEEF92-E69A-46DD-AB19-BAFDA53F130E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2AEEF92-E69A-46DD-AB19-BAFDA53F130E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2AEEF92-E69A-46DD-AB19-BAFDA53F130E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2AEEF92-E69A-46DD-AB19-BAFDA53F130E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71B24D6E-04D5-456B-9A91-BCDC93265EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71B24D6E-04D5-456B-9A91-BCDC93265EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71B24D6E-04D5-456B-9A91-BCDC93265EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71B24D6E-04D5-456B-9A91-BCDC93265EB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6350E6FE-29BA-4C3C-BBE8-79721C9A38D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6350E6FE-29BA-4C3C-BBE8-79721C9A38D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6350E6FE-29BA-4C3C-BBE8-79721C9A38D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6350E6FE-29BA-4C3C-BBE8-79721C9A38D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB888E16-92CC-42CB-87F0-F20C52B37F87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB888E16-92CC-42CB-87F0-F20C52B37F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB888E16-92CC-42CB-87F0-F20C52B37F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB888E16-92CC-42CB-87F0-F20C52B37F87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC77BD4A-BA38-449D-8647-F0B780CEF220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC77BD4A-BA38-449D-8647-F0B780CEF220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC77BD4A-BA38-449D-8647-F0B780CEF220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC77BD4A-BA38-449D-8647-F0B780CEF220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{394FFA2C-7AF4-404E-AAB1-79386F9A0BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394FFA2C-7AF4-404E-AAB1-79386F9A0BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394FFA2C-7AF4-404E-AAB1-79386F9A0BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394FFA2C-7AF4-404E-AAB1-79386F9A0BB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

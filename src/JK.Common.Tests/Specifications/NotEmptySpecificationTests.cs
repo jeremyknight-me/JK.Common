@@ -1,20 +1,18 @@
 ﻿using JK.Common.Specifications;
-using Xunit;
 
-namespace JK.Common.Tests.Specifications
+namespace JK.Common.Tests.Specifications;
+
+public class NotEmptySpecificationTests
 {
-    public class NotEmptySpecificationTests
+    [Theory]
+    [InlineData(null, false)]
+    [InlineData("", false)]
+    [InlineData("  ", false)]
+    [InlineData("x", true)]
+    public void IsSatisfiedBy(string input, bool expected)
     {
-        [Theory]
-        [InlineData(null, false)]
-        [InlineData("", false)]
-        [InlineData("  ", false)]
-        [InlineData("x", true)]
-        public void IsSatisfiedBy(string input, bool expected)
-        {
-            var specification = new NotEmptySpecification();
-            bool actual = specification.IsSatisfiedBy(input);
-            Assert.Equal(expected, actual);
-        }
+        var specification = new NotEmptySpecification();
+        var actual = specification.IsSatisfiedBy(input);
+        Assert.Equal(expected, actual);
     }
 }

@@ -1,13 +1,12 @@
-﻿namespace JK.Common.Patterns.Specification
+﻿namespace JK.Common.Patterns.Specification;
+
+public interface ISpecification<TEntity>
 {
-    public interface ISpecification<TEntity>
-    {
-        ISpecification<TEntity> And(ISpecification<TEntity> specification);
+    ISpecification<TEntity> And(ISpecification<TEntity> specification);
 
-        bool IsSatisfiedBy(TEntity candidate);
+    bool IsSatisfiedBy(in TEntity candidate);
 
-        ISpecification<TEntity> Not();
+    ISpecification<TEntity> Not();
 
-        ISpecification<TEntity> Or(ISpecification<TEntity> specification);
-    }
+    ISpecification<TEntity> Or(ISpecification<TEntity> specification);
 }

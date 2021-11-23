@@ -1,20 +1,9 @@
 ﻿using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class NumericSpecification : Specification<string>
 {
-    public class NumericSpecification : Specification<string>
-    {
-        public override bool IsSatisfiedBy(string candidate)
-        {
-            bool result = false;
-
-            if (!string.IsNullOrWhiteSpace(candidate))
-            {
-                double value;
-                result = double.TryParse(candidate, out value);
-            }
-
-            return result;
-        }
-    }
+    public override bool IsSatisfiedBy(in string candidate)
+        => string.IsNullOrWhiteSpace(candidate) ? false : double.TryParse(candidate, out _);
 }

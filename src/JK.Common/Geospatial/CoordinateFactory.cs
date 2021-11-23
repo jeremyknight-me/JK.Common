@@ -1,20 +1,14 @@
 ﻿using System;
 
-namespace JK.Common.Geospatial
+namespace JK.Common.Geospatial;
+
+public class CoordinateFactory
 {
-    public class CoordinateFactory
-    {
-        public CoordinateBase Make(CoordinateType coordinateType)
+    public CoordinateBase Make(in CoordinateType coordinateType)
+        => coordinateType switch
         {
-            switch (coordinateType)
-            {
-                case CoordinateType.Latitude:
-                    return new Latitude();
-                case CoordinateType.Longitude:
-                    return new Longitude();
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(coordinateType));
-            }
-        }
-    }
+            CoordinateType.Latitude => new Latitude(),
+            CoordinateType.Longitude => new Longitude(),
+            _ => throw new ArgumentOutOfRangeException(nameof(coordinateType)),
+        };
 }

@@ -1,12 +1,8 @@
 ﻿using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class NotEmptySpecification : Specification<string>
 {
-    public class NotEmptySpecification : Specification<string>
-    {
-        public override bool IsSatisfiedBy(string candidate)
-        {
-            return !string.IsNullOrWhiteSpace(candidate);
-        }
-    }
+    public override bool IsSatisfiedBy(in string candidate) => !string.IsNullOrWhiteSpace(candidate);
 }

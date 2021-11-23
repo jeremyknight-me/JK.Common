@@ -1,18 +1,16 @@
 ﻿using JK.Common.Specifications;
-using Xunit;
 
-namespace JK.Common.Tests.Specifications
+namespace JK.Common.Tests.Specifications;
+
+public class AlphabeticalSpecificationTests
 {
-    public class AlphabeticalSpecificationTests
+    [Theory]
+    [InlineData("abc", true)]
+    [InlineData("asdf234", false)]
+    public void IsSatisfiedBy(string input, bool expected)
     {
-        [Theory]
-        [InlineData("abc", true)]
-        [InlineData("asdf234", false)]
-        public void IsSatisfiedBy(string input, bool expected)
-        {
-            var specification = new AlphabeticalSpecification();
-            bool actual = specification.IsSatisfiedBy(input);
-            Assert.Equal(expected, actual);
-        }
+        var specification = new AlphabeticalSpecification();
+        var actual = specification.IsSatisfiedBy(input);
+        Assert.Equal(expected, actual);
     }
 }

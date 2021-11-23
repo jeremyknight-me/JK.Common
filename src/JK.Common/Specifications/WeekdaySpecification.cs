@@ -1,15 +1,14 @@
 ﻿using System;
 using JK.Common.Patterns.Specification;
 
-namespace JK.Common.Specifications
+namespace JK.Common.Specifications;
+
+public class WeekdaySpecification : Specification<DateTime>
 {
-    public class WeekdaySpecification : Specification<DateTime>
+    public override bool IsSatisfiedBy(in DateTime candidate)
     {
-        public override bool IsSatisfiedBy(DateTime candidate)
-        {
-            DayOfWeek dayOfWeek = candidate.DayOfWeek;
-            return dayOfWeek != DayOfWeek.Saturday
-                && dayOfWeek != DayOfWeek.Sunday;
-        }
+        var dayOfWeek = candidate.DayOfWeek;
+        return dayOfWeek != DayOfWeek.Saturday
+            && dayOfWeek != DayOfWeek.Sunday;
     }
 }

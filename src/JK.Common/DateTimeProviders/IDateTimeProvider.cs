@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace JK.Common.DateTimeProviders
+namespace JK.Common.DateTimeProviders;
+
+public interface IDateTimeProvider
 {
-    public interface IDateTimeProvider
-    {
-        DateTime Now { get; }
-        DateTime Today { get; }
-        DateTime UtcNow { get; }
-    }
+    DateTime Now { get; }
+    DateTime Today { get; }
+    DateTime UtcNow { get; }
 }
