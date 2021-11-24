@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace JK.Common.TypeHelpers;
 
-public class StringHelper
+public static class StringHelper
 {
-    public decimal? GetNullableDecimal(in string value)
+    public static decimal? GetNullableDecimal(in string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -16,7 +16,7 @@ public class StringHelper
         return !decimal.TryParse(value, out var number) ? null : number;
     }
 
-    public int? GetNullableInteger(in string value)
+    public static int? GetNullableInteger(in string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -26,7 +26,13 @@ public class StringHelper
         return !int.TryParse(value, out var number) ? null : number;
     }
 
-    public string RemoveUnitedStatesCurrencyFormat(in string valueToFormat)
+    /// <summary>Returns the specified number of characters from a string. Same as Right()</summary>
+    /// <param name="value">The given string</param>
+    /// <param name="length">Number of characters to get from end of string.</param>
+    /// <returns>Returns the last X characters of the string.</returns>
+    public static string Last(in string value, in int length) => Right(value, length);
+
+    public static string RemoveUnitedStatesCurrencyFormat(in string valueToFormat)
     {
         if (string.IsNullOrEmpty(valueToFormat))
         {
@@ -43,7 +49,7 @@ public class StringHelper
     /// </summary>
     /// <param name="valueToReverse">Current string object from extension method.</param>
     /// <returns>The original string in reverse.</returns>
-    public string Reverse(in string valueToReverse)
+    public static string Reverse(in string valueToReverse)
     {
         if (string.IsNullOrEmpty(valueToReverse))
         {
@@ -55,24 +61,24 @@ public class StringHelper
         return new string(c);
     }
 
-    public string Right(in string value, in int length)
-    {
-        if (string.IsNullOrWhiteSpace(value))
+    /// <summary>Returns the specified number of characters from a string. Same as Last()</summary>
+    /// <param name="value">The given string</param>
+    /// <param name="length">Number of characters to get from end of string.</param>
+    /// <returns>Returns the last X characters of the string.</returns>
+    public static string Right(in string value, in int length)
+        => value switch
         {
-            return string.Empty;
-        }
-
-        return value.Length <= length
-            ? value
-            : value.Substring(value.Length - length);
-    }
+            var v when string.IsNullOrEmpty(v) => string.Empty,
+            var v when v.Length > length => v[^length..],
+            _ => value,
+        };
 
     /// <summary>
     /// Removes XML/HTML from given text block.
     /// </summary>
     /// <param name="valueToStrip">Current string object from extension method.</param>
     /// <returns>Clean string with no XML/HTML.</returns>
-    public string StripXml(in string valueToStrip) => Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
+    public static string StripXml(in string valueToStrip) => Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
 
     #region Base64 Conversion
 

@@ -2,9 +2,9 @@
 
 namespace JK.Common.TypeHelpers;
 
-public class ExcelHelper
+public static class ExcelHelper
 {
-    public string GetColumnName(in int columnNumber)
+    public static string GetColumnName(in int columnNumber)
     {
         var dividend = columnNumber;
         var columnName = string.Empty;
