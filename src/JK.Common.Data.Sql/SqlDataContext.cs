@@ -1,6 +1,6 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 using JK.Common.Data.Ado;
+using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;
 
