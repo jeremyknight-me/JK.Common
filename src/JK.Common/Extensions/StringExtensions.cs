@@ -58,28 +58,38 @@ public static class StringExtensions
     /// <returns>True if valid zip code otherwise false.</returns>
     public static bool IsValidZip(this string valueToValidate) => new ZipCodeSpecification().IsSatisfiedBy(valueToValidate);
 
+    /// <summary>Returns the specified number of characters from a string. Same as Last()</summary>
+    /// <param name="value">Current string object from extension method.</param>
+    /// <param name="length">Number of characters to get from end of string.</param>
+    /// <returns>Returns the last X characters of the string.</returns>
+    public static string Last(this string value, in int length) => StringHelper.Last(value, length);
+
     /// <summary>
     /// Removes US (dollar) currency format characters from a string.
     /// </summary>
     /// <param name="valueToFormat">Current string object from extension method.</param>
     /// <returns>String that can be parsed into a number.</returns>
-    public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat) => new StringHelper().RemoveUnitedStatesCurrencyFormat(valueToFormat);
+    public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat) => StringHelper.RemoveUnitedStatesCurrencyFormat(valueToFormat);
 
     /// <summary>
     /// Reverses the characters within a string.
     /// </summary>
     /// <param name="valueToReverse">Current string object from extension method.</param>
     /// <returns>The original string in reverse.</returns>
-    public static string Reverse(this string valueToReverse) => new StringHelper().Reverse(valueToReverse);
+    public static string Reverse(this string valueToReverse) => StringHelper.Reverse(valueToReverse);
 
-    public static string Right(this string value, in int length) => new StringHelper().Right(value, length);
+    /// <summary>Returns the specified number of characters from a string. Same as Last()</summary>
+    /// <param name="value">Current string object from extension method.</param>
+    /// <param name="length">Number of characters to get from end of string.</param>
+    /// <returns>Returns the last X characters of the string.</returns>
+    public static string Right(this string value, in int length) => StringHelper.Right(value, length);
 
     /// <summary>
     /// Removes XML/HTML from given text block.
     /// </summary>
     /// <param name="valueToStrip">Current string object from extension method.</param>
     /// <returns>Clean string with no XML/HTML.</returns>
-    public static string StripXml(this string valueToStrip) => new StringHelper().StripXml(valueToStrip);
+    public static string StripXml(this string valueToStrip) => StringHelper.StripXml(valueToStrip);
 
     /// <summary>
     /// Trims a block of text to a specified length. The string will be trimmed to 

@@ -13,7 +13,7 @@ public class ExcelHelperTests
     [InlineData(36, "AJ")]
     public void GetColumnName_Tests(int columnNumber, string expected)
     {
-        var actual = new ExcelHelper().GetColumnName(columnNumber);
+        var actual = ExcelHelper.GetColumnName(columnNumber);
         Assert.Equal(expected, actual);
     }
 

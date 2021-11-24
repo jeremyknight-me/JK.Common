@@ -13,8 +13,7 @@ public class StringUtilityTests
     [InlineData("abc")]
     public void GetNullableDecimal_EmptyOrAlpha_Null(string value)
     {
-        var target = new StringHelper();
-        var actual = target.GetNullableDecimal(value);
+        var actual = StringHelper.GetNullableDecimal(value);
         Assert.Null(actual);
     }
 
@@ -23,8 +22,7 @@ public class StringUtilityTests
     [InlineData("123.456", 123.456)]
     public void GetNullableDecimal_Numeric_Decimal(string input, decimal expected)
     {
-        var target = new StringHelper();
-        var actual = target.GetNullableDecimal(input);
+        var actual = StringHelper.GetNullableDecimal(input);
         Assert.Equal(expected, actual);
     }
 
@@ -40,16 +38,14 @@ public class StringUtilityTests
     [InlineData("123.456")]
     public void GetNullableInteger_EmptyAlphaOrDecimal_Null(string value)
     {
-        var target = new StringHelper();
-        var actual = target.GetNullableInteger(value);
+        var actual = StringHelper.GetNullableInteger(value);
         Assert.Null(actual);
     }
 
     [Fact]
     public void GetNullableInteger_Numeric_Int()
     {
-        var target = new StringHelper();
-        var actual = target.GetNullableInteger("123");
+        var actual = StringHelper.GetNullableInteger("123");
         Assert.Equal(123, actual.Value);
     }
 
@@ -63,8 +59,7 @@ public class StringUtilityTests
     [InlineData("$,", "0")]
     public void RemoveUnitedStatesCurrencyFormat_WithCharacters(string input, string expected)
     {
-        var target = new StringHelper();
-        var actual = target.RemoveUnitedStatesCurrencyFormat(input);
+        var actual = StringHelper.RemoveUnitedStatesCurrencyFormat(input);
         Assert.Equal(expected, actual);
     }
 
@@ -76,8 +71,7 @@ public class StringUtilityTests
     public void Reverse_Test()
     {
         const string s = "Sample Text";
-        var target = new StringHelper();
-        var actual = target.Reverse(s);
+        var actual = StringHelper.Reverse(s);
         Assert.Equal("txeT elpmaS", actual);
     }
 
@@ -92,8 +86,7 @@ public class StringUtilityTests
     [InlineData("Test", 6, "Test")]
     public void Right_Theories(string input, int length, string expected)
     {
-        var sut = new StringHelper();
-        var actual = sut.Right(input, length);
+        var actual = StringHelper.Right(input, length);
         Assert.Equal(expected, actual);
     }
 
@@ -105,8 +98,7 @@ public class StringUtilityTests
     public void StripXml_Test()
     {
         const string s = "<xml>Inner Text</xml>";
-        var target = new StringHelper();
-        var actual = target.StripXml(s);
+        var actual = StringHelper.StripXml(s);
         Assert.Equal("Inner Text", actual);
     }
 
