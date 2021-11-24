@@ -9,9 +9,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## 3.0.0
 
-### Common
-
-#### Added 
+### Added 
 
 - Added DateTimeOffsetFactory to allow creating of DateTimeOffset from DateTime and TimeZoneId.
 - Added DateTimeOffset overloads for all DateHelper methods.
@@ -20,7 +18,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added AsIndexedEnumerable extension method
 - Added IsNullable check to determine if a type is using Nullable<T>
 
-#### Changed
+### Changed
 
 - Renamed DateTimeHelper to DateHelper to add DateTimeOffset overloads.
 - Changed all DateHelper methods to static.
