@@ -12,4 +12,4 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Added 
 
 - Multi-targeting for .NET Standard 2.1, .NET 5, and .NET 6
-
+- ADO integration helper classes
