@@ -12,8 +12,7 @@ namespace JK.Common.FluentValidation.Validators
         /// <summary>
         /// Initializes a new instance of the <see cref="LatitudeValidator"/> class.
         /// </summary>
-        public LatitudeValidator()
-            : base("Latitude must be between -90 and 90.")
+        public LatitudeValidator() : base("Latitude must be between -90 and 90.")
         {
         }
 

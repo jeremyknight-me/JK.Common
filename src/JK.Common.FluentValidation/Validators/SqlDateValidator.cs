@@ -12,15 +12,13 @@ namespace JK.Common.FluentValidation.Validators
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDateValidator"/> class.
         /// </summary>
-        public SqlDateValidator()
-            : base("Year must be greater than 1753")
+        public SqlDateValidator() : base("Year must be greater than 1753")
         {
         }
 
         protected override bool IsValid(PropertyValidatorContext context)
         {
             var date = this.GetDateTime(context.PropertyValue);
-
             if (!date.HasValue)
             {
                 return true;
@@ -30,19 +28,12 @@ namespace JK.Common.FluentValidation.Validators
             return specification.IsSatisfiedBy(date.Value);
         }
 
-        protected DateTime? GetDateTime(object value)
-        {
-            if (value == null)
+        private DateTime? GetDateTime(object value)
+            => value switch
             {
-                return null;
-            }
-
-            if (value is DateTimeOffset)
-            {
-                return ((DateTimeOffset)value).DateTime;
-            }
-
-            return (DateTime)value;
-        }
+                var v when v is null => null,
+                var v when v is DateTimeOffset => ((DateTimeOffset)value).DateTime,
+                _ => (DateTime)value,
+            };
     }
 }

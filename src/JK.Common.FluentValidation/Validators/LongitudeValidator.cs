@@ -12,8 +12,7 @@ namespace JK.Common.FluentValidation.Validators
         /// <summary>
         /// Initializes a new instance of the <see cref="LongitudeValidator"/> class.
         /// </summary>
-        public LongitudeValidator()
-            : base("Longitude must be between -180 and 180.")
+        public LongitudeValidator() : base("Longitude must be between -180 and 180.")
         {
         }
 
