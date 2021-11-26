@@ -2,7 +2,7 @@
 
 namespace JK.Common.Tests.TypeHelpers;
 
-public class StringUtilityTests
+public class StringHelperTests
 {
     #region GetNullableDecimal() Tests
 
