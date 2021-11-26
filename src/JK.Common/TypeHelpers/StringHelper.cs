@@ -69,7 +69,7 @@ public static class StringHelper
         => value switch
         {
             var v when string.IsNullOrEmpty(v) => string.Empty,
-            var v when v.Length > length => v[^length..],
+            var v when v.Length > length => v.Substring(v.Length - length),  //v[^length..],
             _ => value,
         };
 
