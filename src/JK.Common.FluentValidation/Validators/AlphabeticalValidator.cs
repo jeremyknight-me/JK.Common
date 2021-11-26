@@ -1,26 +1,16 @@
 ﻿using JK.Common.Specifications;
-using FluentValidation.Validators;
 
 namespace JK.Common.FluentValidation.Validators
 {
-    public class AlphabeticalValidator : PropertyValidator
+    public class AlphabeticalValidator : StringValidatorBase
     {
-        public AlphabeticalValidator()
-            : base("String must only contain uppercase letters or lowercase letters.")
+        private readonly AlphabeticalSpecification specification;
+
+        public AlphabeticalValidator() : base("String must only contain uppercase letters or lowercase letters.")
         {
+            this.specification = new AlphabeticalSpecification();
         }
 
-        protected override bool IsValid(PropertyValidatorContext context)
-        {
-            var stringToValidate = context.PropertyValue as string;
-
-            if (string.IsNullOrEmpty(stringToValidate))
-            {
-                return true;
-            }
-
-            var specification = new AlphabeticalSpecification();
-            return specification.IsSatisfiedBy(stringToValidate);
-        }
+        protected override bool IsStringValid(string value) => this.specification.IsSatisfiedBy(value);
     }
 }
