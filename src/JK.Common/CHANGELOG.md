@@ -12,6 +12,11 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Added 
 
 - Added INameable and ISortable interfaces
+- Added Singleton pattern Lazy<T> implementation reference class
+
+### Changed
+
+- Changed Singleton pattern reference class to `internal` as they are meant for reference only.
 
 ## 3.0.2
 
