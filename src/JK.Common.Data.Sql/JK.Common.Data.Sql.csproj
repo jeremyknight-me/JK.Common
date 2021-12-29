@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <LangVersion>10.0</LangVersion>
-    <TargetFrameworks>netstandard2.1;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0</TargetFrameworks>
     <Authors>Jeremy Knight</Authors>
-    <Version>3.0.1</Version>
+    <Version>3.0.2</Version>
     <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
     <Description>A utility library containing extensions to System.Data.SqlClient</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JK.Common" Version="3.0.0" />
+    <PackageReference Include="JK.Common" Version="3.0.2" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="4.0.0" />
   </ItemGroup>
 
