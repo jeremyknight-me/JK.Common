@@ -13,6 +13,8 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added INameable and ISortable interfaces
 - Added Singleton pattern Lazy<T> implementation reference class
+- Added DateOnly version of DateHelper methods. 
+- Added DateOnly extension methods.
 
 ### Changed
 

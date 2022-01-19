@@ -4,7 +4,7 @@ using System.Globalization;
 namespace JK.Common.TypeHelpers;
 
 /// <summary>Class which contains methods for DateTime manipulation</summary>
-public static class DateHelper
+public static partial class DateHelper
 {
     #region AddWorkDays
 
