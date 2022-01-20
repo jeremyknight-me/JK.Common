@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased
+
+### Added
+
+- Added SqlBulkCopy extension method to provide better exception on column length SqlExceptions.
+
 ## 3.0.2
 
 ### Added 
