@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using JK.Common.Data.Ado;
+using JK.Common.Data.Sql.Extensions;
 using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;
@@ -75,7 +76,17 @@ public class SqlBulkInsertOperation<T> : OperationBase
                 table.Rows.Add(values);
             }
 
-            bulk.WriteToServer(table);
+            try
+            {
+                bulk.WriteToServer(table);
+            }
+            catch (SqlException ex)
+            {
+                bulk.ThrowIfColumnLengthException(ex);
+                throw;
+            }
+
+            
         }
     }
 
