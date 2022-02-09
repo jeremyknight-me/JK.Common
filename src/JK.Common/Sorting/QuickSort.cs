@@ -8,7 +8,7 @@ public static class QuickSort
     public static void Sort<T>(IList<T> list) where T : IComparable, IComparable<T>
         => Sort(list, 0, list.Count - 1);
 
-    public static void Sort<T>(IList<T> list, int low, int high)
+    private static void Sort<T>(IList<T> list, int low, int high)
         where T : IComparable, IComparable<T>
     {
         if (low < high)

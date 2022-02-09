@@ -9,7 +9,7 @@ public class QuickSortTests
     public void Sort_IntArray_Test()
     {
         var original = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
-        QuickSort.Sort(original, 0, original.Length - 1);
+        QuickSort.Sort(original);
         Assert.Collection(original,
             i => Assert.Equal(-4, i),
             i => Assert.Equal(0, i),
