@@ -1,11 +1,15 @@
-﻿namespace JK.Common.Sorting
+﻿using System;
+using System.Collections.Generic;
+
+namespace JK.Common.Sorting
 {
     public static class MergeSort
     {
-        public static void Sort(int[] list)
-            => Sort(list, 0, list.Length - 1);
+        public static void Sort<T>(IList<T> list) where T : IComparable, IComparable<T>
+            => Sort(list, 0, list.Count - 1);
 
-        public static void Sort(int[] list, int low, int high)
+        private static void Sort<T>(IList<T> list, int low, int high)
+            where T : IComparable, IComparable<T>
         {
             if (low < high)
             {
@@ -16,24 +20,18 @@
             }
         }
 
-        private static void Merge(int[] list, int low, int mid, int high)
+        private static void Merge<T>(IList<T> list, int low, int mid, int high)
+            where T : IComparable, IComparable<T>
         {
             var h = low;
             var i = low;
             var j = mid + 1;
-            var temp = new int[list.Length];
+            var temp = new List<T>(new T[list.Count]);
             while (h <= mid && j <= high)
             {
-                if (list[h] <= list[j])
-                {
-                    temp[i] = list[h];
-                    h++;
-                }
-                else
-                {
-                    temp[i] = list[j];
-                    j++;
-                }
+                temp[i] = list[h].CompareTo(list[j]) <= 0
+                    ? list[h++]
+                    : list[j++];
                 i++;
             }
 
