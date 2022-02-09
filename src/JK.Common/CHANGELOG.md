@@ -17,6 +17,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added DateOnly extension methods.
 - Added DecimalHelper with `GetDecimalPart` and `GetWholePart` methods
 - Added RegexHelper with multiple built in pattern searches
+- Added sorting algorithm implementations: QuickSort
 
 ### Changed
 
