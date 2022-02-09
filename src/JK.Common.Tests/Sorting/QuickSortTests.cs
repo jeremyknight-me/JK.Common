@@ -1,11 +1,12 @@
-﻿using JK.Common.Sorting;
+﻿using System.Collections.Generic;
+using JK.Common.Sorting;
 
 namespace JK.Common.Tests.Sorting;
 
 public class QuickSortTests
 {
     [Fact]
-    public void Sort_Test1()
+    public void Sort_IntArray_Test()
     {
         var original = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
         QuickSort.Sort(original, 0, original.Length - 1);
@@ -24,17 +25,16 @@ public class QuickSortTests
     }
 
     [Fact]
-    public void Sort_Test2()
+    public void Sort_StringList_Test()
     {
-        var original = new int[] { 9, 7, 5, 3, 10, 6 };
-        QuickSort.Sort(original, 0, original.Length - 1);
+        var original = new List<string> { "i", "g", "e", "c", "f" };
+        QuickSort.Sort(original);
         Assert.Collection(original,
-            i => Assert.Equal(3, i),
-            i => Assert.Equal(5, i),
-            i => Assert.Equal(6, i),
-            i => Assert.Equal(7, i),
-            i => Assert.Equal(9, i),
-            i => Assert.Equal(10, i)
+            i => Assert.Equal("c", i),
+            i => Assert.Equal("e", i),
+            i => Assert.Equal("f", i),
+            i => Assert.Equal("g", i),
+            i => Assert.Equal("i", i)
         );
     }
 }

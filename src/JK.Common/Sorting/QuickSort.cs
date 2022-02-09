@@ -1,49 +1,57 @@
-﻿namespace JK.Common.Sorting;
+﻿using System;
+using System.Collections.Generic;
 
-public class QuickSort
+namespace JK.Common.Sorting;
+
+public static class QuickSort
 {
-    public static void Sort(int[] arr, int low, int high)
+    public static void Sort<T>(IList<T> list) where T : IComparable, IComparable<T>
+        => Sort(list, 0, list.Count - 1);
+
+    public static void Sort<T>(IList<T> list, int low, int high)
+        where T : IComparable, IComparable<T>
     {
         if (low < high)
         {
-            var partitionIndex = Partition(arr, low, high);
-            Sort(arr, low, partitionIndex - 1);
-            Sort(arr, partitionIndex + 1, high);
+            var partitionIndex = Partition(list, low, high);
+            Sort(list, low, partitionIndex - 1);
+            Sort(list, partitionIndex + 1, high);
         }
     }
 
-    private static int Partition(int[] arr, int low, int high)
+    private static int Partition<T>(IList<T> list, int low, int high)
+        where T : IComparable, IComparable<T>
     {
-        var pivot = arr[low];
+        var pivot = list[low];
         while (high > low)
         {
-            var highValue = arr[high];
-            while (pivot < highValue)
+            var highValue = list[high];
+            while (pivot.CompareTo(highValue) < 0)
             {
                 if (high <= low)
                 {
                     break;
                 }
                 high--;
-                highValue = arr[high];
+                highValue = list[high];
             }
 
-            arr[low] = highValue;
-            var lowValue = arr[low];
-            while (pivot > lowValue)
+            list[low] = highValue;
+            var lowValue = list[low];
+            while (pivot.CompareTo(lowValue) > 0)
             {
                 if (high <= low)
                 {
                     break;
                 }
                 low++;
-                lowValue = arr[low];
+                lowValue = list[low];
             }
 
-            arr[high] = lowValue;
+            list[high] = lowValue;
         }
 
-        arr[low] = pivot;
+        list[low] = pivot;
         return low;
     }
 }
