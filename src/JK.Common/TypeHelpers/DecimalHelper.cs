@@ -8,15 +8,15 @@ public static class DecimalHelper
     /// <summary>Gets the decimal part (right side of decimal) from the given decimal.</summary>
     /// <param name="value">Decimal value</param>
     /// <returns>Right side of decimal as integer</returns>
-    public static int GetDecimalPart(in decimal value)
+    public static long GetDecimalPart(in decimal value)
     {
         var decimalPart = value - Math.Truncate(value);
-        var leftOnly = $"{decimalPart}".Replace("0.", "");
-        return int.Parse(leftOnly);
+        var right = $"{decimalPart}".Replace("0.", "").TrimEnd('0');
+        return string.IsNullOrWhiteSpace(right) ? 0 : long.Parse(right);
     }
 
     /// <summary>Gets the whole part (left side of decimal) from the given decimal.</summary>
     /// <param name="value">Decimal value</param>
     /// <returns>Left side of decimal as integer</returns>
-    public static int GetWholePart(in decimal value) => decimal.ToInt32(Math.Truncate(value));
+    public static long GetWholePart(in decimal value) => decimal.ToInt64(Math.Truncate(value));
 }
