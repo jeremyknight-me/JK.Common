@@ -16,6 +16,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added DateOnly version of DateHelper methods. 
 - Added DateOnly extension methods.
 - Added DecimalHelper with `GetDecimalPart` and `GetWholePart` methods
+- Added RegexHelper with multiple built in pattern searches
 
 ### Changed
 
