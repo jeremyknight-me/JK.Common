@@ -7,6 +7,8 @@ namespace JK.Common.TypeHelpers;
 
 public static class RegexHelper
 {
+    public static bool IsEmailAddress(string value) => Regex.IsMatch(value, @"^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+
     public static bool IsIPv4(string value) => Regex.IsMatch(value, @"\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b");
 
     public static bool IsSocialSecurityNumber(string value) => Regex.IsMatch(value, @"^(?!000)(?!666)(?!9)\d{3}([- ]?)(?!00)\d{2}\1(?!0000)\d{4}$");

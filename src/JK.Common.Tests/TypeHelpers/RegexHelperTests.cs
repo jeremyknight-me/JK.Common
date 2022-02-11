@@ -5,6 +5,15 @@ namespace JK.Common.Tests.TypeHelpers
     public class RegexHelperTests
     {
         [Theory]
+        [InlineData("someemail@domain.com", true)]
+        [InlineData("some@email@domain.com", false)]
+        public void IsEmailAddress_Theories(string input, bool expected)
+        {
+            var actual = RegexHelper.IsEmailAddress(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
         [InlineData("255.255.255.255", true)]
         [InlineData("300.300.300.300", false)]
         [InlineData("255.255.255", false)]
