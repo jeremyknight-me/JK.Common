@@ -16,9 +16,53 @@ namespace JK.Common.Tests.TypeHelpers
         [Theory]
         [InlineData("abc123", true)]
         [InlineData("asdf234*@#asdf", false)]
-        public void IsSatisfiedBy(string input, bool expected)
+        public void IsAlphanumeric_Theories(string input, bool expected)
         {
             var actual = RegexHelper.IsAlphanumeric(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("12", true)]
+        [InlineData("12.00", true)]
+        [InlineData("0.34", true)]
+        [InlineData("00.34", true)]
+        [InlineData("12.34", true)]
+        [InlineData("$12.34", false)]
+        [InlineData("-$12.34", false)]
+        [InlineData("$-12.34", false)]
+        [InlineData("$1,234", false)]
+        [InlineData("$1,234.56", false)]
+        [InlineData("1a", false)]
+        [InlineData("1a.00", false)]
+        [InlineData("0a.34", false)]
+        [InlineData("1a.34", false)]
+        [InlineData("$1a.34", false)]
+        public void IsDecimal_Theories(string input, bool expected)
+        {
+            var actual = RegexHelper.IsDecimal(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("12", true)]
+        [InlineData("12.00", true)]
+        [InlineData("0.34", true)]
+        [InlineData("00.34", true)]
+        [InlineData("12.34", true)]
+        [InlineData("$12.34", true)]
+        [InlineData("-$12.34", true)]
+        [InlineData("$-12.34", true)]
+        [InlineData("$1,234", true)]
+        [InlineData("$1,234.56", true)]
+        [InlineData("1a", false)]
+        [InlineData("1a.00", false)]
+        [InlineData("0a.34", false)]
+        [InlineData("1a.34", false)]
+        [InlineData("$1a.34", false)]
+        public void IsDecimalOrCurrency_Theories(string input, bool expected)
+        {
+            var actual = RegexHelper.IsDecimalOrCurrency(input);
             Assert.Equal(expected, actual);
         }
 
@@ -28,6 +72,17 @@ namespace JK.Common.Tests.TypeHelpers
         public void IsEmailAddress_Theories(string input, bool expected)
         {
             var actual = RegexHelper.IsEmailAddress(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("12", true)]
+        [InlineData("-12", true)]
+        [InlineData("12.00", false)]
+        [InlineData("1a", false)]
+        public void IsInteger_Theories(string input, bool expected)
+        {
+            var actual = RegexHelper.IsInteger(input);
             Assert.Equal(expected, actual);
         }
 
