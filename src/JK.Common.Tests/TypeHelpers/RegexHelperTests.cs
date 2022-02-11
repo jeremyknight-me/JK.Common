@@ -5,6 +5,24 @@ namespace JK.Common.Tests.TypeHelpers
     public class RegexHelperTests
     {
         [Theory]
+        [InlineData("abc", true)]
+        [InlineData("asdf234", false)]
+        public void IsAlphabetical_Theories(string input, bool expected)
+        {
+            var actual = RegexHelper.IsAlphabetical(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("abc123", true)]
+        [InlineData("asdf234*@#asdf", false)]
+        public void IsSatisfiedBy(string input, bool expected)
+        {
+            var actual = RegexHelper.IsAlphanumeric(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
         [InlineData("someemail@domain.com", true)]
         [InlineData("some@email@domain.com", false)]
         public void IsEmailAddress_Theories(string input, bool expected)
