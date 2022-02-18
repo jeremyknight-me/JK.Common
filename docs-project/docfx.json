@@ -12,6 +12,18 @@
             "disableGitFeatures": false,
             "disableDefaultFilter": false
         },
+		{
+            "src": [
+                {
+                    "files": [ "**.csproj" ],
+                    "exclude": [ "**.Tests.csproj", "**/bin/**", "**/obj/**" ],
+                    "src": "../src/JK.Common.Data.Sql"
+                }
+            ],
+            "dest": "api/common.data.sql",
+            "disableGitFeatures": false,
+            "disableDefaultFilter": false
+        },
         {
             "src": [
                 {
@@ -20,7 +32,7 @@
                     "src": "../src/JK.Common.EntityFrameworkCore"
                 }
             ],
-            "dest": "api/efcore",
+            "dest": "api/common.efcore",
             "disableGitFeatures": false,
             "disableDefaultFilter": false
         },
@@ -32,7 +44,7 @@
                     "src": "../src/JK.Common.EntityFrameworkCore.SqlServer"
                 }
             ],
-            "dest": "api/efcore.sql",
+            "dest": "api/common.efcore.sql",
             "disableGitFeatures": false,
             "disableDefaultFilter": false
         },
@@ -44,7 +56,7 @@
                     "src": "../src/JK.Common.FluentValidation"
                 }
             ],
-            "dest": "api/fluentvalidation",
+            "dest": "api/common.fluentvalidation",
             "disableGitFeatures": false,
             "disableDefaultFilter": false
         }

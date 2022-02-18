@@ -8,7 +8,7 @@
     <title>JK.Common Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="JK.Common Documentation ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -57,11 +57,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -121,10 +121,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_ConvertToListItems_System_Type_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.ConvertToListItems(System.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_ConvertToListItems_System_Type_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.ConvertToListItems(System.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L20">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L20">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_ConvertToListItems_" data-uid="JK.Common.TypeHelpers.EnumHelper.ConvertToListItems*"></a>
   <h4 id="JK_Common_TypeHelpers_EnumHelper_ConvertToListItems_System_Type_" data-uid="JK.Common.TypeHelpers.EnumHelper.ConvertToListItems(System.Type)">ConvertToListItems(Type)</h4>
@@ -173,18 +173,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetAttribute__1_System_Enum_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetAttribute%60%601(System.Enum)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetAttribute__1_System_Enum__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetAttribute%60%601(System.Enum%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L47">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L46">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetAttribute_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetAttribute*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetAttribute__1_System_Enum_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetAttribute``1(System.Enum)">GetAttribute&lt;T&gt;(Enum)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetAttribute__1_System_Enum__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetAttribute``1(System.Enum@)">GetAttribute&lt;T&gt;(in Enum)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetAttribute&lt;T&gt;(Enum enumVal)
+    <pre><code class="lang-csharp hljs">public T GetAttribute&lt;T&gt;(in Enum enumVal)
 
     where T : Attribute</code></pre>
   </div>
@@ -237,18 +237,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Byte_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByByte%60%601(System.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Byte__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByByte%60%601(System.Byte%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L67">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L66">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetByByte_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByByte*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Byte_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByByte``1(System.Byte)">GetByByte&lt;T&gt;(Byte)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Byte__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByByte``1(System.Byte@)">GetByByte&lt;T&gt;(in Byte)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetByByte&lt;T&gt;(byte value)
+    <pre><code class="lang-csharp hljs">public T GetByByte&lt;T&gt;(in byte value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -301,18 +301,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Nullable_System_Byte__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByByte%60%601(System.Nullable%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Nullable_System_Byte___.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByByte%60%601(System.Nullable%7BSystem.Byte%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L74">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L73">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetByByte_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByByte*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Nullable_System_Byte__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByByte``1(System.Nullable{System.Byte})">GetByByte&lt;T&gt;(Nullable&lt;Byte&gt;)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByByte__1_System_Nullable_System_Byte___" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByByte``1(System.Nullable{System.Byte}@)">GetByByte&lt;T&gt;(in Nullable&lt;Byte&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T? GetByByte&lt;T&gt;(byte? value)
+    <pre><code class="lang-csharp hljs">public T? GetByByte&lt;T&gt;(in byte? value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -365,19 +365,19 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Int32_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByInteger%60%601(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Int32__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByInteger%60%601(System.Int32%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L108">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L105">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetByInteger_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByInteger*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Int32_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByInteger``1(System.Int32)">GetByInteger&lt;T&gt;(Int32)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Int32__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByInteger``1(System.Int32@)">GetByInteger&lt;T&gt;(in Int32)</h4>
   <div class="markdown level1 summary"><p>Gets an Enumeration value by its associated integer value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetByInteger&lt;T&gt;(int value)
+    <pre><code class="lang-csharp hljs">public T GetByInteger&lt;T&gt;(in int value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -433,19 +433,19 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByInteger%60%601(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Nullable_System_Int32___.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByInteger%60%601(System.Nullable%7BSystem.Int32%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L121">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L118">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetByInteger_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByInteger*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Nullable_System_Int32__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByInteger``1(System.Nullable{System.Int32})">GetByInteger&lt;T&gt;(Nullable&lt;Int32&gt;)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByInteger__1_System_Nullable_System_Int32___" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByInteger``1(System.Nullable{System.Int32}@)">GetByInteger&lt;T&gt;(in Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets an Enumeration value by its associated integer value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T? GetByInteger&lt;T&gt;(int? value)
+    <pre><code class="lang-csharp hljs">public T? GetByInteger&lt;T&gt;(in int? value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -501,18 +501,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByte__1___0_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByte%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByte__1___0__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByte%60%601(%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L87">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L86">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetByte_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByte*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByte__1___0_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByte``1(``0)">GetByte&lt;T&gt;(T)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByte__1___0__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByte``1(``0@)">GetByte&lt;T&gt;(in T)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte GetByte&lt;T&gt;(T value)
+    <pre><code class="lang-csharp hljs">public byte GetByte&lt;T&gt;(in T value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -565,18 +565,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByte__1_System_Nullable___0__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByte%60%601(System.Nullable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetByte__1_System_Nullable___0___.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetByte%60%601(System.Nullable%7B%60%600%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L93">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L92">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetByte_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByte*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByte__1_System_Nullable___0__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByte``1(System.Nullable{``0})">GetByte&lt;T&gt;(Nullable&lt;T&gt;)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetByte__1_System_Nullable___0___" data-uid="JK.Common.TypeHelpers.EnumHelper.GetByte``1(System.Nullable{``0}@)">GetByte&lt;T&gt;(in Nullable&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int? GetByte&lt;T&gt;(T? value)
+    <pre><code class="lang-csharp hljs">public int? GetByte&lt;T&gt;(in T? value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -629,18 +629,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetDisplayName__1___0_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetDisplayName%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetDisplayName__1___0__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetDisplayName%60%601(%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L55">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L54">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetDisplayName_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetDisplayName*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetDisplayName__1___0_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetDisplayName``1(``0)">GetDisplayName&lt;T&gt;(T)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetDisplayName__1___0__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetDisplayName``1(``0@)">GetDisplayName&lt;T&gt;(in T)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetDisplayName&lt;T&gt;(T value)
+    <pre><code class="lang-csharp hljs">public string GetDisplayName&lt;T&gt;(in T value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -693,18 +693,18 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetInteger__1___0_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetInteger%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetInteger__1___0__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetInteger%60%601(%60%600%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L131">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L123">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetInteger_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetInteger*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetInteger__1___0_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetInteger``1(``0)">GetInteger&lt;T&gt;(T)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetInteger__1___0__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetInteger``1(``0@)">GetInteger&lt;T&gt;(in T)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int GetInteger&lt;T&gt;(T value)
+    <pre><code class="lang-csharp hljs">public int GetInteger&lt;T&gt;(in T value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -757,19 +757,19 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetInteger__1_System_Nullable___0__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetInteger%60%601(System.Nullable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper_GetInteger__1_System_Nullable___0___.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper.GetInteger%60%601(System.Nullable%7B%60%600%7D%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L142">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L134">View Source</a>
   </span>
   <a id="JK_Common_TypeHelpers_EnumHelper_GetInteger_" data-uid="JK.Common.TypeHelpers.EnumHelper.GetInteger*"></a>
-  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetInteger__1_System_Nullable___0__" data-uid="JK.Common.TypeHelpers.EnumHelper.GetInteger``1(System.Nullable{``0})">GetInteger&lt;T&gt;(Nullable&lt;T&gt;)</h4>
+  <h4 id="JK_Common_TypeHelpers_EnumHelper_GetInteger__1_System_Nullable___0___" data-uid="JK.Common.TypeHelpers.EnumHelper.GetInteger``1(System.Nullable{``0}@)">GetInteger&lt;T&gt;(in Nullable&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets the integer value associated with the given enumeration type value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int? GetInteger&lt;T&gt;(T? value)
+    <pre><code class="lang-csharp hljs">public int? GetInteger&lt;T&gt;(in T? value)
 
     where T : struct, IConvertible</code></pre>
   </div>
@@ -837,15 +837,16 @@ either the enum value or the ComponentModel DescriptionAttribute.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_EnumHelper.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.EnumHelper%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/EnumHelper.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/EnumHelper.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
