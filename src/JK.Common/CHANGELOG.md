@@ -9,6 +9,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+More changes coming soon.
+
+## 3.1.0
+
 ### Added 
 
 - Added INameable and ISortable interfaces
