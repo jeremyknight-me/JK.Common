@@ -8,7 +8,7 @@
     <title>JK.Common Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="JK.Common Documentation ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -57,11 +57,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -114,24 +114,81 @@
   <h6><strong>Assembly</strong>: JK.Common.dll</h6>
   <h5 id="JK_Common_TypeHelpers_MathHelper_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MathHelper</code></pre>
+    <pre><code class="lang-csharp hljs">public static class MathHelper</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper_IsPrime_System_Int64_.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper.IsPrime(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper_Fibonacci_System_Int64__System_Int64__System_Int32__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper.Fibonacci(System.Int64%40%2CSystem.Int64%40%2CSystem.Int32%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/MathHelper.cs/#L7">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/MathHelper.cs/#L34">View Source</a>
   </span>
-  <a id="JK_Common_TypeHelpers_MathHelper_IsPrime_" data-uid="JK.Common.TypeHelpers.MathHelper.IsPrime*"></a>
-  <h4 id="JK_Common_TypeHelpers_MathHelper_IsPrime_System_Int64_" data-uid="JK.Common.TypeHelpers.MathHelper.IsPrime(System.Int64)">IsPrime(Int64)</h4>
+  <a id="JK_Common_TypeHelpers_MathHelper_Fibonacci_" data-uid="JK.Common.TypeHelpers.MathHelper.Fibonacci*"></a>
+  <h4 id="JK_Common_TypeHelpers_MathHelper_Fibonacci_System_Int64__System_Int64__System_Int32__" data-uid="JK.Common.TypeHelpers.MathHelper.Fibonacci(System.Int64@,System.Int64@,System.Int32@)">Fibonacci(in Int64, in Int64, in Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsPrime(long number)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;long&gt; Fibonacci(in long first, in long second, in int limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">first</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">second</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper_IsEven_System_Int64__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper.IsEven(System.Int64%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/MathHelper.cs/#L8">View Source</a>
+  </span>
+  <a id="JK_Common_TypeHelpers_MathHelper_IsEven_" data-uid="JK.Common.TypeHelpers.MathHelper.IsEven*"></a>
+  <h4 id="JK_Common_TypeHelpers_MathHelper_IsEven_System_Int64__" data-uid="JK.Common.TypeHelpers.MathHelper.IsEven(System.Int64@)">IsEven(in Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEven(in long number)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -165,13 +222,100 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="JK.Common.Extensions.ClassExtensions.html#JK_Common_Extensions_ClassExtensions_IsNull__1___0_">ClassExtensions.IsNull&lt;T&gt;(T)</a>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper_IsOdd_System_Int64__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper.IsOdd(System.Int64%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/MathHelper.cs/#L10">View Source</a>
+  </span>
+  <a id="JK_Common_TypeHelpers_MathHelper_IsOdd_" data-uid="JK.Common.TypeHelpers.MathHelper.IsOdd*"></a>
+  <h4 id="JK_Common_TypeHelpers_MathHelper_IsOdd_System_Int64__" data-uid="JK.Common.TypeHelpers.MathHelper.IsOdd(System.Int64@)">IsOdd(in Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOdd(in long number)</code></pre>
   </div>
-  <div>
-      <a class="xref" href="JK.Common.Extensions.ClassExtensions.html#JK_Common_Extensions_ClassExtensions_IsNotNull__1___0_">ClassExtensions.IsNotNull&lt;T&gt;(T)</a>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">number</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper_IsPrime_System_Int64__.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper.IsPrime(System.Int64%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/MathHelper.cs/#L12">View Source</a>
+  </span>
+  <a id="JK_Common_TypeHelpers_MathHelper_IsPrime_" data-uid="JK.Common.TypeHelpers.MathHelper.IsPrime*"></a>
+  <h4 id="JK_Common_TypeHelpers_MathHelper_IsPrime_System_Int64__" data-uid="JK.Common.TypeHelpers.MathHelper.IsPrime(System.Int64@)">IsPrime(in Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPrime(in long number)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">number</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -180,15 +324,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_TypeHelpers_MathHelper.md&amp;value=---%0Auid%3A%20JK.Common.TypeHelpers.MathHelper%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/TypeHelpers/MathHelper.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/TypeHelpers/MathHelper.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -8,7 +8,7 @@
     <title>JK.Common Documentation </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="JK.Common Documentation ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -57,11 +57,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -87,6 +87,10 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="JK.Common.Data.ParameterFactoryBase-1.html">ParameterFactoryBase</a>&lt;<span class="xref">System.Data.DbType</span>&gt;</div>
     <div class="level2"><span class="xref">AdoParameterFactory</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="JK.Common.Data.IParameterFactory.html">IParameterFactory</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -131,16 +135,16 @@
   <h6><strong>Assembly</strong>: JK.Common.dll</h6>
   <h5 id="JK_Common_Data_Ado_AdoParameterFactory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AdoParameterFactory : ParameterFactoryBase&lt;DbType&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class AdoParameterFactory : ParameterFactoryBase&lt;DbType&gt;, IParameterFactory</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory__ctor_System_Data_IDbCommand_.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory.%23ctor(System.Data.IDbCommand)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory__ctor_System_Data_IDbCommand_.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory.%23ctor(System.Data.IDbCommand)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L15">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L15">View Source</a>
   </span>
   <a id="JK_Common_Data_Ado_AdoParameterFactory__ctor_" data-uid="JK.Common.Data.Ado.AdoParameterFactory.#ctor*"></a>
   <h4 id="JK_Common_Data_Ado_AdoParameterFactory__ctor_System_Data_IDbCommand_" data-uid="JK.Common.Data.Ado.AdoParameterFactory.#ctor(System.Data.IDbCommand)">AdoParameterFactory(IDbCommand)</h4>
@@ -173,10 +177,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory_DefineStrategies.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory.DefineStrategies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory_DefineStrategies.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory.DefineStrategies%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L33">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L34">View Source</a>
   </span>
   <a id="JK_Common_Data_Ado_AdoParameterFactory_DefineStrategies_" data-uid="JK.Common.Data.Ado.AdoParameterFactory.DefineStrategies*"></a>
   <h4 id="JK_Common_Data_Ado_AdoParameterFactory_DefineStrategies" data-uid="JK.Common.Data.Ado.AdoParameterFactory.DefineStrategies">DefineStrategies()</h4>
@@ -190,10 +194,10 @@
   <div><span class="xref">JK.Common.Data.ParameterFactoryBase&lt;System.Data.DbType&gt;.DefineStrategies()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory_Make_System_String_System_Data_DbType_System_Data_ParameterDirection_.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory.Make(System.String%2CSystem.Data.DbType%2CSystem.Data.ParameterDirection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory_Make_System_String_System_Data_DbType_System_Data_ParameterDirection_.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory.Make(System.String%2CSystem.Data.DbType%2CSystem.Data.ParameterDirection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L26">View Source</a>
+    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L27">View Source</a>
   </span>
   <a id="JK_Common_Data_Ado_AdoParameterFactory_Make_" data-uid="JK.Common.Data.Ado.AdoParameterFactory.Make*"></a>
   <h4 id="JK_Common_Data_Ado_AdoParameterFactory_Make_System_String_System_Data_DbType_System_Data_ParameterDirection_" data-uid="JK.Common.Data.Ado.AdoParameterFactory.Make(System.String,System.Data.DbType,System.Data.ParameterDirection)">Make(String, DbType, ParameterDirection)</h4>
@@ -229,7 +233,8 @@
       <tr>
         <td><span class="xref">System.Data.ParameterDirection</span></td>
         <td><span class="parametername">direction</span></td>
-        <td></td>
+        <td><p>Parameter direction. Defaults to 'input'.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -251,6 +256,10 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">JK.Common.Data.ParameterFactoryBase&lt;System.Data.DbType&gt;.Make(System.String, System.Data.DbType, System.Data.ParameterDirection)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="JK.Common.Data.IParameterFactory.html">IParameterFactory</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="JK.Common.Extensions.ClassExtensions.html#JK_Common_Extensions_ClassExtensions_IsNull__1___0_">ClassExtensions.IsNull&lt;T&gt;(T)</a>
@@ -266,15 +275,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jeremyknight-me/JK.Common/new/moveGhPagesToDocsFolder/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jeremyknight-me/JK.Common/new/master/apiSpec/new?filename=JK_Common_Data_Ado_AdoParameterFactory.md&amp;value=---%0Auid%3A%20JK.Common.Data.Ado.AdoParameterFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jeremyknight-me/JK.Common/blob/moveGhPagesToDocsFolder/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jeremyknight-me/JK.Common/blob/master/src/JK.Common/Data/Ado/AdoParameterFactory.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
