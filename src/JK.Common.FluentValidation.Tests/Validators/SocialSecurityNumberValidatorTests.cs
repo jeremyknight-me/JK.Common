@@ -1,27 +1,17 @@
-﻿using JK.Common.FluentValidation.Validators;
+﻿namespace JK.Common.FluentValidation.Tests.Validators;
 
-namespace JK.Common.FluentValidation.Tests.Validators;
-
-public class SocialSecurityNumberValidatorTests
+public class SocialSecurityNumberValidatorTests : StringValidatorTestsBase
 {
-    internal MockModelStringValidator MockValidator
-    {
-        get
-        {
-            var validator = new SocialSecurityNumberValidator<MockModel, string>();
-            return new MockModelStringValidator(validator);
-        }
-    }
+    public override StringValidatorBase<MockModel, string> Validator => new SocialSecurityNumberValidator<MockModel, string>();
 
     [Theory]
     [InlineData("078051120")]
     [InlineData("078 05 1120")]
     [InlineData("078-05-1120")]
     [InlineData("899-05-1120")] // left less than 900
-    
     public void IsValid_TrueTheories(string value)
     {
-        var result = value.GetTestValidationResult(this.MockValidator);
+        var result = this.MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 
@@ -35,7 +25,7 @@ public class SocialSecurityNumberValidatorTests
     [InlineData("900-12-4321")] // left greater than equal 900
     public void IsValid_FalseTheories(string value)
     {
-        var result = value.GetTestValidationResult(this.MockValidator);
+        var result = this.MakeAndTestValidator(value);
         result.ShouldHaveValidationErrorFor(x => x.StringValue);
     }
 }

@@ -1,17 +1,8 @@
-﻿using JK.Common.FluentValidation.Validators;
+﻿namespace JK.Common.FluentValidation.Tests.Validators;
 
-namespace JK.Common.FluentValidation.Tests.Validators;
-
-public class UnitedStatesPhoneNumberValidatorTests
+public class UnitedStatesPhoneNumberValidatorTests : StringValidatorTestsBase
 {
-    internal MockModelStringValidator MockValidator
-    {
-        get
-        {
-            var validator = new UnitedStatesPhoneNumberValidator<MockModel, string>();
-            return new MockModelStringValidator(validator);
-        }       
-    }
+    public override StringValidatorBase<MockModel, string> Validator => new UnitedStatesPhoneNumberValidator<MockModel, string>();
 
     [Theory]
     [InlineData("5555551234")]
@@ -21,7 +12,7 @@ public class UnitedStatesPhoneNumberValidatorTests
     [InlineData("555-1234")]
     public void IsValid_TrueTheories(string value)
     {
-        var result = value.GetTestValidationResult(this.MockValidator);
+        var result = this.MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 }

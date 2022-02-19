@@ -1,24 +1,15 @@
-﻿using JK.Common.FluentValidation.Validators;
+﻿namespace JK.Common.FluentValidation.Tests.Validators;
 
-namespace JK.Common.FluentValidation.Tests.Validators;
-
-public class ZipCodeValidatorTests
+public class ZipCodeValidatorTests : StringValidatorTestsBase
 {
-    internal MockModelStringValidator MockValidator
-    {
-        get
-        {
-            var validator = new ZipCodeValidator<MockModel, string>();
-            return new MockModelStringValidator(validator);
-        }
-    }
+    public override StringValidatorBase<MockModel, string> Validator => new ZipCodeValidator<MockModel, string>();
 
     [Theory]
     [InlineData("12345")]
     [InlineData("12345-6789")]
     public void IsValid_TrueTheories(string value)
     {
-        var result = value.GetTestValidationResult(this.MockValidator);
+        var result = this.MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 
@@ -28,7 +19,7 @@ public class ZipCodeValidatorTests
     [InlineData("12345-67X9")]
     public void IsValid_FalseTheories(string value)
     {
-        var result = value.GetTestValidationResult(this.MockValidator);
+        var result = this.MakeAndTestValidator(value);
         result.ShouldHaveValidationErrorFor(x => x.StringValue);
     }
 }

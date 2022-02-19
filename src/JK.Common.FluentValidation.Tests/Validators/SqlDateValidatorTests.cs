@@ -1,27 +1,15 @@
 ﻿using System;
-using FluentValidation.TestHelper;
-using FluentValidation.Validators;
-using JK.Common.FluentValidation.Validators;
 
 namespace JK.Common.FluentValidation.Tests.Validators;
 
 public class SqlDateValidatorTests
 {
-    internal AbstractValidator<MockModel> MockValidator
-    {
-        get
-        {
-            var validator = new SqlDateValidator<MockModel, DateTime>();
-            return new MockModelDateValidator(validator);
-        }
-    }
-
     [Theory]
     [InlineData(1753, 1, 1)] // = 1753
     [InlineData(1754, 1, 1)] // > 1753
     public void IsValid_TrueTheories(int year, int month, int day)
     {
-        var result = this.GetTestValidationResult(year, month, day, this.MockValidator);
+        var result = this.MakeAndTestValidator(year, month, day);
         result.ShouldNotHaveValidationErrorFor(x => x.DateValue);
     }
 
@@ -29,15 +17,17 @@ public class SqlDateValidatorTests
     [InlineData(1752, 12, 31)] // < 1753
     public void IsValid_FalseTheories(int year, int month, int day)
     {
-        var result = this.GetTestValidationResult(year, month, day, this.MockValidator);
+        var result = this.MakeAndTestValidator(year, month, day);
         result.ShouldHaveValidationErrorFor(x => x.DateValue);
     }
 
-    private TestValidationResult<MockModel> GetTestValidationResult(int year, int month, int day, AbstractValidator<MockModel> validator)
+    private TestValidationResult<MockModel> MakeAndTestValidator(int year, int month, int day)
     {
         var date = new DateTime(year, month, day);
         var model = new MockModel { DateValue = date };
-        return validator.TestValidate(model);
+        var validator = new SqlDateValidator<MockModel, DateTime>();
+        var mock = new MockModelDateValidator(validator);
+        return mock.TestValidate(model);
     }
 
     private class MockModelDateValidator : AbstractValidator<MockModel>
