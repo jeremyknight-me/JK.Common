@@ -1,21 +1,20 @@
-﻿using FluentValidation.Validators;
+﻿using FluentValidation;
+using FluentValidation.Validators;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+public abstract class StringValidatorBase<T, TProperty> : PropertyValidator<T, TProperty>
 {
-    public abstract class StringValidatorBase : PropertyValidator
+    /// <summary>Determine if the given string is valid.</summary>
+    /// <param name="value">String value to validate</param>
+    /// <returns>True if valid, otherwise false.</returns>
+    protected abstract bool IsStringValid(string value);
+
+    ///<inheritdoc/>
+    public override bool IsValid(ValidationContext<T> context, TProperty value)
     {
-        protected StringValidatorBase(string errorMessage) : base(errorMessage)
-        {
-        }
-
-        protected abstract bool IsStringValid(string value);
-
-        protected override bool IsValid(PropertyValidatorContext context)
-        {
-            var stringToValidate = context.PropertyValue as string;
-            return string.IsNullOrEmpty(stringToValidate)
-                ? true
-                : this.IsStringValid(stringToValidate);
-        }
+        var stringToValidate = value as string;
+        return string.IsNullOrEmpty(stringToValidate)
+            || this.IsStringValid(stringToValidate);
     }
 }

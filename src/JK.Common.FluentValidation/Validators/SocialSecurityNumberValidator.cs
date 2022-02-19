@@ -1,19 +1,20 @@
 ﻿using JK.Common.Specifications.UnitedStates;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+public class SocialSecurityNumberValidator<T, TProperty> : StringValidatorBase<T, TProperty>
 {
-    public class SocialSecurityNumberValidator : StringValidatorBase
+    ///<inheritdoc/>
+    public override string Name => "SocialSecurityNumberValidator";
+
+    ///<inheritdoc/>
+    protected override string GetDefaultMessageTemplate(string errorCode)
+        => "{PropertyName}: String must only contain valid United States social security numbers.";
+
+    ///<inheritdoc/>
+    protected override bool IsStringValid(string value)
     {
-        private readonly SocialSecurityNumberSpecification specification;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SocialSecurityNumberValidator"/> class.
-        /// </summary>
-        public SocialSecurityNumberValidator() : base("String must only contain valid United States social security numbers.")
-        {
-            this.specification = new SocialSecurityNumberSpecification();
-        }
-
-        protected override bool IsStringValid(string value) => this.specification.IsSatisfiedBy(value);
+        var specification = new SocialSecurityNumberSpecification();
+        return specification.IsSatisfiedBy(value);
     }
 }

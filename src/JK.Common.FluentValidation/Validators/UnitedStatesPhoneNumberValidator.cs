@@ -1,19 +1,20 @@
 ﻿using JK.Common.Specifications.UnitedStates;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+public class UnitedStatesPhoneNumberValidator<T, TProperty> : StringValidatorBase<T, TProperty>
 {
-    public class UnitedStatesPhoneNumberValidator : StringValidatorBase
+    ///<inheritdoc/>
+    public override string Name => "UnitedStatesPhoneNumberValidator";
+
+    ///<inheritdoc/>
+    protected override string GetDefaultMessageTemplate(string errorCode)
+        => "{PropertyName}: String must only contain valid United States phone numbers.";
+
+    ///<inheritdoc/>
+    protected override bool IsStringValid(string value)
     {
-        private readonly PhoneNumberSpecification specification;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnitedStatesPhoneNumberValidator"/> class.
-        /// </summary>
-        public UnitedStatesPhoneNumberValidator() : base("String must only contain valid United States phone numbers.")
-        {
-            this.specification = new PhoneNumberSpecification();
-        }
-
-        protected override bool IsStringValid(string value) => specification.IsSatisfiedBy(value);
+        var specification = new PhoneNumberSpecification();
+        return specification.IsSatisfiedBy(value);
     }
 }

@@ -1,22 +1,23 @@
 ﻿using JK.Common.Specifications;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+/// <summary>
+/// Validator that validates that a string property contains alphanumeric characters.
+/// </summary>
+public class AlphaNumericValidator<T, TProperty> : StringValidatorBase<T, TProperty>
 {
-    /// <summary>
-    /// Validator that validates that a string property contains alphanumeric characters.
-    /// </summary>
-    public class AlphaNumericValidator : StringValidatorBase
+    ///<inheritdoc/>
+    public override string Name => "AlphaNumericValidator";
+
+    ///<inheritdoc/>
+    protected override string GetDefaultMessageTemplate(string errorCode)
+        => "String in propery {PropertyName} must only contain uppercase letters, lowercase letters, or numbers.";
+
+    ///<inheritdoc/>
+    protected override bool IsStringValid(string value)
     {
-        private readonly AlphanumericSpecification specification;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AlphaNumericValidator"/> class.
-        /// </summary>
-        public AlphaNumericValidator() : base("String must only contain uppercase letters, lowercase letters, or numbers.")
-        {
-            this.specification = new AlphanumericSpecification();
-        }
-
-        protected override bool IsStringValid(string value) => this.specification.IsSatisfiedBy(value);
+        var specification = new AlphanumericSpecification();
+        return specification.IsSatisfiedBy(value);
     }
 }

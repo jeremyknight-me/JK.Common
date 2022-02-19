@@ -1,26 +1,27 @@
 ﻿using System;
 using JK.Common.Specifications;
 using FluentValidation.Validators;
+using FluentValidation;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+/// <summary>
+/// Validator that validates that a double property is a valid longitude.
+/// </summary>
+public class LongitudeValidator<T, TProperty> : PropertyValidator<T, TProperty>
 {
-    /// <summary>
-    /// Validator that validates that a double property is a valid longitude.
-    /// </summary>
-    public class LongitudeValidator : PropertyValidator
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LongitudeValidator"/> class.
-        /// </summary>
-        public LongitudeValidator() : base("Longitude must be between -180 and 180.")
-        {
-        }
+    ///<inheritdoc/>
+    public override string Name => "LongitudeValidator";
 
-        protected override bool IsValid(PropertyValidatorContext context)
-        {
-            double longitude = Convert.ToDouble(context.PropertyValue); 
-            var specification = new LongitudeSpecification();
-            return specification.IsSatisfiedBy(longitude);
-        }
+    ///<inheritdoc/>
+    protected override string GetDefaultMessageTemplate(string errorCode)
+        => "{PropertyName}: Longitude must be between -180 and 180.";
+
+    ///<inheritdoc/>
+    public override bool IsValid(ValidationContext<T> context, TProperty value)
+    {
+        var longitude = Convert.ToDouble(value);
+        var specification = new LongitudeSpecification();
+        return specification.IsSatisfiedBy(longitude);
     }
 }
