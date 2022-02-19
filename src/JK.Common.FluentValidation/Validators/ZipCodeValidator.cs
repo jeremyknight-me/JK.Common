@@ -1,32 +1,23 @@
-﻿using JK.Common.Specifications;
-using FluentValidation.Validators;
+﻿using JK.Common.Specifications.UnitedStates;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+/// <summary>
+/// Validator that validates that a string property is a valid zip code.
+/// </summary>
+public class ZipCodeValidator<T, TProperty> : StringValidatorBase<T, TProperty>
 {
-    /// <summary>
-    /// Validator that validates that a string property is a valid zip code.
-    /// </summary>
-    public class ZipCodeValidator : PropertyValidator
+    ///<inheritdoc/>
+    public override string Name => "ZipCodeValidator";
+
+    ///<inheritdoc/>
+    protected override string GetDefaultMessageTemplate(string errorCode)
+        => "Property {PropertyName} must contain a valid zip code.";
+
+    ///<inheritdoc/>
+    protected override bool IsStringValid(string value)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ZipCodeValidator"/> class.
-        /// </summary>
-        public ZipCodeValidator()
-            : base("Property must contain a valid zip code.")
-        {
-        }
-
-        protected override bool IsValid(PropertyValidatorContext context)
-        {
-            var stringToValidate = context.PropertyValue as string;
-
-            if (string.IsNullOrEmpty(stringToValidate))
-            {
-                return true;
-            }
-
-            var specification = new ZipCodeSpecification();
-            return specification.IsSatisfiedBy(stringToValidate);
-        }
+        var specification = new ZipCodeSpecification();
+        return specification.IsSatisfiedBy(value);
     }
 }

@@ -1,27 +1,26 @@
 ﻿using System;
 using JK.Common.Specifications;
 using FluentValidation.Validators;
+using FluentValidation;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+/// <summary>
+/// Validator that validates that a double property is a valid latitude.
+/// </summary>
+public class LatitudeValidator<T, TProperty> : PropertyValidator<T, TProperty>
 {
-    /// <summary>
-    /// Validator that validates that a double property is a valid latitude.
-    /// </summary>
-    public class LatitudeValidator : PropertyValidator
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LatitudeValidator"/> class.
-        /// </summary>
-        public LatitudeValidator()
-            : base("Latitude must be between -90 and 90.")
-        {
-        }
+    ///<inheritdoc/>
+    public override string Name => "LatitudeValidator";
 
-        protected override bool IsValid(PropertyValidatorContext context)
-        {
-            double latitude = Convert.ToDouble(context.PropertyValue);      
-            var specification = new LatitudeSpecification();
-            return specification.IsSatisfiedBy(latitude);
-        }
+    ///<inheritdoc/>
+    protected override string GetDefaultMessageTemplate(string errorCode) => "{PropertyName}: Latitude must be between -90 and 90.";
+
+    ///<inheritdoc/>
+    public override bool IsValid(ValidationContext<T> context, TProperty value)
+    {
+        var latitude = Convert.ToDouble(value);
+        var specification = new LatitudeSpecification();
+        return specification.IsSatisfiedBy(latitude);
     }
 }

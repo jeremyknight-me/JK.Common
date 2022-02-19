@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.FluentValidation", "JK.Common.FluentValidation\JK.Common.FluentValidation.csproj", "{4934ABA8-E589-441F-98A7-E602E9BE1410}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.FluentValidation.Tests", "JK.Common.FluentValidation.Tests\JK.Common.FluentValidation.Tests.csproj", "{22E7DC9A-6BE9-4FC4-B447-550C52A361FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4934ABA8-E589-441F-98A7-E602E9BE1410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4934ABA8-E589-441F-98A7-E602E9BE1410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4934ABA8-E589-441F-98A7-E602E9BE1410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E7DC9A-6BE9-4FC4-B447-550C52A361FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E7DC9A-6BE9-4FC4-B447-550C52A361FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E7DC9A-6BE9-4FC4-B447-550C52A361FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E7DC9A-6BE9-4FC4-B447-550C52A361FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

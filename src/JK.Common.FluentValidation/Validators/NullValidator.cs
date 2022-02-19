@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
 
-namespace JK.Common.FluentValidation.Validators
+namespace JK.Common.FluentValidation.Validators;
+
+public class NullValidator<T> : AbstractValidator<T>
 {
-    public class NullValidator<T> : AbstractValidator<T>
-    {
-    }
 }
