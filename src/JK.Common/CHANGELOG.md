@@ -1,4 +1,4 @@
-﻿# Changelog - JK.Common
+# Changelog - JK.Common
 
 All notable changes to this project will be documented in this file.
 
@@ -9,16 +9,18 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
-More changes coming soon.
+### Changed
+
+- Changed Latitude and Longitude to use `decimal` instead of `double`
 
 ## 3.1.0
 
 ### Added 
 
-- Added INameable and ISortable interfaces
-- Added Singleton pattern Lazy<T> implementation reference class
-- Added DateOnly version of DateHelper methods. 
-- Added DateOnly extension methods.
+- Added `INameable` and `ISortable` interfaces
+- Added Singleton pattern `Lazy<T>` implementation reference class
+- Added `DateOnly` version of DateHelper methods. 
+- Added `DateOnly` extension methods.
 - Added DecimalHelper with `GetDecimalPart` and `GetWholePart` methods
 - Added RegexHelper with multiple built in pattern searches
 - Added sorting algorithms: Bubble, Heap, Insertion, Merge, Quick, Selection, Shell
@@ -48,8 +50,8 @@ More changes coming soon.
 ### Added 
 
 - Added DateTimeOffsetFactory to allow creating of DateTimeOffset from DateTime and TimeZoneId.
-- Added DateTimeOffset overloads for all DateHelper methods.
-- Added DateTimeOffset extension methods to match current DateTime extensions.
+- Added `DateTimeOffset` overloads for all DateHelper methods.
+- Added `DateTimeOffset` extension methods to match current DateTime extensions.
 - Added math helpers for Fibonacci, IsEven, and IsOdd
 - Added AsIndexedEnumerable extension method
 - Added IsNullable check to determine if a type is using Nullable<T>
