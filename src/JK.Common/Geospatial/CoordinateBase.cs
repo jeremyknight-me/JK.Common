@@ -7,82 +7,56 @@ namespace JK.Common.Geospatial;
 /// <summary>Base object for latitudes and longitudes coordinates.</summary>
 public abstract class CoordinateBase
 {
-    #region Constructors
+    protected CoordinateBase(decimal degrees, decimal minutes = 0, decimal seconds = 0)
+    {
+        this.Validate(degrees);
+        this.SetIsNegative(degrees);
+        this.Coordinate = Math.Abs(degrees) + (Math.Abs(minutes) / 60.0m) + (Math.Abs(seconds) / 3600.0m);
+    }
 
-    protected CoordinateBase()
+    protected CoordinateBase(decimal degrees, Direction direction)
+        : this(degrees, 0m, 0m, direction)
     {
     }
 
-    protected CoordinateBase(double degrees)
-        : this()
+    protected CoordinateBase(decimal degrees, decimal minutes, Direction direction)
+        : this(degrees, minutes, 0m, direction)
     {
-        this.SetCoordinate(degrees);
     }
 
-    protected CoordinateBase(double degrees, double minutes)
-        : this()
+    protected CoordinateBase(decimal degrees, decimal minutes, decimal seconds, Direction direction)
     {
-        this.SetCoordinate(degrees, minutes);
+        this.Validate(degrees, direction);
+        this.SetIsNegative(direction);
+        this.Coordinate = Math.Abs(degrees) + (Math.Abs(minutes) / 60.0m) + (Math.Abs(seconds) / 3600.0m);
     }
-
-    protected CoordinateBase(double degrees, double minutes, double seconds)
-        : this()
-    {
-        this.SetCoordinate(degrees, minutes, seconds);
-    }
-
-    protected CoordinateBase(double degrees, Direction direction)
-        : this()
-    {
-        this.SetCoordinate(degrees, direction);
-    }
-
-    protected CoordinateBase(double degrees, double minutes, Direction direction)
-        : this()
-    {
-        this.SetCoordinate(degrees, minutes, direction);
-    }
-
-    protected CoordinateBase(double degrees, double minutes, double seconds, Direction direction)
-        : this()
-    {
-        this.SetCoordinate(degrees, minutes, seconds, direction);
-    }
-
-    #endregion
 
     #region Public Properties
 
     /// <summary>
     /// Gets or sets whether the coordinate represents positive or negative point.
     /// </summary>
-    public bool IsNegative
-    {
-        get; protected set;
-    }
+    public bool IsNegative { get; protected set; }
 
     /// <summary>
     /// Gets or sets the absolute value of the coordinate.
     /// </summary>
-    public double Coordinate
-    {
-        get; private set;
-    }
+    public decimal Coordinate { get; private set; }
 
     /// <summary>
     /// Gets the signed value of the coordinate.
     /// </summary>
-    public double CoordinateSigned => this.IsNegative ? this.Coordinate * -1 : this.Coordinate;
+    public decimal CoordinateSigned => this.IsNegative ? this.Coordinate * -1 : this.Coordinate;
 
     /// <summary>
     /// Gets the unsigned degrees rounded to 10 decimal places.
     /// </summary>
-    public double DecimalDegrees => Math.Round(this.Coordinate, 10);
+    public decimal DecimalDegrees => Math.Round(this.Coordinate, 10);
 
     /// <summary>
     /// Gets the signed degrees rounded to 10 decimal places.
     /// </summary>
-    public double DecimalDegreesSigned => Math.Round(this.IsNegative ? this.Coordinate * -1 : this.Coordinate, 10);
+    public decimal DecimalDegreesSigned => this.IsNegative ? this.DecimalDegrees * -1 : this.DecimalDegrees;
 
     /// <summary>
     /// Gets the signed degrees as an integer.
@@ -92,13 +66,7 @@ public abstract class CoordinateBase
         get
         {
             var floored = (int)Math.Floor(this.Coordinate);
-
-            if (this.IsNegative)
-            {
-                return floored * -1;
-            }
-
-            return floored;
+            return this.IsNegative ? floored * -1 : floored;
         }
     }
 
@@ -110,11 +78,11 @@ public abstract class CoordinateBase
     /// <summary>
     /// Gets the minutes to 3 decimal places.
     /// </summary>
-    public double DecimalMinutes
+    public decimal DecimalMinutes
     {
         get
         {
-            var minutes = (this.Coordinate - Math.Floor(this.Coordinate)) * 60.0;
+            var minutes = (this.Coordinate - Math.Floor(this.Coordinate)) * 60.0m;
             return Math.Round(minutes, 3);
         }
     }
@@ -131,7 +99,7 @@ public abstract class CoordinateBase
     {
         get
         {
-            var minutes = (this.Coordinate - Math.Floor(this.Coordinate)) * 60.0;
+            var minutes = (this.Coordinate - Math.Floor(this.Coordinate)) * 60.0m;
             return (int)Math.Round((minutes - this.Minutes) * 60);
         }
     }
@@ -145,85 +113,7 @@ public abstract class CoordinateBase
 
     public abstract CoordinateType CoordinateType { get; }
 
-    protected abstract ISpecification<double> ValidationSpecification { get; }
-
-    #region Public Methods - SetCoordinate Overloads
-
-    /// <summary>Sets the coordinate details.</summary>
-    /// <param name="degrees">The amount of degrees.</param>
-    public void SetCoordinate(in double degrees)
-    {
-        this.Validate(degrees);
-        this.SetIsNegative(degrees);
-        this.Coordinate = Math.Abs(degrees);
-    }
-
-    /// <summary>Sets the coordinate details.</summary>
-    /// <param name="degrees">The amount of degrees.</param>
-    /// <param name="minutes">The amount of minutes.</param>
-    public void SetCoordinate(in double degrees, in double minutes)
-    {
-        this.Validate(degrees);
-        this.SetIsNegative(degrees);
-        var absoluteDegrees = Math.Abs(degrees);
-        var absoluteMinutes = Math.Abs(minutes);
-        this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0);
-    }
-
-    /// <summary>Sets the coordinate details.</summary>
-    /// <param name="degrees">The amount of degrees.</param>
-    /// <param name="minutes">The amount of minutes.</param>
-    /// <param name="seconds">The amount of seconds.</param>
-    public void SetCoordinate(in double degrees, in double minutes, in double seconds)
-    {
-        this.Validate(degrees);
-        this.SetIsNegative(degrees);
-
-        var absoluteDegrees = Math.Abs(degrees);
-        var absoluteMinutes = Math.Abs(minutes);
-        var absoluteSeconds = Math.Abs(seconds);
-        this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0) + (absoluteSeconds / 3600.0);
-    }
-
-    /// <summary>Sets the coordinate details.</summary>
-    /// <param name="degrees">The amount of degrees.</param>
-    /// <param name="direction">The cardinal direction.</param>
-    public void SetCoordinate(in double degrees, in Direction direction)
-    {
-        this.Validate(degrees);
-        this.SetIsNegative(direction);
-        this.Coordinate = Math.Abs(degrees);
-    }
-
-    /// <summary>Sets the coordinate details.</summary>
-    /// <param name="degrees">The amount of degrees.</param>
-    /// <param name="minutes">The amount of minutes.</param>
-    /// <param name="direction">The cardinal direction</param>
-    public void SetCoordinate(in double degrees, in double minutes, in Direction direction)
-    {
-        this.Validate(degrees);
-        this.SetIsNegative(direction);
-        var absoluteDegrees = Math.Abs(degrees);
-        var absoluteMinutes = Math.Abs(minutes);
-        this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0);
-    }
-
-    /// <summary>Sets the coordinate details.</summary>
-    /// <param name="degrees">The amount of degrees.</param>
-    /// <param name="minutes">The amount of minutes.</param>
-    /// <param name="seconds">The amount of seconds.</param>
-    /// <param name="direction">The cardinal direction</param>
-    public void SetCoordinate(in double degrees, in double minutes, in double seconds, in Direction direction)
-    {
-        this.Validate(degrees, direction);
-        this.SetIsNegative(direction);
-        var absoluteDegrees = Math.Abs(degrees);
-        var absoluteMinutes = Math.Abs(minutes);
-        var absoluteSeconds = Math.Abs(seconds);
-        this.Coordinate = absoluteDegrees + (absoluteMinutes / 60.0) + (absoluteSeconds / 3600.0);
-    }
-
-    #endregion
+    protected abstract ISpecification<decimal> ValidationSpecification { get; }
 
     /// <summary>
     /// Returns a string that represents the current coordinate in decimal degrees.
@@ -250,11 +140,11 @@ public abstract class CoordinateBase
 
     public abstract ICollection<Direction> GetValidDirections();
 
-    protected void SetIsNegative(in double degress) => this.IsNegative = degress < 0;
+    protected void SetIsNegative(in decimal degress) => this.IsNegative = degress < 0;
 
     protected abstract void SetIsNegative(in Direction direction);
 
-    private void Validate(in double value)
+    private void Validate(in decimal value)
     {
         if (!this.ValidationSpecification.IsSatisfiedBy(value))
         {
@@ -262,10 +152,9 @@ public abstract class CoordinateBase
         }
     }
 
-    private void Validate(in double value, in Direction direction)
+    private void Validate(in decimal value, in Direction direction)
     {
         this.Validate(value);
-
         var validDirections = this.GetValidDirections();
         if (!validDirections.Contains(direction))
         {

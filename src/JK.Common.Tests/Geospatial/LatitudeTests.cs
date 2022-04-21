@@ -11,94 +11,6 @@ public class LatitudeTests
         decimal: 40.4461111111°
      */
 
-    #region SetDegrees() Invalid Values
-
-    [Theory]
-    [InlineData(100)]
-    [InlineData(-100)]
-    public void SetDegrees_InvalidDegrees_Exception(double degrees)
-    {
-        var latitude = new Latitude();
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => latitude.SetCoordinate(degrees));
-    }
-
-    [Theory]
-    [InlineData(100, 26.767)]
-    [InlineData(-100, 26.767)]
-    public void SetDegrees_InvalidDegreesMinutes_Exception(double degrees, double minutes)
-    {
-        var latitude = new Latitude();
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => latitude.SetCoordinate(degrees, minutes));
-    }
-
-    [Fact]
-    public void SetDegrees_InvalidDegreesMinutesSeconds_Exception()
-    {
-        var latitude = new Latitude();
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => latitude.SetCoordinate(100, 26, 46));
-    }
-
-    [Fact]
-    public void SetDegrees_NegativeInvalidDegreesMinutesSeconds_Exception()
-    {
-        var latitude = new Latitude();
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => latitude.SetCoordinate(-100, 26, 46));
-    }
-
-    #endregion
-
-    #region SetDegrees() Valid Values
-
-    [Fact]
-    public void SetDegrees_Degrees()
-    {
-        var latitude = new Latitude();
-        latitude.SetCoordinate(40.446113);
-        this.AssertCoordinateData(latitude);
-    }
-
-    [Fact]
-    public void SetDegrees_DegreesMinutes()
-    {
-        var latitude = new Latitude();
-        latitude.SetCoordinate(40, 26.767);
-        this.AssertCoordinateData(latitude);
-    }
-
-    [Fact]
-    public void SetDegrees_DegreesMinutesSeconds()
-    {
-        var latitude = new Latitude();
-        latitude.SetCoordinate(40, 26, 46);
-        this.AssertCoordinateData(latitude);
-    }
-
-    [Fact]
-    public void SetDegrees_DegreesDirection()
-    {
-        var latitude = new Latitude();
-        latitude.SetCoordinate(40.4461111111, Direction.N);
-        this.AssertCoordinateData(latitude);
-    }
-
-    [Fact]
-    public void SetDegrees_DegreesMinutesDirection()
-    {
-        var latitude = new Latitude();
-        latitude.SetCoordinate(40, 26.767, Direction.N);
-        this.AssertCoordinateData(latitude);
-    }
-
-    [Fact]
-    public void SetDegrees_DegreesMinutesSecondsDirection()
-    {
-        var latitude = new Latitude();
-        latitude.SetCoordinate(40, 26, 46, Direction.N);
-        this.AssertCoordinateData(latitude);
-    }
-
-    #endregion
-
     #region Ctor() Invalid Values
 
     [Fact]
@@ -116,13 +28,13 @@ public class LatitudeTests
     [Fact]
     public void Ctor_InvalidDegreesMinutes_Exception()
     {
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Latitude(100, 26.767));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Latitude(100, 26.767m));
     }
 
     [Fact]
     public void Ctor_NegativeInvalidDegreesMinutes_Exception()
     {
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Latitude(-100, 26.767));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new Latitude(-100, 26.767m));
     }
 
     [Fact]
@@ -144,14 +56,14 @@ public class LatitudeTests
     [Fact]
     public void Ctor_Degrees()
     {
-        var latitude = new Latitude(40.446113);
+        var latitude = new Latitude(40.446113m);
         this.AssertCoordinateData(latitude);
     }
 
     [Fact]
     public void Ctor_DegreesMinutes()
     {
-        var latitude = new Latitude(40, 26.767);
+        var latitude = new Latitude(40, 26.767m);
         this.AssertCoordinateData(latitude);
     }
 
@@ -165,14 +77,14 @@ public class LatitudeTests
     [Fact]
     public void Ctor_DegreesDirection()
     {
-        var latitude = new Latitude(40.446113, Direction.N);
+        var latitude = new Latitude(40.446113m, Direction.N);
         this.AssertCoordinateData(latitude);
     }
 
     [Fact]
     public void Ctor_DegreesMinutesDirection()
     {
-        var latitude = new Latitude(40, 26.767, Direction.N);
+        var latitude = new Latitude(40, 26.767m, Direction.N);
         this.AssertCoordinateData(latitude);
     }
 
@@ -187,10 +99,10 @@ public class LatitudeTests
 
     private void AssertCoordinateData(Latitude latitude)
     {
-        //Assert.Equal(40.4461111111, latitude.DecimalDegreesSigned);
+        //Assert.Equal(40.4461111111m, latitude.DecimalDegreesSigned);
         Assert.Equal(40, latitude.Degrees);
         Assert.Equal(40, latitude.DegreesSigned);
-        Assert.Equal(26.767, latitude.DecimalMinutes);
+        Assert.Equal(26.767m, latitude.DecimalMinutes);
         Assert.Equal(26, latitude.Minutes);
         Assert.Equal(46, latitude.Seconds);
         Assert.Equal(Direction.N, latitude.Direction);

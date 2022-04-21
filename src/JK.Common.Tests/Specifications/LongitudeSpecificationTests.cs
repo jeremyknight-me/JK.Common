@@ -10,7 +10,7 @@ public class LongitudeSpecificationTests
     [InlineData(0, true)]
     [InlineData(180, true)]
     [InlineData(181, false)]
-    public void IsSatisfiedBy(double input, bool expected)
+    public void IsSatisfiedBy(decimal input, bool expected)
     {
         var specification = new LongitudeSpecification();
         var actual = specification.IsSatisfiedBy(input);

@@ -10,7 +10,7 @@ public class LatitudeSpecificationTests
     [InlineData(0, true)]
     [InlineData(90, true)]
     [InlineData(91, false)]
-    public void IsSatisfiedBy(double input, bool expected)
+    public void IsSatisfiedBy(decimal input, bool expected)
     {
         var specification = new LatitudeSpecification();
         var actual = specification.IsSatisfiedBy(input);
