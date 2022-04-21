@@ -1,7 +1,7 @@
 # JK.Common Code Library
 
-A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.
-| Library | CI | Download |
+A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.  
+| Library (Link = Changelog) | CI | Download |
 | ------------ | ------------ | ------------ |
 | [JK.Common](src/JK.Common/CHANGELOG.md) | ![JK.Common CI Status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/common/ci-common) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.svg)](https://www.nuget.org/packages/JK.Common/) |
 | [JK.Common.Data.Sql](src/JK.Common.Data.Sql/CHANGELOG.md) | ![JK.Common.Data.Sql CI Status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/common.data.sql/ci-common.data.sql) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.Data.Sql.svg)](https://www.nuget.org/packages/JK.Common.Data.Sql/) |

@@ -13,3 +13,15 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Multi-targeting for .NET Standard 2.1, .NET 5, and .NET 6
 - ADO integration helper classes
+
+## 2.0.9 - 10 Dec 2020
+
+### Changed
+
+- Changed PropertyBuilderExtensions to be type specific
+
+## 2.0.6 - 23 June 2020
+
+### Added
+
+- Added PropertyBuilderExtensions.
