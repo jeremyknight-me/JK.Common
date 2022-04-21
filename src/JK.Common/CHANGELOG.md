@@ -58,3 +58,46 @@ More changes coming soon.
 
 - Renamed DateTimeHelper to DateHelper to add DateTimeOffset overloads.
 - Changed all DateHelper methods to static.
+
+## 2.0.9 - 10 Dec 2020
+
+### Added
+
+- Added EquatableFacade<T>
+- Added IsBetween DateTimeHelper/Extension method
+- Added DoesOverlap DateTimeHelper method
+  
+### Changed
+
+- Changed DateTime/DateTimeOffset providers to use interfaces for dependency injection
+- Changed ADO operation classes to work in .NET Core
+
+## 2.0.6 - 23 June 2020
+
+### Added
+
+- Added DistinctBy extension to IEnumerable.
+- Added DoesImplement<T> to TypeExtensions.
+- Added GetAttribute<T> to EnumHelper.
+- Added new helper class ExcelHelper with GetColumnName(int columnNumber). 
+- Added generic ADO classes for reference purposes (migrated from older code). 
+- Added Gzip helper class with CompressFile and DecompressFile methods. 
+- Added ServiceLocator namespace with basic pattern implementation.
+- Added DistanceConverter class and DistanceUnit enum. 
+- Added InMemory data repositories for reference purposes (migrated from older code).
+- Added ADO Auditing for reference purposes (migrated from older code).
+
+### Changed
+
+- Moved testable DateTime providers to their own folder/namespace.
+- Moved converters to their own folder/namespace.
+
+## 1.0.6 - 05 Oct 2019
+
+### Added
+
+- Added AddWorkDays function to DateTimeHelper.
+
+### Changed
+- Updated email validation regex.
+- Upgraded .NET version to Core 3.0.

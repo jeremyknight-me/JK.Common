@@ -28,3 +28,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Changed
 
 - Changed from System.Data.SqlClient to Microsoft.Data.SqlClient
+
+## 2.0.9 - 10 Dec 2020
+
+### Added
+
+- Added SqlParameterFactory
+- Added SqlBulkInsertOperation

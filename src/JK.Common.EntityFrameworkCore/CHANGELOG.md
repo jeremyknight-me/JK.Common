@@ -13,3 +13,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Multi-targeting for .NET Standard 2.1, .NET 5, and .NET 6
 
+## 2.0.6 - 23 June 2020
+
+### Added
+
+- Added ReadOnlyDbContext.
+- Added AuditableEntity and AuditableEntitySaveChangesHelper.
+- Added AuditLog and AuditLogSaveChangesHelper.
