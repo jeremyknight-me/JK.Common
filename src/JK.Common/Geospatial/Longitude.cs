@@ -7,43 +7,39 @@ namespace JK.Common.Geospatial;
 /// <summary>Represents a longitude ("x" axis) coordinate.</summary>
 public sealed class Longitude : CoordinateBase
 {
-    #region Constructors
-
     public Longitude()
     {
     }
 
-    public Longitude(double degrees)
+    public Longitude(decimal degrees)
         : base(degrees)
     {
     }
 
-    public Longitude(double degrees, double minutes)
+    public Longitude(int degrees, decimal minutes)
         : base(degrees, minutes)
     {
     }
 
-    public Longitude(double degrees, double minutes, double seconds)
+    public Longitude(int degrees, int minutes, decimal seconds)
         : base(degrees, minutes, seconds)
     {
     }
 
-    public Longitude(double degrees, Direction direction)
+    public Longitude(decimal degrees, Direction direction)
         : base(degrees, direction)
     {
     }
 
-    public Longitude(double degrees, double minutes, Direction direction)
+    public Longitude(int degrees, decimal minutes, Direction direction)
         : base(degrees, minutes, direction)
     {
     }
 
-    public Longitude(double degrees, double minutes, double seconds, Direction direction)
+    public Longitude(int degrees, int minutes, decimal seconds, Direction direction)
         : base(degrees, minutes, seconds, direction)
     {
     }
-
-    #endregion
 
     public override Direction Direction => this.IsNegative ? Direction.W : Direction.E;
 
@@ -51,7 +47,7 @@ public sealed class Longitude : CoordinateBase
 
     public override ICollection<Direction> GetValidDirections() => new List<Direction> { Direction.E, Direction.W };
 
-    protected override ISpecification<double> ValidationSpecification => new LongitudeSpecification();
+    protected override ISpecification<decimal> ValidationSpecification => new LongitudeSpecification();
 
     protected override void SetIsNegative(in Direction direction) => this.IsNegative = direction == Direction.W;
 }

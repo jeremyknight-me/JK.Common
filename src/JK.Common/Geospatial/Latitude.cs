@@ -7,43 +7,39 @@ namespace JK.Common.Geospatial;
 /// <summary>Represents a latitude ("y" axis) co-ordinate.</summary>
 public sealed class Latitude : CoordinateBase
 {
-    #region Constructors
-
     public Latitude()
     {
     }
 
-    public Latitude(double degrees)
+    public Latitude(decimal degrees)
         : base(degrees)
     {
     }
 
-    public Latitude(double degrees, double minutes)
+    public Latitude(int degrees, decimal minutes)
         : base(degrees, minutes)
     {
     }
 
-    public Latitude(double degrees, double minutes, double seconds)
+    public Latitude(int degrees, int minutes, decimal seconds)
         : base(degrees, minutes, seconds)
     {
     }
 
-    public Latitude(double degrees, Direction direction)
+    public Latitude(decimal degrees, Direction direction)
         : base(degrees, direction)
     {
     }
 
-    public Latitude(double degrees, double minutes, Direction direction)
+    public Latitude(int degrees, decimal minutes, Direction direction)
         : base(degrees, minutes, direction)
     {
     }
 
-    public Latitude(double degrees, double minutes, double seconds, Direction direction)
+    public Latitude(int degrees, int minutes, decimal seconds, Direction direction)
         : base(degrees, minutes, seconds, direction)
     {
     }
-
-    #endregion
 
     public override Direction Direction => this.IsNegative ? Direction.S : Direction.N;
 
@@ -51,7 +47,7 @@ public sealed class Latitude : CoordinateBase
 
     public override ICollection<Direction> GetValidDirections() => new List<Direction> { Direction.N, Direction.S };
 
-    protected override ISpecification<double> ValidationSpecification => new LatitudeSpecification();
+    protected override ISpecification<decimal> ValidationSpecification => new LatitudeSpecification();
 
     protected override void SetIsNegative(in Direction direction) => this.IsNegative = direction == Direction.S;
 }
