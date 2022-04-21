@@ -7,10 +7,6 @@ namespace JK.Common.Geospatial;
 /// <summary>Represents a latitude ("y" axis) co-ordinate.</summary>
 public sealed class Latitude : CoordinateBase
 {
-    public Latitude()
-    {
-    }
-
     public Latitude(decimal degrees)
         : base(degrees)
     {

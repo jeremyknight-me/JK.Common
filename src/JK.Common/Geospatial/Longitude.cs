@@ -7,10 +7,6 @@ namespace JK.Common.Geospatial;
 /// <summary>Represents a longitude ("x" axis) coordinate.</summary>
 public sealed class Longitude : CoordinateBase
 {
-    public Longitude()
-    {
-    }
-
     public Longitude(decimal degrees)
         : base(degrees)
     {
