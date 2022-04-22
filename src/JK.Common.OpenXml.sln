@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.OpenXml", "JK.Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.OpenXml.Tests", "JK.Common.OpenXml.Tests\JK.Common.OpenXml.Tests.csproj", "{5F9E6698-1756-4702-9C01-E776CEB37659}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.OpenXml.IntegrationTests", "JK.Common.OpenXml.IntegrationTests\JK.Common.OpenXml.IntegrationTests.csproj", "{9CBDE735-77D3-48C5-B49E-97743F575446}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{5F9E6698-1756-4702-9C01-E776CEB37659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F9E6698-1756-4702-9C01-E776CEB37659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F9E6698-1756-4702-9C01-E776CEB37659}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CBDE735-77D3-48C5-B49E-97743F575446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CBDE735-77D3-48C5-B49E-97743F575446}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CBDE735-77D3-48C5-B49E-97743F575446}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CBDE735-77D3-48C5-B49E-97743F575446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
