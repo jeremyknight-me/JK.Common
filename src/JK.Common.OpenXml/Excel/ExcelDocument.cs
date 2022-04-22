@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using JK.Common.OpenXml.Excel.Extensions;
 
 namespace JK.Common.OpenXml.Excel;
@@ -43,8 +44,8 @@ public class ExcelDocument : IDisposable
 
         var workbookPart = this.spreadsheet.WorkbookPart;
         var sheet = workbookPart.GetSheetFromName(sheetName);
-        //var worksheet = sheet.GetWorksheet(workbookPart);
-        //var rows = worksheet.Elements<SheetData>().First().Elements<Row>().ToArray();
+        var worksheet = sheet.GetWorksheet(workbookPart);
+        var rows = worksheet.Elements<SheetData>().First().Elements<Row>().ToArray();
         //return GetDataTableFromRows(workbookPart, rows, sheetName, headerRows);
         return null;
     }

@@ -9,6 +9,32 @@ namespace JK.Common.OpenXml.Tests.Excel.Extensions
 {
     public class WorkbookPartExtensionsTests
     {
+        #region GetSheetFromName() Tests
+
+        [Fact]
+        public void GetSheetFromName_NullSheetName_Exception()
+        {
+            ArgumentNullException actual;
+            using (var stream = new MemoryStream())
+            using (var document = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
+            {
+                var workbookPart = document.AddWorkbookPart();
+                actual = Assert.Throws<ArgumentNullException>(() => workbookPart.GetSheetFromName(null));
+            }
+        }
+
+        [Fact]
+        public void GetSheetFromName_EmptySheetName_Exception()
+        {
+            ArgumentNullException actual;
+            using (var stream = new MemoryStream())
+            using (var document = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
+            {
+                var workbookPart = document.AddWorkbookPart();
+                actual = Assert.Throws<ArgumentNullException>(() => workbookPart.GetSheetFromName(string.Empty));
+            }
+        }
+
         [Fact]
         public void GetSheetFromName_WhitespaceSheetName_Exception()
         {
@@ -31,5 +57,7 @@ namespace JK.Common.OpenXml.Tests.Excel.Extensions
             Assert.Equal(1U, result?.SheetId?.Value);
             Assert.Equal("Sheet1", result?.Name?.Value);
         }
+
+        #endregion
     }
 }
