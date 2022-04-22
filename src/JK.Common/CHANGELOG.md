@@ -9,6 +9,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+### Added
+
+- Added `Slice` methods to `StringHelper` to take advantage of `Span<T>`
+
 ### Changed
 
 - Changed Latitude and Longitude to use `decimal` instead of `double`
