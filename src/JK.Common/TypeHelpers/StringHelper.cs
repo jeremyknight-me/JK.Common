@@ -111,4 +111,22 @@ public static class StringHelper
     }
 
     #endregion
+
+
+
+#if (NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER)
+
+    public static ReadOnlySpan<char> Slice(in string text, int start)
+    {
+        ReadOnlySpan<char> textAsSpan = text;
+        return textAsSpan.Slice(start);
+    }
+
+    public static ReadOnlySpan<char> Slice(in string text, int start, int length)
+    {
+        ReadOnlySpan<char> textAsSpan = text;
+        return textAsSpan.Slice(start, length);
+    }
+
+#endif
 }

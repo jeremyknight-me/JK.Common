@@ -92,6 +92,26 @@ public class StringHelperTests
 
     #endregion
 
+    #region Slice() Tests
+
+    [Fact]
+    public void Slice_Start_Test()
+    {
+        const string s = "Bacon ipsum dolor amet meatball";
+        var actual = StringHelper.Slice(s, 23);
+        Assert.Equal("meatball", actual.ToString());
+    }
+
+    [Fact]
+    public void Slice_StartLength_Test()
+    {
+        const string s = "Bacon ipsum dolor amet meatball";
+        var actual = StringHelper.Slice(s, 0, 5);
+        Assert.Equal("Bacon", actual.ToString());
+    }
+
+    #endregion
+
     #region StripXml() Tests
 
     [Fact]
