@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased
+
+### Changed
+
+- Added .NET Standard 2.0 to multi-targeting
+
 ## 3.0.1
 
 ### Added 
