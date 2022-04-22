@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.OpenXml", "JK.Common.OpenXml\JK.Common.OpenXml.csproj", "{013A49E8-BC89-4811-A7E9-C3E8C96AC8D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.OpenXml.Tests", "JK.Common.OpenXml.Tests\JK.Common.OpenXml.Tests.csproj", "{5F9E6698-1756-4702-9C01-E776CEB37659}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{013A49E8-BC89-4811-A7E9-C3E8C96AC8D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013A49E8-BC89-4811-A7E9-C3E8C96AC8D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013A49E8-BC89-4811-A7E9-C3E8C96AC8D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013A49E8-BC89-4811-A7E9-C3E8C96AC8D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9E6698-1756-4702-9C01-E776CEB37659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9E6698-1756-4702-9C01-E776CEB37659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9E6698-1756-4702-9C01-E776CEB37659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9E6698-1756-4702-9C01-E776CEB37659}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8392B0D5-E89A-478F-83B5-FD63C42E7AE4}
+	EndGlobalSection
+EndGlobal
