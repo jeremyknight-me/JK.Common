@@ -1,14 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <LangVersion>10.0</LangVersion>
         <TargetFrameworks>netstandard2.1;net5.0;net6.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>2.0.0</Version>
+        <Description>A utility library containing extensions and helpers for DocumentFormat.OpenXml.</Description>
+        <PackageTags>test</PackageTags>
+        <Company></Company>
+        <Authors>Jeremy Knight</Authors>
+        <PackageLicenseUrl>https://github.com/jeremyknight-me/JK.Common/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <RepositoryUrl>https://github.com/knight0323/JK.Common</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
+        <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="DocumentFormat.OpenXml" Version="2.16.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
