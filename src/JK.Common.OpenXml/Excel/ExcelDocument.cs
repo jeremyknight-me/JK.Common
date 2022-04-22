@@ -43,7 +43,7 @@ public class ExcelDocument : IDisposable
         }
 
         var workbookPart = this.spreadsheet.WorkbookPart;
-        var sheet = workbookPart.GetSheetFromName(sheetName);
+        var sheet = workbookPart.GetSheetByName(sheetName);
         var worksheet = sheet.GetWorksheet(workbookPart);
         var rows = worksheet.Elements<SheetData>().First().Elements<Row>().ToArray();
         //return GetDataTableFromRows(workbookPart, rows, sheetName, headerRows);
