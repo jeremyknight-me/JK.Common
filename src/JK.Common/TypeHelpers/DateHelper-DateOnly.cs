@@ -1,9 +1,9 @@
-﻿using System;
+﻿#if (NET6_0_OR_GREATER)
+
+using System;
 using System.Globalization;
 
 namespace JK.Common.TypeHelpers;
-
-#if (NET6_0_OR_GREATER)
 
 public static partial class DateHelper
 {
