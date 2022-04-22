@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using System.Data;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using JK.Common.OpenXml.Excel.Extensions;
@@ -30,11 +27,9 @@ public class ExcelDocument : IDisposable
             throw new ArgumentNullException(nameof(path));
         }
 
-        using (var spreadsheetDocument = SpreadsheetDocument.Open(path, isEditable: editable))
-        {
-            var excelDocument = new ExcelDocument(spreadsheetDocument);
-            return excelDocument;
-        }
+        var spreadsheetDocument = SpreadsheetDocument.Open(path, isEditable: editable);
+        var excelDocument = new ExcelDocument(spreadsheetDocument);
+        return excelDocument;
     }
 
     public void Dispose()
@@ -50,6 +45,7 @@ public class ExcelDocument : IDisposable
         foreach (var sheet in sheets)
         {
             var table = this.BuildDataTable(sheet.Value, sheet.Key);
+            set.Tables.Add(table);
         }
         return set;
     }
@@ -61,9 +57,8 @@ public class ExcelDocument : IDisposable
             throw new ArgumentNullException(nameof(sheetName));
         }
 
-        var workbookPart = this.spreadsheet.WorkbookPart;
-        var sheet = workbookPart.GetSheetByName(sheetName);
-        var worksheet = sheet.GetWorksheet(workbookPart);
+        var sheet = this.workbookPart.GetSheetByName(sheetName);
+        var worksheet = sheet.GetWorksheet(this.workbookPart);
         return this.BuildDataTable(worksheet, sheetName, headerRows);
     }
 
@@ -77,34 +72,54 @@ public class ExcelDocument : IDisposable
         }
 
         var columnCells = rows.ElementAt(0).Cast<Cell>();
-        int columnIndex = 0;
+        var columnIndex = 0;
         foreach (var cell in columnCells)
         {
-            int cellColumnIndex = cell.GetColumnIndex();
+            var cellColumnIndex = cell.GetColumnIndex();
             while (columnIndex < cellColumnIndex)
             {
                 table.Columns.Add($"Column{columnIndex + 1}");
                 columnIndex++;
             }
 
-            var value = cell.GetValue(workbookPart);
+            var value = cell.GetValue(this.workbookPart);
             var valueColumnName = string.IsNullOrWhiteSpace(value)
                 ? $"Column{columnIndex + 1}"
                 : $"Column{columnIndex + 1}_{value}";
-            table.Rows.Add(valueColumnName);
+            table.Columns.Add(valueColumnName);
             columnIndex++;
         }
 
-        //foreach (var row in rows)
-        //{
-        //    ProcessRow(row, dataTable, workbookPart);
-        //}
+        foreach (var row in rows)
+        {
+            var dataRow = table.NewRow();
+            this.LoadRow(dataRow, row);
+            table.Rows.Add(dataRow);
+        }
 
-        //for (int i = 0; i < headerRows; i++)
-        //{
-        //    dataTable.Rows.RemoveAt(0);
-        //}
+        for (var i = 0; i < headerRows; i++)
+        {
+            table.Rows.RemoveAt(0);
+        }
 
         return table;
+    }
+
+    private void LoadRow(DataRow dataRow, Row row)
+    {
+        var cells = row.Elements<Cell>().ToArray();
+        var columnIndex = 0;
+        foreach (var cell in cells)
+        {
+            var cellColumnIndex = cell.GetColumnIndex();
+            while (columnIndex < cellColumnIndex)
+            {
+                dataRow[columnIndex] = string.Empty;
+                columnIndex++;
+            }
+
+            dataRow[columnIndex] = cell.GetValue(this.workbookPart);
+            columnIndex++;
+        }
     }
 }

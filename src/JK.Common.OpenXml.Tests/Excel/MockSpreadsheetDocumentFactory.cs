@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
@@ -7,7 +8,7 @@ namespace JK.Common.OpenXml.Tests.Excel;
 
 internal static class MockSpreadsheetDocumentFactory
 {
-    internal static SpreadsheetDocument Make(MemoryStream stream)
+    internal static SpreadsheetDocument Make(MemoryStream stream, Action<SheetData> appendCells = null)
     {
         var document = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook);
 
@@ -15,7 +16,9 @@ internal static class MockSpreadsheetDocumentFactory
         workbookPart.Workbook = new Workbook { Sheets = new Sheets() };
 
         var worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
-        worksheetPart.Worksheet = new Worksheet(new SheetData());
+        var sheetData = new SheetData();
+        appendCells?.Invoke(sheetData);
+        worksheetPart.Worksheet = new Worksheet(sheetData);
         worksheetPart.Worksheet.Save();
 
         var sheets = workbookPart.Workbook.GetFirstChild<Sheets>();
