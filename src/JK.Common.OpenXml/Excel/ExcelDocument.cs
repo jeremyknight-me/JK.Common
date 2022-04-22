@@ -10,26 +10,27 @@ public class ExcelDocument : IDisposable
     private SpreadsheetDocument spreadsheet;
     private WorkbookPart workbookPart;
 
-    internal ExcelDocument(SpreadsheetDocument spreadsheetDocument)
-    {
-        this.spreadsheet = spreadsheetDocument;
-        if (spreadsheetDocument != null)
-        {
-            this.workbookPart = this.spreadsheet.WorkbookPart;
-        }
-        
-    }
-
-    public static ExcelDocument Load(string path, bool editable = false)
+    public ExcelDocument(string path, bool editable = false)
     {
         if (string.IsNullOrWhiteSpace(path))
         {
             throw new ArgumentNullException(nameof(path));
         }
 
-        var spreadsheetDocument = SpreadsheetDocument.Open(path, isEditable: editable);
-        var excelDocument = new ExcelDocument(spreadsheetDocument);
-        return excelDocument;
+        this.spreadsheet = SpreadsheetDocument.Open(path, isEditable: editable);
+        if (this.spreadsheet != null)
+        {
+            this.workbookPart = this.spreadsheet.WorkbookPart;
+        }
+    }
+
+    internal ExcelDocument(SpreadsheetDocument spreadsheetDocument)
+    {
+        this.spreadsheet = spreadsheetDocument;
+        if (spreadsheetDocument != null)
+        {
+            this.workbookPart = this.spreadsheet.WorkbookPart;
+        }   
     }
 
     public void Dispose()

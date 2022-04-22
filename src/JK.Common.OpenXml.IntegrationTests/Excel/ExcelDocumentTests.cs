@@ -10,7 +10,7 @@ namespace JK.Common.OpenXml.IntegrationTests.Excel
         public void Load_Tests()
         {
             var path = this.GetPath();
-            using var doc = ExcelDocument.Load(path);
+            using var doc = new ExcelDocument(path);
             Assert.NotNull(doc);
             Assert.IsType<ExcelDocument>(doc);
         }
@@ -19,7 +19,7 @@ namespace JK.Common.OpenXml.IntegrationTests.Excel
         public void GetDataTableBySheetName_Test()
         {
             var path = this.GetPath();
-            using var doc = ExcelDocument.Load(path);
+            using var doc = new ExcelDocument(path);
             var table = doc.GetDataTableBySheetName("MySheet", 1);
             Assert.Equal(7, table.Columns.Count);
             Assert.Equal(43, table.Rows.Count); // turns off header row
@@ -29,7 +29,7 @@ namespace JK.Common.OpenXml.IntegrationTests.Excel
         public void GetDataSet_Test()
         {
             var path = this.GetPath();
-            using var doc = ExcelDocument.Load(path);
+            using var doc = new ExcelDocument(path);
             var set = doc.GetDataSet();
             Assert.Single(set.Tables);
             var table = set.Tables[0];
