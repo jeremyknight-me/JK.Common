@@ -16,36 +16,30 @@ namespace JK.Common.OpenXml.Tests.Excel
         public void ConvertToDataTable_NullSheetName_Exception()
         {
             ArgumentNullException actual;
-            using (var stream = new MemoryStream())
-            using (var spreadsheet = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
-            {
-                var document = new ExcelDocument(spreadsheet);
-                actual = Assert.Throws<ArgumentNullException>(() => document.GetDataTableBySheetName(null));
-            }
+            using var stream = new MemoryStream();
+            using var spreadsheet = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook);
+            using var document = new ExcelDocument(spreadsheet);
+            actual = Assert.Throws<ArgumentNullException>(() => document.GetDataTableBySheetName(null));
         }
 
         [Fact]
         public void ConvertToDataTable_EmptySheetName_Exception()
         {
             ArgumentNullException actual;
-            using (var stream = new MemoryStream())
-            using (var spreadsheet = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
-            {
-                var document = new ExcelDocument(spreadsheet);
-                actual = Assert.Throws<ArgumentNullException>(() => document.GetDataTableBySheetName(string.Empty));
-            }
+            using var stream = new MemoryStream();
+            using var spreadsheet = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook);
+            using var document = new ExcelDocument(spreadsheet);
+            actual = Assert.Throws<ArgumentNullException>(() => document.GetDataTableBySheetName(string.Empty));
         }
 
         [Fact]
         public void ConvertToDataTable_WhitespaceSheetName_Exception()
         {
             ArgumentNullException actual;
-            using (var stream = new MemoryStream())
-            using (var spreadsheet = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook))
-            {
-                var document = new ExcelDocument(spreadsheet);
-                actual = Assert.Throws<ArgumentNullException>(() => document.GetDataTableBySheetName(" "));
-            }
+            using var stream = new MemoryStream();
+            using var spreadsheet = SpreadsheetDocument.Create(stream, SpreadsheetDocumentType.Workbook);
+            using var document = new ExcelDocument(spreadsheet);
+            actual = Assert.Throws<ArgumentNullException>(() => document.GetDataTableBySheetName(" "));
         }
 
         [Fact]
@@ -60,16 +54,14 @@ namespace JK.Common.OpenXml.Tests.Excel
                 sheetData.AppendChild(row);
             }
 
-            using (var stream = new MemoryStream())
-            using (var spreadsheet = MockSpreadsheetDocumentFactory.Make(stream, AppendCells))
-            {
-                var document = new ExcelDocument(spreadsheet);
-                var result = document.GetDataTableBySheetName("Sheet1");
-                Assert.Equal("Sheet1", result.TableName);
-                Assert.Equal(1, result.Rows.Count);
-                Assert.Equal(3, result.Columns.Count);
-                Assert.Equal("C,1", result.Rows[0][2].ToString());
-            }
+            using var stream = new MemoryStream();
+            using var spreadsheet = MockSpreadsheetDocumentFactory.Make(stream, AppendCells);
+            using var document = new ExcelDocument(spreadsheet);
+            var result = document.GetDataTableBySheetName("Sheet1");
+            Assert.Equal("Sheet1", result.TableName);
+            Assert.Equal(1, result.Rows.Count);
+            Assert.Equal(3, result.Columns.Count);
+            Assert.Equal("C,1", result.Rows[0][2].ToString());
         }
 
         [Fact]
@@ -90,17 +82,15 @@ namespace JK.Common.OpenXml.Tests.Excel
                 sheetData.AppendChild(row);
             }
 
-            using (var stream = new MemoryStream())
-            using (var spreadsheet = MockSpreadsheetDocumentFactory.Make(stream, AppendCells))
-            {
-                var headerRowCount = 1;
-                var document = new ExcelDocument(spreadsheet);
-                var result = document.GetDataTableBySheetName("Sheet1", headerRowCount);
-                Assert.Equal("Sheet1", result.TableName);
-                Assert.Equal(1, result.Rows.Count);
-                Assert.Equal(3, result.Columns.Count);
-                Assert.Equal("C,2", result.Rows[0][2].ToString());
-            }
+            var headerRowCount = 1;
+            using var stream = new MemoryStream();
+            using var spreadsheet = MockSpreadsheetDocumentFactory.Make(stream, AppendCells);
+            using var document = new ExcelDocument(spreadsheet);
+            var result = document.GetDataTableBySheetName("Sheet1", headerRowCount);
+            Assert.Equal("Sheet1", result.TableName);
+            Assert.Equal(1, result.Rows.Count);
+            Assert.Equal(3, result.Columns.Count);
+            Assert.Equal("C,2", result.Rows[0][2].ToString());
         }
 
         [Fact]
@@ -114,16 +104,14 @@ namespace JK.Common.OpenXml.Tests.Excel
                 sheetData.AppendChild(row);
             }
 
-            using (var stream = new MemoryStream())
-            using (var spreadsheet = MockSpreadsheetDocumentFactory.Make(stream, AppendCells))
-            {
-                var document = new ExcelDocument(spreadsheet);
-                var result = document.GetDataTableBySheetName("Sheet1");
-                Assert.Equal("Sheet1", result.TableName);
-                Assert.Equal(1, result.Rows.Count);
-                Assert.Equal(3, result.Columns.Count);
-                Assert.Equal("C,1", result.Rows[0][2].ToString());
-            }
+            using var stream = new MemoryStream();
+            using var spreadsheet = MockSpreadsheetDocumentFactory.Make(stream, AppendCells);
+            using var document = new ExcelDocument(spreadsheet);
+            var result = document.GetDataTableBySheetName("Sheet1");
+            Assert.Equal("Sheet1", result.TableName);
+            Assert.Equal(1, result.Rows.Count);
+            Assert.Equal(3, result.Columns.Count);
+            Assert.Equal("C,1", result.Rows[0][2].ToString());
         }
 
         #endregion
