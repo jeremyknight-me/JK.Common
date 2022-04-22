@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using JK.Common.OpenXml.Excel.Extensions;
 using Xunit;
 
@@ -9,6 +12,21 @@ namespace JK.Common.OpenXml.Tests.Excel.Extensions
 {
     public class WorkbookPartExtensionsTests
     {
+        #region GetNamedWorksheets() Tests
+
+        [Fact]
+        public void GetNamedWorksheetsFullSetup_Dictionary()
+        {
+            using var stream = new MemoryStream();
+            using var document = MockSpreadsheetDocumentFactory.Make(stream);
+            var result = document.WorkbookPart.GetNamedWorksheets();
+            Assert.IsType<Dictionary<string, Worksheet>>(result);
+            Assert.Single(result);
+            Assert.Equal("Sheet1", result.Keys.First());
+        }
+
+        #endregion
+
         #region GetSheetByName() Tests
 
         [Fact]

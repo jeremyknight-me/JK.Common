@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
@@ -35,7 +36,12 @@ public class ExcelDocument : IDisposable
         this.spreadsheet.Dispose();   
     }
 
-    public ExcelSheet GetSheetByName(string sheetName, int headerRows = 0)
+    public DataSet GetDataSet()
+    {
+        return null;
+    }
+
+    public DataTable GetDataTableBySheetName(string sheetName, int headerRows = 0)
     {
         if (string.IsNullOrWhiteSpace(sheetName))
         {
@@ -46,6 +52,13 @@ public class ExcelDocument : IDisposable
         var sheet = workbookPart.GetSheetByName(sheetName);
         var worksheet = sheet.GetWorksheet(workbookPart);
         var rows = worksheet.Elements<SheetData>().First().Elements<Row>().ToArray();
+
+        var table = new DataTable(sheetName);
+        if (!rows.Any())
+        {
+            
+        }
+
         //return GetDataTableFromRows(workbookPart, rows, sheetName, headerRows);
         return null;
     }
