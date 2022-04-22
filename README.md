@@ -7,7 +7,9 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | [JK.Common.Data.Sql](src/JK.Common.Data.Sql/CHANGELOG.md) | ![JK.Common.Data.Sql CI Status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/common.data.sql/ci-common.data.sql) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.Data.Sql.svg)](https://www.nuget.org/packages/JK.Common.Data.Sql/) |
 | [JK.Common.EntityFrameworkCore](src/JK.Common.EntityFrameworkCore/CHANGELOG.md) | ![JK.Common.EntityFrameworkCore CI Status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/common.efcore/ci-common.efcore) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
 | [JK.Common.EntityFrameworkCore.SqlServer](src/JK.Common.EntityFrameworkCore.SqlServer/CHANGELOG.md) | ![JK.Common.EntityFrameworkCore.SqlServer CI Status](https://dev.azure.com/knight0323/Common%20Library/_apis/build/status/common.efcore.sql/ci-common.efcore.sql) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
-| JK.Common.FluentValidation | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
+| [JK.Common.FluentValidation](src/JK.Common.FluentValidation/CHANGELOG.md) | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
+| [JK.Common.OpenXml](src/JK.Common.OpenXml/CHANGELOG.md) | Coming Soon | NA  |
+ 
 
 ## Components
 
