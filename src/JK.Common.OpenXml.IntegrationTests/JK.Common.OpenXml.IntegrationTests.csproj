@@ -25,4 +25,10 @@
         <ProjectReference Include="..\JK.Common.OpenXml\JK.Common.OpenXml.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Update="sample.xlsx">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>
