@@ -1,13 +1,12 @@
 ﻿using System.IO;
-using System.Runtime.InteropServices.ComTypes;
 using System.Xml.Serialization;
 
-namespace JK.Common.Xml;
+namespace JK.Common.TypeHelpers;
 
 /// <summary>
 /// Wrapper/facade for XML Serialization/Deserialization functionality of .NET.
 /// </summary>
-public static class XmlSerializationFacade
+public static class XmlSerializerHelper
 {
     /// <summary>
     /// Uses XML serialization to convert an XML string to its object representation.
