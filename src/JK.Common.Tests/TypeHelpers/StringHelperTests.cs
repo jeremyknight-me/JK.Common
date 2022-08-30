@@ -93,6 +93,7 @@ public class StringHelperTests
     #endregion
 
     #region Slice() Tests
+    #if (NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER)
 
     [Fact]
     public void Slice_Start_Test()
@@ -110,6 +111,7 @@ public class StringHelperTests
         Assert.Equal("Bacon", actual.ToString());
     }
 
+    #endif
     #endregion
 
     #region StripXml() Tests
