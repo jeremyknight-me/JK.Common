@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace JK.Common.TypeHelpers;
@@ -30,10 +32,19 @@ public static class XmlSerializerHelper
     public static string Serialize<T>(in T entity)
     {
         using var stream = new MemoryStream();
+        var settings = new XmlWriterSettings
+        {
+            Indent = false,
+            Encoding = Encoding.UTF8,
+            NewLineHandling = NewLineHandling.None,
+            OmitXmlDeclaration = true
+        };
+        var builder = new StringBuilder();
+        using var writer = XmlWriter.Create(builder, settings);
+        var ns = new XmlSerializerNamespaces();
+        ns.Add("", "");
         var serializer = new XmlSerializer(typeof(T));
-        serializer.Serialize(stream, entity);
-        stream.Position = 0;
-        using var reader = new StreamReader(stream);
-        return reader.ReadToEnd();
+        serializer.Serialize(writer, entity, ns);
+        return builder.ToString();
     }
 }
