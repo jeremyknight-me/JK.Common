@@ -12,10 +12,13 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Added
 
 - Added `Slice` methods to `StringHelper` to take advantage of `Span<T>`
+- Added `DeserializeString` method to `XmlSerializerHelper`
 
 ### Changed
 
 - Changed Latitude and Longitude to use `decimal` instead of `double`
+- Renamed `XmlSerializationFacade` to `XmlSerializerHelper` and moved to `TypeHelpers`
+- Renamed `GetXmlAsString` method to `Serialize` in `XmlSerializerHelper`
 
 ## 3.1.0
 

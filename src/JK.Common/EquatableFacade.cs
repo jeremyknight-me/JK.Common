@@ -8,23 +8,23 @@ public sealed class EquatableFacade<T>
 
     public bool AreEqual(object left, object right)
     {
-        if (this.AreBothNullReference(left, right)
-            || this.AreSameReference(left, right))
+        if (this.AreBothNull(left, right)
+            || object.ReferenceEquals(left, right))
         {
             return true;
         }
 
-        if (this.AreEitherNullReference(left, right))
+        if (left is null || right is null)
         {
             return false;
         }
 
-        if (!(left is T))
+        if (left is not T)
         {
             throw new ArgumentException(@"The 'left' argument is not the correct type.", nameof(left));
         }
 
-        if (!(right is T))
+        if (right is not T)
         {
             throw new ArgumentException(@"The 'right' argument is not the correct type.", nameof(right));
         }
@@ -32,15 +32,6 @@ public sealed class EquatableFacade<T>
         return this.AreObjectsEqual((T)left, (T)right);
     }
 
-    private bool AreBothNullReference(object left, object right)
-        => this.IsNullReference(left) && this.IsNullReference(right);
-
-    private bool AreEitherNullReference(object left, object right)
-        => this.IsNullReference(left) || this.IsNullReference(right);
-
-    private bool AreSameReference(object left, object right)
-        => object.ReferenceEquals(left, right);
-
-    private bool IsNullReference(object entity)
-        => object.ReferenceEquals(entity, null);
+    private bool AreBothNull(object left, object right)
+        => left is null && right is null;
 }
