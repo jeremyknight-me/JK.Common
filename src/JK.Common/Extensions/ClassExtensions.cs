@@ -2,7 +2,7 @@
 
 public static class ClassExtensions
 {
-    public static bool IsNull<T>(this T value) => object.ReferenceEquals((object)value, (object)null);
+    public static bool IsNull<T>(this T value) => value is null;
 
-    public static bool IsNotNull<T>(this T value) => !object.ReferenceEquals((object)value, (object)null);
+    public static bool IsNotNull<T>(this T value) => value is not null;
 }
