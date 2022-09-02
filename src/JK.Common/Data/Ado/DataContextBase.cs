@@ -36,7 +36,7 @@ public abstract class DataContextBase : IDisposable
 
     public void Dispose()
     {
-        if (this.connection != null)
+        if (this.connection is not null)
         {
             this.connection.Dispose();
         }

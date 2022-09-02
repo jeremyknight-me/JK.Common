@@ -22,7 +22,7 @@ public static class TypeExtensions
 
     public static Type GetTypeFromEntity(this Type type)
     {
-        if (type.BaseType != null && type.Namespace == "System.Data.Entity.DynamicProxies")
+        if (type.BaseType is not null && type.Namespace == "System.Data.Entity.DynamicProxies")
         {
             type = type.BaseType;
         }

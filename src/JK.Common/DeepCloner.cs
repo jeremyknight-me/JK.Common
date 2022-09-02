@@ -16,7 +16,7 @@ public sealed class DeepCloner
     /// <returns>Exact clone of an object.</returns>
     public object Clone(in object valueToClone)
     {
-        if (valueToClone == null)
+        if (valueToClone is null)
         {
             throw new ArgumentNullException(nameof(valueToClone));
         }

@@ -18,7 +18,7 @@ public abstract class ParameterFactoryBase<TDbType> : IParameterFactory where TD
     {
         get
         {
-            if (this.strategies == null)
+            if (this.strategies is null)
             {
                 this.strategies = new Dictionary<Type, TDbType>();
                 this.DefineStrategies();

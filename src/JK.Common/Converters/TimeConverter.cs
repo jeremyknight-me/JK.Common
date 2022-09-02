@@ -10,39 +10,21 @@ public static class TimeConverter
     /// </summary>
     /// <param name="hours">Number of hours to convert.</param>
     /// <returns>Number of minutes in the given number of hours.</returns>
-    public static int ConvertHoursToMinutes(in int hours)
-    {
-        checked
-        {
-            return hours * 60;
-        }
-    }
+    public static int ConvertHoursToMinutes(in int hours) => checked(hours * 60);
 
     /// <summary>
     /// Converts minutes to seconds.
     /// </summary>
     /// <param name="minutes">Number of minutes to convert.</param>
     /// <returns>Number of seconds in the given number of minutes.</returns>
-    public static int ConvertMinutesToSeconds(in int minutes)
-    {
-        checked
-        {
-            return minutes * 60;
-        }
-    }
+    public static int ConvertMinutesToSeconds(in int minutes) => checked(minutes * 60);
 
     /// <summary>
     /// Converts seconds to milliseconds.
     /// </summary>
     /// <param name="seconds">Number of seconds to convert.</param>
     /// <returns>Number of milliseconds in the given number of seconds.</returns>
-    public static int ConvertSecondsToMilliseconds(in int seconds)
-    {
-        checked
-        {
-            return seconds * 1000;
-        }
-    }
+    public static int ConvertSecondsToMilliseconds(in int seconds) => checked(seconds * 1000);
 
     /// <summary>
     /// Converts hours to milliseconds.

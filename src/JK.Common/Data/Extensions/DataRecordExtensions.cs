@@ -18,7 +18,7 @@ public static class DataRecordExtensions
     /// <returns>The given field's value or the default for the object type.</returns>
     public static T GetValueOrDefault<T>(this IDataRecord dataRecord, string name)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -38,7 +38,7 @@ public static class DataRecordExtensions
     /// <returns>The given field's value or the given default.</returns>
     public static T GetValueOrDefault<T>(this IDataRecord dataRecord, string name, T defaultValue)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -57,7 +57,7 @@ public static class DataRecordExtensions
     /// <returns>The given field's value or the default for the object type.</returns>
     public static T GetValueOrDefault<T>(this IDataRecord dataRecord, int index)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -77,7 +77,7 @@ public static class DataRecordExtensions
     /// <returns>The given field's value or the given default.</returns>
     public static T GetValueOrDefault<T>(this IDataRecord dataRecord, int index, T defaultValue)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -95,7 +95,7 @@ public static class DataRecordExtensions
     /// <returns>The given field's value or null.</returns>
     public static T GetValueOrNull<T>(this IDataRecord dataRecord, string name)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -113,7 +113,7 @@ public static class DataRecordExtensions
     /// <returns>The given field's value or null.</returns>
     public static T GetValueOrNull<T>(this IDataRecord dataRecord, int index)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -130,7 +130,7 @@ public static class DataRecordExtensions
     /// <returns>True if column found, otherwise false.</returns>
     public static bool HasColumn(this IDataRecord dataRecord, string columnName)
     {
-        if (dataRecord == null)
+        if (dataRecord is null)
         {
             throw new ArgumentNullException(nameof(dataRecord));
         }
@@ -152,7 +152,8 @@ public static class DataRecordExtensions
     /// <param name="dataRecord">Current IDataRecord object from extension method.</param>
     /// <param name="name">Name of field within IDataRecord.</param>
     /// <returns>True if DBNull, otherwise false.</returns>
-    public static bool IsDbNull(this IDataRecord dataRecord, string name) => dataRecord is null
+    public static bool IsDbNull(this IDataRecord dataRecord, string name)
+        => dataRecord is null
             ? throw new ArgumentNullException(nameof(dataRecord))
             : dataRecord.IsDBNull(dataRecord.GetOrdinal(name));
 }
