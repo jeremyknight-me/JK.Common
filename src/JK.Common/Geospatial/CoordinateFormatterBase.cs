@@ -10,15 +10,11 @@ public abstract class CoordinateFormatterBase
     protected CoordinateFormatterBase(CoordinateBase coordinateToUse)
     {
         this.Coordinate = coordinateToUse;
-
         this.displayFormatStrategies = new Dictionary<DisplayFormat, Func<string>>();
         this.DefineDisplayFormatStrategies();
     }
 
-    protected CoordinateBase Coordinate
-    {
-        get; set;
-    }
+    protected CoordinateBase Coordinate { get; set; }
 
     public string Format(in DisplayFormat format)
         => this.displayFormatStrategies.ContainsKey(format)

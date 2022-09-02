@@ -25,7 +25,7 @@ public class DefaultServiceLocator : IServiceLocator
         {
             lock (threadLock)
             {
-                if (instance == null)
+                if (instance is null)
                 {
                     instance = new DefaultServiceLocator();
                 }
@@ -59,7 +59,7 @@ public class DefaultServiceLocator : IServiceLocator
     /// <typeparam name="T">Interface type to remove.</typeparam>
     public void Unregister<T>()
     {
-        Type type = typeof(T);
+        var type = typeof(T);
         if (this.services.ContainsKey(type))
         {
             this.services.Remove(type);

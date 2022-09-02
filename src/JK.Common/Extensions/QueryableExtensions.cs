@@ -8,12 +8,12 @@ public static class QueryableExtensions
 {
     public static IQueryable<TSource> SortBy<TSource, TKey>(this IQueryable<TSource> source, in Func<TSource, TKey> keySelector, in bool isAscending = true)
     {
-        if (source == null)
+        if (source is null)
         {
             throw new ArgumentNullException(nameof(source));
         }
 
-        if (keySelector == null)
+        if (keySelector is null)
         {
             return source;
         }
@@ -25,7 +25,7 @@ public static class QueryableExtensions
 
     public static IQueryable<T> SortBy<T>(this IQueryable<T> source, in string propertyName, in bool ascending = true)
     {
-        if (source == null)
+        if (source is null)
         {
             throw new ArgumentNullException(nameof(source));
         }
@@ -52,7 +52,7 @@ public static class QueryableExtensions
 
     public static IQueryable<TSource> WhereIf<TSource>(this IQueryable<TSource> source, in bool condition, in Expression<Func<TSource, bool>> predicate)
     {
-        if (source == null)
+        if (source is null)
         {
             throw new ArgumentNullException(nameof(source));
         }

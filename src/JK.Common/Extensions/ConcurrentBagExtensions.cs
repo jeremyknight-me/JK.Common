@@ -1,14 +1,15 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace JK.Common.Extensions;
 
 public static class ConcurrentBagExtensions
 {
     public static void AddRange<T>(this ConcurrentBag<T> bag, in IEnumerable<T> list)
-        => _ = Parallel.ForEach(list, item =>
-            {
-                bag.Add(item);
-            });
+    {
+        foreach (var item in list)
+        {
+            bag.Add(item);
+        }
+    }
 }
