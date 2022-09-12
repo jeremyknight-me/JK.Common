@@ -6,7 +6,7 @@ namespace JK.Common.Data.Ado;
 /// <summary>
 /// Class which created and sets up DbParameters for ADO use.
 /// </summary>
-public class AdoParameterFactory : ParameterFactoryBase<DbType>
+public sealed class AdoParameterFactory : ParameterFactoryBase<DbType>
 {
     /// <summary>
     /// Initializes a new instance of the DbParameterFactory class.

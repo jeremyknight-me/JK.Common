@@ -2,7 +2,7 @@
 
 namespace JK.Common.Specifications;
 
-public class MaximumLengthSpecification : Specification<string>
+public sealed class MaximumLengthSpecification : Specification<string>
 {
     public MaximumLengthSpecification(int maximumLengthToUse)
     {

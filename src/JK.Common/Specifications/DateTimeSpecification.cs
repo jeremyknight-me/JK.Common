@@ -3,7 +3,7 @@ using JK.Common.Patterns.Specification;
 
 namespace JK.Common.Specifications;
 
-public class DateTimeSpecification : Specification<string>
+public sealed class DateTimeSpecification : Specification<string>
 {
     public override bool IsSatisfiedBy(in string candidate)
         => string.IsNullOrEmpty(candidate) ? false : DateTime.TryParse(candidate, out _);

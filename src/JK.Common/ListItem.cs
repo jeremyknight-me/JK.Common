@@ -5,6 +5,6 @@
 /// the .NET list controls such as the System.Web.UI.WebControls DropDownList, 
 /// the System.Windows.Controls ComboBox, etc.
 /// </summary>
-public class ListItem : ListItem<object>
+public sealed class ListItem : ListItem<object>
 {
 }

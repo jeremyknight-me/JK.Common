@@ -5,7 +5,7 @@ namespace JK.Common.Text;
 /// <summary>
 /// Class which truncates strings.
 /// </summary>
-public class StringTruncater
+public sealed class StringTruncater
 {
     private readonly string originalText;
 

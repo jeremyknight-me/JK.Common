@@ -6,7 +6,7 @@ namespace JK.Common.Converters;
 /// <summary>
 /// Class initially built to aid in data imports.
 /// </summary>
-public class BooleanConverter
+public sealed class BooleanConverter
 {
     private readonly object[] trueItems;
     private readonly object[] falseItems;

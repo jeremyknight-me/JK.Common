@@ -3,7 +3,7 @@ using JK.Common.Patterns.Specification;
 
 namespace JK.Common.Specifications;
 
-public class WeekdaySpecification : Specification<DateTime>
+public sealed class WeekdaySpecification : Specification<DateTime>
 {
     public override bool IsSatisfiedBy(in DateTime candidate)
     {

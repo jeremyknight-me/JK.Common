@@ -6,7 +6,7 @@ namespace JK.Common.Text;
 /// <summary>
 /// Class which places values from objects into a given template.
 /// </summary>
-public class TemplateProcessor
+public sealed class TemplateProcessor
 {
     private readonly string template;
 

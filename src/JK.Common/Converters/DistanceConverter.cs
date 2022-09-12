@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace JK.Common.Converters;
 
-public class DistanceConverter
+public sealed class DistanceConverter
 {
     private readonly IDictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> strategies;
 

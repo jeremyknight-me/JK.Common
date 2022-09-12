@@ -1,6 +1,6 @@
 ﻿namespace JK.Common.Geospatial;
 
-public class CoordinateTextFormatter : CoordinateFormatterBase
+public sealed class CoordinateTextFormatter : CoordinateFormatterBase
 {
     public CoordinateTextFormatter(CoordinateBase coordinateToUse)
         : base(coordinateToUse)

@@ -5,7 +5,7 @@ namespace JK.Common.Text;
 /// <summary>
 /// This class builds a delimited string.
 /// </summary>
-public class StringDelimiter
+public sealed class StringDelimiter
 {
     private readonly StringBuilder builder;
 

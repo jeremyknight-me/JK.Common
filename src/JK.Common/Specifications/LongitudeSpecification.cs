@@ -2,7 +2,7 @@
 
 namespace JK.Common.Specifications;
 
-public class LongitudeSpecification : Specification<decimal>
+public sealed class LongitudeSpecification : Specification<decimal>
 {
     public override bool IsSatisfiedBy(in decimal candidate) => candidate >= -180 && candidate <= 180;
 }

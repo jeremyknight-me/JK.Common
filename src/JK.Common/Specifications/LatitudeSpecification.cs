@@ -2,7 +2,7 @@
 
 namespace JK.Common.Specifications;
 
-public class LatitudeSpecification : Specification<decimal>
+public sealed class LatitudeSpecification : Specification<decimal>
 {
     public override bool IsSatisfiedBy(in decimal candidate) => candidate >= -90 && candidate <= 90;
 }
