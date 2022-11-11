@@ -14,7 +14,7 @@
         <Authors>Jeremy Knight</Authors>
         <PackageLicenseUrl></PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/knight0323/JK.Common</RepositoryUrl>
+        <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 

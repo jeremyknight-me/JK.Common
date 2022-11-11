@@ -9,7 +9,7 @@
     <Description>A utility library containing extensions to System.Data.SqlClient</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/knight0323/JK.Common</RepositoryUrl>
+    <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
