@@ -7,11 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 4.0.0
 
 ### Added
 
+- .NET 7 to multi-targetting
 - Added SqlBulkCopy extension method to provide better exception on column length SqlExceptions.
+
+### Removed
+
+- Removed .NET Standard 2.1 from multi-targetting
 
 ## 3.0.2
 
