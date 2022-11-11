@@ -7,10 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 4.0.0
 
 ### Added
 
+- .NET 7 to multi-targetting
 - Added `Slice` methods to `StringHelper` to take advantage of `Span<T>`
 - Added `DeserializeString` method to `XmlSerializerHelper`
 
@@ -19,6 +20,11 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Changed Latitude and Longitude to use `decimal` instead of `double`
 - Renamed `XmlSerializationFacade` to `XmlSerializerHelper` and moved to `TypeHelpers`
 - Renamed `GetXmlAsString` method to `Serialize` in `XmlSerializerHelper`
+- Renamed `NonQueryOperation` class to `NonQueryOperationBase`
+
+### Removed
+
+- Removed .NET Standard 2.1 from multi-targetting
 
 ## 3.1.0
 
