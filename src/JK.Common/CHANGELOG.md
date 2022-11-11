@@ -25,6 +25,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Removed
 
 - Removed .NET Standard 2.1 from multi-targetting
+- Removed `IParameterFactory`, `ParameterFactoryBase`, and `AdoParameterFactory`
 
 ## 3.1.0
 
