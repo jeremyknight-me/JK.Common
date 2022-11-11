@@ -3,12 +3,12 @@ using System.Transactions;
 
 namespace JK.Common.Data.Ado;
 
-public abstract class NonQueryOperation : OperationBase
+public abstract class NonQueryOperationBase : OperationBase
 {
     private readonly CommandType commandType;
     private readonly string commandText;
 
-    protected NonQueryOperation(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
+    protected NonQueryOperationBase(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
         : base(context)
     {
         this.commandType = adoCommandType;
