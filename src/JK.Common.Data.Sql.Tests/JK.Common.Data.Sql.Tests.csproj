@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <LangVersion>11.0</LangVersion>
@@ -21,10 +21,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\JK.Common.Data.Sql\JK.Common.Data.Sql.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Extensions\" />
     </ItemGroup>
 
 </Project>
