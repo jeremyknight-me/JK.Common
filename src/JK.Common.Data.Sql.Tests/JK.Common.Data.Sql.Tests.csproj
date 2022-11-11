@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <LangVersion>10.0</LangVersion>
-        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+        <LangVersion>11.0</LangVersion>
+        <TargetFrameworks>net48;netcoreapp3.1;net6.0;net7.0</TargetFrameworks>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
@@ -21,6 +21,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\JK.Common.Data.Sql\JK.Common.Data.Sql.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Extensions\" />
     </ItemGroup>
 
 </Project>
