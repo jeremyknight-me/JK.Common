@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <LangVersion>11.0</LangVersion>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JK.Common" Version="3.0.2" />
+    <PackageReference Include="JK.Common" Version="4.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
   </ItemGroup>
 

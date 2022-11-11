@@ -11,7 +11,7 @@ namespace JK.Common.Data.Sql;
 
 public class SqlBulkInsertOperation<T> : OperationBase
 {
-    public SqlBulkInsertOperation(DataContextBase context) : base(context)
+    public SqlBulkInsertOperation(DatabaseBase context) : base(context)
     {
     }
 

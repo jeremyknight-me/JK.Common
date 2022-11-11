@@ -17,6 +17,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Removed
 
 - Removed .NET Standard 2.1 from multi-targetting
+- Removed `SqlParameterFactory`
 
 ## 3.0.2
 
