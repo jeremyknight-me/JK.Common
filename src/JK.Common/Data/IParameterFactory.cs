@@ -1,10 +1,12 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace JK.Common.Data;
 
 /// <summary>
 /// ParameterFactory inferface which exposes multiple ways to make db parameters.
 /// </summary>
+[Obsolete("Moving this functionality to extension methods on the parameter collection classes")]
 public interface IParameterFactory
 {
     /// <summary>

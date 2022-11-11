@@ -4,6 +4,7 @@ using System.Data;
 
 namespace JK.Common.Data;
 
+[Obsolete("Moving this functionality to extension methods on the parameter collection classes")]
 public abstract class ParameterFactoryBase<TDbType> : IParameterFactory where TDbType : struct, IConvertible
 {
     private readonly IDbCommand command;
