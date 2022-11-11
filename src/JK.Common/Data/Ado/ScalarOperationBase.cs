@@ -8,7 +8,7 @@ public abstract class ScalarOperationBase<T> : OperationBase
     private readonly CommandType commandType;
     private readonly string commandText;
 
-    protected ScalarOperationBase(DataContextBase context, CommandType adoCommandType, string adoCommandText)
+    protected ScalarOperationBase(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
         : base(context)
     {
         this.commandText = adoCommandText;

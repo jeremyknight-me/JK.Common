@@ -9,7 +9,7 @@ public abstract class QueryOperationBase<T> : OperationBase
     private readonly CommandType commandType;
     private readonly string commandText;
 
-    protected QueryOperationBase(DataContextBase context, CommandType adoCommandType, string adoCommandText)
+    protected QueryOperationBase(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
         : base(context)
     {
         this.commandType = adoCommandType;

@@ -4,17 +4,17 @@ using System.Data;
 namespace JK.Common.Data.Ado;
 
 /// <summary>
-/// Abstract base data context class 
+/// Abstract base database context class 
 /// </summary>
-public abstract class DataContextBase : IDisposable
+public abstract class DatabaseBase : IDisposable
 {
     private IDbConnection connection;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DataContextBase"/> class.
+    /// Initializes a new instance of the <see cref="DatabaseBase"/> class.
     /// </summary>
     /// <param name="connectionString">Connection string to be used.</param>
-    protected DataContextBase(string connectionString)
+    protected DatabaseBase(string connectionString)
     {
         this.ConnectionString = connectionString;
     }
@@ -25,21 +25,14 @@ public abstract class DataContextBase : IDisposable
     {
         get
         {
-            if (this.connection is null)
-            {
-                this.connection = this.MakeConnection();
-            }
-
+            this.connection ??= this.MakeConnection();
             return this.connection;
         }
     }
 
     public void Dispose()
     {
-        if (this.connection is not null)
-        {
-            this.connection.Dispose();
-        }
+        this.connection?.Dispose();
     }
 
     public void OpenConnection()
@@ -58,6 +51,5 @@ public abstract class DataContextBase : IDisposable
         }
     }
 
-    public abstract IParameterFactory MakeParameterFactory(IDbCommand command);
     protected abstract IDbConnection MakeConnection();
 }

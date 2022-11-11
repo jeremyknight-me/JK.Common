@@ -8,12 +8,12 @@ public abstract class OperationBase
     /// Initializes a new instance of the <see cref="OperationBase"/> class.
     /// </summary>
     /// <param name="context">The ADO base data context to use.</param>
-    protected OperationBase(DataContextBase context)
+    protected OperationBase(DatabaseBase context)
     {
         this.Context = context;
     }
 
-    protected DataContextBase Context { get; }
+    protected DatabaseBase Context { get; }
 
     protected abstract void SetupParameters(IDbCommand command);
 

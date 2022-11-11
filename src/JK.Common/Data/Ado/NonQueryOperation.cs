@@ -8,25 +8,28 @@ public abstract class NonQueryOperation : OperationBase
     private readonly CommandType commandType;
     private readonly string commandText;
 
-    protected NonQueryOperation(DataContextBase context, CommandType adoCommandType, string adoCommandText)
+    protected NonQueryOperation(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
         : base(context)
     {
         this.commandType = adoCommandType;
         this.commandText = adoCommandText;
     }
 
-    public void Execute()
+    public int Execute()
     {
+        var count = 0;
         using (var scope = new TransactionScope())
         {
             using (var connection = this.Context.Connection)
             using (var command = this.SetupCommand(connection, this.commandType, this.commandText))
             {
                 this.Context.OpenConnection();
-                command.ExecuteNonQuery();
+                count = command.ExecuteNonQuery();
             }
 
             scope.Complete();
         }
+
+        return count;
     }
 }
