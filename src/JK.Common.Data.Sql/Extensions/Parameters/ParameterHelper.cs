@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
