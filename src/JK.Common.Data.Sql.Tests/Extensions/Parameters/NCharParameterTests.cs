@@ -6,7 +6,7 @@ using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class CharParameterTests
+public class NCharParameterTests
 {
     [Theory]
     [InlineData("Foo", "123", 3)]
@@ -14,7 +14,7 @@ public class CharParameterTests
     public void AddAlways_Theories(string name, string value, int size)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value, SqlDbType.Char, size);
+        command.Parameters.AddAlways(name, value, SqlDbType.NChar, size);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         Assert.Equal(size, parameter.Size);
@@ -25,7 +25,7 @@ public class CharParameterTests
     public void AddAlways_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (string)null, SqlDbType.Char, 2);
+        command.Parameters.AddAlways("foo", (string)null, SqlDbType.NChar, 2);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
@@ -37,9 +37,9 @@ public class CharParameterTests
         using var command = new SqlCommand();
         var exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
         {
-            command.Parameters.AddAlways("foo", (string)null, SqlDbType.Char);
+            command.Parameters.AddAlways("foo", (string)null, SqlDbType.NChar);
         });
-        Assert.StartsWith("Data type 'char' must be positive value between 0 and 8000", exception.Message);
+        Assert.StartsWith("Data type 'nchar' must be positive value between 0 and 4000", exception.Message);
     }
 
     [Theory]
@@ -48,7 +48,7 @@ public class CharParameterTests
     public void AddIfNonNull_NonNull_Theories(string name, string value, int size)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value, SqlDbType.Char, size);
+        command.Parameters.AddIfNonNull(name, value, SqlDbType.NChar, size);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
@@ -64,7 +64,7 @@ public class CharParameterTests
 
     private void AssertDbTypes(SqlParameter parameter)
     {
-        Assert.Equal(DbType.AnsiStringFixedLength, parameter.DbType);
-        Assert.Equal(SqlDbType.Char, parameter.SqlDbType);
+        Assert.Equal(DbType.StringFixedLength, parameter.DbType);
+        Assert.Equal(SqlDbType.NChar, parameter.SqlDbType);
     }
 }
