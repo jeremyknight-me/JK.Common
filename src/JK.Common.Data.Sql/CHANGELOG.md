@@ -12,7 +12,8 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Added
 
 - .NET 7 to multi-targetting
-- Added SqlBulkCopy extension method to provide better exception on column length SqlExceptions.
+- Added `SqlBulkCopy` extension method to provide better exception on column length SqlExceptions.
+- Added `SqlParameterCollection` extension methods to allow for easier `SqlParameter` configuration.
 
 ### Removed
 
