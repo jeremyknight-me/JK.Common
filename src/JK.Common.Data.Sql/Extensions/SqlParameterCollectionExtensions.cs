@@ -1,26 +1,10 @@
-﻿using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
-
-namespace JK.Common.Data.Sql.Extensions;
+﻿namespace JK.Common.Data.Sql.Extensions;
 
 public static partial class SqlParameterCollectionExtensions
 {
-    // todo: byte
-
-    // todo: datetime2 w/ and w/o precision
+    // todo: datetime2 w/ and w/o precision (tests only left)
 
     // todo: datetimeoffset w/ and w/o precision
-
-    // todo: decimal
-
-    // todo: double
-
-    // todo: guid
-
-    // todo: long
-
-    // todo: short
 
     // todo: string (char, nchar, varchar, nvarchar)
 
@@ -37,21 +21,5 @@ public static partial class SqlParameterCollectionExtensions
     //    return parameters;
     //}
 
-    //public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, Guid? value)
-    //    => parameters.AddIfNonNull(name, SqlDbType.UniqueIdentifier, value);
 
-    //public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, int? value)
-    //    => parameters.AddIfNonNull(name, SqlDbType.Int, value);
-
-    //public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, string value, int length, SqlDbType dbType = SqlDbType.NVarChar)
-    //{
-    //    if (!string.IsNullOrWhiteSpace(value))
-    //    {
-    //        parameters.Add(name, dbType, length).Value = value;
-    //    }
-
-    //    return parameters;
-    //}
-
-    
 }
