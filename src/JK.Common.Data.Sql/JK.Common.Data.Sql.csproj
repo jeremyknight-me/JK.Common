@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <LangVersion>11.0</LangVersion>
@@ -9,11 +9,11 @@
     <Description>A utility library containing extensions to System.Data.SqlClient</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/knight0323/JK.Common</RepositoryUrl>
+    <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JK.Common" Version="3.0.2" />
+    <PackageReference Include="JK.Common" Version="4.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
   </ItemGroup>
 
