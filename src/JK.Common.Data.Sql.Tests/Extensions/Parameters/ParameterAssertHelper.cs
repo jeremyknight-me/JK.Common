@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace JK.Common.Data.Sql.Tests.Extensions.SqlParameterCollection;
+namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
 internal static class ParameterAssertHelper
 {

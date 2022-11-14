@@ -5,7 +5,7 @@ using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace JK.Common.Data.Sql.Tests.Extensions.SqlParameterCollection;
+namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
 public class UniqueIdentifierParameterTests
 {

@@ -4,7 +4,7 @@ using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace JK.Common.Data.Sql.Tests.Extensions.SqlParameterCollection;
+namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
 public class DecimalParameterTests
 {
@@ -16,7 +16,7 @@ public class DecimalParameterTests
         command.Parameters.AddAlways(name, value, precision, scale);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbType(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -26,7 +26,7 @@ public class DecimalParameterTests
         command.Parameters.AddAlways("foo", (decimal?)null, 10, 3);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbType(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Theory]
@@ -37,7 +37,7 @@ public class DecimalParameterTests
         command.Parameters.AddIfNonNull(name, value, precision, scale);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbType(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -54,7 +54,7 @@ public class DecimalParameterTests
         yield return new object[] { "Bar", 2m, (byte)10, (byte)3 };
     }
 
-    private void AssertDbType(SqlParameter parameter)
+    private void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Decimal, parameter.DbType);
         Assert.Equal(SqlDbType.Decimal, parameter.SqlDbType);

@@ -3,7 +3,7 @@ using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace JK.Common.Data.Sql.Tests.Extensions.SqlParameterCollection;
+namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
 public class BigIntParameterTests
 {
@@ -16,7 +16,7 @@ public class BigIntParameterTests
         command.Parameters.AddAlways(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbType(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -26,7 +26,7 @@ public class BigIntParameterTests
         command.Parameters.AddAlways("foo", (long?)null);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbType(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Theory]
@@ -38,7 +38,7 @@ public class BigIntParameterTests
         command.Parameters.AddIfNonNull(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbType(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -49,7 +49,7 @@ public class BigIntParameterTests
         Assert.Empty(command.Parameters);
     }
 
-    private void AssertDbType(SqlParameter parameter)
+    private void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Int64, parameter.DbType);
         Assert.Equal(SqlDbType.BigInt, parameter.SqlDbType);

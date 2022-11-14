@@ -4,7 +4,7 @@ using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace JK.Common.Data.Sql.Tests.Extensions.SqlParameterCollection;
+namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
 public class TinyIntParameterTests
 {
@@ -17,7 +17,7 @@ public class TinyIntParameterTests
         command.Parameters.AddAlways(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertTinyInt(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -27,7 +27,7 @@ public class TinyIntParameterTests
         command.Parameters.AddAlways("foo", (byte?)null);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertTinyInt(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Theory]
@@ -38,7 +38,7 @@ public class TinyIntParameterTests
         command.Parameters.AddIfNonNull(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertTinyInt(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -55,7 +55,7 @@ public class TinyIntParameterTests
         yield return new object[] { "Bar", (byte)2 };
     }
 
-    private void AssertTinyInt(SqlParameter parameter)
+    private void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Byte, parameter.DbType);
         Assert.Equal(SqlDbType.TinyInt, parameter.SqlDbType);

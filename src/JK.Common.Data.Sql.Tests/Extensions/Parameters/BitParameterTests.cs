@@ -3,7 +3,7 @@ using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace JK.Common.Data.Sql.Tests.Extensions.SqlParameterCollection;
+namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
 public class BitParameterTests
 {
@@ -16,7 +16,7 @@ public class BitParameterTests
         command.Parameters.AddAlways(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertBoolean(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -26,7 +26,7 @@ public class BitParameterTests
         command.Parameters.AddAlways("foo", (bool?)null);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertBoolean(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Theory]
@@ -38,7 +38,7 @@ public class BitParameterTests
         command.Parameters.AddIfNonNull(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertBoolean(parameter);
+        this.AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -49,7 +49,7 @@ public class BitParameterTests
         Assert.Empty(command.Parameters);
     }
 
-    private void AssertBoolean(SqlParameter parameter)
+    private void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Boolean, parameter.DbType);
         Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);
