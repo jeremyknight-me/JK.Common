@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class BitParameter
+public static class BitParameters
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, bool value)
     {
