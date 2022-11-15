@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class StringParameters
+public static class StringParameterExtensions
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, string value, SqlDbType databaseType = SqlDbType.NVarChar, int size = -1)
     {

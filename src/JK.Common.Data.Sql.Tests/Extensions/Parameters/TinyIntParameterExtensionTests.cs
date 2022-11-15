@@ -1,16 +1,17 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class SmallIntParameterTests
+public class TinyIntParameterExtensionTests
 {
     [Theory]
-    [InlineData("Foo", (short)1)]
-    [InlineData("Bar", (short)2)]
-    public void AddAlways_Theories(string name, short value)
+    [InlineData("Foo", 1)]
+    [InlineData("Bar", 2)]
+    public void AddAlways_Theories(string name, byte value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddAlways(name, value);
@@ -23,16 +24,15 @@ public class SmallIntParameterTests
     public void AddAlways_Null_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (short?)null);
+        command.Parameters.AddAlways("foo", (byte?)null);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [InlineData("Foo", (short)1)]
-    [InlineData("Bar", (short)2)]
-    public void AddIfNonNull_NonNull_Theories(string name, short? value)
+    [MemberData(nameof(AddAlways_Data))]
+    public void AddIfNonNull_NonNull_Theories(string name, byte? value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddIfNonNull(name, value);
@@ -45,13 +45,19 @@ public class SmallIntParameterTests
     public void AddIfNonNull_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (short?)null);
+        command.Parameters.AddIfNonNull("hi", (byte?)null);
         Assert.Empty(command.Parameters);
+    }
+
+    public static IEnumerable<object[]> AddAlways_Data()
+    {
+        yield return new object[] { "Foo", (byte)1 };
+        yield return new object[] { "Bar", (byte)2 };
     }
 
     private void AssertDbTypes(SqlParameter parameter)
     {
-        Assert.Equal(DbType.Int16, parameter.DbType);
-        Assert.Equal(SqlDbType.SmallInt, parameter.SqlDbType);
+        Assert.Equal(DbType.Byte, parameter.DbType);
+        Assert.Equal(SqlDbType.TinyInt, parameter.SqlDbType);
     }
 }

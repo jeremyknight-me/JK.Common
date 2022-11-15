@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class DateTimeOffsetParameter
+public static class DateTimeOffsetParameterExtensions
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, DateTimeOffset value, byte? precision = null)
     {

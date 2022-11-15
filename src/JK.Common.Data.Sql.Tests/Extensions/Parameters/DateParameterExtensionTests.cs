@@ -7,7 +7,7 @@ using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class DateParameterTests
+public class DateParameterExtensionTests
 {
     [Theory]
     [MemberData(nameof(AddAlways_Data))]

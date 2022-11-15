@@ -5,43 +5,39 @@ using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class NVarcharParameterTests
+public class BitParameterExtensionTests
 {
     [Theory]
-    [InlineData("Foo", "123", 3)]
-    [InlineData("Bar", "2345", 4)]
-    [InlineData("Hi", "345", -1)]
-    public void AddAlways_Theories(string name, string value, int size)
+    [InlineData("Foo", true)]
+    [InlineData("Bar", false)]
+    public void AddAlways_Theories(string name, bool value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value, SqlDbType.NVarChar, size);
+        command.Parameters.AddAlways(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        Assert.Equal(size, parameter.Size);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddAlways_Null_Test()
+    public void AddAlways_Null_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (string)null, SqlDbType.NVarChar);
+        command.Parameters.AddAlways("foo", (bool?)null);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [InlineData("Foo", "123", 3)]
-    [InlineData("Bar", "2345", 4)]
-    [InlineData("Hi", "345", -1)]
-    public void AddIfNonNull_NonNull_Theories(string name, string value, int size)
+    [InlineData("Foo", true)]
+    [InlineData("Bar", false)]
+    public void AddIfNonNull_NonNull_Theories(string name, bool? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value, SqlDbType.NVarChar, size);
+        command.Parameters.AddIfNonNull(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        Assert.Equal(size, parameter.Size);
         this.AssertDbTypes(parameter);
     }
 
@@ -49,13 +45,13 @@ public class NVarcharParameterTests
     public void AddIfNonNull_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (string)null, SqlDbType.NVarChar);
+        command.Parameters.AddIfNonNull("hi", (bool?)null);
         Assert.Empty(command.Parameters);
     }
 
     private void AssertDbTypes(SqlParameter parameter)
     {
-        Assert.Equal(DbType.String, parameter.DbType);
-        Assert.Equal(SqlDbType.NVarChar, parameter.SqlDbType);
+        Assert.Equal(DbType.Boolean, parameter.DbType);
+        Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);
     }
 }

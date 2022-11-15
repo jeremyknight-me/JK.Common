@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class DecimalParameters
+public static class DecimalParameterExtensions
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, decimal value, byte precision, byte scale)
     {

@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class UniqueIdentifierParameterTests
+public class BigIntParameterExtensionTests
 {
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
-    public void AddAlways_Theories(string name, Guid value)
+    [InlineData("Foo", 1)]
+    [InlineData("Bar", 2)]
+    public void AddAlways_Theories(string name, long value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddAlways(name, value);
@@ -24,15 +23,16 @@ public class UniqueIdentifierParameterTests
     public void AddAlways_Null_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (Guid?)null);
+        command.Parameters.AddAlways("foo", (long?)null);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
-    public void AddIfNonNull_NonNull_Theories(string name, Guid? value)
+    [InlineData("Foo", 1)]
+    [InlineData("Bar", 2)]
+    public void AddIfNonNull_NonNull_Theories(string name, long? value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddIfNonNull(name, value);
@@ -45,19 +45,13 @@ public class UniqueIdentifierParameterTests
     public void AddIfNonNull_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (Guid?)null);
+        command.Parameters.AddIfNonNull("hi", (long?)null);
         Assert.Empty(command.Parameters);
-    }
-
-    public static IEnumerable<object[]> AddAlways_Data()
-    {
-        yield return new object[] { "Foo", Guid.Parse("9df7c774-027e-4ae8-bf82-c158052987f7") };
-        yield return new object[] { "Bar", Guid.Parse("ca6293b4-deb6-4d45-b119-c892d5e1c549") };
     }
 
     private void AssertDbTypes(SqlParameter parameter)
     {
-        Assert.Equal(DbType.Guid, parameter.DbType);
-        Assert.Equal(SqlDbType.UniqueIdentifier, parameter.SqlDbType);
+        Assert.Equal(DbType.Int64, parameter.DbType);
+        Assert.Equal(SqlDbType.BigInt, parameter.SqlDbType);
     }
 }

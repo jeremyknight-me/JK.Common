@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class TinyIntParameters
+public static class TinyIntParameterExtensions
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, byte value)
         => parameters.AddAlways(name, SqlDbType.TinyInt, value);

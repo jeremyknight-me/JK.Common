@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class UniqueIdentifierParameter
+public static class UniqueIdentifierParameterExtensions
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, Guid value)
         => parameters.AddAlways(name, SqlDbType.UniqueIdentifier, value);

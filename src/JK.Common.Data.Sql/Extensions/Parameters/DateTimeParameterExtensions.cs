@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
-public static class DateTimeParameter
+public static class DateTimeParameterExtensions
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, DateTime value, SqlDbType databaseType = SqlDbType.DateTime, byte? precision = null)
     {
