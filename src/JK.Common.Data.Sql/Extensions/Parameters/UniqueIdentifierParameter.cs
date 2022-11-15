@@ -7,16 +7,10 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 public static class UniqueIdentifierParameter
 {
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, Guid value)
-    {
-        parameters.Add(name, SqlDbType.UniqueIdentifier).Value = value;
-        return parameters;
-    }
+        => parameters.AddAlways(name, SqlDbType.UniqueIdentifier, value);
 
     public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, Guid? value)
-    {
-        parameters.Add(name, SqlDbType.UniqueIdentifier).Value = value.HasValue ? value : DBNull.Value;
-        return parameters;
-    }
+        => parameters.AddAlways(name, SqlDbType.UniqueIdentifier, value);
 
     public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, Guid? value)
         => parameters.AddIfNonNull(name, SqlDbType.UniqueIdentifier, value);
