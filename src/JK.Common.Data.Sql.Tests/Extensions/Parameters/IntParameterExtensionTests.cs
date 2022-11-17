@@ -23,7 +23,7 @@ public class IntParameterExtensionTests
     public void AddAlways_Null_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddInt("foo", (int?)null, skipIfNull: false);
+        command.Parameters.AddInt("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
@@ -45,7 +45,7 @@ public class IntParameterExtensionTests
     public void AddIfNonNull_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddInt("hi", (int?)null, skipIfNull: true);
+        command.Parameters.AddInt("hi", null, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 

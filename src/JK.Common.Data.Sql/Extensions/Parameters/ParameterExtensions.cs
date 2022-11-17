@@ -11,20 +11,4 @@ internal static class ParameterExtensions
         parameters.Add(name, databaseType).Value = value is null ? DBNull.Value : value;
         return parameters;
     }
-
-    internal static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, SqlDbType databaseType, object value)
-    {
-        parameters.Add(name, databaseType).Value = value is null ? DBNull.Value : value;
-        return parameters;
-    }
-
-    internal static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, SqlDbType databaseType, object? value)
-    {
-        if (value is not null)
-        {
-            parameters.Add(name, databaseType).Value = value;
-        }
-
-        return parameters;
-    }
 }

@@ -6,7 +6,7 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class DecimalParameterExtensions
 {
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, decimal value, byte precision, byte scale)
+    public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal value, byte precision, byte scale)
     {
         var parameter = parameters.Add(name, SqlDbType.Decimal);
         parameter.Value = value;
@@ -14,23 +14,16 @@ public static class DecimalParameterExtensions
         return parameters;
     }
 
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, decimal? value, byte precision, byte scale)
+    public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal? value, byte precision, byte scale, bool skipIfNull = false)
     {
+        if (skipIfNull && !value.HasValue)
+        {
+            return parameters;
+        }
+
         var parameter = parameters.Add(name, SqlDbType.Decimal);
         parameter.Value = value.HasValue ? value : DBNull.Value;
         _ = SetDecimalPrecisionScale(parameter, precision, scale);
-        return parameters;
-    }
-
-    public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, decimal? value, byte precision, byte scale)
-    {
-        if (value.HasValue)
-        {
-            var parameter = parameters.Add(name, SqlDbType.Decimal);
-            parameter.Value = value;
-            _ = SetDecimalPrecisionScale(parameter, precision, scale);
-        }
-
         return parameters;
     }
 

@@ -10,46 +10,46 @@ namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 public class UniqueIdentifierParameterExtensionTests
 {
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
+    [MemberData(nameof(AddUniqueIdentifier_Data))]
     public void AddAlways_Theories(string name, Guid value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value);
+        command.Parameters.AddUniqueIdentifier(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddAlways_Null_Tests()
+    public void AddAlways_NoSkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (Guid?)null);
+        command.Parameters.AddUniqueIdentifier("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
+    [MemberData(nameof(AddUniqueIdentifier_Data))]
     public void AddIfNonNull_NonNull_Theories(string name, Guid? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value);
+        command.Parameters.AddUniqueIdentifier(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddIfNonNull_Null_Test()
+    public void AddIfNonNull_SkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (Guid?)null);
+        command.Parameters.AddUniqueIdentifier("hi", null, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 
-    public static IEnumerable<object[]> AddAlways_Data()
+    public static IEnumerable<object[]> AddUniqueIdentifier_Data()
     {
         yield return new object[] { "Foo", Guid.Parse("9df7c774-027e-4ae8-bf82-c158052987f7") };
         yield return new object[] { "Bar", Guid.Parse("ca6293b4-deb6-4d45-b119-c892d5e1c549") };

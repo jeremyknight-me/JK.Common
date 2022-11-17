@@ -11,20 +11,20 @@ public class DateTimeOffsetParameterExtensionTests
 {
     [Theory]
     [MemberData(nameof(AddAlways_Data))]
-    public void AddAlways_Theories(string name, DateTimeOffset value)
+    public void AddDateTimeOffset_Theories(string name, DateTimeOffset value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value);
+        command.Parameters.AddDateTimeOffset(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddAlways_Null_Tests()
+    public void AddDateTimeOffset_NoSkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (DateTimeOffset?)null);
+        command.Parameters.AddDateTimeOffset("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
@@ -32,20 +32,20 @@ public class DateTimeOffsetParameterExtensionTests
 
     [Theory]
     [MemberData(nameof(AddAlways_Data))]
-    public void AddIfNonNull_NonNull_Theories(string name, DateTimeOffset? value)
+    public void AddDateTimeOffset_NonNull_Theories(string name, DateTimeOffset? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value);
+        command.Parameters.AddDateTimeOffset(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddIfNonNull_Null_Test()
+    public void AddDateTimeOffset_SkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (DateTimeOffset?)null);
+        command.Parameters.AddDateTimeOffset("hi", null, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 

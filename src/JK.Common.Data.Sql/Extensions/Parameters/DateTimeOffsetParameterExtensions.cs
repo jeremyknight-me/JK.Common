@@ -6,30 +6,25 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class DateTimeOffsetParameterExtensions
 {
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, DateTimeOffset value, byte? precision = null)
+    public static SqlParameterCollection AddDateTimeOffset(this SqlParameterCollection parameters, string name, DateTimeOffset value, byte? precision = null)
     {
-        AddDateTimeOffset(parameters, name, value, precision);
+        AddParameter(parameters, name, value, precision);
         return parameters;
     }
 
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, DateTimeOffset? value, byte? precision = null)
+    public static SqlParameterCollection AddDateTimeOffset(this SqlParameterCollection parameters, string name, DateTimeOffset? value, byte? precision = null, bool skipIfNull = false)
     {
-        object parameterValue = value.HasValue ? value : DBNull.Value;
-        AddDateTimeOffset(parameters, name, parameterValue, precision);
-        return parameters;
-    }
-
-    public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, DateTimeOffset? value, byte? precision = null)
-    {
-        if (value is not null)
+        if (skipIfNull && !value.HasValue)
         {
-            AddDateTimeOffset(parameters, name, value, precision);
+            return parameters;
         }
 
+        object parameterValue = value.HasValue ? value : DBNull.Value;
+        AddParameter(parameters, name, parameterValue, precision);
         return parameters;
     }
 
-    private static void AddDateTimeOffset(SqlParameterCollection parameters, string name, object value, byte? precision)
+    private static void AddParameter(SqlParameterCollection parameters, string name, object value, byte? precision)
     {
         var parameter = parameters.Add(name, SqlDbType.DateTimeOffset);
         parameter.Value = value;

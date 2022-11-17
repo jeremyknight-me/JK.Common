@@ -10,7 +10,7 @@ public class BitParameterExtensionTests
     [Theory]
     [InlineData("Foo", true)]
     [InlineData("Bar", false)]
-    public void AddAlways_Theories(string name, bool value)
+    public void AddBit_Theories(string name, bool value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddBit(name, value);
@@ -20,7 +20,7 @@ public class BitParameterExtensionTests
     }
 
     [Fact]
-    public void AddAlways_Null_Tests()
+    public void AddBit_NoSkipNull_Test()
     {
         using var command = new SqlCommand();
         command.Parameters.AddBit("foo", (bool?)null, skipIfNull: false);
@@ -32,7 +32,7 @@ public class BitParameterExtensionTests
     [Theory]
     [InlineData("Foo", true)]
     [InlineData("Bar", false)]
-    public void AddIfNonNull_NonNull_Theories(string name, bool? value)
+    public void AddBit_NonNull_Theories(string name, bool? value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddBit(name, value);
@@ -42,7 +42,7 @@ public class BitParameterExtensionTests
     }
 
     [Fact]
-    public void AddIfNonNull_Null_Test()
+    public void AddBit_SkipNull_Test()
     {
         using var command = new SqlCommand();
         command.Parameters.AddBit("hi", (bool?)null, skipIfNull: true);
