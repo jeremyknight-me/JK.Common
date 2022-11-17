@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
@@ -11,10 +12,10 @@ public class NVarcharParameterExtensionTests
     [InlineData("Foo", "123", 3)]
     [InlineData("Bar", "2345", 4)]
     [InlineData("Hi", "345", -1)]
-    public void AddAlways_Theories(string name, string value, int size)
+    public void AddNVarchar_Theories(string name, string value, int size)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value, SqlDbType.NVarChar, size);
+        command.Parameters.AddNVarchar(name, value, size);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         Assert.Equal(size, parameter.Size);
@@ -22,35 +23,34 @@ public class NVarcharParameterExtensionTests
     }
 
     [Fact]
-    public void AddAlways_Null_Test()
+    public void AddNVarchar_NoSkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (string)null, SqlDbType.NVarChar);
+        command.Parameters.AddNVarchar("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
-    [Theory]
-    [InlineData("Foo", "123", 3)]
-    [InlineData("Bar", "2345", 4)]
-    [InlineData("Hi", "345", -1)]
-    public void AddIfNonNull_NonNull_Theories(string name, string value, int size)
+    [Fact]
+    public void AddNVarchar_SkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value, SqlDbType.NVarChar, size);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
-        Assert.Equal(value, parameter.Value);
-        Assert.Equal(size, parameter.Size);
-        this.AssertDbTypes(parameter);
+        command.Parameters.AddNVarchar("hi", null, skipIfNull: true);
+        Assert.Empty(command.Parameters);
     }
 
-    [Fact]
-    public void AddIfNonNull_Null_Test()
+    [Theory]
+    [InlineData(5000)]
+    [InlineData(-100)]
+    public void AddNVarchar_InvalidSizeException_Theories(int size)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (string)null, SqlDbType.NVarChar);
-        Assert.Empty(command.Parameters);
+        var exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
+        {
+            command.Parameters.AddNVarchar("foo", null, size);
+        });
+        Assert.StartsWith("Data type 'nvarchar' must be positive value between 0 and 4000", exception.Message);
     }
 
     private void AssertDbTypes(SqlParameter parameter)

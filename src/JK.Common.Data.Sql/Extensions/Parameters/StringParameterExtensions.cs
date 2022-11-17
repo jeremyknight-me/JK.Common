@@ -6,47 +6,81 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class StringParameterExtensions
 {
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, string value, SqlDbType databaseType = SqlDbType.NVarChar, int size = -1)
+    public static SqlParameterCollection AddChar(this SqlParameterCollection parameters, string name, string value, int size, bool skipIfNull = false)
+    {
+        if (!CharIsValidSize(size))
+        {
+            throw new ArgumentOutOfRangeException(nameof(size), "Data type 'char' must be positive value between 0 and 8000");
+        }
+
+        if (skipIfNull && string.IsNullOrWhiteSpace(value))
+        {
+            return parameters;
+        }
+
+        parameters.AddString(name, value, SqlDbType.Char, size);
+        return parameters;
+    }
+
+    public static SqlParameterCollection AddNChar(this SqlParameterCollection parameters, string name, string value, int size, bool skipIfNull = false)
+    {
+        if (!NCharIsValidSize(size))
+        {
+            throw new ArgumentOutOfRangeException(nameof(size), "Data type 'nchar' must be positive value between 0 and 4000");
+        }
+
+        if (skipIfNull && string.IsNullOrWhiteSpace(value))
+        {
+            return parameters;
+        }
+
+        parameters.AddString(name, value, SqlDbType.NChar, size);
+        return parameters;
+    }
+
+    public static SqlParameterCollection AddVarchar(this SqlParameterCollection parameters, string name, string value, int size = -1, bool skipIfNull = false)
+    {
+        if (!VarcharIsValidSize(size))
+        {
+            throw new ArgumentOutOfRangeException(nameof(size), "Data type 'varchar' must be positive value between 0 and 8000 or -1 for 'max'");
+        }
+
+        if (skipIfNull && string.IsNullOrWhiteSpace(value))
+        {
+            return parameters;
+        }
+
+        parameters.AddString(name, value, SqlDbType.VarChar, size);
+        return parameters;
+    }
+
+    public static SqlParameterCollection AddNVarchar(this SqlParameterCollection parameters, string name, string value, int size = -1, bool skipIfNull = false)
+    {
+        if (!NVarcharIsValidSize(size))
+        {
+            throw new ArgumentOutOfRangeException(nameof(size), "Data type 'nvarchar' must be positive value between 0 and 4000 or -1 for 'max'");
+        }
+
+        if (skipIfNull && string.IsNullOrWhiteSpace(value))
+        {
+            return parameters;
+        }
+
+        parameters.AddString(name, value, SqlDbType.NVarChar, size);
+        return parameters;
+    }
+
+    private static void AddString(this SqlParameterCollection parameters, string name, string value, SqlDbType databaseType, int size)
     {
         object parameterValue = string.IsNullOrWhiteSpace(value) ? DBNull.Value : value;
-        AddString(parameters, name, parameterValue, databaseType, size);
-        return parameters;
+        parameters.Add(name, databaseType, size).Value = parameterValue;
     }
 
-    public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, string? value, SqlDbType databaseType = SqlDbType.NVarChar, int size = -1)
-    {
-        if (!string.IsNullOrWhiteSpace(value))
-        {
-            AddString(parameters, name, value, databaseType, size);
-        }
+    private static bool CharIsValidSize(int size) => IsValidSizeUtf8(size);
+    private static bool NCharIsValidSize(int size) => IsValidSizeUtf16(size);
+    private static bool VarcharIsValidSize(int size) => size == -1 || IsValidSizeUtf8(size);
+    private static bool NVarcharIsValidSize(int size) => size == -1 || IsValidSizeUtf16(size);
 
-        return parameters;
-    }
-
-    private static void AddString(SqlParameterCollection parameters, string name, object value, SqlDbType databaseType, int size)
-    {
-        EnsureValid(databaseType, size);
-        var parameter = parameters.Add(name, databaseType);
-        parameter.Value = value;
-        parameter.Size = size;
-    }
-
-    private static void EnsureValid(SqlDbType databaseType, int size)
-    {
-        if (databaseType == SqlDbType.Char && !CharIsValidSize(size))
-        {
-            throw new ArgumentOutOfRangeException(
-                nameof(size),
-                "Data type 'char' must be positive value between 0 and 8000");
-        }
-        else if (databaseType == SqlDbType.NChar && !NCharIsValidSize(size))
-        {
-            throw new ArgumentOutOfRangeException(
-                nameof(size),
-                "Data type 'nchar' must be positive value between 0 and 4000");
-        }
-    }
-
-    private static bool CharIsValidSize(int size) => size > 0 && size <= 8000;
-    private static bool NCharIsValidSize(int size) => size > 0 && size <= 4000;
+    private static bool IsValidSizeUtf8(int size) => size > 0 && size <= 8000;
+    private static bool IsValidSizeUtf16(int size) => size > 0 && size <= 4000;
 }
