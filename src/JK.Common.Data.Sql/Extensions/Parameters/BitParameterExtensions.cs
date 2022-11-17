@@ -5,12 +5,11 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class BitParameterExtensions
 {
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, bool value)
-        => parameters.AddAlways(name, SqlDbType.Bit, value);
+    public static SqlParameterCollection AddBit(this SqlParameterCollection parameters, string name, bool value)
+        => parameters.AddByDbType(name, SqlDbType.Bit, value);
 
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, bool? value)
-        => parameters.AddAlways(name, SqlDbType.Bit, value);
-
-    public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, bool? value)
-        => parameters.AddIfNonNull(name, SqlDbType.Bit, value);
+    public static SqlParameterCollection AddBit(this SqlParameterCollection parameters, string name, bool? value, bool skipIfNull = false)
+        => skipIfNull && !value.HasValue
+            ? parameters
+            : parameters.AddByDbType(name, SqlDbType.Bit, value);
 }
