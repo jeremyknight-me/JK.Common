@@ -13,7 +13,7 @@ public class SmallIntParameterExtensionTests
     public void AddAlways_Theories(string name, short value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value);
+        command.Parameters.AddSmallInt(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
@@ -23,7 +23,7 @@ public class SmallIntParameterExtensionTests
     public void AddAlways_Null_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (short?)null);
+        command.Parameters.AddSmallInt("foo", (short?)null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
@@ -35,7 +35,7 @@ public class SmallIntParameterExtensionTests
     public void AddIfNonNull_NonNull_Theories(string name, short? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value);
+        command.Parameters.AddSmallInt(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
@@ -45,7 +45,7 @@ public class SmallIntParameterExtensionTests
     public void AddIfNonNull_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (short?)null);
+        command.Parameters.AddSmallInt("hi", (short?)null, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 
