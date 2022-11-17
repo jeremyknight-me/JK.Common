@@ -10,46 +10,46 @@ namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 public class DateParameterExtensionTests
 {
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
-    public void AddAlways_Theories(string name, DateTime value)
+    [MemberData(nameof(AddDate_Data))]
+    public void AddDate_Theories(string name, DateTime value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value, SqlDbType.Date);
+        command.Parameters.AddDate(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddAlways_Null_Tests()
+    public void AddDate_NoSkipNull_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (DateTime?)null, SqlDbType.Date);
+        command.Parameters.AddDate("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
-    public void AddIfNonNull_NonNull_Theories(string name, DateTime? value)
+    [MemberData(nameof(AddDate_Data))]
+    public void AddDate_NonNull_Theories(string name, DateTime? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value, SqlDbType.Date);
+        command.Parameters.AddDate(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddIfNonNull_Null_Test()
+    public void AddDate_SkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (DateTime?)null, SqlDbType.Date);
+        command.Parameters.AddDate("hi", null, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 
-    public static IEnumerable<object[]> AddAlways_Data()
+    public static IEnumerable<object[]> AddDate_Data()
     {
         yield return new object[] { "Foo", new DateTime(2022, 12, 31) };
         yield return new object[] { "Bar", new DateTime(2022, 11, 1) };

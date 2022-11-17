@@ -6,34 +6,45 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class DateTimeParameterExtensions
 {
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, DateTime value, SqlDbType databaseType = SqlDbType.DateTime, byte? precision = null)
+    public static SqlParameterCollection AddDate(this SqlParameterCollection parameters, string name, DateTime value)
+        => parameters.AddByDbType(name, SqlDbType.Date, value);
+
+    public static SqlParameterCollection AddDate(this SqlParameterCollection parameters, string name, DateTime? value, bool skipIfNull = false)
+        => skipIfNull && !value.HasValue
+            ? parameters
+            : parameters.AddByDbType(name, SqlDbType.Date, value);
+
+    public static SqlParameterCollection AddDateTime(this SqlParameterCollection parameters, string name, DateTime value)
+        => parameters.AddByDbType(name, SqlDbType.DateTime, value);
+
+    public static SqlParameterCollection AddDateTime(this SqlParameterCollection parameters, string name, DateTime? value, bool skipIfNull = false)
+        => skipIfNull && !value.HasValue
+            ? parameters
+            : parameters.AddByDbType(name, SqlDbType.DateTime, value);
+
+    public static SqlParameterCollection AddDateTime2(this SqlParameterCollection parameters, string name, DateTime value, byte? precision = null)
     {
-        AddDateTime(parameters, name, value, databaseType, precision);
+        SetDateTime2Values(parameters, name, value, precision);
         return parameters;
     }
 
-    public static SqlParameterCollection AddAlways(this SqlParameterCollection parameters, string name, DateTime? value, SqlDbType databaseType = SqlDbType.DateTime, byte? precision = null)
+    public static SqlParameterCollection AddDateTime2(this SqlParameterCollection parameters, string name, DateTime? value, byte? precision = null, bool skipIfNull = false)
     {
-        object parameterValue = value.HasValue ? value : DBNull.Value;
-        AddDateTime(parameters, name, parameterValue, databaseType, precision);
-        return parameters;
-    }
-
-    public static SqlParameterCollection AddIfNonNull(this SqlParameterCollection parameters, string name, DateTime? value, SqlDbType databaseType = SqlDbType.DateTime, byte? precision = null)
-    {
-        if (value is not null)
+        if (skipIfNull && !value.HasValue)
         {
-            AddDateTime(parameters, name, value, databaseType, precision);
+            return parameters;
         }
 
+        object parameterValue = value is null ? DBNull.Value : value.Value;
+        SetDateTime2Values(parameters, name, parameterValue, precision);
         return parameters;
     }
 
-    private static void AddDateTime(SqlParameterCollection parameters, string name, object value, SqlDbType databaseType, byte? precision)
+    private static void SetDateTime2Values(SqlParameterCollection parameters, string name, object value, byte? precision)
     {
-        var parameter = parameters.Add(name, databaseType);
+        var parameter = parameters.Add(name, SqlDbType.DateTime2);
         parameter.Value = value;
-        if (databaseType == SqlDbType.DateTime2 && precision.HasValue)
+        if (precision.HasValue)
         {
             parameter.Precision = precision.Value;
         }
