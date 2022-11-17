@@ -1,0 +1,37 @@
+﻿using System;
+using System.Data;
+using Microsoft.Data.SqlClient;
+
+namespace JK.Common.Data.Sql.Extensions.Parameters;
+
+public static class DecimalParameterExtensions
+{
+    public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal value, byte precision, byte scale)
+    {
+        var parameter = parameters.Add(name, SqlDbType.Decimal);
+        parameter.Value = value;
+        _ = SetDecimalPrecisionScale(parameter, precision, scale);
+        return parameters;
+    }
+
+    public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal? value, byte precision, byte scale, bool skipIfNull = false)
+    {
+        if (skipIfNull && !value.HasValue)
+        {
+            return parameters;
+        }
+
+        var parameter = parameters.Add(name, SqlDbType.Decimal);
+        parameter.Value = value.HasValue ? value : DBNull.Value;
+        _ = SetDecimalPrecisionScale(parameter, precision, scale);
+        return parameters;
+    }
+
+    private static SqlParameter SetDecimalPrecisionScale(SqlParameter parameter, byte precision, byte scale)
+    {
+        parameter.Precision = precision;
+        parameter.Scale = scale;
+        return parameter;
+    }
+}
+

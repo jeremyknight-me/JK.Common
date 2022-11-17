@@ -5,15 +5,15 @@ using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class BigIntParameterTests
+public class SmallIntParameterExtensionTests
 {
     [Theory]
-    [InlineData("Foo", 1)]
-    [InlineData("Bar", 2)]
-    public void AddAlways_Theories(string name, long value)
+    [InlineData("Foo", (short)1)]
+    [InlineData("Bar", (short)2)]
+    public void AddAlways_Theories(string name, short value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value);
+        command.Parameters.AddSmallInt(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
@@ -23,19 +23,19 @@ public class BigIntParameterTests
     public void AddAlways_Null_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (long?)null);
+        command.Parameters.AddSmallInt("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [InlineData("Foo", 1)]
-    [InlineData("Bar", 2)]
-    public void AddIfNonNull_NonNull_Theories(string name, long? value)
+    [InlineData("Foo", (short)1)]
+    [InlineData("Bar", (short)2)]
+    public void AddIfNonNull_NonNull_Theories(string name, short? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value);
+        command.Parameters.AddSmallInt(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
@@ -45,13 +45,13 @@ public class BigIntParameterTests
     public void AddIfNonNull_Null_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (long?)null);
+        command.Parameters.AddSmallInt("hi", null, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 
     private void AssertDbTypes(SqlParameter parameter)
     {
-        Assert.Equal(DbType.Int64, parameter.DbType);
-        Assert.Equal(SqlDbType.BigInt, parameter.SqlDbType);
+        Assert.Equal(DbType.Int16, parameter.DbType);
+        Assert.Equal(SqlDbType.SmallInt, parameter.SqlDbType);
     }
 }

@@ -6,49 +6,49 @@ using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class DecimalParameterTests
+public class DecimalParameterExtensionTests
 {
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
-    public void AddAlways_Theories(string name, decimal value, byte precision, byte scale)
+    [MemberData(nameof(AddDecimal_Data))]
+    public void AddDecimal_Theories(string name, decimal value, byte precision, byte scale)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value, precision, scale);
+        command.Parameters.AddDecimal(name, value, precision, scale);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddAlways_Null_Tests()
+    public void AddDecimal_NoSkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (decimal?)null, 10, 3);
+        command.Parameters.AddDecimal("foo", null, 10, 3, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [MemberData(nameof(AddAlways_Data))]
-    public void AddIfNonNull_NonNull_Theories(string name, decimal? value, byte precision, byte scale)
+    [MemberData(nameof(AddDecimal_Data))]
+    public void AddDecimal_NonNull_Theories(string name, decimal? value, byte precision, byte scale)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value, precision, scale);
+        command.Parameters.AddDecimal(name, value, precision, scale);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddIfNonNull_Null_Test()
+    public void AddDecimal_SkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (decimal?)null, 10, 3);
+        command.Parameters.AddDecimal("hi", null, 10, 3, skipIfNull: true);
         Assert.Empty(command.Parameters);
     }
 
-    public static IEnumerable<object[]> AddAlways_Data()
+    public static IEnumerable<object[]> AddDecimal_Data()
     {
         yield return new object[] { "Foo", 1m, (byte)10, (byte)3 };
         yield return new object[] { "Bar", 2m, (byte)10, (byte)3 };

@@ -1,57 +1,63 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
-public class SmallIntParameterTests
+public class DateParameterExtensionTests
 {
     [Theory]
-    [InlineData("Foo", (short)1)]
-    [InlineData("Bar", (short)2)]
-    public void AddAlways_Theories(string name, short value)
+    [MemberData(nameof(AddDate_Data))]
+    public void AddDate_Theories(string name, DateTime value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways(name, value);
+        command.Parameters.AddDate(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddAlways_Null_Tests()
+    public void AddDate_NoSkipNull_Tests()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddAlways("foo", (short?)null);
+        command.Parameters.AddDate("foo", null, skipIfNull: false);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
         this.AssertDbTypes(parameter);
     }
 
     [Theory]
-    [InlineData("Foo", (short)1)]
-    [InlineData("Bar", (short)2)]
-    public void AddIfNonNull_NonNull_Theories(string name, short? value)
+    [MemberData(nameof(AddDate_Data))]
+    public void AddDate_NonNull_Theories(string name, DateTime? value)
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull(name, value);
+        command.Parameters.AddDate(name, value);
         var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         this.AssertDbTypes(parameter);
     }
 
     [Fact]
-    public void AddIfNonNull_Null_Test()
+    public void AddDate_SkipNull_Test()
     {
         using var command = new SqlCommand();
-        command.Parameters.AddIfNonNull("hi", (short?)null);
+        command.Parameters.AddDate("hi", null, skipIfNull: true);
         Assert.Empty(command.Parameters);
+    }
+
+    public static IEnumerable<object[]> AddDate_Data()
+    {
+        yield return new object[] { "Foo", new DateTime(2022, 12, 31) };
+        yield return new object[] { "Bar", new DateTime(2022, 11, 1) };
     }
 
     private void AssertDbTypes(SqlParameter parameter)
     {
-        Assert.Equal(DbType.Int16, parameter.DbType);
-        Assert.Equal(SqlDbType.SmallInt, parameter.SqlDbType);
+        Assert.Equal(DbType.Date, parameter.DbType);
+        Assert.Equal(SqlDbType.Date, parameter.SqlDbType);
     }
 }
