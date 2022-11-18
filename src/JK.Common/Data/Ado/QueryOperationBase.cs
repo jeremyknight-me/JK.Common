@@ -6,38 +6,23 @@ namespace JK.Common.Data.Ado;
 
 public abstract class QueryOperationBase<T> : OperationBase
 {
-    private readonly CommandType commandType;
-    private readonly string commandText;
-
-    protected QueryOperationBase(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
-        : base(context)
+    protected QueryOperationBase(IDatabase database) : base(database)
     {
-        this.commandType = adoCommandType;
-        this.commandText = adoCommandText;
     }
 
-    public IEnumerable<T> Execute()
+    public IEnumerable<T> Execute(CommandBehavior behavior)
     {
+        using var transaction = new TransactionScope();
+        using var command = this.MakeCommand();
+        using var dataReader = this.Database.RunExecuteReader(command, behavior);
         var items = new List<T>();
-        using (var scope = new TransactionScope())
+        while (dataReader.Read())
         {
-            using (var connection = this.Context.Connection)
-            using (var command = this.SetupCommand(connection, this.commandType, this.commandText))
-            {
-                this.Context.OpenConnection();
-                using (var dataReader = command.ExecuteReader())
-                {
-                    while (dataReader.Read())
-                    {
-                        var item = this.GetObjectFromDataReader(dataReader);
-                        items.Add(item);
-                    }
-                }
-            }
-
-            scope.Complete();
+            var item = this.GetObjectFromDataReader(dataReader);
+            items.Add(item);
         }
 
+        transaction.Complete();
         return items;
     }
 
