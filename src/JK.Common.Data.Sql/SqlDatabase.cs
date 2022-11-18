@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;
 
-public class SqlDatabase : DatabaseBase
+public abstract class SqlDatabase : DatabaseBase
 {
     public SqlDatabase(string connectionString) : base(connectionString)
     {
