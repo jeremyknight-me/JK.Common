@@ -1,36 +1,20 @@
-﻿using System.Data;
-using System.Transactions;
+﻿using System.Transactions;
 
 namespace JK.Common.Data.Ado;
 
 public abstract class ScalarOperationBase<T> : OperationBase
 {
-    private readonly CommandType commandType;
-    private readonly string commandText;
-
-    protected ScalarOperationBase(DatabaseBase context, CommandType adoCommandType, string adoCommandText)
-        : base(context)
+    protected ScalarOperationBase(IDatabase database) : base(database)
     {
-        this.commandText = adoCommandText;
-        this.commandType = adoCommandType;
     }
 
     public T Execute()
     {
-        T value;
-        using (var scope = new TransactionScope())
-        {
-            using (var connection = this.Context.Connection)
-            using (var command = this.SetupCommand(connection, this.commandType, this.commandText))
-            {
-                this.Context.OpenConnection();
-                var scalar = command.ExecuteScalar();
-                value = (T)scalar;
-            }
-
-            scope.Complete();
-        }
-
+        using var transaction = new TransactionScope();
+        using var command = this.MakeCommand();
+        var scalar = this.Database.RunExecuteScaler(command);
+        var value = (T)scalar;
+        transaction.Complete();
         return value;
     }
 }
