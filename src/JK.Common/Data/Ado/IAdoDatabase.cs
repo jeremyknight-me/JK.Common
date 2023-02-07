@@ -3,7 +3,7 @@ using System.Data;
 
 namespace JK.Common.Data.Ado;
 
-public interface IDatabase : IDisposable
+public interface IAdoDatabase : IDisposable
 {
     IDbCommand MakeCommand();
     int RunExecuteNonQuery(IDbCommand command);

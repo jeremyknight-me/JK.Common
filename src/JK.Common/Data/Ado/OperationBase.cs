@@ -8,11 +8,11 @@ public abstract class OperationBase
     /// Initializes a new instance of the <see cref="OperationBase"/> class.
     /// </summary>
     /// <param name="context">The ADO base data context to use.</param>
-    protected OperationBase(IDatabase database)
+    protected OperationBase(IAdoDatabase database)
     {
         this.Database = database;
     }
 
-    protected IDatabase Database { get; }
+    protected IAdoDatabase Database { get; }
     protected abstract IDbCommand MakeCommand();
 }

@@ -4,7 +4,7 @@ namespace JK.Common.Data.Ado;
 
 public abstract class ScalarOperationBase<T> : OperationBase
 {
-    protected ScalarOperationBase(IDatabase database) : base(database)
+    protected ScalarOperationBase(IAdoDatabase database) : base(database)
     {
     }
 

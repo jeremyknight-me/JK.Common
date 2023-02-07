@@ -6,7 +6,7 @@ namespace JK.Common.Data.Ado;
 
 public abstract class QueryOperationBase<T> : OperationBase
 {
-    protected QueryOperationBase(IDatabase database) : base(database)
+    protected QueryOperationBase(IAdoDatabase database) : base(database)
     {
     }
 

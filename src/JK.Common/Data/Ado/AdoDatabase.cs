@@ -5,13 +5,13 @@ namespace JK.Common.Data.Ado;
 /// <summary>
 /// Abstract base database context class 
 /// </summary>
-public abstract class Database<TConnection> : IDatabase
+public abstract class AdoDatabase<TConnection> : IAdoDatabase
     where TConnection : IDbConnection
 {
     private readonly string connectionString;
     private TConnection connection;
 
-    protected Database(string connectionString)
+    protected AdoDatabase(string connectionString)
     {
         this.connectionString = connectionString;
     }
@@ -21,7 +21,11 @@ public abstract class Database<TConnection> : IDatabase
         this.connection?.Dispose();
     }
 
-    public IDbCommand MakeCommand() => this.connection.CreateCommand();
+    public IDbCommand MakeCommand()
+    {
+        this.EnsureConnection();
+        return this.connection.CreateCommand();
+    }
 
     public int RunExecuteNonQuery(IDbCommand command)
     {
@@ -43,9 +47,11 @@ public abstract class Database<TConnection> : IDatabase
 
     protected abstract TConnection MakeConnection(string connectionString);
 
+    private void EnsureConnection() => this.connection ??= this.MakeConnection(this.connectionString);
+
     private void OpenConnection()
     {
-        this.connection ??= this.MakeConnection(this.connectionString);
+        this.EnsureConnection();
         if (this.connection.State != ConnectionState.Open)
         {
             this.connection.Open();
