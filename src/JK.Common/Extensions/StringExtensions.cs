@@ -1,4 +1,5 @@
-﻿using JK.Common.Specifications;
+﻿using System;
+using JK.Common.Specifications;
 using JK.Common.Specifications.UnitedStates;
 using JK.Common.Text;
 using JK.Common.TypeHelpers;
@@ -115,4 +116,19 @@ public static class StringExtensions
         var truncater = new StringTruncater(valueToTruncate) { Indicator = indicator };
         return truncater.TruncateToLength(length);
     }
+
+#if NET7_0_OR_GREATER
+
+    /// <summary>
+    /// Parses a string into a specified type. 
+    /// </summary>
+    /// <typeparam name="T">Type to parse string value to which must implement IParsable</typeparam>
+    /// <param name="input">Current string object from extension method</param>
+    /// <param name="formatProvider">Format provider to pass down to the IParsable.Parse method.</param>
+    /// <returns>Parsed value of type T</returns>
+    public static T Parse<T>(this string input, IFormatProvider formatProvider = null)
+        where T : IParsable<T>
+        => T.Parse(input, formatProvider);
+
+#endif
 }
