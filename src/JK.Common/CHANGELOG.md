@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased
+
+### Added
+
+- Added `Parse` methods to `SpanExtensions`
+- Added `Parse` methods to `StringExtensions`
+
 ## 4.0.0
 
 ### Added
