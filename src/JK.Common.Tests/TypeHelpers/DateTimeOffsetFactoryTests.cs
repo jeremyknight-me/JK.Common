@@ -15,8 +15,7 @@ public class DateTimeOffsetFactoryTests
     [InlineData("2020-12-31T23:59:59-05:00", "Eastern Standard Time", "2020-12-31 23:59:59")]
     public void Make_Theories(string expected, string timeZoneId, string input)
     {
-        var sut = new DateTimeOffsetFactory();
-        var actual = sut.Make(DateTime.Parse(input), timeZoneId);
+        var actual = DateTimeOffsetFactory.Make(DateTime.Parse(input), timeZoneId);
         Assert.Equal(DateTimeOffset.Parse(expected), actual);
     }
 }
