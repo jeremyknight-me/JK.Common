@@ -8,7 +8,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
-        <Version>4.0.1</Version>
+        <Version>4.1.0</Version>
         <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
         <Company></Company>
         <Authors>Jeremy Knight</Authors>
