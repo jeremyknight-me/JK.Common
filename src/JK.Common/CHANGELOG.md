@@ -13,6 +13,12 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added `Parse` methods to `SpanExtensions`
 - Added `Parse` methods to `StringExtensions`
+- Added `Range` and `Index` "polyfills"
+
+### Changed
+
+- Changed `DateTimeOffsetFactory` to static class.
+- Changed `StringHelper.Right` to use range operator
 
 ## 4.0.0
 
