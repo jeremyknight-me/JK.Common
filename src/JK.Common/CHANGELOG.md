@@ -14,6 +14,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added `Parse` methods to `SpanExtensions`
 - Added `Parse` methods to `StringExtensions`
 - Added `Range` and `Index` "polyfills"
+- Added Regex code generation to `RegexHelper`
 
 ### Changed
 
