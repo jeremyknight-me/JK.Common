@@ -2,7 +2,7 @@
 
 public class UnitedStatesPhoneNumberValidatorTests : StringValidatorTestsBase
 {
-    public override StringValidatorBase<MockModel, string> Validator => new UnitedStatesPhoneNumberValidator<MockModel, string>();
+    public override StringValidatorBase<MockModel> Validator => new UnitedStatesPhoneNumberValidator<MockModel>();
 
     [Theory]
     [InlineData("5555551234")]

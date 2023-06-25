@@ -2,7 +2,7 @@
 
 public abstract class StringValidatorTestsBase
 {
-    public abstract StringValidatorBase<MockModel, string> Validator { get; }
+    public abstract StringValidatorBase<MockModel> Validator { get; }
 
     public TestValidationResult<MockModel> MakeAndTestValidator(string value)
     {
@@ -13,7 +13,7 @@ public abstract class StringValidatorTestsBase
 
     private class MockModelStringValidator : AbstractValidator<MockModel>
     {
-        public MockModelStringValidator(StringValidatorBase<MockModel, string> validator)
+        public MockModelStringValidator(StringValidatorBase<MockModel> validator)
         {
             this.RuleFor(x => x.StringValue).SetValidator(validator);
         }

@@ -5,7 +5,7 @@ namespace JK.Common.FluentValidation.Validators;
 /// <summary>
 /// Validator that validates that a string property is a valid zip code.
 /// </summary>
-public class ZipCodeValidator<T, TProperty> : StringValidatorBase<T, TProperty>
+public class ZipCodeValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>
     public override string Name => "ZipCodeValidator";

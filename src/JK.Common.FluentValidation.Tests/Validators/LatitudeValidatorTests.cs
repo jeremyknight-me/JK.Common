@@ -2,7 +2,7 @@
 
 public class LatitudeValidatorTests : DecimalValidatorTestsBase
 {
-    public override PropertyValidator<MockModel, decimal> Validator => new LatitudeValidator<MockModel, decimal>();
+    public override PropertyValidator<MockModel, decimal> Validator => new LatitudeValidator<MockModel>();
 
     [Theory]
     [InlineData(-90)]

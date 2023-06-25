@@ -2,7 +2,7 @@
 
 public class AlphabeticalValidatorTests : StringValidatorTestsBase
 {
-    public override StringValidatorBase<MockModel, string> Validator => new AlphabeticalValidator<MockModel, string>();
+    public override StringValidatorBase<MockModel> Validator => new AlphabeticalValidator<MockModel>();
 
     [Theory]
     [InlineData("abcdefghijklmnopqrstuvwxyz")]

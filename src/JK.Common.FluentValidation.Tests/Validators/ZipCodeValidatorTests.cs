@@ -2,7 +2,7 @@
 
 public class ZipCodeValidatorTests : StringValidatorTestsBase
 {
-    public override StringValidatorBase<MockModel, string> Validator => new ZipCodeValidator<MockModel, string>();
+    public override StringValidatorBase<MockModel> Validator => new ZipCodeValidator<MockModel>();
 
     [Theory]
     [InlineData("12345")]

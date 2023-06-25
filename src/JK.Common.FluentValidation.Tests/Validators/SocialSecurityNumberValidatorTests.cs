@@ -2,7 +2,7 @@
 
 public class SocialSecurityNumberValidatorTests : StringValidatorTestsBase
 {
-    public override StringValidatorBase<MockModel, string> Validator => new SocialSecurityNumberValidator<MockModel, string>();
+    public override StringValidatorBase<MockModel> Validator => new SocialSecurityNumberValidator<MockModel>();
 
     [Theory]
     [InlineData("078051120")]

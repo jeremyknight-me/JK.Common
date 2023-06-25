@@ -2,7 +2,7 @@
 
 public class LongitudeValidatorTests : DecimalValidatorTestsBase
 {
-    public override PropertyValidator<MockModel, decimal> Validator => new LongitudeValidator<MockModel, decimal>();
+    public override PropertyValidator<MockModel, decimal> Validator => new LongitudeValidator<MockModel>();
 
     [Theory]
     [InlineData(-180)]
