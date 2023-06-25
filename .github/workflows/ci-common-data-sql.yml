@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '3.1.x', '6.x', '7.x']
+        dotnet-version: [ '3.1.x', '6.x', '7.x' ]
 
     steps:
     - uses: actions/checkout@v3
@@ -31,9 +31,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
-    - name: Restore dependencies
-      run: dotnet restore ./src/JK.Common.Data.Sql/JK.Common.Data.Sql.csproj
     - name: Build
-      run: dotnet build ./src/JK.Common.Data.Sql/JK.Common.Data.Sql.csproj -c Release --no-restore
+      run: dotnet build ./src/JK.Common.Data.Sql/JK.Common.Data.Sql.csproj -c Release
     - name: Test
-      run: dotnet test ./src/JK.Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj --no-build --verbosity normal
+      run: dotnet test ./src/JK.Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj --verbosity normal
