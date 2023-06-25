@@ -2,7 +2,7 @@
 
 namespace JK.Common.FluentValidation.Validators;
 
-public class UnitedStatesPhoneNumberValidator<T, TProperty> : StringValidatorBase<T, TProperty>
+public class UnitedStatesPhoneNumberValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>
     public override string Name => "UnitedStatesPhoneNumberValidator";

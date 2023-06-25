@@ -3,7 +3,7 @@ using FluentValidation.Validators;
 
 namespace JK.Common.FluentValidation.Validators;
 
-public abstract class StringValidatorBase<T, TProperty> : PropertyValidator<T, TProperty>
+public abstract class StringValidatorBase<T> : PropertyValidator<T, string>
 {
     /// <summary>Determine if the given string is valid.</summary>
     /// <param name="value">String value to validate</param>
@@ -11,10 +11,7 @@ public abstract class StringValidatorBase<T, TProperty> : PropertyValidator<T, T
     protected abstract bool IsStringValid(string value);
 
     ///<inheritdoc/>
-    public override bool IsValid(ValidationContext<T> context, TProperty value)
-    {
-        var stringToValidate = value as string;
-        return string.IsNullOrEmpty(stringToValidate)
-            || this.IsStringValid(stringToValidate);
-    }
+    public override bool IsValid(ValidationContext<T> context, string value)
+        => string.IsNullOrEmpty(value)
+            || this.IsStringValid(value);
 }

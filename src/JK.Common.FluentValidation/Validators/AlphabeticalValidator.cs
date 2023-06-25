@@ -2,7 +2,7 @@
 
 namespace JK.Common.FluentValidation.Validators;
 
-public class AlphabeticalValidator<T, TProperty> : StringValidatorBase<T, TProperty>
+public class AlphabeticalValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>
     public override string Name => "AlphabeticalValidator";

@@ -5,7 +5,7 @@ namespace JK.Common.FluentValidation.Validators;
 /// <summary>
 /// Validator that validates that a string property contains alphanumeric characters.
 /// </summary>
-public class AlphaNumericValidator<T, TProperty> : StringValidatorBase<T, TProperty>
+public class AlphaNumericValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>
     public override string Name => "AlphaNumericValidator";

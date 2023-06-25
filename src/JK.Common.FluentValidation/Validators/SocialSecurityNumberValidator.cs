@@ -2,7 +2,7 @@
 
 namespace JK.Common.FluentValidation.Validators;
 
-public class SocialSecurityNumberValidator<T, TProperty> : StringValidatorBase<T, TProperty>
+public class SocialSecurityNumberValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>
     public override string Name => "SocialSecurityNumberValidator";
