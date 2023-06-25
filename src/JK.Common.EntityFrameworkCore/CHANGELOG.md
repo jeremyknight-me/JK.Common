@@ -11,7 +11,11 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Changed
 
-- Added .NET Standard 2.0 to multi-targeting
+- Added .NET Standard 2.0 and .NET 7 to multi-targeting
+
+### Removed
+
+- Removed .NET Standard 2.1 and .NET 5 from multi-targetting
 
 ## 3.0.1
 
