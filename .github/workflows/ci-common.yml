@@ -1,14 +1,17 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: 'JK.Common CI'
 
 on:
   workflow_dispatch:
   push:
     branches: [ "master" ]
+    paths:
+      - 'src/JK.Common/**'
+      - 'src/JK.Common.Tests/**'
   pull_request:
     branches: [ "master" ]
+    paths:
+      - 'src/JK.Common/**'
+      - 'src/JK.Common.Tests/**'
 
 permissions:
   contents: read
@@ -18,19 +21,19 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '3.1.x', '6.x', '7.x']
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
+    - name: Setup .NET SDKs
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: |
-          3.1.x
-          6.x
-          7.x
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Restore dependencies
       run: dotnet restore ./src/JK.Common/JK.Common.csproj
     - name: Build
-      run: dotnet build ./src/JK.Common/JK.Common.csproj --no-restore
+      run: dotnet build ./src/JK.Common/JK.Common.csproj -c Release --no-restore
     - name: Test
       run: dotnet test ./src/JK.Common/JK.Common.csproj --no-build --verbosity normal
