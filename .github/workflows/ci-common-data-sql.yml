@@ -1,17 +1,17 @@
-name: 'JK.Common CI'
+name: 'JK.Common.Data.SQL CI'
 
 on:
   workflow_dispatch:
   push:
     branches: [ "master" ]
     paths:
-      - 'src/JK.Common/**'
-      - 'src/JK.Common.Tests/**'
+      - 'src/JK.Common.Data.Sql/**'
+      - 'src/JK.Common.Data.Sql.Tests/**'
   pull_request:
     branches: [ "master" ]
     paths:
-      - 'src/JK.Common/**'
-      - 'src/JK.Common.Tests/**'
+      - 'src/JK.Common.Data.Sql/**'
+      - 'src/JK.Common.Data.Sql.Tests/**'
 
 permissions:
   contents: read
@@ -32,8 +32,8 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Restore dependencies
-      run: dotnet restore ./src/JK.Common/JK.Common.csproj
+      run: dotnet restore ./src/JK.Common.Data.Sql/JK.Common.Data.Sql.csproj
     - name: Build
-      run: dotnet build ./src/JK.Common/JK.Common.csproj -c Release --no-restore
+      run: dotnet build ./src/JK.Common.Data.Sql/JK.Common.Data.Sql.csproj -c Release --no-restore
     - name: Test
-      run: dotnet test ./src/JK.Common.Tests/JK.Common.Tests.csproj --no-build --verbosity normal
+      run: dotnet test ./src/JK.Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj --no-build --verbosity normal

@@ -1,0 +1,39 @@
+name: 'JK.Common.EFCore CI'
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'src/JK.Common.EntityFrameworkCore/**'
+      - 'src/JK.Common.EntityFrameworkCore.Tests/**'
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - 'src/JK.Common.EntityFrameworkCore/**'
+      - 'src/JK.Common.EntityFrameworkCore.Tests/**'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '3.1.x', '6.x', '7.x']
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET SDKs
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+    - name: Restore dependencies
+      run: dotnet restore ./src/JK.Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.csproj
+    - name: Build
+      run: dotnet build ./src/JK.Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.csproj -c Release --no-restore
+    - name: Test
+      run: dotnet test ./src/JK.Common.EntityFrameworkCore.Tests/JK.Common.EntityFrameworkCore.Tests.csproj --no-build --verbosity normal
