@@ -31,6 +31,6 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Restore dependencies
-      run: dotnet restore ./src/JK.Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.SqlServer.csproj
+      run: dotnet restore ./src/JK.Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj
     - name: Build
-      run: dotnet build ./src/JK.Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.SqlServer.csproj -c Release --no-restore
+      run: dotnet build ./src/JK.Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj -c Release --no-restore
