@@ -20,7 +20,7 @@ public class LongitudeValidator<T, TProperty> : PropertyValidator<T, TProperty>
     ///<inheritdoc/>
     public override bool IsValid(ValidationContext<T> context, TProperty value)
     {
-        var longitude = Convert.ToDouble(value);
+        var longitude = Convert.ToDecimal(value);
         var specification = new LongitudeSpecification();
         return specification.IsSatisfiedBy(longitude);
     }

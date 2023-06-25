@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased
+
+### Changed
+
+- Added .NET 7 to multi-targeting
+- Upgraded FluentValidation from 10.x to 11.x
+
+### Removed
+
+- Removed .NET Standard 2.1 and .NET 5 from multi-targetting
+
+
 ## 3.0.0
 
 ### Added 
