@@ -30,8 +30,8 @@ public class BigIntParameterExtensionTests
     }
 
     [Theory]
-    [InlineData("Foo", 1)]
-    [InlineData("Bar", 2)]
+    [InlineData("Foo", 1L)]
+    [InlineData("Bar", 2L)]
     public void AddBigInt_NonNull_Theories(string name, long? value)
     {
         using var command = new SqlCommand();
