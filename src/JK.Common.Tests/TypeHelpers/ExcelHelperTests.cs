@@ -4,8 +4,6 @@ namespace JK.Common.Tests.TypeHelpers;
 
 public class ExcelHelperTests
 {
-    #region GetColumnName() Tests
-
     [Theory]
     [InlineData(1, "A")]
     [InlineData(10, "J")]
@@ -16,6 +14,4 @@ public class ExcelHelperTests
         var actual = ExcelHelper.GetColumnName(columnNumber);
         Assert.Equal(expected, actual);
     }
-
-    #endregion
 }
