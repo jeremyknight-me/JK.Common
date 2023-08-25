@@ -1,12 +1,11 @@
-﻿using JK.Common.Extensions;
+﻿#if NET7_0_OR_GREATER
+
+using JK.Common.Extensions;
 
 namespace JK.Common.Tests.Extensions;
 
 public class SpanExtensionsTests
 {
-    #region Parse() Tests
-    #if NET7_0_OR_GREATER
-
     [Fact]
     public void Parse_Int()
     {
@@ -30,7 +29,6 @@ public class SpanExtensionsTests
         var actual = value.Parse<DateTime>();
         Assert.Equal(new DateTime(2023, 5, 18), actual);
     }
-
-    #endif
-    #endregion
 }
+
+#endif
