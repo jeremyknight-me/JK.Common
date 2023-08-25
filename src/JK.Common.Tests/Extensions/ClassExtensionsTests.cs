@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JK.Common.Extensions;
+﻿using JK.Common.Extensions;
 
 namespace JK.Common.Tests.Extensions;
 
