@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace JK.Common.Tests;
 
 public class SimpleObject
 {
+    [XmlElement(Order = 1)]
     public int Id { get; set; }
 
+    [XmlElement(Order = 2)]
     public string Title { get; set; }
 
     public static IEnumerable<SimpleObject> GetMockDataSet(int number = 5)
