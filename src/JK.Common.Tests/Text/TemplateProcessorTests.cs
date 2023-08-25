@@ -4,8 +4,6 @@ namespace JK.Common.Tests.Text;
 
 public class TemplateProcessorTests
 {
-    #region ProcessTemplate() Tests
-
     [Fact]
     public void ProcessTemplate_DefaultSettings_TokensReplaced()
     {
@@ -86,8 +84,6 @@ public class TemplateProcessorTests
         var actual = templateProcessor.ProcessTemplate();
         Assert.Equal("The option is Option 1.", actual);
     }
-
-    #endregion
 
     private class TemplateTester
     {
