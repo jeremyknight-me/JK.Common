@@ -1,6 +1,9 @@
 # JK.Common Code Library
 
 A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.  
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 | Library (Link = Changelog) | CI | Download |
 | ------------ | ------------ | ------------ |
 | [JK.Common](src/JK.Common/CHANGELOG.md) | [![JK.Common CI](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common.yml/badge.svg)](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common.yml) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.svg)](https://www.nuget.org/packages/JK.Common/) |
