@@ -2,7 +2,7 @@
 
 A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.  
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![buy me a coffee button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellowgreen)](https://ko-fi.com/jeremyknight) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 | Library (Link = Changelog) | CI | Download |
 | ------------ | ------------ | ------------ |
