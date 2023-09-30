@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace JK.Common.Data.Ado;
+namespace JK.Common.Data;
 
 public abstract class OperationBase<TParameterModel> : IDisposable
 {

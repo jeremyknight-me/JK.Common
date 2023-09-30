@@ -1,6 +1,4 @@
-﻿using JK.Common.Contracts;
-
-namespace JK.Common.Tests;
+﻿namespace JK.Common.Tests;
 
 public class ComplexObject : IIdentifiable<int>
 {

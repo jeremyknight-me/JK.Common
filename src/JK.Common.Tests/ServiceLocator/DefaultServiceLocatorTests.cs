@@ -1,5 +1,4 @@
-﻿using JK.Common.Contracts;
-using JK.Common.ServiceLocator;
+﻿using JK.Common.ServiceLocator;
 
 namespace JK.Common.Tests.ServiceLocator;
 
