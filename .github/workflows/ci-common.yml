@@ -1,4 +1,4 @@
-name: 'JK.Common CI'
+name: 'Common CI'
 
 on:
   workflow_dispatch:
