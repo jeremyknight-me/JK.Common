@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using JK.Common.Data.Ado;
 using JK.Common.Data.Sql.Extensions;
 using Microsoft.Data.SqlClient;
 
@@ -10,11 +11,11 @@ namespace JK.Common.Data.Sql;
 
 public class SqlBulkInsertOperation<T> 
 {
-    private readonly string connString;
+    private readonly IAdoConnectionFactory connectionFactory;
 
-    public SqlBulkInsertOperation(string connectionString)
+    public SqlBulkInsertOperation(IAdoConnectionFactory connectionFactory)
     {
-        this.connString = connectionString;
+        this.connectionFactory = connectionFactory;
     }
 
     public void Execute(SqlBulkCopySettings settings, IEnumerable<T> items)
@@ -43,7 +44,7 @@ public class SqlBulkInsertOperation<T>
 
         #endregion
 
-        using (var connection = new SqlConnection(this.connString))
+        using (var connection = this.connectionFactory.Make() as SqlConnection)
         using (var bulk = new SqlBulkCopy(connection, SqlBulkCopyOptions.KeepNulls | SqlBulkCopyOptions.UseInternalTransaction, null))
         {
             if (connection.State != ConnectionState.Open)
