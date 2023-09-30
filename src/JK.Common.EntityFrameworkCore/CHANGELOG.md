@@ -7,15 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 4.0.0
+
+### Added
+
+- Added `ChangeTrackerExtensions.EnsureAuditableEntitiesUpdated` extension method
 
 ### Changed
 
-- Added .NET Standard 2.0 and .NET 7 to multi-targeting
+- Changed multi-targeting to include .NET Standard 2.0 and .NET 7
+- Changed `AuditableEntity` to handle dates only.
 
 ### Removed
 
 - Removed .NET Standard 2.1 and .NET 5 from multi-targetting
+- Removed column level auditing in favor of tools like SQL Server's Temporal Tables.
 
 ## 3.0.1
 
