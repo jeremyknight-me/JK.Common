@@ -1,4 +1,4 @@
-name: 'JK.Common.EFCore CI'
+name: 'Common.EFCore CI'
 
 on:
   workflow_dispatch:
