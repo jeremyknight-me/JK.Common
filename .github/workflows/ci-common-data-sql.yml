@@ -1,4 +1,4 @@
-name: 'JK.Common.Data.SQL CI'
+name: 'Common.Data.SQL CI'
 
 on:
   workflow_dispatch:
