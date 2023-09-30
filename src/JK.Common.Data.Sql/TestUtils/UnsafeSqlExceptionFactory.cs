@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET6_0_OR_GREATER
+
+using System;
 using System.Reflection;
 using System.Runtime.Serialization;
 using Microsoft.Data.SqlClient;
@@ -64,3 +66,5 @@ public static class UnsafeSqlExceptionFactory
     private static T Instantiate<T>() where T : class
         => FormatterServices.GetUninitializedObject(typeof(T)) as T;
 }
+
+#endif
