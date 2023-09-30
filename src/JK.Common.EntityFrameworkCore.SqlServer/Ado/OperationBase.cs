@@ -9,10 +9,7 @@ public abstract class OperationBase
         this.Context = dbContext;
     }
 
-    protected DbContext Context
-    {
-        get;
-    }
+    protected DbContext Context { get; }
 
     protected virtual void SetupParameters(IDbCommand command)
     {
