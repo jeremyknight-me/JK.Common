@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using JK.Common.Data.Ado;
 using JK.Common.Data.Sql.Extensions;
 using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;
 
-public class SqlBulkInsertOperation<T> : OperationBase
+public class SqlBulkInsertOperation<T> 
 {
-    public SqlBulkInsertOperation(DatabaseBase context) : base(context)
+    private readonly string connString;
+
+    public SqlBulkInsertOperation(string connectionString)
     {
+        this.connString = connectionString;
     }
 
     public void Execute(SqlBulkCopySettings settings, IEnumerable<T> items)
@@ -41,7 +43,7 @@ public class SqlBulkInsertOperation<T> : OperationBase
 
         #endregion
 
-        using (var connection = new SqlConnection(this.Context.ConnectionString))
+        using (var connection = new SqlConnection(this.connString))
         using (var bulk = new SqlBulkCopy(connection, SqlBulkCopyOptions.KeepNulls | SqlBulkCopyOptions.UseInternalTransaction, null))
         {
             if (connection.State != ConnectionState.Open)
@@ -85,12 +87,6 @@ public class SqlBulkInsertOperation<T> : OperationBase
                 bulk.ThrowIfColumnLengthException(ex);
                 throw;
             }
-
-            
         }
-    }
-
-    protected override void SetupParameters(IDbCommand command)
-    {
     }
 }

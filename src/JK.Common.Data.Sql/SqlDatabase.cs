@@ -1,14 +1,14 @@
-﻿using System.Data;
-using JK.Common.Data.Ado;
+﻿using JK.Common.Data.Ado;
 using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;
 
-public abstract class SqlDatabase : DatabaseBase
+public abstract class SqlDatabase : AdoDatabase<SqlConnection>
 {
     public SqlDatabase(string connectionString) : base(connectionString)
     {
     }
 
-    protected override IDbConnection MakeConnection() => new SqlConnection(this.ConnectionString);
+    protected override SqlConnection MakeConnection(string connectionString)
+        => new(connectionString);
 }
