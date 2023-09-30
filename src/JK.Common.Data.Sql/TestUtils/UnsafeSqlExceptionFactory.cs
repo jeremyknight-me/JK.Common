@@ -59,7 +59,7 @@ public static class UnsafeSqlExceptionFactory
     }
 
     /// <summary>
-    /// BEWARE: GetUninitializedObject doesn't call the constructor.
+    /// WARNING: GetUninitializedObject doesn't call the constructor.
     /// </summary>
     private static T Instantiate<T>() where T : class
         => FormatterServices.GetUninitializedObject(typeof(T)) as T;

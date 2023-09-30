@@ -9,6 +9,11 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+###
+
+- Added `IsTimeoutError` extension method on `SqlException`.
+- Added `UnsafeSqlExceptionFactory` to aid in unit testing. 
+
 ### Changed
 
 - Refactored logic for some parameter creation to reduce duplication.
