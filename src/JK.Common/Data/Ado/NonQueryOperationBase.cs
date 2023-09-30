@@ -1,24 +1,33 @@
-﻿using System.Data;
-using System.Transactions;
+﻿namespace JK.Common.Data.Ado;
 
-namespace JK.Common.Data.Ado;
-
-public abstract class NonQueryOperationBase<TParameterModel> : OperationBase
+public abstract class NonQueryOperationBase<TParameterModel> : OperationBase<TParameterModel>
 {
-    protected NonQueryOperationBase(IAdoDatabase database) : base(database)
+    protected NonQueryOperationBase(IAdoConnectionFactory connectionFactory)
+        : base(connectionFactory)
     {
     }
 
-    protected IAdoDatabase Database { get; }
-
-    public int Run(TParameterModel model)
+    public int Execute(TParameterModel parameterModel)
     {
-        using var transaction = new TransactionScope();
-        using var command = this.MakeCommand(model);
-        var count = this.Database.RunExecuteNonQuery(command);
-        transaction.Complete();
+        using var command = this.MakeCommand(parameterModel);
+        this.OpenConnection();
+        var count = command.ExecuteNonQuery();
         return count;
     }
+}
 
-    protected abstract IDbCommand MakeCommand(TParameterModel model);
+public abstract class NonQueryOperationBase : OperationBase
+{
+    protected NonQueryOperationBase(IAdoConnectionFactory connectionFactory)
+        : base(connectionFactory)
+    {
+    }
+
+    public int Execute()
+    {
+        using var command = this.MakeCommand();
+        this.OpenConnection();
+        var count = command.ExecuteNonQuery();
+        return count;
+    }
 }
