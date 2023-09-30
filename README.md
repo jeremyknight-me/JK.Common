@@ -11,8 +11,6 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | [JK.Common.EntityFrameworkCore](src/JK.Common.EntityFrameworkCore/CHANGELOG.md) | [![JK.Common.EFCore CI](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-efcore.yml/badge.svg)](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-efcore.yml) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore/)  |
 | [JK.Common.EntityFrameworkCore.SqlServer](src/JK.Common.EntityFrameworkCore.SqlServer/CHANGELOG.md) | [![JK.Common.EFCore.SqlServer CI](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-efcore-sql.yml/badge.svg)](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-efcore-sql.yml) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
 | [JK.Common.FluentValidation](src/JK.Common.FluentValidation/CHANGELOG.md) | Coming Soon | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
-| [JK.Common.OpenXml](src/JK.Common.OpenXml/CHANGELOG.md) | Coming Soon | NA  |
- 
 
 ## Components
 

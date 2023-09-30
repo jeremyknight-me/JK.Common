@@ -13,7 +13,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added .NET 7 to multi-targeting
 - Upgraded FluentValidation from 10.x to 11.x
-- Upgraded JK.Common to 4.1.0
+- Upgraded JK.Common to 5.0.0
 
 ### Removed
 

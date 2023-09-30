@@ -16,7 +16,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Changed
 
-- Upgraded to `JK.Common 4.1.0` 
+- Upgraded to `JK.Common` to 5.0.0
 - Refactored logic for some parameter creation to reduce duplication.
 
 ## 4.0.0

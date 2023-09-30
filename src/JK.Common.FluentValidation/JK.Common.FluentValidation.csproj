@@ -5,7 +5,7 @@
     <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>4.0.0</Version>
+    <Version>3.0.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>A utility library containing extensions to FluentValidation</Description>
     <Authors>Jeremy Knight</Authors>
@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.5.2" />
-    <PackageReference Include="JK.Common" Version="4.1.0" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="JK.Common" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
