@@ -7,11 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 5.0.1
+
+### Added
+
+- Added package `JK.Common.Abstractions` at v1.0.0
 
 ### Removed
 
 - Removed obsolete `Data.InMemory` namespace.
+- Removed interfaces taken over by `JK.Common.Abstractions`
 
 ## 5.0.0
 

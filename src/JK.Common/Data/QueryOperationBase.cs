@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 
-namespace JK.Common.Data.Ado;
+namespace JK.Common.Data;
 
 public abstract class QueryOperationBase<TQueryModel, TParameterModel> : OperationBase<TParameterModel>
 {

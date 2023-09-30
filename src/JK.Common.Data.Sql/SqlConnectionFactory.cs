@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using JK.Common.Data.Ado;
 using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;

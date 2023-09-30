@@ -1,4 +1,4 @@
-﻿namespace JK.Common.Data.Ado;
+﻿namespace JK.Common.Data;
 
 public abstract class ScalarOperationBase<TValue, TParameterModel> : OperationBase<TParameterModel>
 {
