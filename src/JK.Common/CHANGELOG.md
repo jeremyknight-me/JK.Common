@@ -11,7 +11,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Removed
 
-- Removed obsolete `Data.InMemory` namespace
+- Removed obsolete `Data.InMemory` namespace.
 
 ## 5.0.0
 
