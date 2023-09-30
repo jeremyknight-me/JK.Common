@@ -1,20 +1,33 @@
-﻿using System.Transactions;
+﻿namespace JK.Common.Data.Ado;
 
-namespace JK.Common.Data.Ado;
-
-public abstract class ScalarOperationBase<T> : OperationBase
+public abstract class ScalarOperationBase<TValue, TParameterModel> : OperationBase<TParameterModel>
 {
-    protected ScalarOperationBase(IAdoDatabase database) : base(database)
+    protected ScalarOperationBase(IAdoConnectionFactory connectionFactory)
+        : base(connectionFactory)
     {
     }
 
-    public T Execute()
+    public TValue? Execute(TParameterModel parameterModel)
     {
-        using var transaction = new TransactionScope();
+        using var command = this.MakeCommand(parameterModel);
+        this.OpenConnection();
+        var scalar = command.ExecuteScalar();
+        return (TValue?)(scalar is null ? null : scalar);
+    }
+}
+
+public abstract class ScalarOperationBase<TValue> : OperationBase
+{
+    protected ScalarOperationBase(IAdoConnectionFactory connectionFactory)
+        : base(connectionFactory)
+    {
+    }
+
+    public TValue? Execute()
+    {
         using var command = this.MakeCommand();
-        var scalar = this.Database.RunExecuteScaler(command);
-        var value = (T)scalar;
-        transaction.Complete();
-        return value;
+        this.OpenConnection();
+        var scalar = command.ExecuteScalar();
+        return (TValue?)(scalar is null ? null : scalar);
     }
 }
