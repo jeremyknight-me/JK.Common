@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 5.0.0
 
 ### Added
 
 - Added `TransactionScopeFactory`
+
+### Changed
+
+- Changed ADO base classes to allow for more flexibility.
+
+### Removed
+
+- Removed `IAdoDatabase` and `AdoDatabase`
 
 ## 4.1.0
 
