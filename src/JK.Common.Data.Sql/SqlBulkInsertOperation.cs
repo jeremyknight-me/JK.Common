@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using JK.Common.Data.Ado;
 using JK.Common.Data.Sql.Extensions;
 using Microsoft.Data.SqlClient;
 

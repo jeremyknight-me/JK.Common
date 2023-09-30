@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 5.1.0
 
-###
+### Added
+
+- Added package `JK.Common.Abstractions` at v1.0.0
+
+## 5.0.0
+
+### Added
 
 - Added `IsTimeoutError` extension method on `SqlException`.
 - Added `UnsafeSqlExceptionFactory` to aid in unit testing. 
