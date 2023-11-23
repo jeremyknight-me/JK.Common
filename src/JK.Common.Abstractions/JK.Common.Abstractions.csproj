@@ -15,7 +15,6 @@
         <PackageLicenseUrl></PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
 
@@ -27,10 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="README.md">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
+        <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
