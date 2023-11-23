@@ -28,5 +28,6 @@ jobs:
         dotnet-version: |
           6.x 
           7.x
+          8.x
     - name: Build 
       run: dotnet build ./src/JK.Common.Abstractions/JK.Common.Abstractions.csproj -c Release 
