@@ -16,6 +16,7 @@
         <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>

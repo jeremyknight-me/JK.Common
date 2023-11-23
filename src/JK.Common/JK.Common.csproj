@@ -2,13 +2,13 @@
 
     <PropertyGroup>
         <LangVersion>11.0</LangVersion>
-        <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
-        <Version>5.1.0</Version>
+        <Version>5.2.0</Version>
         <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
         <Company></Company>
         <Authors>Jeremy Knight</Authors>
@@ -16,10 +16,11 @@
         <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="JK.Common.Abstractions" Version="1.0.0" />
+        <PackageReference Include="JK.Common.Abstractions" Version="1.1.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     </ItemGroup>
 
@@ -28,6 +29,10 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
