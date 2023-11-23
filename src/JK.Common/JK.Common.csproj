@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="JK.Common.Abstractions" Version="1.0.0" />
+        <PackageReference Include="JK.Common.Abstractions" Version="1.1.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     </ItemGroup>
 
