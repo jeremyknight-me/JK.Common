@@ -9,16 +9,22 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+Nothing at this time.
+
+## 3.1.0
+
+### Added
+
+- Added .NET 7 and .NET 8 to multi-targeting
+
 ### Changed
 
-- Added .NET 7 to multi-targeting
 - Upgraded FluentValidation from 10.x to 11.x
-- Upgraded JK.Common to 5.0.0
+- Upgraded JK.Common to 5.2.0
 
 ### Removed
 
 - Removed .NET Standard 2.1 and .NET 5 from multi-targetting
-
 
 ## 3.0.0
 
