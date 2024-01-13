@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## 4.1.0
+
+### Added
+
+- Added support for .NET 8
+
 ## 4.0.0
 
 ### Added
