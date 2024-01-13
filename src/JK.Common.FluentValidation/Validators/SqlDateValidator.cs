@@ -1,7 +1,7 @@
 ﻿using System;
-using JK.Common.Specifications;
-using FluentValidation.Validators;
 using FluentValidation;
+using FluentValidation.Validators;
+using JK.Common.Specifications;
 
 namespace JK.Common.FluentValidation.Validators;
 

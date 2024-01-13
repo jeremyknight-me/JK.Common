@@ -13,7 +13,7 @@ public static class DatabaseValueParser
     /// <typeparam name="T">Type of object.</typeparam>
     /// <param name="value">Object to test.</param>
     /// <returns>Object's type default if DBNull, otherwise the object's value.</returns>
-    public static T GetValueOrDefault<T>(object value) => Convert.IsDBNull(value) ? default(T) : (T)value;
+    public static T GetValueOrDefault<T>(object value) => Convert.IsDBNull(value) ? default : (T)value;
 
     /// <summary>
     /// Gets the value of an object or returns the given default value.
