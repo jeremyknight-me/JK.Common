@@ -2,7 +2,7 @@
 
 using System;
 using System.Reflection;
-using System.Runtime.Serialization;
+using JK.Common.Data.Sql.Tests.TestUtils;
 using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.TestUtils;
@@ -64,7 +64,7 @@ public static class UnsafeSqlExceptionFactory
     /// WARNING: GetUninitializedObject doesn't call the constructor.
     /// </summary>
     private static T Instantiate<T>() where T : class
-        => FormatterServices.GetUninitializedObject(typeof(T)) as T;
+        => GetUninitializedObjectHelper.Instantiate<T>();
 }
 
 #endif
