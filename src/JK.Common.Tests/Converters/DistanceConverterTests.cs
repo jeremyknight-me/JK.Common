@@ -1,6 +1,6 @@
-﻿using JK.Common.Converters;
+﻿using System.Collections.Generic;
+using JK.Common.Converters;
 using JK.Common.Enumerations;
-using System.Collections.Generic;
 
 namespace JK.Common.Tests.Converters;
 
