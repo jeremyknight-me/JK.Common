@@ -1,11 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <LangVersion>12.0</LangVersion>
         <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
-        <Authors>Jeremy Knight</Authors>
         <Version>5.2.0</Version>
-        <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
         <Description>A utility library containing extensions to System.Data.SqlClient</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>

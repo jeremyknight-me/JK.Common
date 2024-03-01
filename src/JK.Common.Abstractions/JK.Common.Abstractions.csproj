@@ -1,17 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <LangVersion>11.0</LangVersion>
         <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
-        <ImplicitUsings>disable</ImplicitUsings>
-        <Nullable>disable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
         <Version>1.1.0</Version>
         <Description>Abstractions used in utility libraries which allows for less dependencies to be shared across projects.</Description>
-        <Company></Company>
-        <Authors>Jeremy Knight</Authors>
         <PackageLicenseUrl></PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
