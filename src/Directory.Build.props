@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>12.0</LangVersion>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+
+        <Authors>Jeremy Knight</Authors>
+        <Company>Jeremy Knight</Company>
+        <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
+    </PropertyGroup>
+</Project>

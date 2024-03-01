@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased
+
+### Changed
+
+- Upgraded `Microsoft.Data.SqlClient` to v5.2.0
+
 ## 5.2.0
 
 ### Added

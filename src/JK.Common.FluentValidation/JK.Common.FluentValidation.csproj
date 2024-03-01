@@ -1,16 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <LangVersion>12.0</LangVersion>
     <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Version>3.1.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>A utility library containing extensions to FluentValidation</Description>
-    <Authors>Jeremy Knight</Authors>
-    <Company>Jeremy Knight</Company>
-    <Copyright>Copyright Jeremy Knight. All rights reserved.</Copyright>
     <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
   </PropertyGroup>
