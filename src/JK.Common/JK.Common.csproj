@@ -6,23 +6,12 @@
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <Version>5.2.0</Version>
         <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
-        <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="JK.Common.Abstractions" Version="1.1.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
     </ItemGroup>
 
     <ItemGroup>

@@ -4,21 +4,11 @@
         <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
         <Version>5.2.0</Version>
         <Description>A utility library containing extensions to System.Data.SqlClient</Description>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="JK.Common.Abstractions" Version="1.1.0" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
     </ItemGroup>
 
 </Project>

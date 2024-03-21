@@ -5,11 +5,8 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Description>A utility library containing extensions to Microsoft.EntityFrameworkCore</Description>
-        <PackageProjectUrl>https://github.com/jeremyknight-me/JK.Common</PackageProjectUrl>
         <AssemblyVersion>4.1.0.0</AssemblyVersion>
         <Version>4.1.0</Version>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <RepositoryUrl>https://github.com/jeremyknight-me/JK.Common</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,13 +19,6 @@
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net6.0'">
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
     </ItemGroup>
 
 </Project>
