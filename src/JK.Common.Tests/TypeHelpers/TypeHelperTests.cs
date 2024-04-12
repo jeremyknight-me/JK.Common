@@ -1,37 +1,40 @@
-﻿using System.Collections.Generic;
-using JK.Common.TypeHelpers;
+﻿using JK.Common.TypeHelpers;
 
 namespace JK.Common.Tests.TypeHelpers;
 
 public class TypeHelperTests
 {
     [Theory]
+    [MemberData(nameof(IsNullableT_Data))]
+    public void IsNullableT_Theories(Type type, bool expected)
+    {
+        var actual = TypeHelper.IsNullableT(type);
+        Assert.Equal(expected, actual);
+    }
+
+    public static TheoryData<Type, bool> IsNullableT_Data()
+        => new()
+        {
+            { typeof(int), false },
+            { typeof(int?), true },
+            { typeof(string), false },
+            { typeof(ComplexObject), false },
+        };
+
+    [Theory]
     [MemberData(nameof(IsNullable_Data))]
-    public void IsNullable_Tests(Type type, bool expected)
+    public void IsNullable_Theories(Type type, bool expected)
     {
         var actual = TypeHelper.IsNullable(type);
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
-    public void IsNullableT_False()
-    {
-        var actual = TypeHelper.IsNullable<int>();
-        Assert.False(actual);
-    }
-
-    [Fact]
-    public void IsNullableT_True()
-    {
-        var actual = TypeHelper.IsNullable<int?>();
-        Assert.True(actual);
-    }
-
-    public static IEnumerable<object[]> IsNullable_Data()
-        => new List<object[]>
+    public static TheoryData<Type, bool> IsNullable_Data()
+        => new()
         {
-                new object[] { typeof(int), false },
-                new object[] { typeof(int?), true },
-                new object[] { typeof(ComplexObject), false }
+            { typeof(int), false },
+            { typeof(int?), true },
+            { typeof(string), true },
+            { typeof(ComplexObject), true }
         };
 }
