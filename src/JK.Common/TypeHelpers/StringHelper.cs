@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace JK.Common.TypeHelpers;
 
+/// <summary>
+/// Helper and utility methods for <see cref="string"/>.
+/// </summary>
 public static class StringHelper
 {
     public static decimal? GetNullableDecimal(in string value)
@@ -13,7 +16,9 @@ public static class StringHelper
             return null;
         }
 
-        return !decimal.TryParse(value, out var number) ? null : number;
+        return !decimal.TryParse(value, out var number)
+            ? null
+            : number;
     }
 
     public static int? GetNullableInteger(in string value)
@@ -23,7 +28,9 @@ public static class StringHelper
             return null;
         }
 
-        return !int.TryParse(value, out var number) ? null : number;
+        return !int.TryParse(value, out var number)
+            ? null
+            : number;
     }
 
     /// <summary>Returns the specified number of characters from a string. Same as Right()</summary>
@@ -32,21 +39,23 @@ public static class StringHelper
     /// <returns>Returns the last X characters of the string.</returns>
     public static string Last(in string value, in int length) => Right(value, length);
 
+    /// <summary>Attemptes to remove United States currency formatting from a string.</summary>
+    /// <param name="valueToFormat">Value to remove US currency</param>
+    /// <returns>String with US currency formatting stripped.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if given value is whitespace or null.</exception>
     public static string RemoveUnitedStatesCurrencyFormat(in string valueToFormat)
     {
-        if (string.IsNullOrEmpty(valueToFormat))
+        if (string.IsNullOrWhiteSpace(valueToFormat))
         {
             throw new ArgumentNullException(nameof(valueToFormat));
         }
 
         var returnValue = valueToFormat.Trim("$".ToCharArray());
         returnValue = returnValue.Replace(",", string.Empty);
-        return string.IsNullOrEmpty(returnValue) ? "0" : returnValue;
+        return string.IsNullOrWhiteSpace(returnValue) ? "0" : returnValue;
     }
 
-    /// <summary>
-    /// Reverses the characters within a string.
-    /// </summary>
+    /// <summary>Reverses the characters within a string.</summary>
     /// <param name="valueToReverse">Current string object from extension method.</param>
     /// <returns>The original string in reverse.</returns>
     public static string Reverse(in string valueToReverse)
@@ -73,9 +82,7 @@ public static class StringHelper
             _ => value,
         };
 
-    /// <summary>
-    /// Removes XML/HTML from given text block.
-    /// </summary>
+    /// <summary>Removes XML/HTML from given text block.</summary>
     /// <param name="valueToStrip">Current string object from extension method.</param>
     /// <returns>Clean string with no XML/HTML.</returns>
     public static string StripXml(in string valueToStrip) => Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
@@ -117,7 +124,7 @@ public static class StringHelper
     public static ReadOnlySpan<char> Slice(in string text, int start)
     {
         ReadOnlySpan<char> textAsSpan = text;
-        return textAsSpan.Slice(start);
+        return textAsSpan[start..];
     }
 
     public static ReadOnlySpan<char> Slice(in string text, int start, int length)

@@ -14,9 +14,9 @@ public sealed class BooleanConverter
 
     public BooleanConverter()
     {
-        this.trueItems = new object[] { "TRUE", "True", "true", "Y", "y", "YES", "Yes", "yes", 1, "1" };
-        this.falseItems = new object[] { "FALSE", "False", "false", "N", "n", "NO", "No", "no", 0, "0" };
-        this.nullItems = new object[] { null, "", string.Empty };
+        this.trueItems = ["TRUE", "True", "true", "Y", "y", "YES", "Yes", "yes", 1, "1"];
+        this.falseItems = ["FALSE", "False", "false", "N", "n", "NO", "No", "no", 0, "0"];
+        this.nullItems = [null, "", string.Empty];
     }
 
     public bool Convert(object value)

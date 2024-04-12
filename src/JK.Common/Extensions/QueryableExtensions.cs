@@ -4,6 +4,9 @@ using System.Linq.Expressions;
 
 namespace JK.Common.Extensions;
 
+/// <summary>
+/// Helper and utility extension methods for <see cref="IQueryable{T}"/>.
+/// </summary>
 public static class QueryableExtensions
 {
     public static IQueryable<TSource> SortBy<TSource, TKey>(this IQueryable<TSource> source, in Func<TSource, TKey> keySelector, in bool isAscending = true)
@@ -35,16 +38,16 @@ public static class QueryableExtensions
             return source;
         }
 
-        ParameterExpression parameter = Expression.Parameter(source.ElementType, string.Empty);
-        MemberExpression property = Expression.Property(parameter, propertyName);
-        LambdaExpression lambda = Expression.Lambda(property, parameter);
+        var parameter = Expression.Parameter(source.ElementType, string.Empty);
+        var property = Expression.Property(parameter, propertyName);
+        var lambda = Expression.Lambda(property, parameter);
 
         var methodName = ascending ? "OrderBy" : "OrderByDescending";
 
         Expression methodCallExpression
             = Expression.Call(typeof(Queryable),
                 methodName,
-                new[] { source.ElementType, property.Type },
+                [source.ElementType, property.Type],
                 source.Expression,
                 Expression.Quote(lambda));
         return source.Provider.CreateQuery<T>(methodCallExpression);
@@ -57,6 +60,8 @@ public static class QueryableExtensions
             throw new ArgumentNullException(nameof(source));
         }
 
-        return condition ? source.Where(predicate) : source;
+        return condition
+            ? source.Where(predicate)
+            : source;
     }
 }

@@ -27,27 +27,6 @@ public class TypeExtensionsTests
         Assert.False(actual);
     }
 
-    #endregion
-
-    #region IsNullable
-
-    [Theory]
-    [MemberData(nameof(IsNullable_Data))]
-    public void IsNullable_Tests(Type type, bool expected)
-    {
-        var actual = type.IsNullable();
-        Assert.Equal(expected, actual);
-    }
-
-    public static IEnumerable<object[]> IsNullable_Data()
-        => new List<object[]>
-        {
-                new object[] { typeof(int), false },
-                new object[] { typeof(int?), true }
-        };
-
-    #endregion
-
     private interface IInterface
     {
     }
@@ -60,4 +39,25 @@ public class TypeExtensionsTests
     private class NotAnInterface
     {
     }
+
+    #endregion
+
+    #region IsNullableT
+
+    [Theory]
+    [MemberData(nameof(IsNullableT_Data))]
+    public void IsNullable_Tests(Type type, bool expected)
+    {
+        var actual = type.IsNullableT();
+        Assert.Equal(expected, actual);
+    }
+
+    public static IEnumerable<object[]> IsNullableT_Data()
+        =>
+        [
+                [typeof(int), false],
+                [typeof(int?), true]
+        ];
+
+    #endregion
 }

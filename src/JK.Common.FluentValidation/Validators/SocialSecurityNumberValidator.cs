@@ -2,6 +2,9 @@
 
 namespace JK.Common.FluentValidation.Validators;
 
+/// <summary>
+/// Validator to determine whether or not a string property is a valid United States social security number.
+/// </summary>
 public class SocialSecurityNumberValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>
