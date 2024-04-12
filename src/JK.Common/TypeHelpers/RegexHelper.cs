@@ -55,9 +55,7 @@ public static partial class RegexHelper
     private static partial Regex ZipCodeRegex();
 }
 
-#endif
-
-#if !NET7_0_OR_GREATER
+#else
 
 public static partial class RegexHelper
 {

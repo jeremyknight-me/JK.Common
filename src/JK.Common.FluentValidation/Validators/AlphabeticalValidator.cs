@@ -2,6 +2,9 @@
 
 namespace JK.Common.FluentValidation.Validators;
 
+/// <summary>
+/// Validator to determine whether or not a string property contains only alphabetical characters.
+/// </summary>
 public class AlphabeticalValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>

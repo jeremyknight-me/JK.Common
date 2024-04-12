@@ -3,6 +3,9 @@ using FluentValidation.Validators;
 
 namespace JK.Common.FluentValidation.Validators;
 
+/// <summary>
+/// String property abstract validator.
+/// </summary>
 public abstract class StringValidatorBase<T> : PropertyValidator<T, string>
 {
     /// <summary>Determine if the given string is valid.</summary>

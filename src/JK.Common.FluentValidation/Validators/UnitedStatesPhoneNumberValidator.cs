@@ -2,6 +2,9 @@
 
 namespace JK.Common.FluentValidation.Validators;
 
+/// <summary>
+/// Validator to determine whether or not a string property is a valid United States phone number.
+/// </summary>
 public class UnitedStatesPhoneNumberValidator<T> : StringValidatorBase<T>
 {
     ///<inheritdoc/>

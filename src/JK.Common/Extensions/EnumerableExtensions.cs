@@ -1,4 +1,4 @@
-﻿#if (!NET6_0_OR_GREATER)
+﻿#if !NET6_0_OR_GREATER
 using JK.Common.TypeHelpers;
 #endif
 
@@ -8,9 +8,12 @@ using System.Linq;
 
 namespace JK.Common.Extensions;
 
+/// <summary>
+/// Helper and utility extension methods for <see cref="IEnumerable{T}"/>.
+/// </summary>
 public static class EnumerableExtensions
 {
-#if (!NET6_0_OR_GREATER)
+#if !NET6_0_OR_GREATER
         public static IEnumerable<TSource> DistinctBy<TSource, TValue>(this IEnumerable<TSource> source, Func<TSource, TValue> selector)
         {
             var comparer = ProjectionComparer<TSource>.CompareBy(selector, EqualityComparer<TValue>.Default);

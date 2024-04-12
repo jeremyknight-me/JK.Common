@@ -4,6 +4,9 @@ using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions;
 
+/// <summary>
+/// Helper and utility extension methods for <see cref="Type"/>.
+/// </summary>
 public static class TypeExtensions
 {
     /// <summary>

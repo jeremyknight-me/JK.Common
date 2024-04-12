@@ -3,8 +3,11 @@ using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions;
 
-#if (NET6_0_OR_GREATER)
+#if NET6_0_OR_GREATER
 
+/// <summary>
+/// Helper and utility extension methods for <see cref="DateOnly"/>.
+/// </summary>
 public static class DateOnlyExtensions
 {
     /// <summary>Adds given number of business days to a date.</summary>
