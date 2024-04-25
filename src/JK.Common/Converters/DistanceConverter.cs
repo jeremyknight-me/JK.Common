@@ -39,12 +39,8 @@ public sealed class DistanceConverter
         }
 
         var tuple = Tuple.Create(originalUnit, newUnit);
-        if (!this.strategies.ContainsKey(tuple))
-        {
-            throw new NotSupportedException("Unit pairing is not supported.");
-        }
-
-        var conversionFactor = this.strategies[tuple];
-        return originalDistance * conversionFactor;
+        return !this.strategies.TryGetValue(tuple, out var value)
+            ? throw new NotSupportedException("Unit pairing is not supported.")
+            : originalDistance * value;
     }
 }

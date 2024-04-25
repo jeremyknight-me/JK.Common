@@ -14,22 +14,23 @@ public static class ProjectionComparer<TSource>
 
     private sealed class ComparerImpl<TValue> : IEqualityComparer<TSource>
     {
-        private readonly Func<TSource, TValue> _selector;
-        private readonly IEqualityComparer<TValue> _comparer;
+        private readonly Func<TSource, TValue> selector;
+        private readonly IEqualityComparer<TValue> comparer;
 
-        public ComparerImpl(Func<TSource, TValue> selector, IEqualityComparer<TValue> comparer)
+        public ComparerImpl(Func<TSource, TValue> selectorFunction, IEqualityComparer<TValue> equalityComparer)
         {
-            if (selector is null)
+            if (selectorFunction is null)
             {
-                throw new ArgumentNullException("selector");
-            }
-            if (comparer is null)
-            {
-                throw new ArgumentNullException("comparer");
+                throw new ArgumentNullException(nameof(selectorFunction));
             }
 
-            _selector = selector;
-            _comparer = comparer;
+            if (equalityComparer is null)
+            {
+                throw new ArgumentNullException(nameof(equalityComparer));
+            }
+
+            this.selector = selectorFunction;
+            this.comparer = equalityComparer;
         }
 
         bool IEqualityComparer<TSource>.Equals(TSource x, TSource y)
@@ -44,10 +45,10 @@ public static class ProjectionComparer<TSource>
                 return false;
             }
 
-            return _comparer.Equals(_selector(x), _selector(y));
+            return this.comparer.Equals(this.selector(x), this.selector(y));
         }
 
         int IEqualityComparer<TSource>.GetHashCode(TSource obj)
-            => obj.Equals(default(TSource)) ? 0 : _comparer.GetHashCode(_selector(obj));
+            => obj.Equals(default(TSource)) ? 0 : this.comparer.GetHashCode(this.selector(obj));
     }
 }
