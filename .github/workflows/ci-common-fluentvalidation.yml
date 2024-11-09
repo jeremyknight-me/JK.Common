@@ -28,8 +28,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: |
-          6.x 
-          7.x
+          6.x
     - name: Build 
       run: dotnet build ./src/JK.Common.FluentValidation/JK.Common.FluentValidation.csproj -c Release 
     - name: Test 
