@@ -16,6 +16,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ## Changed
 
 - `IsNullable`  to `IsNullableT` int `TypeHelper`.
+- Moved `ServiceLocator` folder to `Patterns` folder.
 
 ## 5.2.0
 

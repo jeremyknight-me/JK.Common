@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net6.0;netstandard2.0</TargetFrameworks>
         <Version>5.2.0</Version>
         <Description>A utility library containing extensions to System.Data.SqlClient</Description>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="JK.Common.Abstractions" Version="1.1.0" />
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     </ItemGroup>
 
 </Project>

@@ -2,8 +2,8 @@
 
 namespace JK.Common.EntityFrameworkCore;
 
-public abstract class AuditableEntity
+public abstract class AuditableEntity : IAuditableEntity
 {
-    public DateTimeOffset DateCreated { get; private set; }
-    public DateTimeOffset DateModified { get; internal set; } = DateTimeOffset.UtcNow;
+    public DateTimeOffset DateCreatedUtc { get; private set; }
+    public DateTimeOffset DateModifiedUtc { get; private set; }
 }

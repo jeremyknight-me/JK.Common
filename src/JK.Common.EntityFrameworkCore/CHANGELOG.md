@@ -9,13 +9,18 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+### Added
+
+- Added `AuditableSaveChangesInterceptor`
+
 ### Changed
 
 - Updated `Microsoft.EntityFrameworkCore.SqlServer`
 
 ### Removed
 
-- Support for .NET Standard 2.0
+- Removed support for .NET Standard 2.0
+- Removed `ChangeTrackerExtensions` in favor of interceptor
 
 ## 4.1.0
 
