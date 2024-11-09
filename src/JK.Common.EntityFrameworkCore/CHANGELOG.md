@@ -19,7 +19,8 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Removed
 
-- Support for .NET Standard 2.0
+- Removed support for .NET Standard 2.0
+- Removed `ChangeTrackerExtensions` in favor of interceptor
 
 ## 4.1.0
 
