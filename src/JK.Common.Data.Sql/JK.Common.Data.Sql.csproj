@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="JK.Common.Abstractions" Version="1.1.0" />
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     </ItemGroup>
 
 </Project>
