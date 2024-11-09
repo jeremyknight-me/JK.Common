@@ -1,4 +1,4 @@
-﻿namespace JK.Common.ServiceLocator;
+﻿namespace JK.Common.Patterns.ServiceLocator;
 
 /// <summary>
 /// Service Locator design pattern interface.

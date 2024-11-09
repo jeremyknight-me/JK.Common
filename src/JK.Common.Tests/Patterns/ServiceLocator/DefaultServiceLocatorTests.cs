@@ -1,6 +1,6 @@
-﻿using JK.Common.ServiceLocator;
+﻿using JK.Common.Patterns.ServiceLocator;
 
-namespace JK.Common.Tests.ServiceLocator;
+namespace JK.Common.Tests.Patterns.ServiceLocator;
 
 public class DefaultServiceLocatorTests
 {
