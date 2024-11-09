@@ -12,3 +12,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Added
 
 - Added Excel `ExcelDocument` with load `.xlsx` functionality
+
+### Removed
+
+- Removed .NET 5 support.
