@@ -9,6 +9,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+### Added
+
+- Added `AuditableSaveChangesInterceptor`
+
 ### Changed
 
 - Updated `Microsoft.EntityFrameworkCore.SqlServer`
