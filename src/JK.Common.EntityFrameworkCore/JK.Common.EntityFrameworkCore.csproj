@@ -5,8 +5,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Description>A utility library containing extensions to Microsoft.EntityFrameworkCore</Description>
-        <AssemblyVersion>4.1.0.0</AssemblyVersion>
-        <Version>4.1.0</Version>
+        <Version>5.0.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
