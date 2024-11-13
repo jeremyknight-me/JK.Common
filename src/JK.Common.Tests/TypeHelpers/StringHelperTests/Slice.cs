@@ -20,7 +20,7 @@ public class Slice
         const string s = "Bacon ipsum dolor amet meatball";
         var actual = StringHelper.Slice(s, 0, 5);
         Assert.Equal("Bacon", actual.ToString());
-    }    
+    }
 }
 
 #endif

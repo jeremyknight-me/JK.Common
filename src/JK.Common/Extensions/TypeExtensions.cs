@@ -34,6 +34,7 @@ public static class TypeExtensions
         {
             type = type.BaseType;
         }
+
         return type;
     }
 

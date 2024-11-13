@@ -6,7 +6,6 @@ namespace JK.Common.Tests.Extensions;
 
 public class StringExtensionsTest
 {
-    
 
     [Fact]
     public void Parse_Int()

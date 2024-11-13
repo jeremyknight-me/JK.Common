@@ -15,5 +15,5 @@ internal static class ParameterAssertHelper
         var parameter = command.Parameters[0];
         Assert.Equal(expectedName, parameter.ParameterName);
         return parameter;
-    } 
+    }
 }

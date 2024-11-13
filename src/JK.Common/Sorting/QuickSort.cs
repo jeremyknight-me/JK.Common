@@ -32,6 +32,7 @@ public static class QuickSort
                 {
                     break;
                 }
+
                 high--;
                 highValue = list[high];
             }
@@ -44,6 +45,7 @@ public static class QuickSort
                 {
                     break;
                 }
+
                 low++;
                 lowValue = list[low];
             }
