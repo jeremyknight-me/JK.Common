@@ -9,7 +9,13 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
-Nothing at this time.
+## Added
+
+- Added support for .NET 9.
+
+### Removed
+
+- Removed support for .NET Standard 2.0, .NET 6, and .NET 7
 
 ## 3.1.0
 

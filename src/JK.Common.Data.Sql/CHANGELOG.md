@@ -9,9 +9,17 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
+## Added
+
+- Added support for .NET 9.
+
 ### Changed
 
 - Upgraded `Microsoft.Data.SqlClient` to v5.2.0
+
+### Removed
+
+- Removed support for .NET 6.
 
 ## 5.2.0
 

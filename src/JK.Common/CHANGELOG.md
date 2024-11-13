@@ -11,12 +11,17 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Added
 
+- Added support for .NET 9.
 - `IsNullable` helper method in `TypeHelper`
 
 ## Changed
 
 - `IsNullable`  to `IsNullableT` int `TypeHelper`.
 - Moved `ServiceLocator` folder to `Patterns` folder.
+
+### Removed
+
+- Removed support for .NET 6.
 
 ## 5.2.0
 
