@@ -13,6 +13,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added support for .NET 9.
 
+### Changed
+
+- Upgraded JK.Common to 6.0.0
+
 ### Removed
 
 - Removed support for .NET Standard 2.0, .NET 6, and .NET 7
