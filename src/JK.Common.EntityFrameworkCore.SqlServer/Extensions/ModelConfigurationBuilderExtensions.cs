@@ -1,6 +1,4 @@
-﻿#if NET6_0_OR_GREATER
-
-using System;
+﻿using System;
 
 namespace JK.Common.EntityFrameworkCore.SqlServer.Extensions;
 
@@ -12,5 +10,3 @@ public static class ModelConfigurationBuilderExtensions
         configurationBuilder.Properties<DateTimeOffset>().HavePrecision(2);
     }
 }
-
-#endif

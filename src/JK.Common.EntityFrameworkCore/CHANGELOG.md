@@ -7,10 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 5.0.0
 
 ### Added
 
+- Added support for .NET 9.
 - Added `AuditableSaveChangesInterceptor`
 
 ### Changed
@@ -19,7 +20,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Removed
 
-- Removed support for .NET Standard 2.0
+- Removed support for .NET Standard 2.0 and .NET 6
 - Removed `ChangeTrackerExtensions` in favor of interceptor
 
 ## 4.1.0

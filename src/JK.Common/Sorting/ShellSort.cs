@@ -20,6 +20,7 @@ public static class ShellSort
                     list[j] = list[j - gap];
                     j -= gap;
                 }
+
                 list[j] = temp;
             }
 

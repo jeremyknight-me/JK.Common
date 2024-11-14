@@ -8,7 +8,7 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql;
 
-public class SqlBulkInsertOperation<T> 
+public class SqlBulkInsertOperation<T>
 {
     private readonly IAdoConnectionFactory connectionFactory;
 

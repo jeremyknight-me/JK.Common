@@ -19,6 +19,7 @@ internal sealed class LockedSingleton
                 {
                     instance = new LockedSingleton();
                 }
+
                 return instance;
             }
         }

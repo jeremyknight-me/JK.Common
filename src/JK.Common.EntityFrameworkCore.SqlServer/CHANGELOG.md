@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 4.0.0
+
+## Added
+
+- Added support for .NET 9.
 
 ### Changed
 
@@ -15,7 +19,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Removed
 
-- Support for .NET Standard 2.0
+- Removed support for .NET Standard 2.0 and .NET 6
 
 ## 3.2.0
 

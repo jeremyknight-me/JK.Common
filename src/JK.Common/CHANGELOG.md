@@ -7,16 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased
+## 6.0.0
 
 ## Added
 
+- Added support for .NET 9.
 - `IsNullable` helper method in `TypeHelper`
 
 ## Changed
 
 - `IsNullable`  to `IsNullableT` int `TypeHelper`.
 - Moved `ServiceLocator` folder to `Patterns` folder.
+
+### Removed
+
+- Removed support for .NET 6.
 
 ## 5.2.0
 

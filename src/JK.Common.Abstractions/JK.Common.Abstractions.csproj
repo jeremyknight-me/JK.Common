@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0;net6.0;netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>net9.0;net8.0;netstandard2.0</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <Version>1.1.0</Version>
+        <Version>2.0.0</Version>
         <Description>Abstractions used in utility libraries which allows for less dependencies to be shared across projects.</Description>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
