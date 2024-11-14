@@ -16,6 +16,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Changed
 
 - Upgraded `Microsoft.Data.SqlClient` to v5.2.0
+- Upgraded `JK.Common.Abstractions` to v2.0.0
 
 ### Removed
 
