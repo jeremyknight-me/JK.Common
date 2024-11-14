@@ -18,6 +18,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - `IsNullable`  to `IsNullableT` int `TypeHelper`.
 - Moved `ServiceLocator` folder to `Patterns` folder.
+- Upgraded `JK.Common.Abstractions` to v2.0.0
 
 ### Removed
 
