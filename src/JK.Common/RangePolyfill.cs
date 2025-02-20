@@ -1,5 +1,7 @@
 ﻿#if !NET5_0_OR_GREATER
 
+#pragma warning disable
+
 // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Index.cs
 // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Range.cs
 
@@ -295,5 +297,7 @@ namespace System.Runtime.CompilerServices
         }
     }
 }
+
+#pragma warning enable
 
 #endif
