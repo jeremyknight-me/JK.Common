@@ -120,6 +120,9 @@ dotnet_diagnostic.CA1843.severity = warning
 dotnet_diagnostic.CA1854.severity = warning
 dotnet_diagnostic.CA1860.severity = warning
 
+# CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member'
+dotnet_diagnostic.CS1591.severity = suggestion
+
 # -- C# Files ------------------------------------------- #
 
 [*.cs]

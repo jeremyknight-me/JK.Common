@@ -5,8 +5,7 @@ public class DeepClonerTests
     [Fact]
     public void Clone_Null_ArgumentNullException()
     {
-        var cloner = new DeepCloner();
-        var ex = Assert.Throws<ArgumentNullException>(() => cloner.Clone(null));
+        var ex = Assert.Throws<ArgumentNullException>(() => DeepCloner.Clone(null));
     }
 
     [Fact]
@@ -25,8 +24,7 @@ public class DeepClonerTests
                 StringProperty = "hello world"
             };
 
-        var cloner = new DeepCloner();
-        var actual = (ComplexObject)cloner.Clone(original);
+        var actual = (ComplexObject)DeepCloner.Clone(original);
 
         Assert.NotSame(original, actual);
         Assert.True(actual.BooleanProperty);

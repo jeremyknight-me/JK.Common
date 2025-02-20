@@ -39,14 +39,14 @@ public class AuditableSaveChangesInterceptorTests
         using (var context = this.MakeContext(databaseName))
         {
             var entity = new SimpleAuditableEntity { Text = "Hello World" };
-            _ = await context.SimpleEntities.AddAsync(entity);
-            auditedCount += await context.SaveChangesAsync();
+            _ = await context.SimpleEntities.AddAsync(entity, TestContext.Current.CancellationToken);
+            auditedCount += await context.SaveChangesAsync(TestContext.Current.CancellationToken);
             entityId = entity.Id;
         }
 
         using (var context = this.MakeContext(databaseName))
         {
-            var entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId);
+            var entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId, TestContext.Current.CancellationToken);
             Assert.Equal(1, auditedCount);
             Assert.Equal(entity.DateCreatedUtc, entity.DateModifiedUtc);
         }
@@ -90,19 +90,19 @@ public class AuditableSaveChangesInterceptorTests
         {
             // create
             var entityToCreate = new SimpleAuditableEntity { Text = "Hello World" };
-            _ = await context.SimpleEntities.AddAsync(entityToCreate);
-            auditedCount += await context.SaveChangesAsync();
+            _ = await context.SimpleEntities.AddAsync(entityToCreate, TestContext.Current.CancellationToken);
+            auditedCount += await context.SaveChangesAsync(TestContext.Current.CancellationToken);
             entityId = entityToCreate.Id;
 
             // modify
-            var entityToModify = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId);
+            var entityToModify = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId, TestContext.Current.CancellationToken);
             entityToModify.Text = "Change Me!";
-            auditedCount += await context.SaveChangesAsync();
+            auditedCount += await context.SaveChangesAsync(TestContext.Current.CancellationToken);
         }
 
         using (var context = this.MakeContext(databaseName))
         {
-            var entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId);
+            var entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId, TestContext.Current.CancellationToken);
             Assert.Equal(2, auditedCount);
             Assert.NotEqual(entity.DateCreatedUtc, entity.DateModifiedUtc);
         }

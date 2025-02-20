@@ -6,12 +6,12 @@ namespace JK.Common.TypeHelpers;
 /// <summary>
 /// Class which contains methods for GZip compression.
 /// </summary>
-public class GZipHelper
+public static class GZipHelper
 {
     /// <summary>Compresses a file using GZip compression.</summary>
     /// <param name="inFileName">File name of original file.</param>
     /// <param name="outFileName">File name to give to compressed file.</param>
-    public void GZipCompressFile(in string inFileName, in string outFileName)
+    public static void GZipCompressFile(in string inFileName, in string outFileName)
     {
         using var sourceFile = File.OpenRead(inFileName);
         using var destFile = File.Create(outFileName);
@@ -27,7 +27,7 @@ public class GZipHelper
     /// <summary>Decompresses a file which was compressed using GZip compression.</summary>
     /// <param name="inFileName">File name of compressed file.</param>
     /// <param name="outFileName">File name to give to decompressed file.</param>
-    public void GZipDecompressFile(in string inFileName, in string outFileName)
+    public static void GZipDecompressFile(in string inFileName, in string outFileName)
     {
         using var sourceFile = File.OpenRead(inFileName);
         using var destFile = File.Create(outFileName);

@@ -1,9 +1,9 @@
-﻿using System;
+﻿#if NET6_0_OR_GREATER
+
+using System;
 using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions;
-
-#if NET6_0_OR_GREATER
 
 /// <summary>
 /// Helper and utility extension methods for <see cref="DateOnly"/>.
