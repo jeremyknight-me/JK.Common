@@ -6,6 +6,10 @@
 [*]
 indent_style = space
 
+[*.{props,csproj,xml}]
+indent_size = 2
+tab_width = 2
+
 # -- .NET Files ----------------------------------------- #
 
 [*.{cs,csx,vb,vbx}]
