@@ -13,7 +13,7 @@ public static class ShellSort
         {
             for (var i = gap; i < n; i++)
             {
-                var temp = list[i];
+                T temp = list[i];
                 var j = i;
                 while (j >= gap && list[j - gap].CompareTo(temp) > 0)
                 {

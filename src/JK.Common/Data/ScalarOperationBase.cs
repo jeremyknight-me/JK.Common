@@ -9,8 +9,8 @@ public abstract class ScalarOperationBase<TValue, TParameterModel> : OperationBa
 
     public TValue Execute(TParameterModel parameterModel)
     {
-        using var command = this.MakeCommand(parameterModel);
-        this.OpenConnection();
+        using var command = MakeCommand(parameterModel);
+        OpenConnection();
         var scalar = command.ExecuteScalar();
         return (TValue)(scalar is null ? null : scalar);
     }
@@ -26,7 +26,7 @@ public abstract class ScalarOperationBase<TValue> : OperationBase
     public TValue Execute()
     {
         using var command = this.MakeCommand();
-        this.OpenConnection();
+        OpenConnection();
         var scalar = command.ExecuteScalar();
         return (TValue)(scalar is null ? null : scalar);
     }

@@ -8,15 +8,15 @@ namespace JK.Common.Converters;
 /// </summary>
 public sealed class BooleanConverter
 {
-    private readonly object[] trueItems;
-    private readonly object[] falseItems;
-    private readonly object[] nullItems;
+    private readonly object[] _trueItems;
+    private readonly object[] _falseItems;
+    private readonly object[] _nullItems;
 
     public BooleanConverter()
     {
-        this.trueItems = ["TRUE", "True", "true", "Y", "y", "YES", "Yes", "yes", 1, "1"];
-        this.falseItems = ["FALSE", "False", "false", "N", "n", "NO", "No", "no", 0, "0"];
-        this.nullItems = [null, "", string.Empty];
+        _trueItems = ["TRUE", "True", "true", "Y", "y", "YES", "Yes", "yes", 1, "1"];
+        _falseItems = ["FALSE", "False", "false", "N", "n", "NO", "No", "no", 0, "0"];
+        _nullItems = [null, "", string.Empty];
     }
 
     public bool Convert(object value)
@@ -28,8 +28,8 @@ public sealed class BooleanConverter
 
         return value switch
         {
-            var t when this.IsTrue(t) => true,
-            var f when this.IsFalse(f) => false,
+            var t when IsTrue(t) => true,
+            var f when IsFalse(f) => false,
             _ => throw new ArgumentException("Value is not supported."),
         };
     }
@@ -41,14 +41,14 @@ public sealed class BooleanConverter
             value = value.ToString().Trim();
         }
 
-        return this.IsNull(value)
+        return IsNull(value)
             ? null
-            : (bool?)this.Convert(value);
+            : Convert(value);
     }
 
-    private bool IsTrue(in object value) => this.trueItems.Contains(value);
+    private bool IsTrue(in object value) => _trueItems.Contains(value);
 
-    private bool IsFalse(in object value) => this.falseItems.Contains(value);
+    private bool IsFalse(in object value) => _falseItems.Contains(value);
 
-    private bool IsNull(in object value) => this.nullItems.Contains(value);
+    private bool IsNull(in object value) => _nullItems.Contains(value);
 }

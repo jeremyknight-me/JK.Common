@@ -38,9 +38,9 @@ public static class QueryableExtensions
             return source;
         }
 
-        var parameter = Expression.Parameter(source.ElementType, string.Empty);
-        var property = Expression.Property(parameter, propertyName);
-        var lambda = Expression.Lambda(property, parameter);
+        ParameterExpression parameter = Expression.Parameter(source.ElementType, string.Empty);
+        MemberExpression property = Expression.Property(parameter, propertyName);
+        LambdaExpression lambda = Expression.Lambda(property, parameter);
 
         var methodName = ascending ? "OrderBy" : "OrderByDescending";
 

@@ -13,7 +13,7 @@ public static class InsertionSort
             {
                 if (list[j - 1].CompareTo(list[j]) > 0)
                 {
-                    var temp = list[j - 1];
+                    T temp = list[j - 1];
                     list[j - 1] = list[j];
                     list[j] = temp;
                 }

@@ -5,70 +5,70 @@ namespace JK.Common.Data;
 
 public abstract class OperationBase<TParameterModel> : IDisposable
 {
-    private IDbConnection connection;
+    private IDbConnection _connection;
 
     protected OperationBase(IAdoConnectionFactory connectionFactory)
     {
-        this.ConnectionFactory = connectionFactory;
+        ConnectionFactory = connectionFactory;
     }
 
     protected IAdoConnectionFactory ConnectionFactory { get; }
 
-    public void Dispose() => this.connection?.Dispose();
+    public void Dispose() => _connection?.Dispose();
 
     protected abstract void ConfigureCommand(IDbCommand command, TParameterModel parameterModel);
 
     protected IDbCommand MakeCommand(TParameterModel parameterModel)
     {
-        this.EnsureConnection();
-        var command = this.connection.CreateCommand();
-        this.ConfigureCommand(command, parameterModel);
+        EnsureConnection();
+        var command = _connection.CreateCommand();
+        ConfigureCommand(command, parameterModel);
         return command;
     }
 
     protected void OpenConnection()
     {
-        this.EnsureConnection();
-        if (this.connection.State != ConnectionState.Open)
+        EnsureConnection();
+        if (_connection.State != ConnectionState.Open)
         {
-            this.connection.Open();
+            _connection.Open();
         }
     }
 
-    protected void EnsureConnection() => this.connection ??= this.ConnectionFactory.Make();
+    protected void EnsureConnection() => _connection ??= ConnectionFactory.Make();
 }
 
 public abstract class OperationBase : IDisposable
 {
-    private IDbConnection connection;
+    private IDbConnection _connection;
 
     protected OperationBase(IAdoConnectionFactory connectionFactory)
     {
-        this.ConnectionFactory = connectionFactory;
+        ConnectionFactory = connectionFactory;
     }
 
     protected IAdoConnectionFactory ConnectionFactory { get; }
 
-    public void Dispose() => this.connection?.Dispose();
+    public void Dispose() => _connection?.Dispose();
 
     protected abstract void ConfigureCommand(IDbCommand command);
 
     protected IDbCommand MakeCommand()
     {
-        this.EnsureConnection();
-        var command = this.connection.CreateCommand();
-        this.ConfigureCommand(command);
+        EnsureConnection();
+        var command = _connection.CreateCommand();
+        ConfigureCommand(command);
         return command;
     }
 
     protected void OpenConnection()
     {
-        this.EnsureConnection();
-        if (this.connection.State != ConnectionState.Open)
+        EnsureConnection();
+        if (_connection.State != ConnectionState.Open)
         {
-            this.connection.Open();
+            _connection.Open();
         }
     }
 
-    protected void EnsureConnection() => this.connection ??= this.ConnectionFactory.Make();
+    protected void EnsureConnection() => _connection ??= ConnectionFactory.Make();
 }

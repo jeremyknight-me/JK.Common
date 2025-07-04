@@ -7,9 +7,8 @@ namespace JK.Common.Text;
 /// </summary>
 public sealed class StringDelimiter
 {
-    private readonly StringBuilder builder;
-
-    private readonly string delimiter;
+    private readonly StringBuilder _builder = new();
+    private readonly string _delimiter;
 
     /// <summary>
     /// Initializes a new instance of the StringDelimiter class.
@@ -17,14 +16,13 @@ public sealed class StringDelimiter
     /// <param name="delimiter">The string to use when delimiting sections.</param>
     public StringDelimiter(string delimiter)
     {
-        this.builder = new StringBuilder();
-        this.delimiter = delimiter;
+        _delimiter = delimiter;
     }
 
     /// <summary>
     /// Gets the delimited text string.
     /// </summary>
-    public string DelimitedText => this.builder.ToString();
+    public string DelimitedText => _builder.ToString();
 
     /// <summary>
     /// Adds a block of text to the current string and delimits if necessary.
@@ -32,11 +30,11 @@ public sealed class StringDelimiter
     /// <param name="addition">The string to add to the current string.</param>
     public void AddText(in string addition)
     {
-        if (this.builder.Length > 0)
+        if (_builder.Length > 0)
         {
-            this.builder.Append(this.delimiter);
+            _builder.Append(_delimiter);
         }
 
-        this.builder.Append(addition);
+        _builder.Append(addition);
     }
 }

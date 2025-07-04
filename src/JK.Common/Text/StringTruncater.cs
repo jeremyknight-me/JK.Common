@@ -7,7 +7,7 @@ namespace JK.Common.Text;
 /// </summary>
 public sealed class StringTruncater
 {
-    private readonly string originalText;
+    private readonly string _originalText;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StringTruncater"/> class. 
@@ -17,7 +17,7 @@ public sealed class StringTruncater
     /// </param>
     public StringTruncater(string originalText)
     {
-        this.originalText = originalText;
+        _originalText = originalText;
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public sealed class StringTruncater
     public StringTruncater(string originalText, string indicator)
         : this(originalText)
     {
-        this.Indicator = indicator;
+        Indicator = indicator;
     }
 
     /// <summary>
@@ -46,31 +46,31 @@ public sealed class StringTruncater
     /// <param name="length">Length of string to output.</param>
     /// <returns>Original text truncated to given length.</returns>
     public string TruncateToLength(in int length)
-        => this.NeedsTruncation(length)
-            ? this.TruncateWithIndicator(length)
-            : this.originalText;
+        => NeedsTruncation(length)
+            ? TruncateWithIndicator(length)
+            : _originalText;
 
-    private bool NeedsTruncation(in int length) => this.originalText.Length > length;
+    private bool NeedsTruncation(in int length) => _originalText.Length > length;
 
     private string TruncateWithIndicator(in int length)
     {
-        var totalLength = this.HasIndicator() ? this.GetTotalLength(length) : length;
-        var text = this.originalText.Substring(0, totalLength).Trim();
+        var totalLength = HasIndicator() ? GetTotalLength(length) : length;
+        var text = _originalText.Substring(0, totalLength).Trim();
         var lastSpaceIndex = text.LastIndexOf(" ", StringComparison.Ordinal);
-        if (this.IsTruncatedInMiddleOfWord(totalLength, lastSpaceIndex))
+        if (IsTruncatedInMiddleOfWord(totalLength, lastSpaceIndex))
         {
             text = text.Remove(lastSpaceIndex);
         }
 
-        return this.AddIndicator(text);
+        return AddIndicator(text);
     }
 
-    private int GetTotalLength(in int length) => this.HasIndicator() ? length - this.Indicator.Length : length;
+    private int GetTotalLength(in int length) => HasIndicator() ? length - Indicator.Length : length;
 
-    private bool HasIndicator() => !string.IsNullOrEmpty(this.Indicator);
+    private bool HasIndicator() => !string.IsNullOrEmpty(Indicator);
 
     private bool IsTruncatedInMiddleOfWord(in int length, in int lastSpaceIndex)
-        => this.originalText[length] != ' ' && lastSpaceIndex >= 0;
+        => _originalText[length] != ' ' && lastSpaceIndex >= 0;
 
-    private string AddIndicator(in string text) => string.Concat(text, this.Indicator);
+    private string AddIndicator(in string text) => string.Concat(text, Indicator);
 }

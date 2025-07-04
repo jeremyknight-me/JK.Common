@@ -2,12 +2,12 @@
 
 public class NotSpecification<TEntity> : Specification<TEntity>
 {
-    private readonly ISpecification<TEntity> specification;
+    private readonly ISpecification<TEntity> _specification;
 
     public NotSpecification(ISpecification<TEntity> specificationToUse)
     {
-        this.specification = specificationToUse;
+        _specification = specificationToUse;
     }
 
-    public override bool IsSatisfiedBy(in TEntity candidate) => !this.specification.IsSatisfiedBy(candidate);
+    public override bool IsSatisfiedBy(in TEntity candidate) => !_specification.IsSatisfiedBy(candidate);
 }

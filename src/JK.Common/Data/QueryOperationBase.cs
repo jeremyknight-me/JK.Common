@@ -12,14 +12,14 @@ public abstract class QueryOperationBase<TQueryModel, TParameterModel> : Operati
 
     public IReadOnlyList<TQueryModel> Execute(TParameterModel parameterModel)
     {
-        using var command = this.MakeCommand(parameterModel);
-        this.OpenConnection();
-        using var dataReader = command.ExecuteReader(this.Behavior);
+        using var command = MakeCommand(parameterModel);
+        OpenConnection();
+        using var dataReader = command.ExecuteReader(Behavior);
         var items = new List<TQueryModel>();
-        var ordinalCache = this.MakeOrdinalCache(dataReader);
+        var ordinalCache = MakeOrdinalCache(dataReader);
         while (dataReader.Read())
         {
-            var item = this.MakeModel(dataReader, ordinalCache);
+            var item = MakeModel(dataReader, ordinalCache);
             items.Add(item);
         }
 
@@ -41,14 +41,14 @@ public abstract class QueryOperationBase<TQueryModel> : OperationBase
 
     public IReadOnlyList<TQueryModel> Execute()
     {
-        using var command = this.MakeCommand();
-        this.OpenConnection();
+        using var command = MakeCommand();
+        OpenConnection();
         using var dataReader = command.ExecuteReader(this.Behavior);
         var items = new List<TQueryModel>();
-        var ordinalCache = this.MakeOrdinalCache(dataReader);
+        var ordinalCache = MakeOrdinalCache(dataReader);
         while (dataReader.Read())
         {
-            var item = this.MakeModel(dataReader, ordinalCache);
+            var item = MakeModel(dataReader, ordinalCache);
             items.Add(item);
         }
 
