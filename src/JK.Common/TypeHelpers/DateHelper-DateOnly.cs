@@ -1,4 +1,4 @@
-﻿#if (NET6_0_OR_GREATER)
+﻿#if NET6_0_OR_GREATER
 
 using System;
 using System.Globalization;
@@ -36,7 +36,7 @@ public static partial class DateHelper
     /// <returns>Age from birth date to given date.</returns>
     public static int CalculateAge(in DateOnly currentDate, in DateOnly birthday)
     {
-        var now = currentDate;
+        DateOnly now = currentDate;
         var age = now.Year - birthday.Year;
         if (birthday > now.AddYears(-age))
         {

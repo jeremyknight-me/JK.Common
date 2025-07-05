@@ -10,7 +10,7 @@ public static class ConcurrentBagExtensions
 {
     public static void AddRange<T>(this ConcurrentBag<T> bag, in IEnumerable<T> list)
     {
-        foreach (var item in list)
+        foreach (T item in list)
         {
             bag.Add(item);
         }

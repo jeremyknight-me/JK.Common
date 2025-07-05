@@ -10,40 +10,17 @@ namespace JK.Common.Data.Sql;
 
 public class SqlBulkInsertOperation<T>
 {
-    private readonly IAdoConnectionFactory connectionFactory;
+    private readonly IAdoConnectionFactory _connectionFactory;
 
     public SqlBulkInsertOperation(IAdoConnectionFactory connectionFactory)
     {
-        this.connectionFactory = connectionFactory;
+        _connectionFactory = connectionFactory;
     }
 
     public void Execute(SqlBulkCopySettings settings, IEnumerable<T> items)
     {
-        #region ArgumentNull Checks
-
-        if (settings is null)
-        {
-            throw new ArgumentNullException(nameof(settings));
-        }
-
-        if (items is null)
-        {
-            throw new ArgumentNullException(nameof(items));
-        }
-
-        if (string.IsNullOrWhiteSpace(settings.TableName))
-        {
-            throw new ArgumentNullException(nameof(settings.TableName));
-        }
-
-        if (settings.Columns is null || settings.Columns.Count == 0)
-        {
-            throw new ArgumentNullException(nameof(settings.Columns));
-        }
-
-        #endregion
-
-        using (var connection = this.connectionFactory.Make() as SqlConnection)
+        Guard(settings, items);
+        using (var connection = _connectionFactory.Make() as SqlConnection)
         using (var bulk = new SqlBulkCopy(connection, SqlBulkCopyOptions.KeepNulls | SqlBulkCopyOptions.UseInternalTransaction, null))
         {
             if (connection.State != ConnectionState.Open)
@@ -55,12 +32,12 @@ public class SqlBulkInsertOperation<T>
             bulk.DestinationTableName = settings.TableName;
 
             var table = new DataTable();
-            var props = TypeDescriptor.GetProperties(typeof(T))
+            PropertyDescriptor[] props = TypeDescriptor.GetProperties(typeof(T))
                 .Cast<PropertyDescriptor>()
                 .Where(pd => pd.PropertyType.Namespace.Equals("System")
                     && settings.Columns.ContainsKey(pd.Name))
                 .ToArray();
-            foreach (var prop in props)
+            foreach (PropertyDescriptor prop in props)
             {
                 var columnName = settings.Columns[prop.Name];
                 bulk.ColumnMappings.Add(prop.Name, columnName);
@@ -68,7 +45,7 @@ public class SqlBulkInsertOperation<T>
             }
 
             var values = new object[props.Length];
-            foreach (var item in items)
+            foreach (T item in items)
             {
                 for (var i = 0; i < values.Length; i++)
                 {
@@ -89,4 +66,41 @@ public class SqlBulkInsertOperation<T>
             }
         }
     }
+
+#if NET8_0_OR_GREATER
+    private static void Guard(SqlBulkCopySettings settings, IEnumerable<T> items)
+    {
+        ArgumentNullException.ThrowIfNull(settings, nameof(settings));
+        ArgumentNullException.ThrowIfNull(items, nameof(items));
+        ArgumentException.ThrowIfNullOrWhiteSpace(settings.TableName, nameof(settings.TableName));
+
+        if (settings.Columns is null || settings.Columns.Count == 0)
+        {
+            throw new ArgumentNullException(nameof(settings), "Columns property cannot be null or empty.");
+        }
+    }
+#else
+    private static void Guard(SqlBulkCopySettings settings, IEnumerable<T> items)
+    {
+        if (settings is null)
+        {
+            throw new ArgumentNullException(nameof(settings));
+        }
+
+        if (items is null)
+        {
+            throw new ArgumentNullException(nameof(items));
+        }
+
+        if (string.IsNullOrWhiteSpace(settings.TableName))
+        {
+            throw new ArgumentNullException(nameof(settings.TableName));
+        }
+
+        if (settings.Columns is null || settings.Columns.Count == 0)
+        {
+            throw new ArgumentNullException(nameof(settings.Columns));
+        }
+    }
+#endif
 }

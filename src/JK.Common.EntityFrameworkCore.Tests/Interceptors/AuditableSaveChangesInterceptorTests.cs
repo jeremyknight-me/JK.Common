@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using JK.Common.EntityFrameworkCore.Interceptors;
 
@@ -8,13 +9,15 @@ public class AuditableSaveChangesInterceptorTests
 {
     private const string className = $"{nameof(AuditableSaveChangesInterceptorTests)}";
 
+    protected static CancellationToken CT => TestContext.Current.CancellationToken;
+
     [Fact]
     public void SaveChanges_Create()
     {
         const string databaseName = $"{className}_{nameof(SaveChanges_Create)}";
         Guid entityId;
         var auditedCount = 0;
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
             var entity = new SimpleAuditableEntity { Text = "Hello World" };
             _ = context.SimpleEntities.Add(entity);
@@ -22,9 +25,9 @@ public class AuditableSaveChangesInterceptorTests
             entityId = entity.Id;
         }
 
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
-            var entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
+            SimpleAuditableEntity entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
             Assert.Equal(1, auditedCount);
             Assert.Equal(entity.DateCreatedUtc, entity.DateModifiedUtc);
         }
@@ -36,17 +39,17 @@ public class AuditableSaveChangesInterceptorTests
         const string databaseName = $"{className}_{nameof(SaveChangesAsync_Create)}";
         Guid entityId;
         var auditedCount = 0;
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
             var entity = new SimpleAuditableEntity { Text = "Hello World" };
-            _ = await context.SimpleEntities.AddAsync(entity);
-            auditedCount += await context.SaveChangesAsync();
+            _ = await context.SimpleEntities.AddAsync(entity, CT);
+            auditedCount += await context.SaveChangesAsync(CT);
             entityId = entity.Id;
         }
 
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
-            var entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId);
+            SimpleAuditableEntity entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId, CT);
             Assert.Equal(1, auditedCount);
             Assert.Equal(entity.DateCreatedUtc, entity.DateModifiedUtc);
         }
@@ -58,7 +61,7 @@ public class AuditableSaveChangesInterceptorTests
         const string databaseName = $"{className}_{nameof(SaveChanges_Update)}";
         Guid entityId;
         var auditedCount = 0;
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
             // create
             var entityToCreate = new SimpleAuditableEntity { Text = "Hello World" };
@@ -67,14 +70,14 @@ public class AuditableSaveChangesInterceptorTests
             entityId = entityToCreate.Id;
 
             // modify
-            var entityToModify = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
+            SimpleAuditableEntity entityToModify = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
             entityToModify.Text = "Change Me!";
             auditedCount += context.SaveChanges();
         }
 
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
-            var entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
+            SimpleAuditableEntity entity = context.SimpleEntities.FirstOrDefault(x => x.Id == entityId);
             Assert.Equal(2, auditedCount);
             Assert.NotEqual(entity.DateCreatedUtc, entity.DateModifiedUtc);
         }
@@ -86,34 +89,34 @@ public class AuditableSaveChangesInterceptorTests
         const string databaseName = $"{className}_{nameof(SaveChanges_Update)}";
         Guid entityId;
         var auditedCount = 0;
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
             // create
             var entityToCreate = new SimpleAuditableEntity { Text = "Hello World" };
-            _ = await context.SimpleEntities.AddAsync(entityToCreate);
-            auditedCount += await context.SaveChangesAsync();
+            _ = await context.SimpleEntities.AddAsync(entityToCreate, CT);
+            auditedCount += await context.SaveChangesAsync(CT);
             entityId = entityToCreate.Id;
 
             // modify
-            var entityToModify = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId);
+            SimpleAuditableEntity entityToModify = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId, CT);
             entityToModify.Text = "Change Me!";
-            auditedCount += await context.SaveChangesAsync();
+            auditedCount += await context.SaveChangesAsync(CT);
         }
 
-        using (var context = this.MakeContext(databaseName))
+        using (AuditableEntityContext context = MakeContext(databaseName))
         {
-            var entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId);
+            SimpleAuditableEntity entity = await context.SimpleEntities.FirstOrDefaultAsync(x => x.Id == entityId, CT);
             Assert.Equal(2, auditedCount);
             Assert.NotEqual(entity.DateCreatedUtc, entity.DateModifiedUtc);
         }
     }
 
-    private AuditableEntityContext MakeContext(string databaseName)
+    private static AuditableEntityContext MakeContext(string databaseName)
     {
-        var builder = new DbContextOptionsBuilder<AuditableEntityContext>()
+        DbContextOptionsBuilder<AuditableEntityContext> builder = new DbContextOptionsBuilder<AuditableEntityContext>()
             .UseInMemoryDatabase(databaseName)
             .AddInterceptors(new AuditableSaveChangesInterceptor());
-        var options = builder.Options;
+        DbContextOptions<AuditableEntityContext> options = builder.Options;
         return new AuditableEntityContext(options);
     }
 
@@ -121,7 +124,7 @@ public class AuditableSaveChangesInterceptorTests
     {
         public SimpleAuditableEntity()
         {
-            this.Id = Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         [Key]

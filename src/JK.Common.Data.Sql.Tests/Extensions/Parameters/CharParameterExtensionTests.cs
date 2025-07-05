@@ -15,10 +15,10 @@ public class CharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddChar(name, value, size);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         Assert.Equal(size, parameter.Size);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -26,9 +26,9 @@ public class CharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddChar("foo", null, 2, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -46,14 +46,14 @@ public class CharParameterExtensionTests
     public void AddChar_InvalidSizeException_Theories(int size)
     {
         using var command = new SqlCommand();
-        var exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
+        ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
         {
             command.Parameters.AddChar("foo", null, size);
         });
         Assert.StartsWith("Data type 'char' must be positive value between 0 and 8000", exception.Message);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.AnsiStringFixedLength, parameter.DbType);
         Assert.Equal(SqlDbType.Char, parameter.SqlDbType);

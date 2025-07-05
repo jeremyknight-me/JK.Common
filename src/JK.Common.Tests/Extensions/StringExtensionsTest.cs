@@ -27,7 +27,7 @@ public class StringExtensionsTest
     public void Parse_DateTime()
     {
         var value = "2023-05-18";
-        var actual = value.Parse<DateTime>();
+        DateTime actual = value.Parse<DateTime>();
         Assert.Equal(new DateTime(2023, 5, 18), actual);
     }
 }

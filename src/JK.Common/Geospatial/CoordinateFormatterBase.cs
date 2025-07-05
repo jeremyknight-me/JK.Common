@@ -5,19 +5,19 @@ namespace JK.Common.Geospatial;
 
 public abstract class CoordinateFormatterBase
 {
-    private readonly Dictionary<DisplayFormat, Func<string>> displayFormatStrategies;
+    private readonly Dictionary<DisplayFormat, Func<string>> _displayFormatStrategies;
 
     protected CoordinateFormatterBase(CoordinateBase coordinateToUse)
     {
-        this.Coordinate = coordinateToUse;
-        this.displayFormatStrategies = [];
-        this.DefineDisplayFormatStrategies();
+        Coordinate = coordinateToUse;
+        _displayFormatStrategies = [];
+        DefineDisplayFormatStrategies();
     }
 
     protected CoordinateBase Coordinate { get; set; }
 
     public string Format(in DisplayFormat format)
-        => this.displayFormatStrategies.TryGetValue(format, out var strategy)
+        => _displayFormatStrategies.TryGetValue(format, out Func<string> strategy)
             ? strategy()
             : string.Empty;
 
@@ -35,11 +35,11 @@ public abstract class CoordinateFormatterBase
 
     private void DefineDisplayFormatStrategies()
     {
-        this.displayFormatStrategies.Add(DisplayFormat.Degrees, this.ToStringDegrees);
-        this.displayFormatStrategies.Add(DisplayFormat.DegreesMinutes, this.ToStringDegreesMinutes);
-        this.displayFormatStrategies.Add(DisplayFormat.DegreesMinutesSeconds, this.ToStringDegreesMinutesSeconds);
-        this.displayFormatStrategies.Add(DisplayFormat.DegreesDirection, this.ToStringDegreesDirection);
-        this.displayFormatStrategies.Add(DisplayFormat.DegreesMinutesDirection, this.ToStringDegreesMinutesDirection);
-        this.displayFormatStrategies.Add(DisplayFormat.DegreesMinutesSecondsDirection, this.ToStringDegreesMinutesSecondsDirection);
+        _displayFormatStrategies.Add(DisplayFormat.Degrees, ToStringDegrees);
+        _displayFormatStrategies.Add(DisplayFormat.DegreesMinutes, ToStringDegreesMinutes);
+        _displayFormatStrategies.Add(DisplayFormat.DegreesMinutesSeconds, ToStringDegreesMinutesSeconds);
+        _displayFormatStrategies.Add(DisplayFormat.DegreesDirection, ToStringDegreesDirection);
+        _displayFormatStrategies.Add(DisplayFormat.DegreesMinutesDirection, ToStringDegreesMinutesDirection);
+        _displayFormatStrategies.Add(DisplayFormat.DegreesMinutesSecondsDirection, ToStringDegreesMinutesSecondsDirection);
     }
 }

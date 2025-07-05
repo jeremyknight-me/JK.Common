@@ -8,7 +8,7 @@ public sealed class EquatableFacade<T>
 
     public bool AreEqual(object left, object right)
     {
-        if (this.AreBothNull(left, right)
+        if (AreBothNull(left, right)
             || object.ReferenceEquals(left, right))
         {
             return true;
@@ -29,9 +29,9 @@ public sealed class EquatableFacade<T>
             throw new ArgumentException(@"The 'right' argument is not the correct type.", nameof(right));
         }
 
-        return this.AreObjectsEqual((T)left, (T)right);
+        return AreObjectsEqual((T)left, (T)right);
     }
 
-    private bool AreBothNull(object left, object right)
+    private static bool AreBothNull(object left, object right)
         => left is null && right is null;
 }

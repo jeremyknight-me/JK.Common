@@ -9,7 +9,7 @@ public class ZipCodeValidatorTests : StringValidatorTestsBase
     [InlineData("12345-6789")]
     public void IsValid_TrueTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 
@@ -19,7 +19,7 @@ public class ZipCodeValidatorTests : StringValidatorTestsBase
     [InlineData("12345-67X9")]
     public void IsValid_FalseTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldHaveValidationErrorFor(x => x.StringValue);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using JK.Common.TypeHelpers;
 
 namespace JK.Common.Tests.TypeHelpers;
@@ -8,7 +9,7 @@ public class MathHelperTests
     [Fact]
     public void Fibonacci()
     {
-        var actual = MathHelper.Fibonacci(0, 1, 8);
+        IEnumerable<long> actual = MathHelper.Fibonacci(0, 1, 8);
         var actualDelimited = string.Join(",", actual.Select(x => $"{x}"));
         Assert.Equal("0,1,1,2,3,5,8,13,21", actualDelimited);
     }

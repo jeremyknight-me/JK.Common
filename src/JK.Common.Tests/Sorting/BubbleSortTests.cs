@@ -8,7 +8,7 @@ public class BubbleSortTests
     [Fact]
     public void Sort_IntArray_Test()
     {
-        var original = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
+        int[] original = [2, 5, -4, 11, 0, 18, 22, 67, 51, 6];
         BubbleSort.Sort(original);
         Assert.Collection(original,
             i => Assert.Equal(-4, i),
@@ -27,7 +27,7 @@ public class BubbleSortTests
     [Fact]
     public void Sort_StringList_Test()
     {
-        var original = new List<string> { "i", "g", "e", "c", "f" };
+        List<string> original = ["i", "g", "e", "c", "f"];
         BubbleSort.Sort(original);
         Assert.Collection(original,
             i => Assert.Equal("c", i),

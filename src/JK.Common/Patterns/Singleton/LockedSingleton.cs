@@ -2,8 +2,8 @@
 
 internal sealed class LockedSingleton
 {
-    private static LockedSingleton instance = null;
-    private static readonly object threadLock = new object();
+    private static LockedSingleton _instance = null;
+    private static readonly object _threadLock = new();
 
     private LockedSingleton()
     {
@@ -13,14 +13,10 @@ internal sealed class LockedSingleton
     {
         get
         {
-            lock (threadLock)
+            lock (_threadLock)
             {
-                if (instance == null)
-                {
-                    instance = new LockedSingleton();
-                }
-
-                return instance;
+                _instance ??= new LockedSingleton();
+                return _instance;
             }
         }
     }

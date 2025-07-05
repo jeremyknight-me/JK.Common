@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
@@ -14,9 +13,9 @@ public class TinyIntParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddTinyInt(name, value);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -24,20 +23,21 @@ public class TinyIntParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddTinyInt("foo", null, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Theory]
     [MemberData(nameof(AddTinyInt_Data))]
-    public void AddTinyInt_NonNull_Theories(string name, byte? value)
+    public void AddTinyInt_NonNull_Theories(string name, byte value)
     {
+        byte? nullableByte = value;
         using var command = new SqlCommand();
-        command.Parameters.AddTinyInt(name, value);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
-        Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        command.Parameters.AddTinyInt(name, nullableByte);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        Assert.Equal(nullableByte, parameter.Value);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -48,13 +48,14 @@ public class TinyIntParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    public static IEnumerable<object[]> AddTinyInt_Data()
-    {
-        yield return new object[] { "Foo", (byte)1 };
-        yield return new object[] { "Bar", (byte)2 };
-    }
+    public static TheoryData<string, byte> AddTinyInt_Data()
+        => new()
+        {
+            { "Foo", 1 },
+            { "Bar", 2 }
+        };
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Byte, parameter.DbType);
         Assert.Equal(SqlDbType.TinyInt, parameter.SqlDbType);

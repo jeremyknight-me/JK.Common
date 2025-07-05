@@ -6,10 +6,10 @@ public sealed class MaximumLengthSpecification : Specification<string>
 {
     public MaximumLengthSpecification(int maximumLengthToUse)
     {
-        this.MaximumLength = maximumLengthToUse;
+        MaximumLength = maximumLengthToUse;
     }
 
     public int MaximumLength { get; }
 
-    public override bool IsSatisfiedBy(in string candidate) => candidate.Length <= this.MaximumLength;
+    public override bool IsSatisfiedBy(in string candidate) => candidate.Length <= MaximumLength;
 }

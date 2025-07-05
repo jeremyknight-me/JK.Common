@@ -5,47 +5,47 @@ namespace JK.Common.Tests.Converters;
 public class TimeConverterTests
 {
     [Fact]
-    public void ConvertSecondsToMillesecondsTest()
+    public void ConvertSecondsToMillisecondsTest()
     {
-        int seconds = 1;
-        int expected = 1000;
-        int actual = TimeConverter.ConvertSecondsToMilliseconds(seconds);
+        var seconds = 1;
+        var expected = 1000;
+        var actual = TimeConverter.ConvertSecondsToMilliseconds(seconds);
         Assert.Equal(expected, actual);
     }
 
     [Fact]
     public void ConvertMinutesToSecondsTest()
     {
-        int minutes = 1;
-        int expected = 60;
-        int actual = TimeConverter.ConvertMinutesToSeconds(minutes);
+        var minutes = 1;
+        var expected = 60;
+        var actual = TimeConverter.ConvertMinutesToSeconds(minutes);
         Assert.Equal(expected, actual);
     }
 
     [Fact]
-    public void ConvertMinutesToMillesecondsTest()
+    public void ConvertMinutesToMillisecondsTest()
     {
-        int minutes = 1;
-        int expected = 60000;
-        int actual = TimeConverter.ConvertMinutesToMilliseconds(minutes);
+        var minutes = 1;
+        var expected = 60000;
+        var actual = TimeConverter.ConvertMinutesToMilliseconds(minutes);
         Assert.Equal(expected, actual);
     }
 
     [Fact]
-    public void ConvertHoursToMillesecondsTest()
+    public void ConvertHoursToMillisecondsTest()
     {
-        int hours = 1;
-        int expected = 3600000;
-        int actual = TimeConverter.ConvertHoursToMilliseconds(hours);
+        var hours = 1;
+        var expected = 3600000;
+        var actual = TimeConverter.ConvertHoursToMilliseconds(hours);
         Assert.Equal(expected, actual);
     }
 
     [Fact]
     public void ConvertHoursToMinutesTest()
     {
-        int hours = 1;
-        int expected = 60;
-        int actual = TimeConverter.ConvertHoursToMinutes(hours);
+        var hours = 1;
+        var expected = 60;
+        var actual = TimeConverter.ConvertHoursToMinutes(hours);
         Assert.Equal(expected, actual);
     }
 }

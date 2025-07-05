@@ -23,7 +23,7 @@ public abstract class CompositeSpecification<TEntity> : Specification<TEntity>
     /// <param name="rightEntity">The right entity.</param>
     protected CompositeSpecification(ISpecification<TEntity> leftEntity, ISpecification<TEntity> rightEntity)
     {
-        this.Left = leftEntity;
-        this.Right = rightEntity;
+        Left = leftEntity;
+        Right = rightEntity;
     }
 }

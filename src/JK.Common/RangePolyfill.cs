@@ -5,7 +5,9 @@
 
 using System.Runtime.CompilerServices;
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     /// <summary>Represent a type can be used to index a collection either from the start or the end.</summary>
     /// <remarks>
@@ -35,25 +37,25 @@ namespace System
 
             if (fromEnd)
             {
-                this._value = ~value;
+                _value = ~value;
             }
             else
             {
-                this._value = value;
+                _value = value;
             }
         }
 
         // The following private constructors mainly created for perf reason to avoid the checks
         private Index(int value)
         {
-            this._value = value;
+            _value = value;
         }
 
         /// <summary>Create an Index pointing at first element.</summary>
-        public static Index Start => new Index(0);
+        public static Index Start => new(0);
 
         /// <summary>Create an Index pointing at beyond last element.</summary>
-        public static Index End => new Index(~0);
+        public static Index End => new(~0);
 
         /// <summary>Create an Index from the start at the position indicated by the value.</summary>
         /// <param name="value">The index value from the start.</param>
@@ -86,19 +88,19 @@ namespace System
         {
             get
             {
-                if (this._value < 0)
+                if (_value < 0)
                 {
-                    return ~this._value;
+                    return ~_value;
                 }
                 else
                 {
-                    return this._value;
+                    return _value;
                 }
             }
         }
 
         /// <summary>Indicates whether the index is from the start or the end.</summary>
-        public bool IsFromEnd => this._value < 0;
+        public bool IsFromEnd => _value < 0;
 
         /// <summary>Calculate the offset from the start using the giving collection length.</summary>
         /// <param name="length">The length of the collection that the Index will be used with. length has to be a positive value</param>
@@ -111,8 +113,8 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int GetOffset(int length)
         {
-            var offset = this._value;
-            if (this.IsFromEnd)
+            var offset = _value;
+            if (IsFromEnd)
             {
                 // offset = length - (~value)
                 // offset = length + (~(~value) + 1)
@@ -126,14 +128,14 @@ namespace System
 
         /// <summary>Indicates whether the current Index object is equal to another object of the same type.</summary>
         /// <param name="value">An object to compare with this object</param>
-        public override bool Equals(object? value) => value is Index && this._value == ((Index)value)._value;
+        public override bool Equals(object? value) => value is Index index && _value == index._value;
 
         /// <summary>Indicates whether the current Index object is equal to another Index object.</summary>
         /// <param name="other">An object to compare with this object</param>
-        public bool Equals(Index other) => this._value == other._value;
+        public bool Equals(Index other) => _value == other._value;
 
         /// <summary>Returns the hash code for this instance.</summary>
-        public override int GetHashCode() => this._value;
+        public override int GetHashCode() => _value;
 
         /// <summary>Converts integer number to an Index.</summary>
         public static implicit operator Index(int value) => FromStart(value);
@@ -141,12 +143,12 @@ namespace System
         /// <summary>Converts the value of the current Index object to its equivalent string representation.</summary>
         public override string ToString()
         {
-            if (this.IsFromEnd)
+            if (IsFromEnd)
             {
-                return "^" + ((uint)this.Value).ToString();
+                return "^" + ((uint)Value).ToString();
             }
 
-            return ((uint)this.Value).ToString();
+            return ((uint)Value).ToString();
         }
     }
 
@@ -178,41 +180,41 @@ namespace System
         /// <param name="end">Represent the exclusive end index of the range.</param>
         public Range(Index start, Index end)
         {
-            this.Start = start;
-            this.End = end;
+            Start = start;
+            End = end;
         }
 
         /// <summary>Indicates whether the current Range object is equal to another object of the same type.</summary>
         /// <param name="value">An object to compare with this object</param>
         public override bool Equals(object? value) =>
             value is Range r &&
-            r.Start.Equals(this.Start) &&
-            r.End.Equals(this.End);
+            r.Start.Equals(Start) &&
+            r.End.Equals(End);
 
         /// <summary>Indicates whether the current Range object is equal to another Range object.</summary>
         /// <param name="other">An object to compare with this object</param>
-        public bool Equals(Range other) => other.Start.Equals(this.Start) && other.End.Equals(this.End);
+        public bool Equals(Range other) => other.Start.Equals(Start) && other.End.Equals(End);
 
         /// <summary>Returns the hash code for this instance.</summary>
         public override int GetHashCode()
         {
-            return this.Start.GetHashCode() * 31 + this.End.GetHashCode();
+            return Start.GetHashCode() * 31 + End.GetHashCode();
         }
 
         /// <summary>Converts the value of the current Range object to its equivalent string representation.</summary>
         public override string ToString()
         {
-            return this.Start + ".." + this.End;
+            return Start + ".." + End;
         }
 
         /// <summary>Create a Range object starting from start index to the end of the collection.</summary>
-        public static Range StartAt(Index start) => new Range(start, Index.End);
+        public static Range StartAt(Index start) => new(start, Index.End);
 
         /// <summary>Create a Range object starting from first element in the collection to the end Index.</summary>
-        public static Range EndAt(Index end) => new Range(Index.Start, end);
+        public static Range EndAt(Index end) => new(Index.Start, end);
 
         /// <summary>Create a Range object starting from first element to the end.</summary>
-        public static Range All => new Range(Index.Start, Index.End);
+        public static Range All => new(Index.Start, Index.End);
 
         /// <summary>Calculate the start offset and length of range object using a collection length.</summary>
         /// <param name="length">The length of the collection that the range will be used with. length has to be a positive value.</param>
@@ -225,7 +227,7 @@ namespace System
         public (int Offset, int Length) GetOffsetAndLength(int length)
         {
             int start;
-            var startIndex = this.Start;
+            Index startIndex = Start;
             if (startIndex.IsFromEnd)
             {
                 start = length - startIndex.Value;
@@ -236,7 +238,7 @@ namespace System
             }
 
             int end;
-            var endIndex = this.End;
+            Index endIndex = End;
             if (endIndex.IsFromEnd)
             {
                 end = length - endIndex.Value;
@@ -256,7 +258,9 @@ namespace System
     }
 }
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.Runtime.CompilerServices
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     internal static class RuntimeHelpers
     {
@@ -270,7 +274,7 @@ namespace System.Runtime.CompilerServices
                 throw new ArgumentNullException(nameof(array));
             }
 
-            (int offset, int length) = range.GetOffsetAndLength(array.Length);
+            (var offset, var length) = range.GetOffsetAndLength(array.Length);
 
             if (default(T) != null || typeof(T[]) == array.GetType())
             {
@@ -278,7 +282,7 @@ namespace System.Runtime.CompilerServices
 
                 if (length == 0)
                 {
-                    return Array.Empty<T>();
+                    return [];
                 }
 
                 var dest = new T[length];

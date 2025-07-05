@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
@@ -15,9 +14,9 @@ public class DateTimeOffsetParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddDateTimeOffset(name, value);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -25,20 +24,21 @@ public class DateTimeOffsetParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddDateTimeOffset("foo", null, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Theory]
     [MemberData(nameof(AddAlways_Data))]
-    public void AddDateTimeOffset_NonNull_Theories(string name, DateTimeOffset? value)
+    public void AddDateTimeOffset_NonNull_Theories(string name, DateTimeOffset value)
     {
+        DateTimeOffset? nullableDateTimeOffset = value;
         using var command = new SqlCommand();
-        command.Parameters.AddDateTimeOffset(name, value);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
-        Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        command.Parameters.AddDateTimeOffset(name, nullableDateTimeOffset);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        Assert.Equal(nullableDateTimeOffset, parameter.Value);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -49,13 +49,14 @@ public class DateTimeOffsetParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    public static IEnumerable<object[]> AddAlways_Data()
-    {
-        yield return new object[] { "Foo", new DateTimeOffset(new DateTime(2022, 12, 31)) };
-        yield return new object[] { "Bar", new DateTimeOffset(new DateTime(2022, 11, 1)) };
-    }
+    public static TheoryData<string, DateTimeOffset> AddAlways_Data()
+        => new()
+        {
+            { "Foo", new DateTimeOffset(new DateTime(2022, 12, 31)) },
+            { "Bar", new DateTimeOffset(new DateTime(2022, 11, 1)) }
+        };
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.DateTimeOffset, parameter.DbType);
         Assert.Equal(SqlDbType.DateTimeOffset, parameter.SqlDbType);

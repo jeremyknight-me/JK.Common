@@ -13,13 +13,13 @@ public static class SqlBulkCopyExtensions
         if (ex.Message.Contains("Received an invalid column length from the bcp client for colid"))
         {
             var pattern = @"\d+";
-            var match = Regex.Match(ex.Message.ToString(), pattern);
+            Match match = Regex.Match(ex.Message.ToString(), pattern);
             var index = Convert.ToInt32(match.Value) - 1;
-            var sortedColumnsField = typeof(SqlBulkCopy).GetField("_sortedColumnMappings", BindingFlags.NonPublic | BindingFlags.Instance);
+            FieldInfo sortedColumnsField = typeof(SqlBulkCopy).GetField("_sortedColumnMappings", BindingFlags.NonPublic | BindingFlags.Instance);
             var sortedColumns = sortedColumnsField.GetValue(bulk);
-            var itemsField = sortedColumns.GetType().GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
+            FieldInfo itemsField = sortedColumns.GetType().GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
             var items = (object[])itemsField.GetValue(sortedColumns);
-            var itemdata = items[index].GetType().GetField("_metadata", BindingFlags.NonPublic | BindingFlags.Instance);
+            FieldInfo itemdata = items[index].GetType().GetField("_metadata", BindingFlags.NonPublic | BindingFlags.Instance);
             var metadata = itemdata.GetValue(items[index]);
             var column = metadata.GetType()
                 .GetField("column", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)

@@ -8,50 +8,43 @@ namespace JK.Common.Patterns.ServiceLocator;
 /// </summary>
 public class DefaultServiceLocator : IServiceLocator
 {
-    #region Singleton Implementation    
+    private static readonly object _threadLock = new();
 
-    private static readonly object threadLock = new object();
-
-    private static DefaultServiceLocator instance;
+    private static DefaultServiceLocator _instance;
 
     private DefaultServiceLocator()
     {
-        this.services = new Dictionary<Type, object>();
+        _services = [];
     }
 
     public static DefaultServiceLocator Instance
     {
         get
         {
-            lock (threadLock)
+            lock (_threadLock)
             {
-                if (instance is null)
-                {
-                    instance = new DefaultServiceLocator();
-                }
+                _instance ??= new DefaultServiceLocator();
             }
 
-            return instance;
+            return _instance;
         }
     }
 
-    #endregion
-
-    private readonly Dictionary<Type, object> services;
+    private readonly Dictionary<Type, object> _services;
 
     /// <summary>
     /// Locates and returns a service if registered.
     /// </summary>
     /// <typeparam name="T">Interface type to find.</typeparam>
     /// <returns>Service of type T if found. Otherwise, KeyNotFoundException.</returns>
-    public T Locate<T>() => (T)this.services[typeof(T)];
+    public T Locate<T>() => (T)_services[typeof(T)];
 
     /// <summary>
     /// Registers a service of the given type.
     /// </summary>
     /// <typeparam name="T">Interface type of the service.</typeparam>
     /// <param name="service">Service to register.</param>
-    public void Register<T>(T service) => this.services.Add(typeof(T), service);
+    public void Register<T>(T service) => _services.Add(typeof(T), service);
 
     /// <summary>
     /// Unregisters, or removes, a service from the Service Locator.
@@ -59,10 +52,7 @@ public class DefaultServiceLocator : IServiceLocator
     /// <typeparam name="T">Interface type to remove.</typeparam>
     public void Unregister<T>()
     {
-        var type = typeof(T);
-        if (this.services.ContainsKey(type))
-        {
-            this.services.Remove(type);
-        }
+        Type type = typeof(T);
+        _services.Remove(type);
     }
 }

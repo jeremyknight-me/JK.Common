@@ -20,7 +20,7 @@ public static class HeapSort
     {
         for (var i = 1; i < c; i++)
         {
-            var value = list[i];
+            T value = list[i];
             var s = i;
             var f = (s - 1) / 2;
             while (s > 0 && list[f].CompareTo(value) < 0)

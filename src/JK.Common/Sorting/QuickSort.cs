@@ -22,10 +22,10 @@ public static class QuickSort
     private static int Partition<T>(IList<T> list, int low, int high)
         where T : IComparable, IComparable<T>
     {
-        var pivot = list[low];
+        T pivot = list[low];
         while (high > low)
         {
-            var highValue = list[high];
+            T highValue = list[high];
             while (pivot.CompareTo(highValue) < 0)
             {
                 if (high <= low)
@@ -38,7 +38,7 @@ public static class QuickSort
             }
 
             list[low] = highValue;
-            var lowValue = list[low];
+            T lowValue = list[low];
             while (pivot.CompareTo(lowValue) > 0)
             {
                 if (high <= low)

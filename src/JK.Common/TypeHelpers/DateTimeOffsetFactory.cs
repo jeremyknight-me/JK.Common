@@ -6,7 +6,7 @@ public static class DateTimeOffsetFactory
 {
     public static DateTimeOffset Make(in DateTime date, in string timeZoneId)
     {
-        var offset = GetOffsetForDate(date, timeZoneId);
+        TimeSpan offset = GetOffsetForDate(date, timeZoneId);
         return DateTimeOffset.Parse($"{date:yyyy-MM-ddTHH:mm:ss}{offset.Hours:+00;-00}:00");
     }
 
@@ -25,8 +25,8 @@ public static class DateTimeOffsetFactory
 
     private static TimeSpan GetOffsetForDate(in DateTime date, in string timeZoneId)
     {
-        var dateOffset = DateTimeOffset.Parse($"{date:yyyy-MM-dd} 12:00:00");
-        var centralDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateOffset, timeZoneId);
+        DateTimeOffset dateOffset = DateTimeOffset.Parse($"{date:yyyy-MM-dd} 12:00:00");
+        DateTimeOffset centralDate = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateOffset, timeZoneId);
         return centralDate.Offset;
     }
 }

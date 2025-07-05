@@ -1,4 +1,6 @@
-﻿namespace JK.Common.Data;
+﻿using System.Data;
+
+namespace JK.Common.Data;
 
 public abstract class ScalarOperationBase<TValue, TParameterModel> : OperationBase<TParameterModel>
 {
@@ -9,8 +11,8 @@ public abstract class ScalarOperationBase<TValue, TParameterModel> : OperationBa
 
     public TValue Execute(TParameterModel parameterModel)
     {
-        using var command = this.MakeCommand(parameterModel);
-        this.OpenConnection();
+        using IDbCommand command = MakeCommand(parameterModel);
+        OpenConnection();
         var scalar = command.ExecuteScalar();
         return (TValue)(scalar is null ? null : scalar);
     }
@@ -25,8 +27,8 @@ public abstract class ScalarOperationBase<TValue> : OperationBase
 
     public TValue Execute()
     {
-        using var command = this.MakeCommand();
-        this.OpenConnection();
+        using IDbCommand command = MakeCommand();
+        OpenConnection();
         var scalar = command.ExecuteScalar();
         return (TValue)(scalar is null ? null : scalar);
     }

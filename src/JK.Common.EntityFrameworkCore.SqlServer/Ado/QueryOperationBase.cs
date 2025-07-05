@@ -5,27 +5,27 @@ namespace JK.Common.EntityFrameworkCore.SqlServer.Ado;
 
 public abstract class QueryOperationBase<T> : OperationBase
 {
-    private readonly CommandType commandType;
-    private readonly string commandText;
+    private readonly CommandType _commandType;
+    private readonly string _commandText;
 
     protected QueryOperationBase(DbContext dbContext, CommandType adoCommandType, string adoCommandText)
         : base(dbContext)
     {
-        this.commandType = adoCommandType;
-        this.commandText = adoCommandText;
+        _commandType = adoCommandType;
+        _commandText = adoCommandText;
     }
 
     public IEnumerable<T> Execute()
     {
-        var items = new List<T>();
-        using (var command = this.SetupCommand(this.commandType, this.commandText))
+        List<T> items = [];
+        using (IDbCommand command = SetupCommand(_commandType, _commandText))
         {
-            this.Context.Database.OpenConnection();
-            using (var dataReader = command.ExecuteReader(CommandBehavior.SingleResult))
+            Context.Database.OpenConnection();
+            using (IDataReader dataReader = command.ExecuteReader(CommandBehavior.SingleResult))
             {
                 while (dataReader.Read())
                 {
-                    var item = this.ParseRecord(dataReader);
+                    T item = ParseRecord(dataReader);
                     items.Add(item);
                 }
             }

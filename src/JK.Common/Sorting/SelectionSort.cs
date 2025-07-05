@@ -13,9 +13,7 @@ public static class SelectionSort
             {
                 if (list[i].CompareTo(list[j]) > 0)
                 {
-                    var temp = list[i];
-                    list[i] = list[j];
-                    list[j] = temp;
+                    (list[j], list[i]) = (list[i], list[j]);
                 }
             }
         }

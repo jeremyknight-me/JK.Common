@@ -37,13 +37,13 @@ public sealed class Latitude : CoordinateBase
     {
     }
 
-    public override Direction Direction => this.IsNegative ? Direction.S : Direction.N;
+    public override Direction Direction => IsNegative ? Direction.S : Direction.N;
 
     public override CoordinateType CoordinateType => CoordinateType.Latitude;
 
-    public override ICollection<Direction> GetValidDirections() => new List<Direction> { Direction.N, Direction.S };
+    public override ICollection<Direction> GetValidDirections() => [Direction.N, Direction.S];
 
     protected override ISpecification<decimal> ValidationSpecification => new LatitudeSpecification();
 
-    protected override void SetIsNegative(in Direction direction) => this.IsNegative = direction == Direction.S;
+    protected override void SetIsNegative(in Direction direction) => IsNegative = direction == Direction.S;
 }

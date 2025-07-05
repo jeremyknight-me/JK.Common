@@ -8,9 +8,8 @@ namespace JK.Common.Text;
 /// </summary>
 public sealed class TemplateProcessor
 {
-    private readonly string template;
-
-    private readonly List<string> tokens;
+    private readonly string _template;
+    private readonly HashSet<string> _tokens = [];
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TemplateProcessor"/> class.
@@ -29,11 +28,11 @@ public sealed class TemplateProcessor
     /// <param name="tokenEnd">Ending value of the tokens used in the template.</param>
     public TemplateProcessor(string template, string tokenStart, string tokenEnd)
     {
-        this.Objects = new List<object>();
-        this.TokenStart = tokenStart;
-        this.TokenEnd = tokenEnd;
-        this.template = template;
-        this.tokens = this.GetTokenKeyList();
+        Objects = [];
+        TokenStart = tokenStart;
+        TokenEnd = tokenEnd;
+        _template = template;
+        LoadTokenKeys();
     }
 
     /// <summary>
@@ -57,74 +56,60 @@ public sealed class TemplateProcessor
     /// <returns>Template format with data inserted where tokens existed.</returns>
     public string ProcessTemplate()
     {
-        var pairs = this.GetKeyValuePairs();
-        var returnValue = this.template;
+        Dictionary<string, string> pairs = GetKeyValuePairs();
+        var returnValue = _template;
 
         foreach (var key in pairs.Keys)
         {
-            var token = this.GetTokenFromTokenKey(key);
+            var token = GetTokenFromTokenKey(key);
             returnValue = returnValue.Replace(token, pairs[key]);
         }
 
         return returnValue;
     }
 
-    #region Private Methods - Get Token Key List and Helpers
-
-    private List<string> GetTokenKeyList()
+    private void LoadTokenKeys()
     {
-        var tokenKeys = new List<string>();
-
+        _tokens.Clear();
         var position = 0;
-        while (this.ContainsToken(position))
+        while (ContainsToken(position))
         {
-            var tokenStartIndex = this.GetTokenStartIndex(position);
-            var tokenEndIndex = this.GetTokenEndIndex(position);
-            var tokenKey = this.GetTokenKeyFromTemplate(tokenStartIndex, tokenEndIndex);
+            var tokenStartIndex = GetTokenStartIndex(position);
+            var tokenEndIndex = GetTokenEndIndex(position);
+            var tokenKey = GetTokenKeyFromTemplate(tokenStartIndex, tokenEndIndex);
 
-            if (!tokenKeys.Contains(tokenKey))
-            {
-                tokenKeys.Add(tokenKey);
-            }
-
-            position = tokenEndIndex + this.TokenEnd.Length;
+            _tokens.Add(tokenKey);
+            position = tokenEndIndex + TokenEnd.Length;
         }
-
-        return tokenKeys;
     }
 
     private int GetTokenStartIndex(in int startIndex)
-        => this.template.IndexOf(this.TokenStart, startIndex, StringComparison.OrdinalIgnoreCase);
+        => _template.IndexOf(TokenStart, startIndex, StringComparison.OrdinalIgnoreCase);
 
     private int GetTokenEndIndex(in int startIndex)
-        => this.template.IndexOf(this.TokenEnd, startIndex, StringComparison.OrdinalIgnoreCase);
+        => _template.IndexOf(TokenEnd, startIndex, StringComparison.OrdinalIgnoreCase);
 
     private string GetTokenKeyFromTemplate(in int tokenStartIndex, in int tokenEndIndex)
     {
-        var startPosition = tokenStartIndex + this.TokenStart.Length;
-        var length = tokenEndIndex - tokenStartIndex - this.TokenEnd.Length;
-        return this.template.Substring(startPosition, length);
+        var startPosition = tokenStartIndex + TokenStart.Length;
+        var length = tokenEndIndex - tokenStartIndex - TokenEnd.Length;
+        return _template.Substring(startPosition, length);
     }
 
     private bool ContainsToken(in int startIndex)
-        => this.template.Substring(startIndex).Contains(this.TokenStart)
-           && this.template.Substring(startIndex).Contains(this.TokenEnd);
-
-    #endregion
-
-    #region Private Methods - ProcessTemplate Helpers
+        => _template.Substring(startIndex).Contains(TokenStart)
+           && _template.Substring(startIndex).Contains(TokenEnd);
 
     private Dictionary<string, string> GetKeyValuePairs()
     {
         var pairs = new Dictionary<string, string>();
-
-        foreach (var item in this.Objects)
+        foreach (var item in Objects)
         {
-            var t = item.GetType();
-            foreach (var property in t.GetProperties())
+            Type t = item.GetType();
+            foreach (System.Reflection.PropertyInfo property in t.GetProperties())
             {
                 var propertyFullName = string.Concat(t.Name, ".", property.Name);
-                foreach (var key in this.tokens)
+                foreach (var key in _tokens)
                 {
                     if (key != propertyFullName)
                     {
@@ -141,7 +126,5 @@ public sealed class TemplateProcessor
     }
 
     private string GetTokenFromTokenKey(in string tokenKey)
-        => string.Concat(this.TokenStart, tokenKey, this.TokenEnd);
-
-    #endregion
+        => string.Concat(TokenStart, tokenKey, TokenEnd);
 }

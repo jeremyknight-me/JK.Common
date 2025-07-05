@@ -33,7 +33,7 @@ public static class MathHelper
 
     public static IEnumerable<long> Fibonacci(in long first, in long second, in int limit)
     {
-        var list = new List<long> { first, second };
+        List<long> list = [first, second];
         var indexA = 0;
         var indexB = 1;
         while (list.Count <= limit)

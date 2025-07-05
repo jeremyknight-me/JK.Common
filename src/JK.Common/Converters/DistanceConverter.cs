@@ -6,11 +6,11 @@ namespace JK.Common.Converters;
 
 public sealed class DistanceConverter
 {
-    private readonly IDictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> strategies;
+    private readonly Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> _strategies;
 
     public DistanceConverter()
     {
-        this.strategies = new Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal>
+        _strategies = new Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal>
             {
                 // Convert Centimeter to New Unit Of Measure
                 { Tuple.Create(DistanceUnit.Centimeters, DistanceUnit.Feet), 0.0328084m },
@@ -39,7 +39,7 @@ public sealed class DistanceConverter
         }
 
         var tuple = Tuple.Create(originalUnit, newUnit);
-        return !this.strategies.TryGetValue(tuple, out var value)
+        return !_strategies.TryGetValue(tuple, out var value)
             ? throw new NotSupportedException("Unit pairing is not supported.")
             : originalDistance * value;
     }

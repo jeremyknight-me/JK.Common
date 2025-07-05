@@ -12,14 +12,14 @@ public abstract class QueryOperationBase<TQueryModel, TParameterModel> : Operati
 
     public IReadOnlyList<TQueryModel> Execute(TParameterModel parameterModel)
     {
-        using var command = this.MakeCommand(parameterModel);
-        this.OpenConnection();
-        using var dataReader = command.ExecuteReader(this.Behavior);
-        var items = new List<TQueryModel>();
-        var ordinalCache = this.MakeOrdinalCache(dataReader);
+        using IDbCommand command = MakeCommand(parameterModel);
+        OpenConnection();
+        using IDataReader dataReader = command.ExecuteReader(Behavior);
+        List<TQueryModel> items = [];
+        IDictionary<string, int> ordinalCache = MakeOrdinalCache(dataReader);
         while (dataReader.Read())
         {
-            var item = this.MakeModel(dataReader, ordinalCache);
+            TQueryModel item = MakeModel(dataReader, ordinalCache);
             items.Add(item);
         }
 
@@ -41,14 +41,14 @@ public abstract class QueryOperationBase<TQueryModel> : OperationBase
 
     public IReadOnlyList<TQueryModel> Execute()
     {
-        using var command = this.MakeCommand();
-        this.OpenConnection();
-        using var dataReader = command.ExecuteReader(this.Behavior);
-        var items = new List<TQueryModel>();
-        var ordinalCache = this.MakeOrdinalCache(dataReader);
+        using IDbCommand command = MakeCommand();
+        OpenConnection();
+        using IDataReader dataReader = command.ExecuteReader(Behavior);
+        List<TQueryModel> items = [];
+        IDictionary<string, int> ordinalCache = MakeOrdinalCache(dataReader);
         while (dataReader.Read())
         {
-            var item = this.MakeModel(dataReader, ordinalCache);
+            TQueryModel item = MakeModel(dataReader, ordinalCache);
             items.Add(item);
         }
 

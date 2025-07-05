@@ -7,7 +7,7 @@ public abstract class DecimalValidatorTestsBase
     public TestValidationResult<MockModel> MakeAndTestValidator(decimal value)
     {
         var model = new MockModel { DecimalValue = value };
-        var validator = new MockModelDecimalValidator(this.Validator);
+        var validator = new MockModelDecimalValidator(Validator);
         return validator.TestValidate(model);
     }
 
@@ -15,7 +15,7 @@ public abstract class DecimalValidatorTestsBase
     {
         public MockModelDecimalValidator(PropertyValidator<MockModel, decimal> validator)
         {
-            this.RuleFor(x => x.DecimalValue).SetValidator(validator);
+            RuleFor(x => x.DecimalValue).SetValidator(validator);
         }
     }
 }

@@ -9,7 +9,7 @@ public class TemperatureConverterTests
     {
         double fahrenheitTemperature = 212;
         double expected = 100;
-        double actual = TemperatureConverter.ConvertFahrenheitToCelsius(fahrenheitTemperature);
+        var actual = TemperatureConverter.ConvertFahrenheitToCelsius(fahrenheitTemperature);
         Assert.Equal(expected, actual);
     }
 
@@ -18,7 +18,7 @@ public class TemperatureConverterTests
     {
         double celsiusTemperature = 100;
         double expected = 212;
-        double actual = TemperatureConverter.ConvertCelsiusToFahrenheit(celsiusTemperature);
+        var actual = TemperatureConverter.ConvertCelsiusToFahrenheit(celsiusTemperature);
         Assert.Equal(expected, actual);
     }
 }

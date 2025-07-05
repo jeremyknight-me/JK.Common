@@ -1,4 +1,6 @@
-﻿namespace JK.Common.Data;
+﻿using System.Data;
+
+namespace JK.Common.Data;
 
 public abstract class NonQueryOperationBase<TParameterModel> : OperationBase<TParameterModel>
 {
@@ -9,8 +11,8 @@ public abstract class NonQueryOperationBase<TParameterModel> : OperationBase<TPa
 
     public int Execute(TParameterModel parameterModel)
     {
-        using var command = this.MakeCommand(parameterModel);
-        this.OpenConnection();
+        using IDbCommand command = MakeCommand(parameterModel);
+        OpenConnection();
         var count = command.ExecuteNonQuery();
         return count;
     }
@@ -25,8 +27,8 @@ public abstract class NonQueryOperationBase : OperationBase
 
     public int Execute()
     {
-        using var command = this.MakeCommand();
-        this.OpenConnection();
+        using IDbCommand command = MakeCommand();
+        OpenConnection();
         var count = command.ExecuteNonQuery();
         return count;
     }

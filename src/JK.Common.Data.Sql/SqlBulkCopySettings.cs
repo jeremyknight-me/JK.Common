@@ -6,8 +6,8 @@ public class SqlBulkCopySettings
 {
     public SqlBulkCopySettings()
     {
-        this.BatchSize = 0;
-        this.Columns = new Dictionary<string, string>();
+        BatchSize = 0;
+        Columns = new Dictionary<string, string>();
     }
 
     public int BatchSize { get; set; }

@@ -7,7 +7,7 @@ public sealed class WeekdaySpecification : Specification<DateTime>
 {
     public override bool IsSatisfiedBy(in DateTime candidate)
     {
-        var dayOfWeek = candidate.DayOfWeek;
+        DayOfWeek dayOfWeek = candidate.DayOfWeek;
         return dayOfWeek != DayOfWeek.Saturday
             && dayOfWeek != DayOfWeek.Sunday;
     }

@@ -14,8 +14,7 @@ public class SimpleObject
 
     public static IEnumerable<SimpleObject> GetMockDataSet(int number = 5)
     {
-        var list = new List<SimpleObject>();
-
+        List<SimpleObject> list = [];
         for (var i = 0; i < number; i++)
         {
             var id = i + 1;

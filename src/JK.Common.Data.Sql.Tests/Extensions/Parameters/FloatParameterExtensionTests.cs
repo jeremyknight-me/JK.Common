@@ -14,9 +14,9 @@ public class FloatParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddFloat(name, value);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -24,9 +24,9 @@ public class FloatParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddFloat("foo", (double?)null, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Theory]
@@ -36,9 +36,9 @@ public class FloatParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddFloat(name, value);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -49,7 +49,7 @@ public class FloatParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Double, parameter.DbType);
         Assert.Equal(SqlDbType.Float, parameter.SqlDbType);

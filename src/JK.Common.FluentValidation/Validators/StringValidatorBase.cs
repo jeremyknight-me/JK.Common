@@ -16,5 +16,5 @@ public abstract class StringValidatorBase<T> : PropertyValidator<T, string>
     ///<inheritdoc/>
     public override bool IsValid(ValidationContext<T> context, string value)
         => string.IsNullOrEmpty(value)
-            || this.IsStringValid(value);
+            || IsStringValid(value);
 }

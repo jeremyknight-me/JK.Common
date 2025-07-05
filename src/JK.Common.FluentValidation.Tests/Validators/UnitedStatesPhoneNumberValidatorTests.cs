@@ -12,7 +12,7 @@ public class UnitedStatesPhoneNumberValidatorTests : StringValidatorTestsBase
     [InlineData("555-1234")]
     public void IsValid_TrueTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 }

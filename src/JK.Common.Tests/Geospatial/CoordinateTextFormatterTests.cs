@@ -15,7 +15,7 @@ public class CoordinateTextFormatterTests
     {
         var coordinate = new Latitude(40, 26, 46);
         var formatter = new CoordinateTextFormatter(coordinate);
-        string actual = formatter.Format(format);
+        var actual = formatter.Format(format);
         Assert.Equal(expected, actual);
     }
 
@@ -30,7 +30,7 @@ public class CoordinateTextFormatterTests
     {
         var coordinate = new Longitude(-79, 58, 56);
         var formatter = new CoordinateTextFormatter(coordinate);
-        string actual = formatter.Format(format);
+        var actual = formatter.Format(format);
         Assert.Equal(expected, actual);
     }
 }

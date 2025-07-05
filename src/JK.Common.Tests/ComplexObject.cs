@@ -4,20 +4,20 @@ public class ComplexObject : IIdentifiable<int>
 {
     public ComplexObject()
     {
-        this.Id = 0;
-        this.StringProperty = string.Empty;
-        this.IntProperty = 0;
-        this.DateTimeProperty = DateTime.Now;
-        this.DoubleProperty = 0;
-        this.DecimalProperty = 0;
-        this.FloatProperty = 0;
-        this.BooleanProperty = false;
-        this.ChildObjectSimple = new SimpleObject();
+        Id = 0;
+        StringProperty = string.Empty;
+        IntProperty = 0;
+        DateTimeProperty = DateTime.Now;
+        DoubleProperty = 0;
+        DecimalProperty = 0;
+        FloatProperty = 0;
+        BooleanProperty = false;
+        ChildObjectSimple = new SimpleObject();
     }
 
     public ComplexObject(DateTime dateTime) : this()
     {
-        this.DateTimeProperty = dateTime;
+        DateTimeProperty = dateTime;
     }
 
     public string StringProperty { get; set; }

@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
-using JK.Common.Extensions;
+﻿using JK.Common.Extensions;
 
 namespace JK.Common.Tests.Extensions;
 
 public class TypeExtensionsTests
 {
-    #region DoesImplement<T>() Tests
-
     [Fact]
     public void DoesImplement_NonInterface_Exception()
     {
-        var ex = Assert.Throws<ArgumentException>(() => typeof(TestWithInterface).DoesImplement<NotAnInterface>());
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => typeof(TestWithInterface).DoesImplement<NotAnInterface>());
     }
 
     [Fact]
@@ -40,10 +37,6 @@ public class TypeExtensionsTests
     {
     }
 
-    #endregion
-
-    #region IsNullableT
-
     [Theory]
     [MemberData(nameof(IsNullableT_Data))]
     public void IsNullable_Tests(Type type, bool expected)
@@ -52,12 +45,10 @@ public class TypeExtensionsTests
         Assert.Equal(expected, actual);
     }
 
-    public static IEnumerable<object[]> IsNullableT_Data()
-        =>
-        [
-                [typeof(int), false],
-                [typeof(int?), true]
-        ];
-
-    #endregion
+    public static TheoryData<Type, bool> IsNullableT_Data()
+        => new()
+        {
+            { typeof(int), false },
+            { typeof(int?), true }
+        };
 }

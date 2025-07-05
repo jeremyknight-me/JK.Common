@@ -92,19 +92,11 @@ public class TemplateProcessorTests
         public OptionsEnum Option { get; set; }
 
         public string OptionDisplay
-        {
-            get
+            => Option switch
             {
-                switch (this.Option)
-                {
-                    case OptionsEnum.Option1:
-                        return "Option 1";
-                    case OptionsEnum.Option2:
-                        return "Option 2";
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
+                OptionsEnum.Option1 => "Option 1",
+                OptionsEnum.Option2 => "Option 2",
+                _ => throw new ArgumentOutOfRangeException(),
+            };
     }
 }

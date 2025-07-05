@@ -17,7 +17,7 @@ public static class TypeExtensions
     /// <returns>True if implemented, otherwise false.</returns>
     public static bool DoesImplement<T>(this Type type)
     {
-        var interfaceType = typeof(T);
+        Type interfaceType = typeof(T);
         return interfaceType.IsInterface
             ? type.GetInterfaces().Any(x => x.FullName == interfaceType.FullName)
             : throw new ArgumentException("Only interfaces can be passed as T.");

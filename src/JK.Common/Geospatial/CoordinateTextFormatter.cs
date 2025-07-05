@@ -8,20 +8,20 @@ public sealed class CoordinateTextFormatter : CoordinateFormatterBase
     }
 
     protected override string ToStringDegrees()
-        => $"{this.Coordinate.CoordinateSigned:###.#####;-###.#####}\u00B0";
+        => $"{Coordinate.CoordinateSigned:###.#####;-###.#####}\u00B0";
 
     protected override string ToStringDegreesMinutes()
-        => $"{this.Coordinate.DegreesSigned:###;-###}\u00B0 {this.Coordinate.DecimalMinutes:##.###}'";
+        => $"{Coordinate.DegreesSigned:###;-###}\u00B0 {Coordinate.DecimalMinutes:##.###}'";
 
     protected override string ToStringDegreesMinutesSeconds()
-        => $"{this.Coordinate.DegreesSigned:###;-###}\u00B0 {this.Coordinate.Minutes:##}' {this.Coordinate.Seconds:##.#}\"";
+        => $"{Coordinate.DegreesSigned:###;-###}\u00B0 {Coordinate.Minutes:##}' {Coordinate.Seconds:##.#}\"";
 
     protected override string ToStringDegreesDirection()
-        => $"{this.Coordinate.CoordinateSigned:###.#####;###.#####}\u00B0 {this.Coordinate.Direction}";
+        => $"{Coordinate.CoordinateSigned:###.#####;###.#####}\u00B0 {Coordinate.Direction}";
 
     protected override string ToStringDegreesMinutesDirection()
-        => $"{this.Coordinate.DegreesSigned:###;###}\u00B0 {this.Coordinate.DecimalMinutes:##.###}' {this.Coordinate.Direction}";
+        => $"{Coordinate.DegreesSigned:###;###}\u00B0 {Coordinate.DecimalMinutes:##.###}' {Coordinate.Direction}";
 
     protected override string ToStringDegreesMinutesSecondsDirection()
-        => $"{this.Coordinate.DegreesSigned:###;###}\u00B0 {this.Coordinate.Minutes:##}' {this.Coordinate.Seconds:##.#}\" {this.Coordinate.Direction}";
+        => $"{Coordinate.DegreesSigned:###;###}\u00B0 {Coordinate.Minutes:##}' {Coordinate.Seconds:##.#}\" {Coordinate.Direction}";
 }

@@ -11,16 +11,14 @@ public abstract class ReadOnlyDbContext : DbContext
 
     protected ReadOnlyDbContext()
     {
-        this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
 
     protected ReadOnlyDbContext(DbContextOptions options)
         : base(options)
     {
-        this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
-
-    #region SaveChanges overrides - ensures read-only
 
     public override int SaveChanges()
         => throw new InvalidOperationException(readOnlyErrorMessage);
@@ -33,6 +31,4 @@ public abstract class ReadOnlyDbContext : DbContext
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         => throw new InvalidOperationException(readOnlyErrorMessage);
-
-    #endregion
 }

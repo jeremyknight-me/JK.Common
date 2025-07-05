@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
 using Microsoft.Data.SqlClient;
 using Xunit;
@@ -14,9 +13,9 @@ public class DecimalParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddDecimal(name, value, precision, scale);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -24,20 +23,21 @@ public class DecimalParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddDecimal("foo", null, 10, 3, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Theory]
     [MemberData(nameof(AddDecimal_Data))]
-    public void AddDecimal_NonNull_Theories(string name, decimal? value, byte precision, byte scale)
+    public void AddDecimal_NonNull_Theories(string name, decimal value, byte precision, byte scale)
     {
+        decimal? nullableDecimal = value;
         using var command = new SqlCommand();
-        command.Parameters.AddDecimal(name, value, precision, scale);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
-        Assert.Equal(value, parameter.Value);
-        this.AssertDbTypes(parameter);
+        command.Parameters.AddDecimal(name, nullableDecimal, precision, scale);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        Assert.Equal(nullableDecimal, parameter.Value);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -48,13 +48,14 @@ public class DecimalParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    public static IEnumerable<object[]> AddDecimal_Data()
-    {
-        yield return new object[] { "Foo", 1m, (byte)10, (byte)3 };
-        yield return new object[] { "Bar", 2m, (byte)10, (byte)3 };
-    }
+    public static TheoryData<string, decimal, byte, byte> AddDecimal_Data()
+        => new()
+        {
+            { "Foo", 1m, 10, 3 },
+            { "Bar", 2m, 10, 3 }
+        };
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Decimal, parameter.DbType);
         Assert.Equal(SqlDbType.Decimal, parameter.SqlDbType);

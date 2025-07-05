@@ -1,12 +1,23 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using JK.Common.Extensions;
 
 namespace JK.Common.Tests.Extensions;
 
 public class EnumerableExtensionsTests
 {
-    #region DistinctBy() Tests
+    [Fact]
+    public void AsIndexedEnumerable_Alphabet()
+    {
+        var list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        IEnumerable<(char item, int index)> indexedList = list.AsIndexedEnumerable();
+        Assert.Equal("A", indexedList.FirstOrDefault(x => x.index == 0).item.ToString());
+        Assert.Equal("Z", indexedList.FirstOrDefault(x => x.index == 25).item.ToString());
+    }
+}
 
+public class EnumerableExtensionsTests_DistinctBy
+{
     [Fact]
     public void DistinctByTestDate()
     {
@@ -87,46 +98,31 @@ public class EnumerableExtensionsTests
         Assert.Equal(200, distinctIntList.Count);
     }
 
-    #endregion
-
-    #region AsIndexedEnumerable() Tests
-
-    [Fact]
-    public void AsIndexedEnumerable_Alphabet()
+    private readonly struct EqualityStructTester
     {
-        var list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-        var indexedList = list.AsIndexedEnumerable();
-        Assert.Equal("A", indexedList.FirstOrDefault(x => x.index == 0).item.ToString());
-        Assert.Equal("Z", indexedList.FirstOrDefault(x => x.index == 25).item.ToString());
-    }
-
-    #endregion
-
-    private struct EqualityStructTester
-    {
-        public readonly int Index;
-        public readonly DateTime Date;
-
         public EqualityStructTester(int index, DateTime date) : this()
         {
-            this.Index = index;
-            this.Date = date;
+            Index = index;
+            Date = date;
         }
+
+        public int Index { get; }
+        public DateTime Date { get; }
     }
 
     private class EqualityClassTester
     {
-        public readonly int Index;
-        public readonly DateTime Date;
-
         public EqualityClassTester()
         {
         }
 
+        public int Index { get; }
+        public DateTime Date { get; }
+
         public EqualityClassTester(int index, DateTime date) : this()
         {
-            this.Index = index;
-            this.Date = date;
+            Index = index;
+            Date = date;
         }
     }
 }

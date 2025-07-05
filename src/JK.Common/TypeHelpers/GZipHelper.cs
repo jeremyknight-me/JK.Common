@@ -13,9 +13,9 @@ public class GZipHelper
     /// <param name="outFileName">File name to give to compressed file.</param>
     public void GZipCompressFile(in string inFileName, in string outFileName)
     {
-        using var sourceFile = File.OpenRead(inFileName);
-        using var destFile = File.Create(outFileName);
-        using var compStream = new GZipStream(destFile, CompressionMode.Compress);
+        using FileStream sourceFile = File.OpenRead(inFileName);
+        using FileStream destinationFile = File.Create(outFileName);
+        using GZipStream compStream = new GZipStream(destinationFile, CompressionMode.Compress);
         var singleByte = sourceFile.ReadByte();
         while (singleByte != -1)
         {
@@ -29,13 +29,13 @@ public class GZipHelper
     /// <param name="outFileName">File name to give to decompressed file.</param>
     public void GZipDecompressFile(in string inFileName, in string outFileName)
     {
-        using var sourceFile = File.OpenRead(inFileName);
-        using var destFile = File.Create(outFileName);
-        using var compStream = new GZipStream(sourceFile, CompressionMode.Decompress);
+        using FileStream sourceFile = File.OpenRead(inFileName);
+        using FileStream destinationFile = File.Create(outFileName);
+        using GZipStream compStream = new GZipStream(sourceFile, CompressionMode.Decompress);
         var singleByte = compStream.ReadByte();
         while (singleByte != -1)
         {
-            destFile.WriteByte((byte)singleByte);
+            destinationFile.WriteByte((byte)singleByte);
             singleByte = compStream.ReadByte();
         }
     }

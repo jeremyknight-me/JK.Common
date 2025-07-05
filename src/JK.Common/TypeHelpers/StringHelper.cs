@@ -39,7 +39,7 @@ public static class StringHelper
     /// <returns>Returns the last X characters of the string.</returns>
     public static string Last(in string value, in int length) => Right(value, length);
 
-    /// <summary>Attemptes to remove United States currency formatting from a string.</summary>
+    /// <summary>Attempts to remove United States currency formatting from a string.</summary>
     /// <param name="valueToFormat">Value to remove US currency</param>
     /// <returns>String with US currency formatting stripped.</returns>
     /// <exception cref="ArgumentNullException">Thrown if given value is whitespace or null.</exception>

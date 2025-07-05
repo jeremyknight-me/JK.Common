@@ -16,10 +16,10 @@ public class NVarcharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddNVarchar(name, value, size);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         Assert.Equal(size, parameter.Size);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -27,9 +27,9 @@ public class NVarcharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddNVarchar("foo", null, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -46,14 +46,14 @@ public class NVarcharParameterExtensionTests
     public void AddNVarchar_InvalidSizeException_Theories(int size)
     {
         using var command = new SqlCommand();
-        var exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
+        ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
         {
             command.Parameters.AddNVarchar("foo", null, size);
         });
         Assert.StartsWith("Data type 'nvarchar' must be positive value between 0 and 4000", exception.Message);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.String, parameter.DbType);
         Assert.Equal(SqlDbType.NVarChar, parameter.SqlDbType);
