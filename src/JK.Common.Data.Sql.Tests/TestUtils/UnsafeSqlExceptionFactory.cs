@@ -14,46 +14,46 @@ public static class UnsafeSqlExceptionFactory
 {
     public static SqlException Make(int number, string message)
     {
-        var error = MakeSqlError(number, message);
-        var collection = MakeSqlErrorCollection(error);
-        var exception = MakeSqlException(collection);
+        SqlError error = MakeSqlError(number, message);
+        SqlErrorCollection collection = MakeSqlErrorCollection(error);
+        SqlException exception = MakeSqlException(collection);
         return exception;
     }
 
     private static SqlException MakeSqlException(SqlErrorCollection collection)
     {
-        var exceptionType = typeof(SqlException);
-        var createMethod = exceptionType.GetMethod(
+        Type exceptionType = typeof(SqlException);
+        MethodInfo createMethod = exceptionType.GetMethod(
             "CreateException",
             BindingFlags.NonPublic | BindingFlags.Static,
-            new Type[] { typeof(SqlErrorCollection), typeof(string) }
+            [typeof(SqlErrorCollection), typeof(string)]
         );
-        var exception = createMethod.Invoke(null, new object[] { collection, "TESTING" }) as SqlException;
+        var exception = createMethod.Invoke(null, [collection, "TESTING"]) as SqlException;
         return exception;
     }
 
     private static SqlErrorCollection MakeSqlErrorCollection(SqlError error)
     {
-        var collectionType = typeof(SqlErrorCollection);
-        var ctor = collectionType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, Array.Empty<Type>());
-        var collection = ctor.Invoke(Array.Empty<object>()) as SqlErrorCollection;
-        var addMethod = collectionType.GetMethod("Add", BindingFlags.NonPublic | BindingFlags.Instance);
-        addMethod.Invoke(collection, new object[] { error });
+        Type collectionType = typeof(SqlErrorCollection);
+        ConstructorInfo ctor = collectionType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, Array.Empty<Type>());
+        SqlErrorCollection collection = ctor.Invoke([]) as SqlErrorCollection;
+        MethodInfo addMethod = collectionType.GetMethod("Add", BindingFlags.NonPublic | BindingFlags.Instance);
+        addMethod.Invoke(collection, [error]);
         return collection;
     }
 
     private static SqlError MakeSqlError(int number, string message)
     {
-        var errorType = typeof(SqlError);
-        var error = Instantiate<SqlError>();
-        var privateBindings = BindingFlags.NonPublic | BindingFlags.Instance;
+        Type errorType = typeof(SqlError);
+        SqlError error = Instantiate<SqlError>();
+        BindingFlags privateBindings = BindingFlags.NonPublic | BindingFlags.Instance;
 
-        var numberMember = errorType.GetField("_number", privateBindings);
+        FieldInfo numberMember = errorType.GetField("_number", privateBindings);
         numberMember.SetValue(error, number);
 
         if (!string.IsNullOrWhiteSpace(message))
         {
-            var messageMember = errorType.GetField("_message", privateBindings);
+            FieldInfo messageMember = errorType.GetField("_message", privateBindings);
             messageMember.SetValue(error, message);
         }
 

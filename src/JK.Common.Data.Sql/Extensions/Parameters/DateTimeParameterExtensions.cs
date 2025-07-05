@@ -42,7 +42,7 @@ public static class DateTimeParameterExtensions
 
     private static void SetDateTime2Values(SqlParameterCollection parameters, string name, object value, byte? precision)
     {
-        var parameter = parameters.Add(name, SqlDbType.DateTime2);
+        SqlParameter parameter = parameters.Add(name, SqlDbType.DateTime2);
         parameter.Value = value;
         if (precision.HasValue)
         {

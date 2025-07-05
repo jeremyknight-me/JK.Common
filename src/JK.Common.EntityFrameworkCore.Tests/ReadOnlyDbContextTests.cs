@@ -9,12 +9,12 @@ public class ReadOnlyDbContextTests
     {
         var builder = new DbContextOptionsBuilder<ReadContext>();
         builder.UseInMemoryDatabase("SaveChanges_Create");
-        var options = builder.Options;
+        DbContextOptions<ReadContext> options = builder.Options;
         using (var context = new ReadContext(options))
         {
             var entity = new SimpleEntity { Text = "Hello World" };
             context.SimpleEntities.Add(entity);
-            var ex = Assert.Throws<InvalidOperationException>(() => context.SaveChanges());
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => context.SaveChanges());
             Assert.Equal("This context is read-only.", ex.Message);
         }
     }
@@ -24,12 +24,12 @@ public class ReadOnlyDbContextTests
     {
         var builder = new DbContextOptionsBuilder<ReadContext>();
         builder.UseInMemoryDatabase("SaveChanges_Create");
-        var options = builder.Options;
+        DbContextOptions<ReadContext> options = builder.Options;
         using (var context = new ReadContext(options))
         {
             var entity = new SimpleEntity { Text = "Hello World" };
             context.SimpleEntities.Add(entity);
-            var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () => await context.SaveChangesAsync(TestContext.Current.CancellationToken));
+            InvalidOperationException ex = await Assert.ThrowsAsync<InvalidOperationException>(async () => await context.SaveChangesAsync(TestContext.Current.CancellationToken));
             Assert.Equal("This context is read-only.", ex.Message);
         }
     }
@@ -38,7 +38,7 @@ public class ReadOnlyDbContextTests
     {
         public SimpleEntity()
         {
-            this.Id = Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         [Key]
@@ -52,7 +52,7 @@ public class ReadOnlyDbContextTests
         {
         }
 
-        public ReadContext(DbContextOptions options)
+        public ReadContext(DbContextOptions<ReadContext> options)
             : base(options)
         {
         }

@@ -15,10 +15,10 @@ public class NCharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddNChar(name, value, size);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         Assert.Equal(size, parameter.Size);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -26,9 +26,9 @@ public class NCharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddNChar("foo", null, 2, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -46,7 +46,7 @@ public class NCharParameterExtensionTests
     public void AddNChar_InvalidSizeException_Theories(int size)
     {
         using var command = new SqlCommand();
-        var exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
+        ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
         {
             command.Parameters.AddNChar("foo", null, size);
         });

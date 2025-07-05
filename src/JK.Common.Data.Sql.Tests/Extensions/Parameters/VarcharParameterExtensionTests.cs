@@ -16,10 +16,10 @@ public class VarcharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddVarchar(name, value, size);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
         Assert.Equal(value, parameter.Value);
         Assert.Equal(size, parameter.Size);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]
@@ -27,9 +27,9 @@ public class VarcharParameterExtensionTests
     {
         using var command = new SqlCommand();
         command.Parameters.AddVarchar("foo", null, skipIfNull: false);
-        var parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
+        SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, "foo");
         ParameterAssertHelper.AssertDbNull(parameter);
-        this.AssertDbTypes(parameter);
+        AssertDbTypes(parameter);
     }
 
     [Fact]

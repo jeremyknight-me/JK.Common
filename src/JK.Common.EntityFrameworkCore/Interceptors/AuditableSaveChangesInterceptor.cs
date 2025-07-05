@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace JK.Common.EntityFrameworkCore.Interceptors;
@@ -15,7 +16,7 @@ public sealed class AuditableSaveChangesInterceptor : SaveChangesInterceptor
     {
         if (eventData.Context is not null)
         {
-            this.UpdateAuditableEntities(eventData.Context);
+            UpdateAuditableEntities(eventData.Context);
         }
 
         return base.SavingChanges(eventData, result);
@@ -28,22 +29,22 @@ public sealed class AuditableSaveChangesInterceptor : SaveChangesInterceptor
     {
         if (eventData.Context is not null)
         {
-            this.UpdateAuditableEntities(eventData.Context);
+            UpdateAuditableEntities(eventData.Context);
         }
 
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }
 
-    private void UpdateAuditableEntities(DbContext context)
+    private static void UpdateAuditableEntities(DbContext context)
     {
-        var now = DateTimeOffset.UtcNow;
-        var entries = context.ChangeTracker
+        DateTimeOffset now = DateTimeOffset.UtcNow;
+        EntityEntry<IAuditableEntity>[] entries = context.ChangeTracker
             .Entries<IAuditableEntity>()
             .Where(e =>
                 e.State == EntityState.Added
                 || e.State == EntityState.Modified)
             .ToArray();
-        foreach (var entry in entries)
+        foreach (EntityEntry<IAuditableEntity> entry in entries)
         {
             entry.Property(nameof(IAuditableEntity.DateModifiedUtc)).CurrentValue = now;
             if (entry.State == EntityState.Added)

@@ -26,7 +26,7 @@ public static class DateTimeOffsetParameterExtensions
 
     private static void AddParameter(SqlParameterCollection parameters, string name, object value, byte? precision)
     {
-        var parameter = parameters.Add(name, SqlDbType.DateTimeOffset);
+        SqlParameter parameter = parameters.Add(name, SqlDbType.DateTimeOffset);
         parameter.Value = value;
         if (precision.HasValue)
         {

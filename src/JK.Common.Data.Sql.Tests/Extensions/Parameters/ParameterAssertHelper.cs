@@ -12,7 +12,7 @@ internal static class ParameterAssertHelper
     internal static SqlParameter AssertSingleAndReturn(SqlCommand command, string expectedName)
     {
         Assert.Single(command.Parameters);
-        var parameter = command.Parameters[0];
+        SqlParameter parameter = command.Parameters[0];
         Assert.Equal(expectedName, parameter.ParameterName);
         return parameter;
     }

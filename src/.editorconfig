@@ -73,13 +73,23 @@ csharp_style_var_elsewhere = false:suggestion
 dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
 dotnet_style_predefined_type_for_member_access = true:suggestion
 
-# name all constant fields using PascalCase
-dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = suggestion
-dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols  = constant_fields
-dotnet_naming_rule.constant_fields_should_be_pascal_case.style    = pascal_case_style
-dotnet_naming_symbols.constant_fields.applicable_kinds   = field
-dotnet_naming_symbols.constant_fields.required_modifiers = const
+# Private const fields should be camelCase
+dotnet_naming_symbols.private_const_field.applicable_kinds = field
+dotnet_naming_symbols.private_const_field.applicable_accessibilities = private
+dotnet_naming_symbols.private_const_field.required_modifiers = const
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+dotnet_naming_rule.private_const_fields_camel_case.severity = error
+dotnet_naming_rule.private_const_fields_camel_case.symbols = private_const_field
+dotnet_naming_rule.private_const_fields_camel_case.style = camel_case_style
+
+# Non-private const fields (public, internal, protected, protected_internal, etc.) should be PascalCase
+dotnet_naming_symbols.non_private_const_field.applicable_kinds = field
+dotnet_naming_symbols.non_private_const_field.applicable_accessibilities = public, internal, protected, protected_internal, protected_friend, friend
+dotnet_naming_symbols.non_private_const_field.required_modifiers = const
 dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+dotnet_naming_rule.non_private_const_fields_pascal_case.severity = error
+dotnet_naming_rule.non_private_const_fields_pascal_case.symbols = non_private_const_field
+dotnet_naming_rule.non_private_const_fields_pascal_case.style = pascal_case_style
 
 # static fields should have s_ prefix
 dotnet_naming_rule.static_fields_should_have_prefix.severity = error

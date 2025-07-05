@@ -8,7 +8,7 @@ public static class DecimalParameterExtensions
 {
     public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal value, byte precision, byte scale)
     {
-        var parameter = parameters.Add(name, SqlDbType.Decimal);
+        SqlParameter parameter = parameters.Add(name, SqlDbType.Decimal);
         parameter.Value = value;
         _ = SetDecimalPrecisionScale(parameter, precision, scale);
         return parameters;
@@ -21,7 +21,7 @@ public static class DecimalParameterExtensions
             return parameters;
         }
 
-        var parameter = parameters.Add(name, SqlDbType.Decimal);
+        SqlParameter parameter = parameters.Add(name, SqlDbType.Decimal);
         parameter.Value = value.HasValue ? value : DBNull.Value;
         _ = SetDecimalPrecisionScale(parameter, precision, scale);
         return parameters;
