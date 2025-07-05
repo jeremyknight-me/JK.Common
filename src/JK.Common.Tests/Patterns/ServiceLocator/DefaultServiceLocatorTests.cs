@@ -8,7 +8,7 @@ public class DefaultServiceLocatorTests
     public void Locate_GetCorrectTypeInstance()
     {
         DefaultServiceLocator.Instance.Register<IIdentifiable<int>>(new ComplexObject());
-        var actual = DefaultServiceLocator.Instance.Locate<IIdentifiable<int>>();
+        IIdentifiable<int> actual = DefaultServiceLocator.Instance.Locate<IIdentifiable<int>>();
         Assert.IsType<ComplexObject>(actual);
     }
 }

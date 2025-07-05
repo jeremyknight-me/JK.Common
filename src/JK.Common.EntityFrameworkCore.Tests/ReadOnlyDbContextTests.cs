@@ -29,7 +29,7 @@ public class ReadOnlyDbContextTests
         {
             var entity = new SimpleEntity { Text = "Hello World" };
             context.SimpleEntities.Add(entity);
-            var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () => await context.SaveChangesAsync());
+            var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () => await context.SaveChangesAsync(TestContext.Current.CancellationToken));
             Assert.Equal("This context is read-only.", ex.Message);
         }
     }

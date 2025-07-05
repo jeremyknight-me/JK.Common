@@ -4,8 +4,6 @@ namespace JK.Common.Tests.Data;
 
 public class DatabaseValueParserTests
 {
-    #region GetValueOrDefault() Tests
-
     [Fact]
     public void GetValueOrDefault_DbNullInt()
     {
@@ -22,10 +20,6 @@ public class DatabaseValueParserTests
         Assert.Equal(123, actual);
     }
 
-    #endregion
-
-    #region GetValueOrNull() Tests
-
     [Fact]
     public void GetValueOrNull_NullString()
     {
@@ -40,6 +34,4 @@ public class DatabaseValueParserTests
         string actual = DatabaseValueParser.GetValueOrNull<string>("abc123");
         Assert.Equal("abc123", actual);
     }
-
-    #endregion
 }

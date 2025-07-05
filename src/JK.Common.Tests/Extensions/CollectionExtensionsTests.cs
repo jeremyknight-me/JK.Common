@@ -22,7 +22,7 @@ public class CollectionExtensionsTests
     [Fact]
     public void ICollectionT_HasItems_Items_True()
     {
-        ICollection<int> items = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        ICollection<int> items = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         Assert.True(items.HasItems());
     }
 
@@ -36,14 +36,14 @@ public class CollectionExtensionsTests
     [Fact]
     public void IReadOnlyCollectionT_HasItems_NoItems_False()
     {
-        IReadOnlyCollection<int> items = Array.Empty<int>();
+        IReadOnlyCollection<int> items = [];
         Assert.False(items.HasItems());
     }
 
     [Fact]
     public void IReadOnlyCollectionT_HasItems_Items_True()
     {
-        IReadOnlyCollection<int> items = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        IReadOnlyCollection<int> items = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         Assert.True(items.HasItems());
     }
 }

@@ -6,7 +6,7 @@ public class DeepClonerTests
     public void Clone_Null_ArgumentNullException()
     {
         var cloner = new DeepCloner();
-        var ex = Assert.Throws<ArgumentNullException>(() => cloner.Clone(null));
+        ArgumentNullException ex = Assert.Throws<ArgumentNullException>(() => cloner.Clone(null));
     }
 
     [Fact]
