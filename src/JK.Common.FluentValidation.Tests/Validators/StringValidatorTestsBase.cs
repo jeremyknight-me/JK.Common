@@ -7,7 +7,7 @@ public abstract class StringValidatorTestsBase
     public TestValidationResult<MockModel> MakeAndTestValidator(string value)
     {
         var model = new MockModel { StringValue = value };
-        var validator = new MockModelStringValidator(this.Validator);
+        var validator = new MockModelStringValidator(Validator);
         return validator.TestValidate(model);
     }
 
@@ -15,7 +15,7 @@ public abstract class StringValidatorTestsBase
     {
         public MockModelStringValidator(StringValidatorBase<MockModel> validator)
         {
-            this.RuleFor(x => x.StringValue).SetValidator(validator);
+            RuleFor(x => x.StringValue).SetValidator(validator);
         }
     }
 }

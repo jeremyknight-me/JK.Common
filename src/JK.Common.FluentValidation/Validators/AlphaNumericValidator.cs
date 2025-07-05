@@ -12,7 +12,7 @@ public class AlphaNumericValidator<T> : StringValidatorBase<T>
 
     ///<inheritdoc/>
     protected override string GetDefaultMessageTemplate(string errorCode)
-        => "String in propery {PropertyName} must only contain uppercase letters, lowercase letters, or numbers.";
+        => "String in property {PropertyName} must only contain uppercase letters, lowercase letters, or numbers.";
 
     ///<inheritdoc/>
     protected override bool IsStringValid(string value)

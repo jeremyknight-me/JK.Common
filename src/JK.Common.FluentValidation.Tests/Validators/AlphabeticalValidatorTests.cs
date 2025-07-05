@@ -8,7 +8,7 @@ public class AlphabeticalValidatorTests : StringValidatorTestsBase
     [InlineData("abcdefghijklmnopqrstuvwxyz")]
     public void IsValid_TrueTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 
@@ -17,7 +17,7 @@ public class AlphabeticalValidatorTests : StringValidatorTestsBase
     [InlineData("abc123")]
     public void IsValid_FalseTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldHaveValidationErrorFor(x => x.StringValue);
     }
 }

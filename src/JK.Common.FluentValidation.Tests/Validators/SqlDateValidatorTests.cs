@@ -9,7 +9,7 @@ public class SqlDateValidatorTests
     [InlineData(1754, 1, 1)] // > 1753
     public void IsValid_TrueTheories(int year, int month, int day)
     {
-        var result = this.MakeAndTestValidator(year, month, day);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(year, month, day);
         result.ShouldNotHaveValidationErrorFor(x => x.DateValue);
     }
 
@@ -17,7 +17,7 @@ public class SqlDateValidatorTests
     [InlineData(1752, 12, 31)] // < 1753
     public void IsValid_FalseTheories(int year, int month, int day)
     {
-        var result = this.MakeAndTestValidator(year, month, day);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(year, month, day);
         result.ShouldHaveValidationErrorFor(x => x.DateValue);
     }
 
@@ -34,7 +34,7 @@ public class SqlDateValidatorTests
     {
         public MockModelDateValidator(PropertyValidator<MockModel, DateTime> validator)
         {
-            this.RuleFor(x => x.DateValue).SetValidator(validator);
+            RuleFor(x => x.DateValue).SetValidator(validator);
         }
     }
 }

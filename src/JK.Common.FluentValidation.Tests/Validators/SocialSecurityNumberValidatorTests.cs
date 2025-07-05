@@ -11,7 +11,7 @@ public class SocialSecurityNumberValidatorTests : StringValidatorTestsBase
     [InlineData("899-05-1120")] // left less than 900
     public void IsValid_TrueTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.StringValue);
     }
 
@@ -25,7 +25,7 @@ public class SocialSecurityNumberValidatorTests : StringValidatorTestsBase
     [InlineData("900-12-4321")] // left greater than equal 900
     public void IsValid_FalseTheories(string value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldHaveValidationErrorFor(x => x.StringValue);
     }
 }

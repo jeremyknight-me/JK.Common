@@ -15,12 +15,12 @@ public class SqlDateValidator<T, TProperty> : PropertyValidator<T, TProperty>
 
     ///<inheritdoc/>
     protected override string GetDefaultMessageTemplate(string errorCode)
-        => "Year in propery {PropertyName} must be greater than 1753";
+        => "Year in property {PropertyName} must be greater than 1753";
 
     ///<inheritdoc/>
     public override bool IsValid(ValidationContext<T> context, TProperty value)
     {
-        var date = this.GetDateTime(value);
+        DateTime? date = GetDateTime(value);
         if (!date.HasValue)
         {
             return true;
@@ -30,7 +30,7 @@ public class SqlDateValidator<T, TProperty> : PropertyValidator<T, TProperty>
         return specification.IsSatisfiedBy(date.Value);
     }
 
-    private DateTime? GetDateTime(object value)
+    private static DateTime? GetDateTime(object value)
         => value switch
         {
             var v when v is null => null,

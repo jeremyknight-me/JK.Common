@@ -10,7 +10,7 @@ public class LatitudeValidatorTests : DecimalValidatorTestsBase
     [InlineData(90)]
     public void IsValid_TrueTheories(decimal value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldNotHaveValidationErrorFor(x => x.DecimalValue);
     }
 
@@ -19,7 +19,7 @@ public class LatitudeValidatorTests : DecimalValidatorTestsBase
     [InlineData(91)]
     public void IsValid_FalseTheories(decimal value)
     {
-        var result = this.MakeAndTestValidator(value);
+        TestValidationResult<MockModel> result = MakeAndTestValidator(value);
         result.ShouldHaveValidationErrorFor(x => x.DecimalValue);
     }
 }
