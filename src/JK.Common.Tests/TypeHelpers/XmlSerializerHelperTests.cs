@@ -8,7 +8,7 @@ public class XmlSerializationFacadeTests
     public void DeserializeString_Test()
     {
         var xml = "<SimpleObject><Id>1</Id><Title>ABC</Title></SimpleObject>";
-        var actual = XmlSerializerHelper.DeserializeString<SimpleObject>(xml);
+        SimpleObject actual = XmlSerializerHelper.DeserializeString<SimpleObject>(xml);
         Assert.Equal(1, actual.Id);
         Assert.Equal("ABC", actual.Title);
     }

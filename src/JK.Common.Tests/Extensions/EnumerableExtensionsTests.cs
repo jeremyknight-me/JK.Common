@@ -98,7 +98,7 @@ public class EnumerableExtensionsTests_DistinctBy
         Assert.Equal(200, distinctIntList.Count);
     }
 
-    private struct EqualityStructTester
+    private readonly struct EqualityStructTester
     {
         public EqualityStructTester(int index, DateTime date) : this()
         {

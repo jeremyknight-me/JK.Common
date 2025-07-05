@@ -6,7 +6,7 @@ namespace JK.Common.Converters;
 
 public sealed class DistanceConverter
 {
-    private readonly IDictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> _strategies;
+    private readonly Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> _strategies;
 
     public DistanceConverter()
     {

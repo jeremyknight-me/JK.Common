@@ -55,7 +55,7 @@ public class TinyIntParameterExtensionTests
             { "Bar", 2 }
         };
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Byte, parameter.DbType);
         Assert.Equal(SqlDbType.TinyInt, parameter.SqlDbType);

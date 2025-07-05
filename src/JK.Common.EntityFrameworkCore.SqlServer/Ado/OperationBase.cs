@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.Common;
 
 namespace JK.Common.EntityFrameworkCore.SqlServer.Ado;
 
@@ -6,7 +7,7 @@ public abstract class OperationBase
 {
     protected OperationBase(DbContext dbContext)
     {
-        this.Context = dbContext;
+        Context = dbContext;
     }
 
     protected DbContext Context { get; }
@@ -17,11 +18,11 @@ public abstract class OperationBase
 
     protected IDbCommand SetupCommand(CommandType commandType, string commandText)
     {
-        var connection = this.Context.Database.GetDbConnection();
-        var command = connection.CreateCommand();
+        DbConnection connection = Context.Database.GetDbConnection();
+        DbCommand command = connection.CreateCommand();
         command.CommandText = commandText;
         command.CommandType = commandType;
-        this.SetupParameters(command);
+        SetupParameters(command);
         return command;
     }
 }

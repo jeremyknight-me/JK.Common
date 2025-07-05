@@ -53,7 +53,7 @@ public class CharParameterExtensionTests
         Assert.StartsWith("Data type 'char' must be positive value between 0 and 8000", exception.Message);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.AnsiStringFixedLength, parameter.DbType);
         Assert.Equal(SqlDbType.Char, parameter.SqlDbType);

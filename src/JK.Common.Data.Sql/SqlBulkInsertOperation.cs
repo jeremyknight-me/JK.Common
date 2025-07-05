@@ -68,7 +68,7 @@ public class SqlBulkInsertOperation<T>
     }
 
 #if NET8_0_OR_GREATER
-    private void Guard(SqlBulkCopySettings settings, IEnumerable<T> items)
+    private static void Guard(SqlBulkCopySettings settings, IEnumerable<T> items)
     {
         ArgumentNullException.ThrowIfNull(settings, nameof(settings));
         ArgumentNullException.ThrowIfNull(items, nameof(items));
@@ -80,7 +80,7 @@ public class SqlBulkInsertOperation<T>
         }
     }
 #else
-    private void Guard(SqlBulkCopySettings settings, IEnumerable<T> items)
+    private static void Guard(SqlBulkCopySettings settings, IEnumerable<T> items)
     {
         if (settings is null)
         {

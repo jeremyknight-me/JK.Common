@@ -46,14 +46,14 @@ public class VarcharParameterExtensionTests
     public void AddVarchar_InvalidSizeException_Theories(int size)
     {
         using var command = new SqlCommand();
-        var exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
+        ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() =>
         {
             command.Parameters.AddVarchar("foo", null, size);
         });
         Assert.StartsWith("Data type 'varchar' must be positive value between 0 and 8000", exception.Message);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.AnsiString, parameter.DbType);
         Assert.Equal(SqlDbType.VarChar, parameter.SqlDbType);

@@ -10,8 +10,8 @@ public  class DateHelperTests
         [MemberData(nameof(Data))]
         public void DateTime_Theories(string startDay, int daysToAdd, int expectedDay)
         {
-            var original = DateTime.Parse(startDay);
-            var actual = DateHelper.AddWorkDays(original, daysToAdd);
+            DateTime original = DateTime.Parse(startDay);
+            DateTime actual = DateHelper.AddWorkDays(original, daysToAdd);
             Assert.Equal(expectedDay, actual.Day);
         }
 
@@ -19,8 +19,8 @@ public  class DateHelperTests
         [MemberData(nameof(Data))]
         public void DateTimeOffset_Theories(string startDay, int daysToAdd, int expectedDay)
         {
-            var original = DateTimeOffset.Parse(startDay);
-            var actual = DateHelper.AddWorkDays(original, daysToAdd);
+            DateTimeOffset original = DateTimeOffset.Parse(startDay);
+            DateTimeOffset actual = DateHelper.AddWorkDays(original, daysToAdd);
             Assert.Equal(expectedDay, actual.Day);
         }
 
@@ -29,8 +29,8 @@ public  class DateHelperTests
         [MemberData(nameof(Data))]
         public void DateOnly_Theories(string startDay, int daysToAdd, int expectedDay)
         {
-            var original = DateOnly.Parse(startDay);
-            var actual = DateHelper.AddWorkDays(original, daysToAdd);
+            DateOnly original = DateOnly.Parse(startDay);
+            DateOnly actual = DateHelper.AddWorkDays(original, daysToAdd);
             Assert.Equal(expectedDay, actual.Day);
         }
 #endif

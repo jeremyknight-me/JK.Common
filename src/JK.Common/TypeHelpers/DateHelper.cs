@@ -60,7 +60,7 @@ public static partial class DateHelper
     /// <returns>Age from birth date to given date.</returns>
     public static int CalculateAge(in DateTime currentDate, in DateTime birthday)
     {
-        var now = currentDate.Date;
+        DateTime now = currentDate.Date;
         var age = now.Year - birthday.Year;
         if (birthday > now.AddYears(-age))
         {

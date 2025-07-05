@@ -22,5 +22,5 @@ public class OrSpecification<TEntity> : CompositeSpecification<TEntity>
     /// <param name="candidate">The candidate.</param>
     /// <returns>True if is satisfied by the specified candidate; otherwise false.</returns>
     public override bool IsSatisfiedBy(in TEntity candidate)
-        => this.Left.IsSatisfiedBy(candidate) || this.Right.IsSatisfiedBy(candidate);
+        => Left.IsSatisfiedBy(candidate) || Right.IsSatisfiedBy(candidate);
 }

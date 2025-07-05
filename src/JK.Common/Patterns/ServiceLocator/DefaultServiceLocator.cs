@@ -8,9 +8,7 @@ namespace JK.Common.Patterns.ServiceLocator;
 /// </summary>
 public class DefaultServiceLocator : IServiceLocator
 {
-    #region Singleton Implementation    
-
-    private static readonly object _threadLock = new object();
+    private static readonly object _threadLock = new();
 
     private static DefaultServiceLocator _instance;
 
@@ -25,17 +23,12 @@ public class DefaultServiceLocator : IServiceLocator
         {
             lock (_threadLock)
             {
-                if (_instance is null)
-                {
-                    _instance = new DefaultServiceLocator();
-                }
+                _instance ??= new DefaultServiceLocator();
             }
 
             return _instance;
         }
     }
-
-    #endregion
 
     private readonly Dictionary<Type, object> _services;
 
@@ -60,9 +53,6 @@ public class DefaultServiceLocator : IServiceLocator
     public void Unregister<T>()
     {
         Type type = typeof(T);
-        if (_services.ContainsKey(type))
-        {
-            _services.Remove(type);
-        }
+        _services.Remove(type);
     }
 }

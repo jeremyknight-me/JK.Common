@@ -4,20 +4,20 @@ namespace JK.Common.EntityFrameworkCore.SqlServer.Ado;
 
 public abstract class ScalarOperationBase<T> : OperationBase
 {
-    private readonly CommandType commandType;
-    private readonly string commandText;
+    private readonly CommandType _commandType;
+    private readonly string _commandText;
 
     protected ScalarOperationBase(DbContext context, CommandType adoCommandType, string adoCommandText)
         : base(context)
     {
-        this.commandText = adoCommandText;
-        this.commandType = adoCommandType;
+        _commandText = adoCommandText;
+        _commandType = adoCommandType;
     }
 
     public T Execute()
     {
-        using var command = this.SetupCommand(this.commandType, this.commandText);
-        this.Context.Database.OpenConnection();
+        using IDbCommand command = SetupCommand(_commandType, _commandText);
+        Context.Database.OpenConnection();
         var scalar = command.ExecuteScalar();
         return (T)scalar;
     }

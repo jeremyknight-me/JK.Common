@@ -49,7 +49,7 @@ public class IntParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Int32, parameter.DbType);
         Assert.Equal(SqlDbType.Int, parameter.SqlDbType);

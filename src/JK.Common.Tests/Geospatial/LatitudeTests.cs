@@ -89,7 +89,7 @@ public class LatitudeTests
         AssertCoordinateData(latitude);
     }
 
-    private void AssertCoordinateData(Latitude latitude)
+    private static void AssertCoordinateData(Latitude latitude)
     {
         //Assert.Equal(40.4461111111m, latitude.DecimalDegreesSigned);
         Assert.Equal(40, latitude.Degrees);

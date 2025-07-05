@@ -7,14 +7,14 @@ namespace JK.Common;
 /// <summary>
 /// Object used to create deep clones using XML serialization.
 /// </summary>
-public sealed class DeepCloner
+public static class DeepCloner
 {
     /// <summary>
     /// Clones the given object.
     /// </summary>
     /// <param name="valueToClone">Object to clone.</param>
     /// <returns>Exact clone of an object.</returns>
-    public object Clone(in object valueToClone)
+    public static object Clone(in object valueToClone)
     {
         if (valueToClone is null)
         {

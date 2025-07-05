@@ -37,7 +37,7 @@ public sealed class Latitude : CoordinateBase
     {
     }
 
-    public override Direction Direction => this.IsNegative ? Direction.S : Direction.N;
+    public override Direction Direction => IsNegative ? Direction.S : Direction.N;
 
     public override CoordinateType CoordinateType => CoordinateType.Latitude;
 

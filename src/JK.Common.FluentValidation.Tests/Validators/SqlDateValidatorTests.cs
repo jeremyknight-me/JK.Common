@@ -21,7 +21,7 @@ public class SqlDateValidatorTests
         result.ShouldHaveValidationErrorFor(x => x.DateValue);
     }
 
-    private TestValidationResult<MockModel> MakeAndTestValidator(int year, int month, int day)
+    private static TestValidationResult<MockModel> MakeAndTestValidator(int year, int month, int day)
     {
         var date = new DateTime(year, month, day);
         var model = new MockModel { DateValue = date };

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.Text;
+﻿namespace JK.Common.Text;
 
 /// <summary>
 /// Class which truncates strings.
@@ -56,7 +54,7 @@ public sealed class StringTruncater
     {
         var totalLength = HasIndicator() ? GetTotalLength(length) : length;
         var text = _originalText.Substring(0, totalLength).Trim();
-        var lastSpaceIndex = text.LastIndexOf(" ", StringComparison.Ordinal);
+        var lastSpaceIndex = text.LastIndexOf(' ');
         if (IsTruncatedInMiddleOfWord(totalLength, lastSpaceIndex))
         {
             text = text.Remove(lastSpaceIndex);

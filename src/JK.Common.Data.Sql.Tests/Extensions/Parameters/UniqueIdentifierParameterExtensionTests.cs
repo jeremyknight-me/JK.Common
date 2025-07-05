@@ -56,7 +56,7 @@ public class UniqueIdentifierParameterExtensionTests
             { "Bar", Guid.Parse("ca6293b4-deb6-4d45-b119-c892d5e1c549") }
         };
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Guid, parameter.DbType);
         Assert.Equal(SqlDbType.UniqueIdentifier, parameter.SqlDbType);

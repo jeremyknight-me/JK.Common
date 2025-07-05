@@ -15,11 +15,7 @@ internal sealed class LockedSingleton
         {
             lock (_threadLock)
             {
-                if (_instance == null)
-                {
-                    _instance = new LockedSingleton();
-                }
-
+                _instance ??= new LockedSingleton();
                 return _instance;
             }
         }

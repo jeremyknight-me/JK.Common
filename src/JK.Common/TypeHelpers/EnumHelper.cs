@@ -30,7 +30,7 @@ public class EnumHelper
             throw new ArgumentException("The 'type' parameter must contain an Enum type.");
         }
 
-        foreach (string name in Enum.GetNames(type))
+        foreach (var name in Enum.GetNames(type))
         {
             FieldInfo field = type.GetField(name);
             var attribute = field.GetCustomAttributes(typeof(DisplayAttribute), false);

@@ -49,7 +49,7 @@ public class FloatParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Double, parameter.DbType);
         Assert.Equal(SqlDbType.Float, parameter.SqlDbType);

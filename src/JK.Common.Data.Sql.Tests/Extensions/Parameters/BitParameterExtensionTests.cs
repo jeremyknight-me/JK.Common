@@ -49,7 +49,7 @@ public class BitParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.Boolean, parameter.DbType);
         Assert.Equal(SqlDbType.Bit, parameter.SqlDbType);

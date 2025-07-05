@@ -14,14 +14,18 @@ public abstract class OperationBase<TParameterModel> : IDisposable
 
     protected IAdoConnectionFactory ConnectionFactory { get; }
 
-    public void Dispose() => _connection?.Dispose();
+    public void Dispose()
+    {
+        _connection?.Dispose();
+        GC.SuppressFinalize(this);
+    }
 
     protected abstract void ConfigureCommand(IDbCommand command, TParameterModel parameterModel);
 
     protected IDbCommand MakeCommand(TParameterModel parameterModel)
     {
         EnsureConnection();
-        var command = _connection.CreateCommand();
+        IDbCommand command = _connection.CreateCommand();
         ConfigureCommand(command, parameterModel);
         return command;
     }
@@ -49,14 +53,18 @@ public abstract class OperationBase : IDisposable
 
     protected IAdoConnectionFactory ConnectionFactory { get; }
 
-    public void Dispose() => _connection?.Dispose();
+    public void Dispose()
+    {
+        _connection?.Dispose();
+        GC.SuppressFinalize(this);
+    }
 
     protected abstract void ConfigureCommand(IDbCommand command);
 
     protected IDbCommand MakeCommand()
     {
         EnsureConnection();
-        var command = _connection.CreateCommand();
+        IDbCommand command = _connection.CreateCommand();
         ConfigureCommand(command);
         return command;
     }

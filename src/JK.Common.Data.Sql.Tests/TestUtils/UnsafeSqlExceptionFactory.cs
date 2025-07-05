@@ -2,10 +2,9 @@
 
 using System;
 using System.Reflection;
-using JK.Common.Data.Sql.Tests.TestUtils;
 using Microsoft.Data.SqlClient;
 
-namespace JK.Common.Data.Sql.TestUtils;
+namespace JK.Common.Data.Sql.Tests.TestUtils;
 
 /// <summary>
 /// WARNING: This is meant for unit testing only!!!
@@ -35,7 +34,7 @@ public static class UnsafeSqlExceptionFactory
     private static SqlErrorCollection MakeSqlErrorCollection(SqlError error)
     {
         Type collectionType = typeof(SqlErrorCollection);
-        ConstructorInfo ctor = collectionType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, Array.Empty<Type>());
+        ConstructorInfo ctor = collectionType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, []);
         SqlErrorCollection collection = ctor.Invoke([]) as SqlErrorCollection;
         MethodInfo addMethod = collectionType.GetMethod("Add", BindingFlags.NonPublic | BindingFlags.Instance);
         addMethod.Invoke(collection, [error]);

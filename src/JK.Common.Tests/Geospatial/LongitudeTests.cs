@@ -89,7 +89,7 @@ public class LongitudeTests
         AssertCoordinateData(longitude);
     }
 
-    private void AssertCoordinateData(Longitude longitude)
+    private static void AssertCoordinateData(Longitude longitude)
     {
         //Assert.AreEqual(-79.9822166667m, longitude.DecimalDegreesSigned);
         Assert.Equal(79, longitude.Degrees);

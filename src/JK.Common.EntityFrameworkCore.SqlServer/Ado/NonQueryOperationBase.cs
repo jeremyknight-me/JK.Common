@@ -4,21 +4,21 @@ namespace JK.Common.EntityFrameworkCore.SqlServer.Ado;
 
 public abstract class NonQueryOperationBase : OperationBase
 {
-    private readonly CommandType commandType;
-    private readonly string commandText;
+    private readonly CommandType _commandType;
+    private readonly string _commandText;
 
     protected NonQueryOperationBase(DbContext context, CommandType adoCommandType, string adoCommandText)
         : base(context)
     {
-        this.commandType = adoCommandType;
-        this.commandText = adoCommandText;
+        _commandType = adoCommandType;
+        _commandText = adoCommandText;
     }
 
     public void Execute()
     {
-        using (var command = this.SetupCommand(this.commandType, this.commandText))
+        using (IDbCommand command = SetupCommand(_commandType, _commandText))
         {
-            this.Context.Database.OpenConnection();
+            Context.Database.OpenConnection();
             command.ExecuteNonQuery();
         }
     }

@@ -103,8 +103,7 @@ public sealed class TemplateProcessor
     private Dictionary<string, string> GetKeyValuePairs()
     {
         var pairs = new Dictionary<string, string>();
-
-        foreach (var item in this.Objects)
+        foreach (var item in Objects)
         {
             Type t = item.GetType();
             foreach (System.Reflection.PropertyInfo property in t.GetProperties())

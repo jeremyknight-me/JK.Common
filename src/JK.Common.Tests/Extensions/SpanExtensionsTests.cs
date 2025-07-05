@@ -9,7 +9,7 @@ public class SpanExtensionsTests
     [Fact]
     public void Parse_Int()
     {
-        var value = "1".AsSpan();
+        ReadOnlySpan<char> value = "1".AsSpan();
         var actual = value.Parse<int>();
         Assert.Equal(1, actual);
     }
@@ -17,7 +17,7 @@ public class SpanExtensionsTests
     [Fact]
     public void Parse_Decimal()
     {
-        var value = "1.2".AsSpan();
+        ReadOnlySpan<char> value = "1.2".AsSpan();
         var actual = value.Parse<decimal>();
         Assert.Equal(1.2m, actual);
     }
@@ -25,8 +25,8 @@ public class SpanExtensionsTests
     [Fact]
     public void Parse_DateTime()
     {
-        var value = "2023-05-18".AsSpan();
-        var actual = value.Parse<DateTime>();
+        ReadOnlySpan<char> value = "2023-05-18".AsSpan();
+        DateTime actual = value.Parse<DateTime>();
         Assert.Equal(new DateTime(2023, 5, 18), actual);
     }
 }

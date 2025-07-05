@@ -53,7 +53,7 @@ public class NVarcharParameterExtensionTests
         Assert.StartsWith("Data type 'nvarchar' must be positive value between 0 and 4000", exception.Message);
     }
 
-    private void AssertDbTypes(SqlParameter parameter)
+    private static void AssertDbTypes(SqlParameter parameter)
     {
         Assert.Equal(DbType.String, parameter.DbType);
         Assert.Equal(SqlDbType.NVarChar, parameter.SqlDbType);
