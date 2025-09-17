@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
 
 namespace JK.Common.Text;
 
@@ -10,6 +12,7 @@ public sealed class TemplateProcessor
 {
     private readonly string _template;
     private readonly HashSet<string> _tokens = [];
+    private static readonly Dictionary<Type, PropertyInfo[]> _propertyCache = new();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TemplateProcessor"/> class.
@@ -56,57 +59,75 @@ public sealed class TemplateProcessor
     /// <returns>Template format with data inserted where tokens existed.</returns>
     public string ProcessTemplate()
     {
-        Dictionary<string, string> pairs = GetKeyValuePairs();
-        var returnValue = _template;
+        IReadOnlyDictionary<string, string> pairs = GetKeyValuePairs();
+        return _tokens.Count > 10
+            ? ProcessLargeTemplate(pairs)
+            : ProcessSmallTemplate(pairs);
+    }
 
+    private string ProcessLargeTemplate(IReadOnlyDictionary<string, string> pairs)
+    {
+        var sb = new StringBuilder(_template);
+        foreach (var key in pairs.Keys)
+        {
+            var token = GetTokenFromTokenKey(key);
+            sb.Replace(token, pairs[key]);
+        }
+        return sb.ToString();
+    }
+
+    private string ProcessSmallTemplate(IReadOnlyDictionary<string, string> pairs)
+    {
+        var returnValue = _template;
         foreach (var key in pairs.Keys)
         {
             var token = GetTokenFromTokenKey(key);
             returnValue = returnValue.Replace(token, pairs[key]);
         }
-
         return returnValue;
     }
 
     private void LoadTokenKeys()
     {
         _tokens.Clear();
-        var position = 0;
-        while (ContainsToken(position))
+        int position = 0;
+        while (true)
         {
-            var tokenStartIndex = GetTokenStartIndex(position);
-            var tokenEndIndex = GetTokenEndIndex(position);
-            var tokenKey = GetTokenKeyFromTemplate(tokenStartIndex, tokenEndIndex);
+            int tokenStartIndex = _template.IndexOf(TokenStart, position, StringComparison.Ordinal);
+            if (tokenStartIndex == -1)
+            {
+                break;
+            }
 
-            _tokens.Add(tokenKey);
+            int tokenEndIndex = _template.IndexOf(TokenEnd, tokenStartIndex + TokenStart.Length, StringComparison.Ordinal);
+            if (tokenEndIndex == -1)
+            {
+                break;
+            }
+
+            int startPosition = tokenStartIndex + TokenStart.Length;
+            int length = tokenEndIndex - startPosition;
+            if (length > 0)
+            {
+                var tokenKey = _template.Substring(startPosition, length);
+                _tokens.Add(tokenKey);
+            }
             position = tokenEndIndex + TokenEnd.Length;
         }
     }
 
-    private int GetTokenStartIndex(in int startIndex)
-        => _template.IndexOf(TokenStart, startIndex, StringComparison.OrdinalIgnoreCase);
-
-    private int GetTokenEndIndex(in int startIndex)
-        => _template.IndexOf(TokenEnd, startIndex, StringComparison.OrdinalIgnoreCase);
-
-    private string GetTokenKeyFromTemplate(in int tokenStartIndex, in int tokenEndIndex)
-    {
-        var startPosition = tokenStartIndex + TokenStart.Length;
-        var length = tokenEndIndex - tokenStartIndex - TokenEnd.Length;
-        return _template.Substring(startPosition, length);
-    }
-
-    private bool ContainsToken(in int startIndex)
-        => _template.Substring(startIndex).Contains(TokenStart)
-           && _template.Substring(startIndex).Contains(TokenEnd);
-
-    private Dictionary<string, string> GetKeyValuePairs()
+    private IReadOnlyDictionary<string, string> GetKeyValuePairs()
     {
         var pairs = new Dictionary<string, string>();
         foreach (var item in Objects)
         {
             Type t = item.GetType();
-            foreach (System.Reflection.PropertyInfo property in t.GetProperties())
+            if (!_propertyCache.TryGetValue(t, out PropertyInfo[] properties))
+            {
+                properties = t.GetProperties();
+                _propertyCache[t] = properties;
+            }
+            foreach (PropertyInfo property in properties)
             {
                 var propertyFullName = string.Concat(t.Name, ".", property.Name);
                 foreach (var key in _tokens)
@@ -115,13 +136,11 @@ public sealed class TemplateProcessor
                     {
                         continue;
                     }
-
                     var propertyValue = property.GetValue(item, null);
                     pairs.Add(key, propertyValue?.ToString() ?? string.Empty);
                 }
             }
         }
-
         return pairs;
     }
 
