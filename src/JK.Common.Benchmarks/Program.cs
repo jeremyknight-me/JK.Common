@@ -1,0 +1,9 @@
+﻿using BenchmarkDotNet.Running;
+
+namespace JK.Common.Benchmarks;
+
+internal class Program
+{
+    static void Main(string[] args)
+        => BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+}

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11012.119 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A59DA4E8-21AA-4D88-A452-6C8152C9FE07}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,6 +38,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore.SqlServer", "JK.Common.EntityFrameworkCore.SqlServer\JK.Common.EntityFrameworkCore.SqlServer.csproj", "{AC8AFA29-6989-4F3C-B1C8-4520DCF11A3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.Abstractions", "JK.Common.Abstractions\JK.Common.Abstractions.csproj", "{BA8F0E82-64D4-4CBF-9675-7BB87582519B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.Benchmarks", "JK.Common.Benchmarks\JK.Common.Benchmarks.csproj", "{D498C007-7CC3-4A8B-A576-9E3EA295242C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{BA8F0E82-64D4-4CBF-9675-7BB87582519B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA8F0E82-64D4-4CBF-9675-7BB87582519B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA8F0E82-64D4-4CBF-9675-7BB87582519B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D498C007-7CC3-4A8B-A576-9E3EA295242C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D498C007-7CC3-4A8B-A576-9E3EA295242C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D498C007-7CC3-4A8B-A576-9E3EA295242C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D498C007-7CC3-4A8B-A576-9E3EA295242C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{412F2B89-61FA-4E97-AC71-244669E62027} = {BD186CDA-2173-4C37-A170-785FAFAD4074}
 		{AC8AFA29-6989-4F3C-B1C8-4520DCF11A3C} = {4CF860AF-2AE6-48A3-B263-C1408906F46C}
 		{BA8F0E82-64D4-4CBF-9675-7BB87582519B} = {FC6A540F-C7D8-4DEB-B163-5EAD481330B8}
+		{D498C007-7CC3-4A8B-A576-9E3EA295242C} = {FC6A540F-C7D8-4DEB-B163-5EAD481330B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86F24DB4-4BAA-44A9-8A59-08AB826C7CB8}
