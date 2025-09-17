@@ -30,6 +30,8 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+
+# BenchmarkDotnet Results
 [Bb]enchmark[Dd]ot[Nn]et.[Aa]rtifacts/
 
 # NUNIT
