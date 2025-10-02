@@ -2,18 +2,86 @@
 
 namespace JK.Common.TypeHelpers;
 
+/// <summary>
+/// Helper methods for common regular expression validations.
+/// </summary>
 public static partial class RegexHelper
 {
+    /// <summary>
+    /// Determines whether the input string contains only alphabetical characters.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is alphabetical; otherwise, <c>false</c>.</returns>
     public static bool IsAlphabetical(string value) => AlphabeticalRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string contains only alphanumeric characters.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is alphanumeric; otherwise, <c>false</c>.</returns>
     public static bool IsAlphanumeric(string value) => AlphanumericRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid decimal number.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is a decimal; otherwise, <c>false</c>.</returns>
     public static bool IsDecimal(string value) => DecimalRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid decimal or currency value.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is a decimal or currency; otherwise, <c>false</c>.</returns>
     public static bool IsDecimalOrCurrency(string value) => DecimalOrCurrencyRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid email address.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is an email address; otherwise, <c>false</c>.</returns>
     public static bool IsEmailAddress(string value) => EmailAddressRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid integer.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is an integer; otherwise, <c>false</c>.</returns>
     public static bool IsInteger(string value) => IntegerRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid IPv4 address.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is an IPv4 address; otherwise, <c>false</c>.</returns>
     public static bool IsIPv4(string value) => IPv4Regex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid US Social Security Number.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is a valid SSN; otherwise, <c>false</c>.</returns>
     public static bool IsSocialSecurityNumber(string value) => SocialSecurityNumberRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid United States phone number.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is a valid US phone number; otherwise, <c>false</c>.</returns>
     public static bool IsUnitedStatesPhoneNumber(string value) => UnitedStatesPhoneNumberRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid URL.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is a valid URL; otherwise, <c>false</c>.</returns>
     public static bool IsUrl(string value) => UrlRegex().IsMatch(value);
+
+    /// <summary>
+    /// Determines whether the input string is a valid US or Canadian zip code.
+    /// </summary>
+    /// <param name="value">The string to validate.</param>
+    /// <returns><c>true</c> if the string is a valid zip code; otherwise, <c>false</c>.</returns>
     public static bool IsZipCode(string value) => ZipCodeRegex().IsMatch(value);
 }
 

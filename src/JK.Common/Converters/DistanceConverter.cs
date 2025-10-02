@@ -4,10 +4,16 @@ using JK.Common.Enumerations;
 
 namespace JK.Common.Converters;
 
+/// <summary>
+/// Provides distance conversion logic between supported units.
+/// </summary>
 public sealed class DistanceConverter
 {
     private readonly Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal> _strategies;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DistanceConverter"/> class.
+    /// </summary>
     public DistanceConverter()
     {
         _strategies = new Dictionary<Tuple<DistanceUnit, DistanceUnit>, decimal>
@@ -31,6 +37,14 @@ public sealed class DistanceConverter
             };
     }
 
+    /// <summary>
+    /// Converts a distance value from one unit to another.
+    /// </summary>
+    /// <param name="originalDistance">The original distance value.</param>
+    /// <param name="originalUnit">The unit of the original distance value.</param>
+    /// <param name="newUnit">The unit to convert to.</param>
+    /// <returns>The converted distance value in the new unit.</returns>
+    /// <exception cref="NotSupportedException">Thrown when the unit pairing is not supported.</exception>
     public decimal Convert(in decimal originalDistance, in DistanceUnit originalUnit, in DistanceUnit newUnit)
     {
         if (originalUnit == newUnit)

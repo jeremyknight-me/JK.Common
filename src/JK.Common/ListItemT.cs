@@ -8,6 +8,13 @@
 /// <typeparam name="T">Type of the object's identifier</typeparam>
 public class ListItem<T>
 {
+    /// <summary>
+    /// Gets or sets the value associated with the list item.
+    /// </summary>
     public T Value { get; set; }
+
+    /// <summary>
+    /// Gets or sets the display text of the list item.
+    /// </summary>
     public string Text { get; set; }
 }

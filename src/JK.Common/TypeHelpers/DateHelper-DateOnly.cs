@@ -28,8 +28,6 @@ public static partial class DateHelper
         return date;
     }
 
-    #region CalculateAge
-
     /// <summary>Calculates age of an individual.</summary>
     /// <param name="currentDate">Date to calculate age from.</param>
     /// <param name="birthday">Date of birth.</param>
@@ -50,8 +48,6 @@ public static partial class DateHelper
     /// <param name="birthday">Date of birth.</param>
     /// <returns>Age from birth date to date today.</returns>
     public static int CalculateAge(in DateOnly birthday) => CalculateAge(DateOnly.FromDateTime(DateTime.Today), birthday);
-
-    #endregion
 
     /// <summary>Determines whether or not two date ranges overlap.</summary>
     /// <param name="startOne">Start date of range one</param>

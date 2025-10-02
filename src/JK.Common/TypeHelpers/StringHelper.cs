@@ -9,6 +9,11 @@ namespace JK.Common.TypeHelpers;
 /// </summary>
 public static class StringHelper
 {
+    /// <summary>
+    /// Attempts to parse the string as a decimal value. Returns null if the string is null, whitespace, or not a valid decimal.
+    /// </summary>
+    /// <param name="value">The string to parse.</param>
+    /// <returns>The parsed decimal value, or null if parsing fails.</returns>
     public static decimal? GetNullableDecimal(in string value)
     {
         if (string.IsNullOrWhiteSpace(value))
@@ -21,6 +26,11 @@ public static class StringHelper
             : number;
     }
 
+    /// <summary>
+    /// Attempts to parse the string as an integer value. Returns null if the string is null, whitespace, or not a valid integer.
+    /// </summary>
+    /// <param name="value">The string to parse.</param>
+    /// <returns>The parsed integer value, or null if parsing fails.</returns>
     public static int? GetNullableInteger(in string value)
     {
         if (string.IsNullOrWhiteSpace(value))
@@ -121,12 +131,25 @@ public static class StringHelper
 
 #if NETSTANDARD2_1_OR_GREATER || NET5_0_OR_GREATER
 
+    /// <summary>
+    /// Returns a read-only span of characters that starts at a specified position in the string.
+    /// </summary>
+    /// <param name="text">The source string.</param>
+    /// <param name="start">The zero-based starting character position of a substring in this instance.</param>
+    /// <returns>A read-only span that begins at <paramref name="start"/> in this string.</returns>
     public static ReadOnlySpan<char> Slice(in string text, int start)
     {
         ReadOnlySpan<char> textAsSpan = text;
         return textAsSpan[start..];
     }
 
+    /// <summary>
+    /// Returns a read-only span of characters that starts at a specified position and has a specified length.
+    /// </summary>
+    /// <param name="text">The source string.</param>
+    /// <param name="start">The zero-based starting character position of a substring in this instance.</param>
+    /// <param name="length">The number of characters in the substring.</param>
+    /// <returns>A read-only span that begins at <paramref name="start"/> in this string and has a length of <paramref name="length"/>.</returns>
     public static ReadOnlySpan<char> Slice(in string text, int start, int length)
     {
         ReadOnlySpan<char> textAsSpan = text;

@@ -6,8 +6,6 @@ namespace JK.Common.TypeHelpers;
 /// <summary>Class which contains methods for DateTime manipulation</summary>
 public static partial class DateHelper
 {
-    #region AddWorkDays
-
     /// <summary>Adds given number of business days to a date.</summary>
     /// <param name="date">Start date</param>
     /// <param name="days">Number of days to add (can be negative).</param>
@@ -50,10 +48,6 @@ public static partial class DateHelper
         return date;
     }
 
-    #endregion
-
-    #region CalculateAge
-
     /// <summary>Calculates age of an individual.</summary>
     /// <param name="currentDate">Date to calculate age from.</param>
     /// <param name="birthday">Date of birth.</param>
@@ -75,10 +69,6 @@ public static partial class DateHelper
     /// <returns>Age from birth date to date today.</returns>
     public static int CalculateAge(in DateTime birthday) => CalculateAge(DateTime.Today, birthday);
 
-    #endregion
-
-    #region DoesOverlap
-
     /// <summary>Determines whether or not two date ranges overlap.</summary>
     /// <param name="startOne">Start date of range one</param>
     /// <param name="endOne">End date of range one</param>
@@ -94,10 +84,6 @@ public static partial class DateHelper
     /// <param name="endTwo">End date of range two</param>
     /// <returns>True if overlap, otherwise false</returns>
     public static bool DoesOverlap(in DateTimeOffset startOne, in DateTimeOffset endOne, in DateTimeOffset startTwo, in DateTimeOffset endTwo) => startOne < endTwo && startTwo < endOne;
-
-    #endregion
-
-    #region GetAbbreviatedDayName
 
     /// <summary>Gets the abbreviated day name.</summary>
     /// <param name="date">Date of day.</param>
@@ -115,10 +101,6 @@ public static partial class DateHelper
     /// <returns>Abbreviated day name.</returns>
     public static string GetAbbreviatedDayName(in DayOfWeek dayOfWeek, in CultureInfo currentCulture) => currentCulture.DateTimeFormat.GetAbbreviatedDayName(dayOfWeek);
 
-    #endregion
-
-    #region GetAbbreviatedMonthName
-
     /// <summary>Gets the abbreviated month name.</summary>
     /// <param name="date">Date within the month to abbreviate.</param>
     /// <returns>Abbreviated month name.</returns>
@@ -134,10 +116,6 @@ public static partial class DateHelper
     /// <param name="cultureInfo">Culture to use when getting day name.</param>
     /// <returns>Abbreviated month name.</returns>
     public static string GetAbbreviatedMonthName(in int month, in CultureInfo cultureInfo) => cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(month);
-
-    #endregion
-
-    #region GetDayName
 
     /// <summary>Gets the full name of a given day.</summary>
     /// <param name="date">Date of day.</param>
@@ -155,10 +133,6 @@ public static partial class DateHelper
     /// <returns>Full day name.</returns>
     public static string GetDayName(in DayOfWeek dayOfWeek, in CultureInfo cultureInfo) => cultureInfo.DateTimeFormat.GetDayName(dayOfWeek);
 
-    #endregion
-
-    #region GetMonthName
-
     /// <summary>Gets the full name of a month.</summary>
     /// <param name="date">Date within the month.</param>
     /// <returns>Full month name.</returns>
@@ -175,10 +149,6 @@ public static partial class DateHelper
     /// <returns>Full month name.</returns>
     public static string GetMonthName(in int month, in CultureInfo cultureInfo) => cultureInfo.DateTimeFormat.GetMonthName(month);
 
-    #endregion
-
-    #region IsBetween 
-
     /// <summary>Determines whether or not a given date is between (inclusive) the given start and end dates.</summary>
     /// <param name="date">Date to check</param>
     /// <param name="start">Start of date range to check</param>
@@ -193,15 +163,11 @@ public static partial class DateHelper
     /// <returns>True if date falls within range, otherwise false</returns>
     public static bool IsBetween(in DateTimeOffset date, in DateTimeOffset start, in DateTimeOffset end) => start <= date && end >= date;
 
-    #endregion
-
     /// <summary>Determines whether or not a given date is valid to place in a SQL datetime column.</summary>
     /// <param name="date">Date to check against SQL datetime.</param>
     /// <returns>True if valid SQL date, otherwise false.</returns>
     /// <remarks>The minimum date a 'datetime' date type in SQL can hold is January 1, 1753</remarks>
     public static bool IsSqlDate(in DateTime date) => date >= DateTime.Parse("1753-01-01");
-
-    #region IsWeekday/IsWeekend
 
     /// <summary>Determines whether or not the given date is a weekday.</summary>
     /// <param name="date">DateTime to check.</param>
@@ -227,6 +193,4 @@ public static partial class DateHelper
     /// <param name="date">DateTimeOffset to check.</param>
     /// <returns>True if weekend, otherwise false.</returns>
     public static bool IsWeekend(in DateTimeOffset date) => !IsWeekday(date);
-
-    #endregion
 }

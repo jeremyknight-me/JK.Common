@@ -1,14 +1,20 @@
-﻿using System;
-using JK.Common.Specifications;
+﻿using JK.Common.Specifications;
 using JK.Common.Specifications.UnitedStates;
 using JK.Common.Text;
 using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions;
 
-/// <summary>Extension methods for the String object.</summary>
+/// <summary>
+/// Extension methods for the <see cref="string"/> object.
+/// </summary>
 public static class StringExtensions
 {
+    /// <summary>
+    /// Converts a null string to an empty string.
+    /// </summary>
+    /// <param name="value">The string value to check.</param>
+    /// <returns>An empty string if <paramref name="value"/> is null; otherwise, the original string.</returns>
     public static string ConvertNullToEmptyString(this string value) => value ?? string.Empty;
 
     /// <summary>
@@ -59,7 +65,9 @@ public static class StringExtensions
     /// <returns>True if valid zip code otherwise false.</returns>
     public static bool IsValidZip(this string valueToValidate) => new ZipCodeSpecification().IsSatisfiedBy(valueToValidate);
 
-    /// <summary>Returns the specified number of characters from a string. Same as Last()</summary>
+    /// <summary>
+    /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
+    /// </summary>
     /// <param name="value">Current string object from extension method.</param>
     /// <param name="length">Number of characters to get from end of string.</param>
     /// <returns>Returns the last X characters of the string.</returns>
@@ -79,7 +87,9 @@ public static class StringExtensions
     /// <returns>The original string in reverse.</returns>
     public static string Reverse(this string valueToReverse) => StringHelper.Reverse(valueToReverse);
 
-    /// <summary>Returns the specified number of characters from a string. Same as Last()</summary>
+    /// <summary>
+    /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
+    /// </summary>
     /// <param name="value">Current string object from extension method.</param>
     /// <param name="length">Number of characters to get from end of string.</param>
     /// <returns>Returns the last X characters of the string.</returns>
@@ -122,12 +132,12 @@ public static class StringExtensions
     /// <summary>
     /// Parses a string into a specified type. 
     /// </summary>
-    /// <typeparam name="T">Type to parse string value to which must implement IParsable</typeparam>
-    /// <param name="input">Current string object from extension method</param>
-    /// <param name="formatProvider">Format provider to pass down to the IParsable.Parse method.</param>
-    /// <returns>Parsed value of type T</returns>
-    public static T Parse<T>(this string input, IFormatProvider formatProvider = null)
-        where T : IParsable<T>
+    /// <typeparam name="T">Type to parse string value to which must implement <see cref="System.IParsable{T}"/></typeparam>
+    /// <param name="input">Current string object from extension method.</param>
+    /// <param name="formatProvider">Format provider to pass down to the <see cref="System.IParsable{T}.Parse"/> method.</param>
+    /// <returns>Parsed value of type T.</returns>
+    public static T Parse<T>(this string input, System.IFormatProvider formatProvider = null)
+        where T : System.IParsable<T>
         => T.Parse(input, formatProvider);
 
 #endif

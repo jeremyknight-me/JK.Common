@@ -44,6 +44,12 @@ public class EnumHelper
         }
     }
 
+    /// <summary>
+    /// Gets the first attribute of the specified type applied to the given enum value.
+    /// </summary>
+    /// <typeparam name="T">The type of attribute to retrieve.</typeparam>
+    /// <param name="enumVal">The enum value to inspect.</param>
+    /// <returns>The first attribute of type T if found; otherwise, null.</returns>
     public T GetAttribute<T>(in Enum enumVal) where T : Attribute
     {
         Type type = enumVal.GetType();
@@ -52,6 +58,12 @@ public class EnumHelper
         return (attributes.Length > 0) ? (T)attributes[0] : null;
     }
 
+    /// <summary>
+    /// Gets the display name for the specified enum value, using the DisplayAttribute if present.
+    /// </summary>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">The enum value.</param>
+    /// <returns>The display name if found; otherwise, the enum value name.</returns>
     public string GetDisplayName<T>(in T value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
@@ -64,6 +76,12 @@ public class EnumHelper
 
     #region Byte Conversion
 
+    /// <summary>
+    /// Gets an Enumeration value by its associated byte value.
+    /// </summary>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">Byte value.</param>
+    /// <returns>Enumeration value of type T.</returns>
     public T GetByByte<T>(in byte value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
@@ -71,6 +89,12 @@ public class EnumHelper
         return (T)Enum.ToObject(typeof(T), value);
     }
 
+    /// <summary>
+    /// Gets an Enumeration value by its associated nullable byte value.
+    /// </summary>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">Nullable byte value.</param>
+    /// <returns>Enumeration value of type T, or null if value is null.</returns>
     public T? GetByByte<T>(in byte? value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
@@ -84,12 +108,24 @@ public class EnumHelper
         return (T)Enum.ToObject(typeof(T), value);
     }
 
+    /// <summary>
+    /// Gets the byte value associated with the given enumeration type value.
+    /// </summary>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">Enumeration type value.</param>
+    /// <returns>Byte value.</returns>
     public byte GetByte<T>(in T value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
         return Convert.ToByte(value);
     }
 
+    /// <summary>
+    /// Gets the nullable byte value associated with the given enumeration type value.
+    /// </summary>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">Nullable enumeration type value.</param>
+    /// <returns>Nullable byte value.</returns>
     public int? GetByte<T>(in T? value) where T : struct, IConvertible
         => value.HasValue ? (byte?)Convert.ToByte(value) : null;
 
@@ -111,16 +147,22 @@ public class EnumHelper
     }
 
     /// <summary>
-    /// Gets an Enumeration value by its associated integer value.
+    /// Gets an Enumeration value by its associated nullable integer value.
     /// </summary>
     /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
-    /// <param name="value">Integer value.</param>
-    /// <returns>Enumeration value of type T.</returns>
+    /// <param name="value">Nullable integer value.</param>
+    /// <returns>Enumeration value of type T, or null if value is null.</returns>
     public T? GetByInteger<T>(in int? value) where T : struct, IConvertible
         => value.HasValue
             ? GetByInteger<T>(value.Value)
             : null;
 
+    /// <summary>
+    /// Gets the integer value associated with the given enumeration type value.
+    /// </summary>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">Enumeration type value.</param>
+    /// <returns>Integer value.</returns>
     public int GetInteger<T>(in T value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
@@ -128,10 +170,11 @@ public class EnumHelper
     }
 
     /// <summary>
-    /// Gets the integer value associated with the given enumeration type value.
+    /// Gets the nullable integer value associated with the given enumeration type value.
     /// </summary>
-    /// <param name="value">Enumeration type value.</param>
-    /// <returns>Integer value.</returns>
+    /// <typeparam name="T">Enumeration Type to use. Ex: typeof(EnumerationTypeName)</typeparam>
+    /// <param name="value">Nullable enumeration type value.</param>
+    /// <returns>Nullable integer value.</returns>
     public int? GetInteger<T>(in T? value) where T : struct, IConvertible
         => value.HasValue
             ? Convert.ToInt32(value)
@@ -139,31 +182,19 @@ public class EnumHelper
 
     #endregion
 
-    /// <summary>
-    /// Determines whether a given byte is a byte value within an enumeration.
-    /// </summary>
-    /// <typeparam name="T">Type of enumeration.</typeparam>
-    /// <param name="value">Byte value to check for.</param>
-    /// <returns>True if found, otherwise false.</returns>
-    private bool IsValidValue<T>(byte value) where T : struct, IConvertible
+    private static bool IsValidValue<T>(byte value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
         return Enum.GetValues(typeof(T)).Cast<object>().Any(x => value == Convert.ToByte(x));
     }
 
-    /// <summary>
-    /// Determines whether a given integer is an integer value within an enumeration.
-    /// </summary>
-    /// <typeparam name="T">Type of enumeration.</typeparam>
-    /// <param name="value">Integer to check for.</param>
-    /// <returns>True if found, otherwise false.</returns>
-    private bool IsValidValue<T>(int value) where T : struct, IConvertible
+    private static bool IsValidValue<T>(int value) where T : struct, IConvertible
     {
         EnsureValidEnum<T>();
         return Enum.GetValues(typeof(T)).Cast<int>().Any(x => x == value);
     }
 
-    private void EnsureValidEnum<T>() where T : struct, IConvertible
+    private static void EnsureValidEnum<T>() where T : struct, IConvertible
     {
         if (!typeof(T).IsEnum)
         {
@@ -171,7 +202,7 @@ public class EnumHelper
         }
     }
 
-    private void EnsureValidValue<T>(in byte value, in string parameter) where T : struct, IConvertible
+    private static void EnsureValidValue<T>(in byte value, in string parameter) where T : struct, IConvertible
     {
         if (!IsValidValue<T>(value))
         {
@@ -179,7 +210,7 @@ public class EnumHelper
         }
     }
 
-    private void EnsureValidValue<T>(in int value, in string parameter) where T : struct, IConvertible
+    private static void EnsureValidValue<T>(in int value, in string parameter) where T : struct, IConvertible
     {
         if (!IsValidValue<T>(value))
         {
