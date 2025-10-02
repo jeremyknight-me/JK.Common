@@ -7,14 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased
+
+### Changed
+
+- Added XML documentation to numerous methods and classes.
+
+### Removed
+
+- Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
+
 ## 6.0.0
 
-## Added
+### Added
 
 - Added support for .NET 9.
 - `IsNullable` helper method in `TypeHelper`
 
-## Changed
+### Changed
 
 - `IsNullable`  to `IsNullableT` int `TypeHelper`.
 - Moved `ServiceLocator` folder to `Patterns` folder.
