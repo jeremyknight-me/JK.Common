@@ -12,6 +12,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 ### Changed
 
 - Added XML documentation to numerous methods and classes.
+- Moved `TypeHelper` to `TypeExtensions` and implemented as extension methods.
 
 ### Removed
 

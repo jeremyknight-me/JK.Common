@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions;
 
@@ -43,12 +42,26 @@ public static class TypeExtensions
     /// </summary>
     /// <param name="type">The type to check</param>
     /// <returns>True if nullable, otherwise false</returns>
-    public static bool IsNullable(this Type type) => TypeHelper.IsNullable(type);
+    public static bool IsNullable(this Type type)
+        => !type.IsValueType || IsNullableT(type);
 
     /// <summary>
-    /// Determines whether or not a type uses <see cref="Nullable{T}"/>, aka T?
+    /// Determines whether or not a type is nullable (including <see cref="Nullable{T}"/>, aka T?)
     /// </summary>
-    /// <param name="type">The type to check</param>
-    /// <returns>True if <see cref="Nullable{T}"/>, otherwise false</returns>
-    public static bool IsNullableT(this Type type) => TypeHelper.IsNullableT(type);
+    /// <typeparam name="T">The type to check</typeparam>
+    /// <param name="value">Value to get type from.</param>
+    /// <returns>True if nullable, otherwise false</returns>
+    public static bool IsNullable<T>(this T value)
+        => value is null || IsNullable<T>();
+
+    /// <summary>
+    /// Determines whether the specified type is a nullable value type (i.e., Nullable&lt;T&gt;).
+    /// </summary>
+    /// <param name="type">The type to check.</param>
+    /// <returns>True if the type is a nullable value type; otherwise, false.</returns>
+    public static bool IsNullableT(this Type type)
+        => Nullable.GetUnderlyingType(type) != null;
+
+    private static bool IsNullable<T>()
+        => IsNullable(typeof(T));
 }
