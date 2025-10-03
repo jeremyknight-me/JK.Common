@@ -1,7 +1,9 @@
-﻿using JK.Common.Specifications;
+﻿using System;
+using System.Text;
+using System.Text.RegularExpressions;
+using JK.Common.Specifications;
 using JK.Common.Specifications.UnitedStates;
 using JK.Common.Text;
-using JK.Common.TypeHelpers;
 
 namespace JK.Common.Extensions;
 
@@ -10,12 +12,33 @@ namespace JK.Common.Extensions;
 /// </summary>
 public static class StringExtensions
 {
-    /// <summary>
-    /// Converts a null string to an empty string.
-    /// </summary>
-    /// <param name="value">The string value to check.</param>
-    /// <returns>An empty string if <paramref name="value"/> is null; otherwise, the original string.</returns>
-    public static string ConvertNullToEmptyString(this string value) => value ?? string.Empty;
+    /// <summary>Converts a string from base 64.</summary>
+    /// <param name="base64Text">Text to convert from base 64.</param>
+    /// <returns>String converted from base 64.</returns>
+    public static string ConvertFromBase64(in string base64Text)
+    {
+        if (string.IsNullOrEmpty(base64Text))
+        {
+            return base64Text;
+        }
+
+        var encoding = new ASCIIEncoding();
+        return encoding.GetString(Convert.FromBase64String(base64Text));
+    }
+
+    /// <summary>Converts a string to base 64.</summary>
+    /// <param name="text">Text to convert to base 64.</param>
+    /// <returns>String converted to base 64.</returns>
+    public static string ConvertToBase64(in string text)
+    {
+        if (string.IsNullOrEmpty(text))
+        {
+            return text;
+        }
+
+        var encoding = new ASCIIEncoding();
+        return Convert.ToBase64String(encoding.GetBytes(text));
+    }
 
     /// <summary>
     /// Determines if the given string is a date/time. 
@@ -71,21 +94,49 @@ public static class StringExtensions
     /// <param name="value">Current string object from extension method.</param>
     /// <param name="length">Number of characters to get from end of string.</param>
     /// <returns>Returns the last X characters of the string.</returns>
-    public static string Last(this string value, in int length) => StringHelper.Last(value, length);
+    public static string Last(this string value, in int length) => value.Right(length);
 
     /// <summary>
     /// Removes US (dollar) currency format characters from a string.
     /// </summary>
     /// <param name="valueToFormat">Current string object from extension method.</param>
     /// <returns>String that can be parsed into a number.</returns>
-    public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat) => StringHelper.RemoveUnitedStatesCurrencyFormat(valueToFormat);
+    public static string RemoveUnitedStatesCurrencyFormat(this string valueToFormat)
+    {
+        if (string.IsNullOrWhiteSpace(valueToFormat))
+        {
+            throw new ArgumentNullException(nameof(valueToFormat));
+        }
+
+        var returnValue = valueToFormat.Trim("$".ToCharArray());
+        returnValue = returnValue.Replace(",", string.Empty);
+        return string.IsNullOrWhiteSpace(returnValue) ? "0" : returnValue;
+    }
+
+    /// <summary>
+    /// Removes XML/HTML from given text block.
+    /// </summary>
+    /// <param name="valueToStrip">Current string object from extension method.</param>
+    /// <returns>Clean string with no XML/HTML.</returns>
+    public static string RemoveXml(this string valueToStrip)
+        => Regex.Replace(valueToStrip, @"<(.|\n)*?>", string.Empty);
 
     /// <summary>
     /// Reverses the characters within a string.
     /// </summary>
     /// <param name="valueToReverse">Current string object from extension method.</param>
     /// <returns>The original string in reverse.</returns>
-    public static string Reverse(this string valueToReverse) => StringHelper.Reverse(valueToReverse);
+    public static string Reverse(this string valueToReverse)
+    {
+        if (string.IsNullOrEmpty(valueToReverse))
+        {
+            throw new ArgumentNullException(nameof(valueToReverse));
+        }
+
+        var c = valueToReverse.ToCharArray();
+        Array.Reverse(c);
+        return new string(c);
+    }
 
     /// <summary>
     /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
@@ -93,14 +144,54 @@ public static class StringExtensions
     /// <param name="value">Current string object from extension method.</param>
     /// <param name="length">Number of characters to get from end of string.</param>
     /// <returns>Returns the last X characters of the string.</returns>
-    public static string Right(this string value, in int length) => StringHelper.Right(value, length);
+    public static string Right(this string value, in int length)
+        => value switch
+        {
+            var v when string.IsNullOrEmpty(v) => string.Empty,
+            var v when v.Length > length => v[^length..],
+            _ => value,
+        };
 
     /// <summary>
-    /// Removes XML/HTML from given text block.
+    /// Attempts to parse the string as a decimal value. Returns null if the string is null, whitespace, or not a valid decimal.
     /// </summary>
-    /// <param name="valueToStrip">Current string object from extension method.</param>
-    /// <returns>Clean string with no XML/HTML.</returns>
-    public static string StripXml(this string valueToStrip) => StringHelper.StripXml(valueToStrip);
+    /// <param name="value">The string to parse.</param>
+    /// <returns>The parsed decimal value, or null if parsing fails.</returns>
+    public static decimal? ToNullableDecimal(this string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return null;
+        }
+
+        return !decimal.TryParse(value, out var number)
+            ? null
+            : number;
+    }
+
+    /// <summary>
+    /// Attempts to parse the string as an integer value. Returns null if the string is null, whitespace, or not a valid integer.
+    /// </summary>
+    /// <param name="value">The string to parse.</param>
+    /// <returns>The parsed integer value, or null if parsing fails.</returns>
+    public static int? ToNullableInteger(this string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return null;
+        }
+
+        return !int.TryParse(value, out var number)
+            ? null
+            : number;
+    }
+
+    /// <summary>
+    /// Converts a null string to an empty string.
+    /// </summary>
+    /// <param name="value">The string value to check.</param>
+    /// <returns>An empty string if <paramref name="value"/> is null; otherwise, the original string.</returns>
+    public static string ToNullIfEmpty(this string value) => value ?? string.Empty;
 
     /// <summary>
     /// Trims a block of text to a specified length. The string will be trimmed to 
@@ -134,10 +225,10 @@ public static class StringExtensions
     /// </summary>
     /// <typeparam name="T">Type to parse string value to which must implement <see cref="System.IParsable{T}"/></typeparam>
     /// <param name="input">Current string object from extension method.</param>
-    /// <param name="formatProvider">Format provider to pass down to the <see cref="System.IParsable{T}.Parse"/> method.</param>
+    /// <param name="formatProvider">Format provider to pass down to the <see cref="IParsable{T}.Parse"/> method.</param>
     /// <returns>Parsed value of type T.</returns>
-    public static T Parse<T>(this string input, System.IFormatProvider formatProvider = null)
-        where T : System.IParsable<T>
+    public static T Parse<T>(this string input, IFormatProvider formatProvider = null)
+        where T : IParsable<T>
         => T.Parse(input, formatProvider);
 
 #endif

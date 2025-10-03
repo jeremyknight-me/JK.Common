@@ -36,7 +36,7 @@ public class EnumHelperTests
     [Fact]
     public void ConvertToListItems_Test()
     {
-        IEnumerable<ListItem> data = new EnumHelper().ConvertToListItems(typeof(Colors));
+        IEnumerable<ListItem> data = EnumHelper.ConvertToListItems(typeof(Colors));
         Assert.Equal(2, data.Count());
         Assert.Equal("Green", data.First().Text);
         Assert.Equal("Cyan", data.Last().Text);
@@ -45,7 +45,7 @@ public class EnumHelperTests
     [Fact]
     public void GetAttribute_Exists_Attribute()
     {
-        DisplayAttribute actual = new EnumHelper().GetAttribute<DisplayAttribute>(Colors.Blue);
+        DisplayAttribute actual = EnumHelper.GetAttribute<DisplayAttribute>(Colors.Blue);
         Assert.NotNull(actual);
         Assert.IsType<DisplayAttribute>(actual);
     }
@@ -53,14 +53,14 @@ public class EnumHelperTests
     [Fact]
     public void GetAttribute_DoesNotExists_Null()
     {
-        DisplayAttribute actual = new EnumHelper().GetAttribute<DisplayAttribute>(Colors.Green);
+        DisplayAttribute actual = EnumHelper.GetAttribute<DisplayAttribute>(Colors.Green);
         Assert.Null(actual);
     }
 
     [Fact]
     public void GetByByte_NonEnumValue_ArgumentException()
     {
-        ArgumentException ex = Assert.Throws<ArgumentException>(() => new EnumHelper().GetByByte<byte>(0));
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => EnumHelper.GetByByte<byte>(0));
         Assert.Equal("T must be an enumerated type", ex.Message);
     }
 
@@ -69,20 +69,20 @@ public class EnumHelperTests
     [InlineData(5)]
     public void GetByByte_InvalidValue(byte invalidValue)
     {
-        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new EnumHelper().GetByByte<Colors>(invalidValue));
+        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => EnumHelper.GetByByte<Colors>(invalidValue));
     }
 
     [Fact]
     public void GetByByte_ValidOrdinal()
     {
-        Colors actual = new EnumHelper().GetByByte<Colors>(2);
+        Colors actual = EnumHelper.GetByByte<Colors>(2);
         Assert.Equal(Colors.Green, actual);
     }
 
     [Fact]
     public void GetByInteger_NonEnumValue_ArgumentException()
     {
-        ArgumentException ex = Assert.Throws<ArgumentException>(() => new EnumHelper().GetByInteger<int>(0));
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => EnumHelper.GetByInteger<int>(0));
         Assert.Equal("T must be an enumerated type", ex.Message);
     }
 
@@ -91,13 +91,13 @@ public class EnumHelperTests
     [InlineData(5)]
     public void GetByInteger_InvalidValue(int invalidValue)
     {
-        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => new EnumHelper().GetByInteger<Colors>(invalidValue));
+        ArgumentOutOfRangeException ex = Assert.Throws<ArgumentOutOfRangeException>(() => EnumHelper.GetByInteger<Colors>(invalidValue));
     }
 
     [Fact]
     public void GetByInteger_ValidOrdinal()
     {
-        Colors actual = new EnumHelper().GetByInteger<Colors>(2);
+        Colors actual = EnumHelper.GetByInteger<Colors>(2);
         Assert.Equal(Colors.Green, actual);
     }
 
@@ -105,7 +105,7 @@ public class EnumHelperTests
     [MemberData(nameof(BuildDataGetDisplayName))]
     public void GetDisplayName_(Colors enumValue, string expected)
     {
-        var actual = new EnumHelper().GetDisplayName(enumValue);
+        var actual = EnumHelper.GetDisplayName(enumValue);
         Assert.Equal(expected, actual);
     }
 
@@ -119,28 +119,28 @@ public class EnumHelperTests
     [Fact]
     public void GetByte_ValidEnumValue()
     {
-        var actual = new EnumHelper().GetByte(Colors.Green);
+        var actual = EnumHelper.GetByte(Colors.Green);
         Assert.Equal(2, actual);
     }
 
     [Fact]
     public void GetInteger_ValidEnumValue()
     {
-        var actual = new EnumHelper().GetInteger(Colors.Green);
+        var actual = EnumHelper.GetInteger(Colors.Green);
         Assert.Equal(2, actual);
     }
 
     [Fact]
     public void GetInteger_NullableEnumNull_Null()
     {
-        var actual = new EnumHelper().GetInteger((Colors?)null);
+        var actual = EnumHelper.GetInteger((Colors?)null);
         Assert.Null(actual);
     }
 
     [Fact]
     public void GetInteger_NullableEnumValue_Integer()
     {
-        var actual = new EnumHelper().GetInteger((Colors?)Colors.Green);
+        var actual = EnumHelper.GetInteger((Colors?)Colors.Green);
         Assert.Equal(2, actual);
     }
 }

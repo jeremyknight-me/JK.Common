@@ -9,10 +9,20 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ## Unreleased
 
-### Changed
+### Added
 
 - Added XML documentation to numerous methods and classes.
-- Moved `TypeHelper` to `TypeExtensions` and implemented as extension methods.
+- `FibonacciFactory` for generating Fibonacci sequences.
+- `DateRangeHelper` for determining date range overlaps.
+- `DayOfWeekExtensions` for weekday/weekend checks.
+
+### Changed
+
+- Changed `EnumHelper` to static class.
+- Changed `DateHelper` to extension methods in `DateOnlyExtensions`, `DateTimeExtension`, `DateTimeOffsetExtensions`, and `DateNameExtensions`.
+- Changed `DateTimeFormatter` to `DateFormatExtensions` and implemented as extension methods.
+- Changed `StringHelper` to `StringExtensions` and implemented as extension methods.
+- Changed `TypeHelper` to `TypeExtensions` and implemented as extension methods.
 
 ### Removed
 
