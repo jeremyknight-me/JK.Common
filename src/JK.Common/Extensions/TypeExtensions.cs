@@ -52,7 +52,7 @@ public static class TypeExtensions
     /// <param name="value">Value to get type from.</param>
     /// <returns>True if nullable, otherwise false</returns>
     public static bool IsNullable<T>(this T value)
-        => value is null || IsNullable<T>();
+        => value is null || typeof(T).IsNullable();
 
     /// <summary>
     /// Determines whether the specified type is a nullable value type (i.e., Nullable&lt;T&gt;).
@@ -61,7 +61,4 @@ public static class TypeExtensions
     /// <returns>True if the type is a nullable value type; otherwise, false.</returns>
     public static bool IsNullableT(this Type type)
         => Nullable.GetUnderlyingType(type) != null;
-
-    private static bool IsNullable<T>()
-        => IsNullable(typeof(T));
 }
