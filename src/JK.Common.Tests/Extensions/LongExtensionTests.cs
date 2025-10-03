@@ -27,6 +27,7 @@ public  class LongExtensionTests
     }
 
     [Theory]
+    [InlineData(0, false)]
     [InlineData(1, false)]
     [InlineData(2, true)]
     [InlineData(8, false)]

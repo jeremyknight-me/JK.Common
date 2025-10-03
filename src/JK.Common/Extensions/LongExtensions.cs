@@ -27,15 +27,16 @@ public static class LongExtensions
     {
         switch (number)
         {
+            case var n when n < 0:
+                throw new ArgumentOutOfRangeException(nameof(number), "Number must be non-negative.");
+            case 0:
+                return false;
             case 1:
                 return false;
             case 2:
                 return true;
-        }
-
-        if (number.IsEven())
-        {
-            return false;
+            case var n when n.IsEven():
+                return false;
         }
 
         // Iterates through all odd numbers from 3 up to the calculated boundary to check if the number
