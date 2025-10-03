@@ -26,6 +26,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Removed
 
+- Removed dependency on `JK.Common.Abstractions`.
 - Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
 
 ## 6.0.0

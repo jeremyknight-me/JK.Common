@@ -7,8 +7,16 @@ public class DefaultServiceLocatorTests
     [Fact]
     public void Locate_GetCorrectTypeInstance()
     {
-        DefaultServiceLocator.Instance.Register<IIdentifiable<int>>(new ComplexObject());
-        IIdentifiable<int> actual = DefaultServiceLocator.Instance.Locate<IIdentifiable<int>>();
-        Assert.IsType<ComplexObject>(actual);
+        DefaultServiceLocator.Instance.Register<ITestInterface>(new TestClass());
+        ITestInterface actual = DefaultServiceLocator.Instance.Locate<ITestInterface>();
+        Assert.IsType<TestClass>(actual);
+    }
+
+    private interface ITestInterface
+    {
+    }
+
+    private class TestClass : ITestInterface
+    {
     }
 }
