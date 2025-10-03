@@ -31,6 +31,7 @@ public  class LongExtensionTests
     [InlineData(2, true)]
     [InlineData(8, false)]
     [InlineData(17, true)]
+    [InlineData(71, true)]
     [InlineData(6857, true)]
     public void IsPrime(long input, bool expected)
     {

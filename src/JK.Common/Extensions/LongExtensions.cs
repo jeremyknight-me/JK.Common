@@ -33,15 +33,24 @@ public static class LongExtensions
                 return true;
         }
 
-        var boundary = Convert.ToInt64(Math.Floor(Math.Sqrt(number)));
-        for (long i = 2; i <= boundary; ++i)
+        if (number.IsEven())
         {
-            if (IsEven(number))
+            return false;
+        }
+
+        // Iterates through all odd numbers from 3 up to the calculated boundary to check if the number
+        // is divisible by any of them. If a divisor is found, the number is not prime.
+        var boundary = Convert.ToInt64(Math.Floor(Math.Sqrt(number)));
+        for (long i = 3; i <= boundary; i += 2)
+        {
+            // Checks if the current divisor divides the number evenly. If so, the number is not prime.
+            if (number % i == 0)
             {
                 return false;
             }
         }
 
+        // Returns true if no divisors were found, indicating the number is prime.
         return true;
     }
 }
