@@ -3,8 +3,16 @@ using System.Collections.Generic;
 
 namespace JK.Common.Sorting;
 
+/// <summary>
+/// Provides an implementation of the merge sort algorithm.
+/// </summary>
 public static class MergeSort
 {
+    /// <summary>
+    /// Sorts the specified list in ascending order using the merge sort algorithm.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the list. Must implement <see cref="IComparable"/> and <see cref="IComparable{T}"/>.</typeparam>
+    /// <param name="list">The list to sort.</param>
     public static void Sort<T>(IList<T> list) where T : IComparable, IComparable<T>
         => Sort(list, 0, list.Count - 1);
 

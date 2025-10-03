@@ -1,6 +1,6 @@
 ﻿using JK.Common.Converters;
 
-namespace JK.Common.Tests.Converters;
+namespace JK.Common.Tests.TypeHelpers;
 
 public class BooleanConverterTests
 {

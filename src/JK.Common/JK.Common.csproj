@@ -4,13 +4,12 @@
         <TargetFrameworks>net9.0;net8.0;netstandard2.0</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <Version>6.0.1</Version>
+        <Version>7.0.0</Version>
         <Description>A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.</Description>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="JK.Common.Abstractions" Version="2.0.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     </ItemGroup>

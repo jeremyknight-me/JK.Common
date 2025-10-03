@@ -1,6 +1,6 @@
 ﻿namespace JK.Common.Tests;
 
-public class ComplexObject : IIdentifiable<int>
+public class ComplexObject
 {
     public ComplexObject()
     {

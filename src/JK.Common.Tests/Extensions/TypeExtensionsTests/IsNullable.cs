@@ -1,14 +1,14 @@
-﻿using JK.Common.TypeHelpers;
+﻿using JK.Common.Extensions;
 
-namespace JK.Common.Tests.TypeHelpers;
+namespace JK.Common.Tests.Extensions.TypeExtensionsTests;
 
-public class TypeHelperTests
+public class IsNullable
 {
     [Theory]
     [MemberData(nameof(IsNullableT_Data))]
     public void IsNullableT_Theories(Type type, bool expected)
     {
-        var actual = TypeHelper.IsNullableT(type);
+        var actual = type.IsNullableT();
         Assert.Equal(expected, actual);
     }
 
@@ -25,7 +25,7 @@ public class TypeHelperTests
     [MemberData(nameof(IsNullable_Data))]
     public void IsNullable_Theories(Type type, bool expected)
     {
-        var actual = TypeHelper.IsNullable(type);
+        var actual = type.IsNullable();
         Assert.Equal(expected, actual);
     }
 

@@ -2,9 +2,9 @@
 
 using JK.Common.Extensions;
 
-namespace JK.Common.Tests.Extensions;
+namespace JK.Common.Tests.Extensions.StringExtensionTests;
 
-public class StringExtensionsTest
+public class ParseT
 {
 
     [Fact]

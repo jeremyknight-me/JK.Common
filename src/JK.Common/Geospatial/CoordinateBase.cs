@@ -4,9 +4,17 @@ using JK.Common.Patterns.Specification;
 
 namespace JK.Common.Geospatial;
 
-/// <summary>Base object for latitudes and longitudes coordinates.</summary>
+/// <summary>
+/// Base object for latitudes and longitudes coordinates.
+/// </summary>
 public abstract class CoordinateBase
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CoordinateBase"/> class.
+    /// </summary>
+    /// <param name="degrees">The degrees component of the coordinate.</param>
+    /// <param name="minutes">The minutes component of the coordinate. Defaults to 0.</param>
+    /// <param name="seconds">The seconds component of the coordinate. Defaults to 0.</param>
     protected CoordinateBase(decimal degrees, decimal minutes = 0, decimal seconds = 0)
     {
         Validate(degrees);
@@ -14,16 +22,34 @@ public abstract class CoordinateBase
         Coordinate = Math.Abs(degrees) + (Math.Abs(minutes) / 60.0m) + (Math.Abs(seconds) / 3600.0m);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CoordinateBase"/> class with a direction.
+    /// </summary>
+    /// <param name="degrees">The degrees component of the coordinate.</param>
+    /// <param name="direction">The cardinal direction of the coordinate.</param>
     protected CoordinateBase(decimal degrees, Direction direction)
         : this(degrees, 0m, 0m, direction)
     {
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CoordinateBase"/> class with minutes and a direction.
+    /// </summary>
+    /// <param name="degrees">The degrees component of the coordinate.</param>
+    /// <param name="minutes">The minutes component of the coordinate.</param>
+    /// <param name="direction">The cardinal direction of the coordinate.</param>
     protected CoordinateBase(decimal degrees, decimal minutes, Direction direction)
         : this(degrees, minutes, 0m, direction)
     {
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CoordinateBase"/> class with minutes, seconds, and a direction.
+    /// </summary>
+    /// <param name="degrees">The degrees component of the coordinate.</param>
+    /// <param name="minutes">The minutes component of the coordinate.</param>
+    /// <param name="seconds">The seconds component of the coordinate.</param>
+    /// <param name="direction">The cardinal direction of the coordinate.</param>
     protected CoordinateBase(decimal degrees, decimal minutes, decimal seconds, Direction direction)
     {
         Validate(degrees, direction);
@@ -107,8 +133,14 @@ public abstract class CoordinateBase
     /// </summary>
     public abstract Direction Direction { get; }
 
+    /// <summary>
+    /// Gets the coordinate type (latitude or longitude).
+    /// </summary>
     public abstract CoordinateType CoordinateType { get; }
 
+    /// <summary>
+    /// Gets the validation specification for the coordinate.
+    /// </summary>
     protected abstract ISpecification<decimal> ValidationSpecification { get; }
 
     /// <summary>
@@ -128,18 +160,40 @@ public abstract class CoordinateBase
         return formatter.Format(format);
     }
 
+    /// <summary>
+    /// Formats the value of the current coordinate as HTML using the specified format.
+    /// </summary>
+    /// <param name="format">The format to use.</param>
+    /// <returns>The value of the current coordinate in the specified HTML format.</returns>
     public virtual string ToHtmlString(in DisplayFormat format)
     {
         var formatter = new CoordinateHtmlFormatter(this);
         return formatter.Format(format);
     }
 
+    /// <summary>
+    /// Gets the valid directions for the coordinate type.
+    /// </summary>
+    /// <returns>A collection of valid directions.</returns>
     public abstract ICollection<Direction> GetValidDirections();
 
+    /// <summary>
+    /// Sets whether the coordinate is negative based on the degrees value.
+    /// </summary>
+    /// <param name="degrees">The degrees value to evaluate.</param>
     protected void SetIsNegative(in decimal degrees) => IsNegative = degrees < 0;
 
+    /// <summary>
+    /// Sets whether the coordinate is negative based on the direction.
+    /// </summary>
+    /// <param name="direction">The direction to evaluate.</param>
     protected abstract void SetIsNegative(in Direction direction);
 
+    /// <summary>
+    /// Validates the coordinate value using the validation specification.
+    /// </summary>
+    /// <param name="value">The value to validate.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown if the value is not valid for this type of coordinate.</exception>
     private void Validate(in decimal value)
     {
         if (!ValidationSpecification.IsSatisfiedBy(value))
@@ -148,6 +202,12 @@ public abstract class CoordinateBase
         }
     }
 
+    /// <summary>
+    /// Validates the coordinate value and direction using the validation specification.
+    /// </summary>
+    /// <param name="value">The value to validate.</param>
+    /// <param name="direction">The direction to validate.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown if the value or direction is not valid for this type of coordinate.</exception>
     private void Validate(in decimal value, in Direction direction)
     {
         Validate(value);

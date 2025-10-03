@@ -1,13 +1,14 @@
 ﻿namespace JK.Common.Patterns.Specification;
 
 /// <summary>
-/// Generic And specification
+/// Generic And specification.
 /// </summary>
 /// <typeparam name="TEntity">The type of the entity.</typeparam>
+/// <inheritdoc cref="CompositeSpecification{TEntity}"/>
 public class AndSpecification<TEntity> : CompositeSpecification<TEntity>
 {
     /// <summary>
-    /// Initializes a new instance of the AndSpecification class.
+    /// Initializes a new instance of the <see cref="AndSpecification{TEntity}"/> class.
     /// </summary>
     /// <param name="left">The left entity.</param>
     /// <param name="right">The right entity.</param>
@@ -16,11 +17,7 @@ public class AndSpecification<TEntity> : CompositeSpecification<TEntity>
     {
     }
 
-    /// <summary>
-    /// Determines whether the specified candidate is satisfied by TEntity.
-    /// </summary>
-    /// <param name="candidate">The candidate.</param>
-    /// <returns>True if is satisfied by the specified candidate; otherwise false.</returns>
+    /// <inheritdoc/>
     public override bool IsSatisfiedBy(in TEntity candidate)
         => Left.IsSatisfiedBy(candidate) && Right.IsSatisfiedBy(candidate);
 }

@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <LangVersion>13.0</LangVersion>
+        <LangVersion>latest</LangVersion>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
 

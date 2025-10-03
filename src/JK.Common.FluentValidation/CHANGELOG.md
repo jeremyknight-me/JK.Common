@@ -7,9 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased (5.0.0)
+
+### Changed
+
+- Upgraded FluentValidation from 11.x to 12.x. This forces a minimum .NET version of .NET 8.
+
+### Removed
+
+- Removed support for .NET Standard 2.0. The minimum supported version is now .NET 8.
+
 ## 4.0.0
 
-## Added
+### Added
 
 - Added support for .NET 9.
 

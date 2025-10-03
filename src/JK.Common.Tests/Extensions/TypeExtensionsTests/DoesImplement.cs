@@ -1,8 +1,8 @@
 ﻿using JK.Common.Extensions;
 
-namespace JK.Common.Tests.Extensions;
+namespace JK.Common.Tests.Extensions.TypeExtensionsTests;
 
-public class TypeExtensionsTests
+public class DoesImplement
 {
     [Fact]
     public void DoesImplement_NonInterface_Exception()
@@ -36,19 +36,4 @@ public class TypeExtensionsTests
     private class NotAnInterface
     {
     }
-
-    [Theory]
-    [MemberData(nameof(IsNullableT_Data))]
-    public void IsNullable_Tests(Type type, bool expected)
-    {
-        var actual = type.IsNullableT();
-        Assert.Equal(expected, actual);
-    }
-
-    public static TheoryData<Type, bool> IsNullableT_Data()
-        => new()
-        {
-            { typeof(int), false },
-            { typeof(int?), true }
-        };
 }

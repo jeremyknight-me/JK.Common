@@ -12,6 +12,9 @@ public sealed class BooleanConverter
     private readonly object[] _falseItems;
     private readonly object[] _nullItems;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BooleanConverter"/> class.
+    /// </summary>
     public BooleanConverter()
     {
         _trueItems = ["TRUE", "True", "true", "Y", "y", "YES", "Yes", "yes", 1, "1"];
@@ -19,6 +22,12 @@ public sealed class BooleanConverter
         _nullItems = [null, "", string.Empty];
     }
 
+    /// <summary>
+    /// Converts the specified value to a boolean.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    /// <returns>The boolean representation of the value.</returns>
+    /// <exception cref="ArgumentException">Thrown when the value cannot be converted to a boolean.</exception>
     public bool Convert(object value)
     {
         if (value is string)
@@ -34,6 +43,11 @@ public sealed class BooleanConverter
         };
     }
 
+    /// <summary>
+    /// Converts the specified value to a nullable boolean.
+    /// </summary>
+    /// <param name="value">The value to convert.</param>
+    /// <returns>The nullable boolean representation of the value.</returns>
     public bool? ConvertToNullable(object value)
     {
         if (value is string)
@@ -47,8 +61,6 @@ public sealed class BooleanConverter
     }
 
     private bool IsTrue(in object value) => _trueItems.Contains(value);
-
     private bool IsFalse(in object value) => _falseItems.Contains(value);
-
     private bool IsNull(in object value) => _nullItems.Contains(value);
 }

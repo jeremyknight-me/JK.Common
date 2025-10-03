@@ -7,14 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## Unreleased (7.0.0)
+
+### Added
+
+- Added XML documentation to numerous methods and classes.
+- `FibonacciFactory` for generating Fibonacci sequences.
+- `DateRangeHelper` for determining date range overlaps.
+- `DayOfWeekExtensions` for weekday/weekend checks.
+
+### Changed
+
+- Changed `EnumHelper` to static class.
+- Changed `DateHelper` to extension methods in `DateOnlyExtensions`, `DateTimeExtension`, `DateTimeOffsetExtensions`, and `DateNameExtensions`.
+- Changed `DateTimeFormatter` to `DateFormatExtensions` and implemented as extension methods.
+- Changed `StringHelper` to `StringExtensions` and implemented as extension methods.
+- Changed `TypeHelper` to `TypeExtensions` and implemented as extension methods.
+
+### Removed
+
+- Removed dependency on `JK.Common.Abstractions`.
+- Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
+
 ## 6.0.0
 
-## Added
+### Added
 
 - Added support for .NET 9.
 - `IsNullable` helper method in `TypeHelper`
 
-## Changed
+### Changed
 
 - `IsNullable`  to `IsNullableT` int `TypeHelper`.
 - Moved `ServiceLocator` folder to `Patterns` folder.
