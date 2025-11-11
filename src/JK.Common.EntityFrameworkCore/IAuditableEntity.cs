@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.EntityFrameworkCore;
+﻿namespace JK.Common.EntityFrameworkCore;
 
 public interface IAuditableEntity
 {

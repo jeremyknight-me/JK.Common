@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace JK.Common.EntityFrameworkCore.Tests;
+﻿namespace JK.Common.EntityFrameworkCore.Tests;
 
 public class ReadOnlyDbContextTests
 {
