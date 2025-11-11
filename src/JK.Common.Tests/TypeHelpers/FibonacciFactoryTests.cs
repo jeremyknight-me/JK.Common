@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using JK.Common.TypeHelpers;
+﻿using JK.Common.TypeHelpers;
 
 namespace JK.Common.Tests.TypeHelpers;
 

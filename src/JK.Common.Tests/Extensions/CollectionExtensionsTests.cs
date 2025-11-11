@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JK.Common.Extensions;
+﻿using JK.Common.Extensions;
 
 namespace JK.Common.Tests.Extensions;
 
