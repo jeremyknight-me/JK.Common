@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace JK.Common.FluentValidation.Validators;
+﻿namespace JK.Common.FluentValidation.Validators;
 
 /// <summary>
 /// Null object pattern AbstractValidator implementation.

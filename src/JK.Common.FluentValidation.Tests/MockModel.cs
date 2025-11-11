@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.FluentValidation.Tests;
+﻿namespace JK.Common.FluentValidation.Tests;
 
 public class MockModel
 {
