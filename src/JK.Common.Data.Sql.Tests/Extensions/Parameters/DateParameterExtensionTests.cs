@@ -1,10 +1,6 @@
 ﻿#if NET6_0_OR_GREATER
 
-using System;
-using System.Data;
 using JK.Common.Data.Sql.Extensions.Parameters;
-using Microsoft.Data.SqlClient;
-using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 

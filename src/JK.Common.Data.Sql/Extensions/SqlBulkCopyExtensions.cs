@@ -1,8 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.RegularExpressions;
-using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions;
 

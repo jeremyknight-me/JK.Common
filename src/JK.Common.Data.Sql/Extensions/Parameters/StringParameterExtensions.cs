@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
-
-namespace JK.Common.Data.Sql.Extensions.Parameters;
+﻿namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class StringParameterExtensions
 {

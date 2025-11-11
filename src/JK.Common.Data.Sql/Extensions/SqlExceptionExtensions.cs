@@ -1,6 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-
-namespace JK.Common.Data.Sql.Extensions;
+﻿namespace JK.Common.Data.Sql.Extensions;
 
 public static class SqlExceptionExtensions
 {

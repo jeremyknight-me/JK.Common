@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data;
-using JK.Common.Data.Sql.Extensions.Parameters;
-using Microsoft.Data.SqlClient;
-using Xunit;
+﻿using JK.Common.Data.Sql.Extensions.Parameters;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
