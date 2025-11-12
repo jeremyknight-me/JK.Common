@@ -11,7 +11,7 @@ public static class CollectionExtensions
         /// Determines whether the collection has any items.
         /// </summary>
         /// <returns><c>true</c> if the collection has items; otherwise, <c>false</c>.</returns>
-        public bool HasItems() => collection.Count > 0;
+        public bool HasItems => collection.Count > 0;
     }
 
     extension<T>(IReadOnlyCollection<T> collection)
@@ -20,6 +20,6 @@ public static class CollectionExtensions
         /// Determines whether the read-only collection has any items.
         /// </summary>
         /// <returns><c>true</c> if the collection has items; otherwise, <c>false</c>.</returns>
-        public bool HasItems() => collection.Count > 0;
+        public bool HasItems => collection.Count > 0;
     }
 }

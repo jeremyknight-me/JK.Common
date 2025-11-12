@@ -8,13 +8,13 @@ public static class LongExtensions
         /// Determines whether the specified number is even.
         /// </summary>
         /// <returns><c>true</c> if the number is even; otherwise, <c>false</c>.</returns>
-        public bool IsEven() => number % 2 == 0;
+        public bool IsEven => number % 2 == 0;
 
         /// <summary>
         /// Determines whether the specified number is odd.
         /// </summary>
         /// <returns><c>true</c> if the number is odd; otherwise, <c>false</c>.</returns>
-        public bool IsOdd() => !IsEven(number);
+        public bool IsOdd => !number.IsEven;
 
         /// <summary>
         /// Determines whether the specified number is a prime number.
@@ -32,7 +32,7 @@ public static class LongExtensions
                     return false;
                 case 2:
                     return true;
-                case var n when n.IsEven():
+                case var n when n.IsEven:
                     return false;
             }
 

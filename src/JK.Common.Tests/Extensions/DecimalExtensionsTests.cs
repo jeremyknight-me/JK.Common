@@ -10,7 +10,7 @@ public class DecimalExtensionsTests
     [InlineData(0.25, 1.25)]
     public void GetDecimalPart_Theories(decimal expected, decimal value)
     {
-        var actual = value.GetDecimalPart();
+        var actual = value.DecimalPart;
         Assert.Equal(expected, actual);
     }
 
@@ -20,7 +20,7 @@ public class DecimalExtensionsTests
     [InlineData(25, 25.75)]
     public void GetWholePart_Theories(decimal expected, decimal value)
     {
-        var actual = value.GetWholePart();
+        var actual = value.WholePart;
         Assert.Equal(expected, actual);
     }
 }

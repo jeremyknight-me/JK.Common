@@ -26,6 +26,16 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Changed `DecimalHelper` to `DecimalExtensions` and implemented as extension methods.
 - Changed `StringHelper` to `StringExtensions` and implemented as extension methods.
 - Changed `TypeHelper` to `TypeExtensions` and implemented as extension methods.
+- Changed extension methods to properties in:
+  - `CollectionExtensions`
+  - `DateNameExtensions`
+  - `DateOnlyExtensions`
+  - `DateTimeExtensions`
+  - `DateTimeOffsetExtensions`
+  - `DayOfWeekExtensions`
+  - `DecimalExtensions`
+  - `LongExtensions`
+  - `StringExtensions`
 
 ### Removed
 

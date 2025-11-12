@@ -51,42 +51,42 @@ public static class StringExtensions
         /// Relies on <see cref="DateTimeSpecification"/>
         /// </summary>
         /// <returns>True if a date, otherwise false.</returns>
-        public bool IsDateTime() => new DateTimeSpecification().IsSatisfiedBy(text);
+        public bool IsDateTime => new DateTimeSpecification().IsSatisfiedBy(text);
 
         /// <summary>
         /// Determines if the given string is a number.
         /// Relies on <see cref="NumericSpecification"/>
         /// </summary>
         /// <returns>True if a number, otherwise false.</returns>
-        public bool IsNumeric() => new NumericSpecification().IsSatisfiedBy(text);
+        public bool IsNumeric => new NumericSpecification().IsSatisfiedBy(text);
 
         /// <summary>
         /// Validates that a string is a valid email address.
         /// Relies on <see cref="EmailSpecification"/>
         /// </summary>
         /// <returns>True if valid email otherwise false.</returns>
-        public bool IsValidEmailAddress() => new EmailSpecification().IsSatisfiedBy(text);
+        public bool IsValidEmailAddress => new EmailSpecification().IsSatisfiedBy(text);
 
         /// <summary>
         /// Validates that a string is a valid IP v4 address.
         /// Relies on <see cref="InternetProtocolAddressSpecification"/>
         /// </summary>
         /// <returns>True if valid IP v4 address otherwise false.</returns>
-        public bool IsValidIpAddress() => new InternetProtocolAddressSpecification().IsSatisfiedBy(text);
+        public bool IsValidIpAddress => new InternetProtocolAddressSpecification().IsSatisfiedBy(text);
 
         /// <summary>
         /// Validates that a string is a valid United States phone number.
         /// Relies on <see cref="PhoneNumberSpecification"/>
         /// </summary>
         /// <returns>True if valid US phone number otherwise false.</returns>
-        public bool IsValidUnitedStatesPhoneNumber() => new PhoneNumberSpecification().IsSatisfiedBy(text);
+        public bool IsValidUnitedStatesPhoneNumber => new PhoneNumberSpecification().IsSatisfiedBy(text);
 
         /// <summary>
         /// Validates that a string is a valid zip code.
         /// Relies on <see cref="ZipCodeSpecification"/>
         /// </summary>
         /// <returns>True if valid zip code otherwise false.</returns>
-        public bool IsValidZip() => new ZipCodeSpecification().IsSatisfiedBy(text);
+        public bool IsValidZip => new ZipCodeSpecification().IsSatisfiedBy(text);
 
         /// <summary>
         /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.

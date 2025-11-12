@@ -9,7 +9,7 @@ public class IsSqlDate
     public void DateTime_Theories(bool expected, string dateInput)
     {
         var date = DateTime.Parse(dateInput);
-        var actual = date.IsSqlDate();
+        var actual = date.IsSqlDate;
         Assert.Equal(expected, actual);
     }
 
@@ -19,7 +19,7 @@ public class IsSqlDate
     public void DateOnly_Theories(bool expected, string dateInput)
     {
         var date = DateOnly.Parse(dateInput);
-        var actual = date.IsSqlDate();
+        var actual = date.IsSqlDate;
         Assert.Equal(expected, actual);
     }
 #endif

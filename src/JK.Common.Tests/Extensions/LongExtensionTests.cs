@@ -11,7 +11,7 @@ public  class LongExtensionTests
     [InlineData(18, true)]
     public void IsEven(long input, bool expected)
     {
-        var actual = input.IsEven();
+        var actual = input.IsEven;
         Assert.Equal(expected, actual);
     }
 
@@ -22,7 +22,7 @@ public  class LongExtensionTests
     [InlineData(18, false)]
     public void IsOdd(long input, bool expected)
     {
-        var actual = input.IsOdd();
+        var actual = input.IsOdd;
         Assert.Equal(expected, actual);
     }
 

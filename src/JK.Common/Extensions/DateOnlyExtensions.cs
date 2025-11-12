@@ -20,7 +20,7 @@ public static class DateOnlyExtensions
             while (count < daysToAdd)
             {
                 date = date.AddDays(direction);
-                if (IsWeekday(date))
+                if (date.IsWeekday)
                 {
                     count++;
                 }
@@ -39,15 +39,15 @@ public static class DateOnlyExtensions
         /// <summary>Determines whether or not a given date is valid to place in a SQL datetime column.</summary>
         /// <returns>True if valid SQL date, otherwise false.</returns>
         /// <remarks>The minimum date a 'datetime' date type in SQL can hold is January 1, 1753</remarks>
-        public bool IsSqlDate() => date >= DateOnly.Parse(Constants.SqlDateTimeStart);
+        public bool IsSqlDate => date >= DateOnly.Parse(Constants.SqlDateTimeStart);
 
         /// <summary>Determines if given date is a weekday.</summary>
         /// <returns>True if is a weekday, otherwise false.</returns>
-        public bool IsWeekday() => date.DayOfWeek.IsWeekday();
+        public bool IsWeekday => date.DayOfWeek.IsWeekday;
 
         /// <summary>Determines if given date is a weekday.</summary>
         /// <returns>True if is a weekend, otherwise false.</returns>
-        public bool IsWeekend() => !date.IsWeekday();
+        public bool IsWeekend => !date.IsWeekday;
     }
 }
 

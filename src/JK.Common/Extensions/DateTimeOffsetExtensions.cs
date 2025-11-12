@@ -16,7 +16,7 @@ public static class DateTimeOffsetExtensions
             while (count < daysToAdd)
             {
                 date = date.AddDays(direction);
-                if (IsWeekday(date))
+                if (date.IsWeekday)
                 {
                     count++;
                 }
@@ -33,10 +33,10 @@ public static class DateTimeOffsetExtensions
 
         /// <summary>Determines if given date is a weekday.</summary>
         /// <returns>True if is a weekday, otherwise false.</returns>
-        public bool IsWeekday() => date.DayOfWeek.IsWeekday();
+        public bool IsWeekday => date.DayOfWeek.IsWeekday;
 
         /// <summary>Determines if given date is a weekday.</summary>
         /// <returns>True if is a weekend, otherwise false.</returns>
-        public bool IsWeekend() => !date.DayOfWeek.IsWeekday();
+        public bool IsWeekend => !date.DayOfWeek.IsWeekday;
     }
 }
