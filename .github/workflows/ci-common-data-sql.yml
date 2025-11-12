@@ -28,6 +28,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: |
+          10.x
           9.x
           8.x
     - name: Build
