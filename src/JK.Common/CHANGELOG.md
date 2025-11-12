@@ -22,6 +22,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Changed `EnumHelper` to static class.
 - Changed `DateHelper` to extension methods in `DateOnlyExtensions`, `DateTimeExtension`, `DateTimeOffsetExtensions`, and `DateNameExtensions`.
 - Changed `DateTimeFormatter` to `DateFormatExtensions` and implemented as extension methods.
+- Changed `DecimalHelper` to `DecimalExtensions` and implemented as extension methods.
 - Changed `StringHelper` to `StringExtensions` and implemented as extension methods.
 - Changed `TypeHelper` to `TypeExtensions` and implemented as extension methods.
 

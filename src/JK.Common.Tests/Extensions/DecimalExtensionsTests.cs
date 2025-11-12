@@ -1,8 +1,8 @@
-﻿using JK.Common.TypeHelpers;
+﻿using JK.Common.Extensions;
 
-namespace JK.Common.Tests.TypeHelpers;
+namespace JK.Common.Tests.Extensions;
 
-public class DecimalHelperTests
+public class DecimalExtensionsTests
 {
     [Theory]
     [InlineData(0, 1.0)]
@@ -10,7 +10,7 @@ public class DecimalHelperTests
     [InlineData(0.25, 1.25)]
     public void GetDecimalPart_Theories(decimal expected, decimal value)
     {
-        var actual = DecimalHelper.GetDecimalPart(value);
+        var actual = value.GetDecimalPart();
         Assert.Equal(expected, actual);
     }
 
@@ -20,7 +20,7 @@ public class DecimalHelperTests
     [InlineData(25, 25.75)]
     public void GetWholePart_Theories(decimal expected, decimal value)
     {
-        var actual = DecimalHelper.GetWholePart(value);
+        var actual = value.GetWholePart();
         Assert.Equal(expected, actual);
     }
 }
