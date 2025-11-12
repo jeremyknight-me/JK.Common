@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.Extensions;
+﻿namespace JK.Common.Extensions;
 
 public static class LongExtensions
 {

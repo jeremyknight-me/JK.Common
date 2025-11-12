@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common;
+﻿namespace JK.Common;
 
 /// <summary>
 /// Provides a facade for comparing objects of type <typeparamref name="T"/> for equality.

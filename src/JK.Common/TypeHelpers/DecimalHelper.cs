@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.TypeHelpers;
+﻿namespace JK.Common.TypeHelpers;
 
 /// <summary>Class which contains methods for Decimal manipulation</summary>
 public static class DecimalHelper

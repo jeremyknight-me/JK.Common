@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.Extensions;
+﻿namespace JK.Common.Extensions;
 
 /// <summary>
 /// Class which contains methods which formats a DateTime into a string.

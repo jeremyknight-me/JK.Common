@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.TypeHelpers;
+﻿namespace JK.Common.TypeHelpers;
 
 /// <summary>
 /// Helper methods for working with date ranges.

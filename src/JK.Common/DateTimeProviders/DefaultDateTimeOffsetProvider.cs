@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.DateTimeProviders;
+﻿namespace JK.Common.DateTimeProviders;
 
 /// <inheritdoc/>
 public sealed class DefaultDateTimeOffsetProvider : IDateTimeOffsetProvider

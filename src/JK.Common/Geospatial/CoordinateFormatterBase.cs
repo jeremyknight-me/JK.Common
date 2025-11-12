@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace JK.Common.Geospatial;
+﻿namespace JK.Common.Geospatial;
 
 /// <summary>
 /// Base class for formatting coordinates in various display formats.

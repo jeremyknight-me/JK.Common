@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
 using JK.Common.Specifications;
 using JK.Common.Specifications.UnitedStates;

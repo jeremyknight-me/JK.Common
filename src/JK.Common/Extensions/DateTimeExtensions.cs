@@ -1,5 +1,4 @@
-﻿using System;
-using JK.Common.DateTimeProviders;
+﻿using JK.Common.DateTimeProviders;
 
 namespace JK.Common.Extensions;
 

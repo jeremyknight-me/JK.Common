@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace JK.Common.TypeHelpers;
+﻿namespace JK.Common.TypeHelpers;
 
 /// <summary>
 /// Provides helper methods for common mathematical operations.

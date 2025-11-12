@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using JK.Common.Patterns.Specification;
+﻿using JK.Common.Patterns.Specification;
 
 namespace JK.Common.Geospatial;
 

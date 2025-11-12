@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace JK.Common.Extensions;
+﻿namespace JK.Common.Extensions;
 
 /// <summary>
 /// Helper and utility extension methods for <see cref="ICollection{T}"/> and <see cref="IReadOnlyCollection{T}"/>.

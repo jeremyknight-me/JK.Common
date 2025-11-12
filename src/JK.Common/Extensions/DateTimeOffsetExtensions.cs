@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.Extensions;
+﻿namespace JK.Common.Extensions;
 
 /// <summary>Extension methods for the DateTimeOffset object.</summary>
 public static class DateTimeOffsetExtensions

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace JK.Common.Text;
+﻿namespace JK.Common.Text;
 
 /// <summary>
 /// Class which places values from objects into a given template.

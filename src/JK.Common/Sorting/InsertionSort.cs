@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace JK.Common.Sorting;
+﻿namespace JK.Common.Sorting;
 
 /// <summary>
 /// Provides a static implementation of the insertion sort algorithm.
