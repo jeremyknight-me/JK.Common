@@ -13,9 +13,10 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added support for .NET 10.
 - Added XML documentation to numerous methods and classes.
-- `FibonacciFactory` for generating Fibonacci sequences.
-- `DateRangeHelper` for determining date range overlaps.
-- `DayOfWeekExtensions` for weekday/weekend checks.
+- Added `AgeCalculator` for calculating age based on specified date.
+- Added `FibonacciFactory` for generating Fibonacci sequences.
+- Added `DateRangeHelper` for determining date range overlaps.
+- Added `DayOfWeekExtensions` for weekday/weekend checks.
 
 ### Changed
 
