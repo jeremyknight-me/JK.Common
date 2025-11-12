@@ -11,18 +11,31 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Added
 
+- Added support for .NET 10.
 - Added XML documentation to numerous methods and classes.
-- `FibonacciFactory` for generating Fibonacci sequences.
-- `DateRangeHelper` for determining date range overlaps.
-- `DayOfWeekExtensions` for weekday/weekend checks.
+- Added `AgeCalculator` for calculating age based on specified date.
+- Added `FibonacciFactory` for generating Fibonacci sequences.
+- Added `DateRangeHelper` for determining date range overlaps.
+- Added `DayOfWeekExtensions` for weekday/weekend checks.
 
 ### Changed
 
 - Changed `EnumHelper` to static class.
 - Changed `DateHelper` to extension methods in `DateOnlyExtensions`, `DateTimeExtension`, `DateTimeOffsetExtensions`, and `DateNameExtensions`.
 - Changed `DateTimeFormatter` to `DateFormatExtensions` and implemented as extension methods.
+- Changed `DecimalHelper` to `DecimalExtensions` and implemented as extension methods.
 - Changed `StringHelper` to `StringExtensions` and implemented as extension methods.
 - Changed `TypeHelper` to `TypeExtensions` and implemented as extension methods.
+- Changed extension methods to properties in:
+  - `CollectionExtensions`
+  - `DateNameExtensions`
+  - `DateOnlyExtensions`
+  - `DateTimeExtensions`
+  - `DateTimeOffsetExtensions`
+  - `DayOfWeekExtensions`
+  - `DecimalExtensions`
+  - `LongExtensions`
+  - `StringExtensions`
 
 ### Removed
 

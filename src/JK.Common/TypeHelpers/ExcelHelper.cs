@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.TypeHelpers;
+﻿namespace JK.Common.TypeHelpers;
 
 /// <summary>
 /// Provides helper methods for working with Excel-related data.

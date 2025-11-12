@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.DateTimeProviders;
+﻿namespace JK.Common.DateTimeProviders;
 
 /// <summary>
 /// Abstraction to disconnect <see cref="DateTimeOffset"/> from the system clock.

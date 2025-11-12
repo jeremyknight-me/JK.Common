@@ -1,5 +1,4 @@
-﻿using System;
-using JK.Common.Patterns.Specification;
+﻿using JK.Common.Patterns.Specification;
 
 namespace JK.Common.Specifications;
 

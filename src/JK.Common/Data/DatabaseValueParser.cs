@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.Data;
+﻿namespace JK.Common.Data;
 
 /// <summary>
 /// Static class which adds database value parsing.

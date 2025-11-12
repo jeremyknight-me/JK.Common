@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.FluentValidation.Tests.Validators;
+﻿namespace JK.Common.FluentValidation.Tests.Validators;
 
 public class SqlDateValidatorTests
 {

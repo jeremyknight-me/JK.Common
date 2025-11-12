@@ -1,10 +1,4 @@
-﻿#if !NET6_0_OR_GREATER
-using JK.Common.TypeHelpers;
-#endif
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace JK.Common.Extensions;
 
@@ -24,7 +18,7 @@ public static class EnumerableExtensions
     /// <returns>An IEnumerable that contains distinct elements from the source sequence.</returns>
     public static IEnumerable<TSource> DistinctBy<TSource, TValue>(this IEnumerable<TSource> source, Func<TSource, TValue> selector)
     {
-        IEqualityComparer<TSource> comparer = ProjectionComparer<TSource>.CompareBy(selector, EqualityComparer<TValue>.Default);
+        IEqualityComparer<TSource> comparer = TypeHelpers.ProjectionComparer<TSource>.CompareBy(selector, EqualityComparer<TValue>.Default);
         return new HashSet<TSource>(source, comparer);
     }
 #endif

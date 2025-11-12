@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace JK.Common.Sorting;
+﻿namespace JK.Common.Sorting;
 
 /// <summary>
 /// Provides an implementation of the quick sort algorithm.

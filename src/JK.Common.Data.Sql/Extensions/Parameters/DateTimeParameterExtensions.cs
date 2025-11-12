@@ -6,38 +6,33 @@ namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class DateTimeParameterExtensions
 {
-    public static SqlParameterCollection AddDate(this SqlParameterCollection parameters, string name, DateTime value)
-        => parameters.AddByDbType(name, SqlDbType.Date, value);
-
-    public static SqlParameterCollection AddDate(this SqlParameterCollection parameters, string name, DateTime? value, bool skipIfNull = false)
-        => skipIfNull && !value.HasValue
-            ? parameters
-            : parameters.AddByDbType(name, SqlDbType.Date, value);
-
-    public static SqlParameterCollection AddDateTime(this SqlParameterCollection parameters, string name, DateTime value)
-        => parameters.AddByDbType(name, SqlDbType.DateTime, value);
-
-    public static SqlParameterCollection AddDateTime(this SqlParameterCollection parameters, string name, DateTime? value, bool skipIfNull = false)
-        => skipIfNull && !value.HasValue
-            ? parameters
-            : parameters.AddByDbType(name, SqlDbType.DateTime, value);
-
-    public static SqlParameterCollection AddDateTime2(this SqlParameterCollection parameters, string name, DateTime value, byte? precision = null)
+    extension(SqlParameterCollection parameters)
     {
-        SetDateTime2Values(parameters, name, value, precision);
-        return parameters;
-    }
+        public SqlParameterCollection AddDateTime(string name, DateTime value)
+            => parameters.AddByDbType(name, SqlDbType.DateTime, value);
 
-    public static SqlParameterCollection AddDateTime2(this SqlParameterCollection parameters, string name, DateTime? value, byte? precision = null, bool skipIfNull = false)
-    {
-        if (skipIfNull && !value.HasValue)
+        public SqlParameterCollection AddDateTime(string name, DateTime? value, bool skipIfNull = false)
+            => skipIfNull && !value.HasValue
+                ? parameters
+                : parameters.AddByDbType(name, SqlDbType.DateTime, value);
+
+        public SqlParameterCollection AddDateTime2(string name, DateTime value, byte? precision = null)
         {
+            SetDateTime2Values(parameters, name, value, precision);
             return parameters;
         }
 
-        object parameterValue = value is null ? DBNull.Value : value.Value;
-        SetDateTime2Values(parameters, name, parameterValue, precision);
-        return parameters;
+        public SqlParameterCollection AddDateTime2(string name, DateTime? value, byte? precision = null, bool skipIfNull = false)
+        {
+            if (skipIfNull && !value.HasValue)
+            {
+                return parameters;
+            }
+
+            object parameterValue = value is null ? DBNull.Value : value.Value;
+            SetDateTime2Values(parameters, name, parameterValue, precision);
+            return parameters;
+        }
     }
 
     private static void SetDateTime2Values(SqlParameterCollection parameters, string name, object value, byte? precision)

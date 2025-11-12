@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using JK.Common.EntityFrameworkCore.Interceptors;
+﻿using JK.Common.EntityFrameworkCore.Interceptors;
 
 namespace JK.Common.EntityFrameworkCore.Tests.Interceptors;
 

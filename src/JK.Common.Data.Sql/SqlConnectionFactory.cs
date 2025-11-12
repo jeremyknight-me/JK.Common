@@ -1,7 +1,4 @@
-﻿using System.Data;
-using Microsoft.Data.SqlClient;
-
-namespace JK.Common.Data.Sql;
+﻿namespace JK.Common.Data.Sql;
 
 public sealed class SqlConnectionFactory : IAdoConnectionFactory
 {

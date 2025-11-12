@@ -1,8 +1,6 @@
 ﻿#if NET6_0_OR_GREATER
 
-using System;
 using System.Reflection;
-using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Tests.TestUtils;
 

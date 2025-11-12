@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.Patterns.Singleton;
+﻿namespace JK.Common.Patterns.Singleton;
 
 /// <summary>Example of singleton pattern LazyT implementation</summary>
 internal sealed class LazySingleton

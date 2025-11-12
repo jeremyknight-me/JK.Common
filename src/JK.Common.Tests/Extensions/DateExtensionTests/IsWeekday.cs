@@ -9,8 +9,8 @@ public class IsWeekday
     public void DateTime_Theories(bool expected, string dateInput)
     {
         var date = DateTime.Parse(dateInput);
-        Assert.Equal(expected, date.IsWeekday());
-        Assert.Equal(!expected, date.IsWeekend());
+        Assert.Equal(expected, date.IsWeekday);
+        Assert.Equal(!expected, date.IsWeekend);
     }
 
 #if NET6_0_OR_GREATER
@@ -19,8 +19,8 @@ public class IsWeekday
     public void DateOnly_Theories(bool expected, string dateInput)
     {
         var date = DateOnly.Parse(dateInput);
-        Assert.Equal(expected, date.IsWeekday());
-        Assert.Equal(!expected, date.IsWeekend());
+        Assert.Equal(expected, date.IsWeekday);
+        Assert.Equal(!expected, date.IsWeekend);
     }
 #endif
 

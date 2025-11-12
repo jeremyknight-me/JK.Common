@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace JK.Common.Patterns.ServiceLocator;
+﻿namespace JK.Common.Patterns.ServiceLocator;
 
 /// <summary>
 /// Implementation of Service Locator design pattern.

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JK.Common.TypeHelpers;
+﻿namespace JK.Common.TypeHelpers;
 
 /// <summary>
 /// Provides factory methods for creating <see cref="DateTimeOffset"/> instances with specific time zones.

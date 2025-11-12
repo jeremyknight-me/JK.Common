@@ -1,30 +1,29 @@
-﻿using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
-
-namespace JK.Common.Data.Sql.Extensions.Parameters;
+﻿namespace JK.Common.Data.Sql.Extensions.Parameters;
 
 public static class DecimalParameterExtensions
 {
-    public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal value, byte precision, byte scale)
+    extension(SqlParameterCollection parameters)
     {
-        SqlParameter parameter = parameters.Add(name, SqlDbType.Decimal);
-        parameter.Value = value;
-        _ = SetDecimalPrecisionScale(parameter, precision, scale);
-        return parameters;
-    }
-
-    public static SqlParameterCollection AddDecimal(this SqlParameterCollection parameters, string name, decimal? value, byte precision, byte scale, bool skipIfNull = false)
-    {
-        if (skipIfNull && !value.HasValue)
+        public SqlParameterCollection AddDecimal(string name, decimal value, byte precision, byte scale)
         {
+            SqlParameter parameter = parameters.Add(name, SqlDbType.Decimal);
+            parameter.Value = value;
+            _ = SetDecimalPrecisionScale(parameter, precision, scale);
             return parameters;
         }
 
-        SqlParameter parameter = parameters.Add(name, SqlDbType.Decimal);
-        parameter.Value = value.HasValue ? value : DBNull.Value;
-        _ = SetDecimalPrecisionScale(parameter, precision, scale);
-        return parameters;
+        public SqlParameterCollection AddDecimal(string name, decimal? value, byte precision, byte scale, bool skipIfNull = false)
+        {
+            if (skipIfNull && !value.HasValue)
+            {
+                return parameters;
+            }
+
+            SqlParameter parameter = parameters.Add(name, SqlDbType.Decimal);
+            parameter.Value = value.HasValue ? value : DBNull.Value;
+            _ = SetDecimalPrecisionScale(parameter, precision, scale);
+            return parameters;
+        }
     }
 
     private static SqlParameter SetDecimalPrecisionScale(SqlParameter parameter, byte precision, byte scale)

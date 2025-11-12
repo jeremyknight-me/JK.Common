@@ -7,9 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
+## 7.0.0 - Unreleased
+
+### Added
+
+- Added support for .NET 10.
+
+### Changed
+
+- Changed `DateTime` to `DateOnly` for `SqlDbType.Date` parameter extensions.
+
 ## 6.0.0
 
-## Added
+### Added
 
 - Added support for .NET 9.
 

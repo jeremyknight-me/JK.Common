@@ -1,76 +1,71 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace JK.Common.Extensions;
 
 public static class DateNameExtensions
 {
-    /// <summary>Gets the abbreviated day name.</summary>
-    /// <param name="date">Date of day.</param>
-    /// <returns>Abbreviated day name.</returns>
-    public static string GetAbbreviatedDayName(in DateTime date) => GetAbbreviatedDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
+    extension(DateTime date)
+    {
+        /// <summary>Gets the abbreviated day name.</summary>
+        /// <returns>Abbreviated day name.</returns>
+        public string AbbreviatedDayName => GetAbbreviatedDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
 
-    /// <summary>Gets the abbreviated day name.</summary>
-    /// <param name="date">Date of day.</param>
-    /// <returns>Abbreviated day name.</returns>
-    public static string GetAbbreviatedDayName(in DateTimeOffset date) => GetAbbreviatedDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
+        /// <summary>Gets the abbreviated month name.</summary>
+        /// <returns>Abbreviated month name.</returns>
+        public string AbbreviatedMonthName => GetAbbreviatedMonthName(date.Month, CultureInfo.CurrentCulture);
 
-    /// <summary>Gets the abbreviated month name.</summary>
-    /// <param name="date">Date within the month to abbreviate.</param>
-    /// <returns>Abbreviated month name.</returns>
-    public static string GetAbbreviatedMonthName(in DateTime date) => GetAbbreviatedMonthName(date.Month, CultureInfo.CurrentCulture);
+        /// <summary>Gets the full name of a given day.</summary>
+        /// <returns>Full day name.</returns>
+        public string DayName => GetDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
 
-    /// <summary>Gets the abbreviated month name.</summary>
-    /// <param name="date">Date within the month to abbreviate.</param>
-    /// <returns>Abbreviated month name.</returns>
-    public static string GetAbbreviatedMonthName(in DateTimeOffset date) => GetAbbreviatedMonthName(date.Month, CultureInfo.CurrentCulture);
+        /// <summary>Gets the full name of a month.</summary>
+        /// <returns>Full month name.</returns>
+        public string MonthName => GetMonthName(date.Month, CultureInfo.CurrentCulture);
+    }
 
-    /// <summary>Gets the full name of a given day.</summary>
-    /// <param name="date">Date of day.</param>
-    /// <returns>Full day name.</returns>
-    public static string GetDayName(in DateTime date) => GetDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
+    extension(DateTimeOffset date)
+    {
+        /// <summary>Gets the abbreviated day name.</summary>
+        /// <returns>Abbreviated day name.</returns>
+        public string AbbreviatedDayName => GetAbbreviatedDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
 
-    /// <summary>Gets the full name of a given day.</summary>
-    /// <param name="date">Date of day.</param>
-    /// <returns>Full day name.</returns>
-    public static string GetDayName(in DateTimeOffset date) => GetDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
+        /// <summary>Gets the abbreviated month name.</summary>
+        /// <returns>Abbreviated month name.</returns>
+        public string AbbreviatedMonthName => GetAbbreviatedMonthName(date.Month, CultureInfo.CurrentCulture);
 
-    /// <summary>Gets the full name of a month.</summary>
-    /// <param name="date">Date within the month.</param>
-    /// <returns>Full month name.</returns>
-    public static string GetMonthName(in DateTime date) => GetMonthName(date.Month, CultureInfo.CurrentCulture);
+        /// <summary>Gets the full name of a given day.</summary>
+        /// <returns>Full day name.</returns>
+        public string DayName => GetDayName(date.DayOfWeek, CultureInfo.CurrentCulture);
 
-    /// <summary>Gets the full name of a month.</summary>
-    /// <param name="date">Date within the month.</param>
-    /// <returns>Full month name.</returns>
-    public static string GetMonthName(in DateTimeOffset date) => GetMonthName(date.Month, CultureInfo.CurrentCulture);
-
+        /// <summary>Gets the full name of a month.</summary>
+        /// <returns>Full month name.</returns>
+        public string MonthName => GetMonthName(date.Month, CultureInfo.CurrentCulture);
+    }
 
 #if NET6_0_OR_GREATER
 
-    /// <summary>Gets the abbreviated day name.</summary>
-    /// <param name="date">Current DateOnly object from extension method.</param>
-    /// <returns>Abbreviated day name.</returns>
-    public static string GetAbbreviatedDayName(this DateOnly date) => GetAbbreviatedDayName(date.DayOfWeek);
+    extension(DateOnly date)
+    {
+        /// <summary>Gets the abbreviated day name.</summary>
+        /// <returns>Abbreviated day name.</returns>
+        public string AbbreviatedDayName => GetAbbreviatedDayName(date.DayOfWeek);
 
-    /// <summary>Gets the abbreviated month name.</summary>
-    /// <param name="date">Current DateOnly object from extension method.</param>
-    /// <returns>Abbreviated month name.</returns>
-    public static string GetAbbreviatedMonthName(this DateOnly date) => GetAbbreviatedMonthName(date.Month);
+        /// <summary>Gets the abbreviated month name.</summary>
+        /// <returns>Abbreviated month name.</returns>
+        public string AbbreviatedMonthName => GetAbbreviatedMonthName(date.Month);
 
-    /// <summary>Gets the full name of a given day.</summary>
-    /// <param name="date">Current DateOnly object from extension method.</param>
-    /// <returns>Full day name.</returns>
-    public static string GetDayName(this DateOnly date) => GetDayName(date.DayOfWeek);
+        /// <summary>Gets the full name of a given day.</summary>
+        /// <returns>Full day name.</returns>
+        public string DayName => GetDayName(date.DayOfWeek);
 
-    /// <summary>Gets the full name of a month.</summary>
-    /// <param name="date">Current DateOnly object from extension method.</param>
-    /// <returns>Full month name.</returns>
-    public static string GetMonthName(this DateOnly date) => GetMonthName(date.Month);
+        /// <summary>Gets the full name of a month.</summary>
+        /// <returns>Full month name.</returns>
+        public string MonthName => GetMonthName(date.Month);
+    }
 
 #endif
 
-    private static string GetAbbreviatedDayName(this DayOfWeek dayOfWeek, CultureInfo cultureInfo = null)
+    private static string GetAbbreviatedDayName(DayOfWeek dayOfWeek, CultureInfo cultureInfo = null)
     {
         cultureInfo ??= CultureInfo.CurrentCulture;
         return cultureInfo.DateTimeFormat.GetAbbreviatedDayName(dayOfWeek);

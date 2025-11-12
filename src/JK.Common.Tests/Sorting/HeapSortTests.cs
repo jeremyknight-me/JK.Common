@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JK.Common.Sorting;
+﻿using JK.Common.Sorting;
 
 namespace JK.Common.Tests.Sorting;
 

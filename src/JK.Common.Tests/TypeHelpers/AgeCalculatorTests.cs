@@ -1,16 +1,18 @@
-﻿using JK.Common.Extensions;
+﻿using JK.Common.TypeHelpers;
 
-namespace JK.Common.Tests.Extensions.DateExtensionTests;
+namespace JK.Common.Tests.TypeHelpers;
 
-public class CalculateAge
+public class AgeCalculatorTests
 {
+    private readonly AgeCalculator _ageCalculator = new();
+
     [Theory]
     [MemberData(nameof(Data))]
     public void DateTime_Theories(int expected, string birthday, string now)
     {
         var birthdayDate = DateTime.Parse(birthday);
         var nowDate = DateTime.Parse(now);
-        var actual = nowDate.CalculateAge(birthdayDate);
+        var actual = _ageCalculator.Calculate(birthdayDate, nowDate);
         Assert.Equal(expected, actual);
     }
 
@@ -21,7 +23,7 @@ public class CalculateAge
     {
         var birthdayDate = DateOnly.Parse(birthday);
         var nowDate = DateOnly.Parse(now);
-        var actual = nowDate.CalculateAge(birthdayDate);
+        var actual = _ageCalculator.Calculate(birthdayDate, nowDate);
         Assert.Equal(expected, actual);
     }
 #endif

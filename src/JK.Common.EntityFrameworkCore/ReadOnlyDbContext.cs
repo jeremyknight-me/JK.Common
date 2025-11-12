@@ -1,9 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-
-namespace JK.Common.EntityFrameworkCore;
+﻿namespace JK.Common.EntityFrameworkCore;
 
 public abstract class ReadOnlyDbContext : DbContext
 {

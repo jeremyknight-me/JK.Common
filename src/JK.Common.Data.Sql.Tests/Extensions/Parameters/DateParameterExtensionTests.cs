@@ -1,8 +1,6 @@
-﻿using System;
-using System.Data;
+﻿#if NET6_0_OR_GREATER
+
 using JK.Common.Data.Sql.Extensions.Parameters;
-using Microsoft.Data.SqlClient;
-using Xunit;
 
 namespace JK.Common.Data.Sql.Tests.Extensions.Parameters;
 
@@ -10,7 +8,7 @@ public class DateParameterExtensionTests
 {
     [Theory]
     [MemberData(nameof(AddDate_Data))]
-    public void AddDate_Theories(string name, DateTime value)
+    public void AddDate_Theories(string name, DateOnly value)
     {
         using var command = new SqlCommand();
         command.Parameters.AddDate(name, value);
@@ -31,9 +29,9 @@ public class DateParameterExtensionTests
 
     [Theory]
     [MemberData(nameof(AddDate_Data))]
-    public void AddDate_NonNull_Theories(string name, DateTime value)
+    public void AddDate_NonNull_Theories(string name, DateOnly value)
     {
-        DateTime? nullableDateTime = value;
+        DateOnly? nullableDateTime = value;
         using var command = new SqlCommand();
         command.Parameters.AddDate(name, nullableDateTime);
         SqlParameter parameter = ParameterAssertHelper.AssertSingleAndReturn(command, name);
@@ -49,11 +47,11 @@ public class DateParameterExtensionTests
         Assert.Empty(command.Parameters);
     }
 
-    public static TheoryData<string, DateTime> AddDate_Data()
+    public static TheoryData<string, DateOnly> AddDate_Data()
         => new()
         {
-            { "Foo", new DateTime(2022, 12, 31) },
-            { "Bar", new DateTime(2022, 11, 1) }
+            { "Foo", new DateOnly(2022, 12, 31) },
+            { "Bar", new DateOnly(2022, 11, 1) }
         };
 
     private static void AssertDbTypes(SqlParameter parameter)
@@ -62,3 +60,5 @@ public class DateParameterExtensionTests
         Assert.Equal(SqlDbType.Date, parameter.SqlDbType);
     }
 }
+
+#endif

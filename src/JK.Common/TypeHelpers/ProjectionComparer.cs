@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace JK.Common.TypeHelpers;
+﻿namespace JK.Common.TypeHelpers;
 
 // found at: https://stackoverflow.com/a/21021391
 public static class ProjectionComparer<TSource>
