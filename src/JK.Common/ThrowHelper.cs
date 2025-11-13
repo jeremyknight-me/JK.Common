@@ -35,7 +35,7 @@ public static class ThrowHelper
         IfNull(value, paramName);
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentException("The value cannot be null or empty string.", paramName);
+            throw new ArgumentException("The value cannot be an empty string or consist only of white-space characters.", paramName);
         }
 #endif
     }
