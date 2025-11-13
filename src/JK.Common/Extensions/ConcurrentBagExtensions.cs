@@ -20,5 +20,29 @@ public static class ConcurrentBagExtensions
                 bag.Add(item);
             }
         }
+
+        /// <summary>
+        /// Adds the specified items to the collection if they are not <c>null</c>.
+        /// </summary>
+        /// <param name="items">The items to add to the collection.</param>
+        /// <remarks>
+        /// Each item in <paramref name="items"/> will be checked for <c>null</c> before being added.
+        /// </remarks>
+        public void AddRangeIfNotNull(IEnumerable<T> items)
+        {
+            ThrowHelper.IfNull(bag, nameof(bag));
+            if (items is null)
+            {
+                return;
+            }
+
+            foreach (T item in items)
+            {
+                if (item is not null)
+                {
+                    bag.Add(item);
+                }
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using JK.Common.Extensions;
 
-namespace JK.Common.Tests.Extensions;
+namespace JK.Common.Tests.Extensions.CollectionExtensionTests;
 
-public class CollectionExtensionsTests
+public class ExtensionTests
 {
     [Fact]
     public void ICollectionT_Null_Exception()
