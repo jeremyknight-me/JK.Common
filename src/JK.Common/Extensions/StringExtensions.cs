@@ -89,13 +89,6 @@ public static class StringExtensions
         public bool IsValidZip => new ZipCodeSpecification().IsSatisfiedBy(text);
 
         /// <summary>
-        /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
-        /// </summary>
-        /// <param name="length">Number of characters to get from end of string.</param>
-        /// <returns>Returns the last X characters of the string.</returns>
-        public string Last(in int length) => text.Right(length);
-
-        /// <summary>
         /// Removes US (dollar) currency format characters from a string.
         /// </summary>
         /// <returns>String that can be parsed into a number.</returns>
@@ -134,7 +127,7 @@ public static class StringExtensions
         }
 
         /// <summary>
-        /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
+        /// Returns the specified number of characters from the end of string. Same as <see cref="Last"/>.
         /// </summary>
         /// <param name="length">Number of characters to get from end of string.</param>
         /// <returns>Returns the last X characters of the string.</returns>

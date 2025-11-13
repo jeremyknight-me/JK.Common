@@ -41,6 +41,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Removed dependency on `JK.Common.Abstractions`.
 - Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
+- Removed `StringExtensions.Last` method in favor of `StringExtensions.Right()`.
 
 ## 6.0.0
 
