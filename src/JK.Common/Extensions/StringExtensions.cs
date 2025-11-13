@@ -135,6 +135,13 @@ public static class StringExtensions
         public string RemoveXml() => Regex.Replace(text, @"<(.|\n)*?>", string.Empty);
 
         /// <summary>
+        /// Replaces all occurrences of a specified string in the current string with an empty string.
+        /// </summary>
+        /// <param name="textToReplace">The string to be replaced with an empty string.</param>
+        /// <returns>A new string with all occurrences of <paramref name="textToReplace"/> removed.</returns>
+        public string ReplaceWithEmpty(string textToReplace) => text.Replace(textToReplace, string.Empty);
+
+        /// <summary>
         /// Reverses the characters within a string.
         /// </summary>
         /// <returns>The original string in reverse.</returns>
