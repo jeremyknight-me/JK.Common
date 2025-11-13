@@ -19,9 +19,10 @@ public static class ThrowHelper
 #if NET7_0_OR_GREATER
         ArgumentException.ThrowIfNullOrEmpty(value, paramName);
 #else
+        IfNull(value, paramName);
         if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentNullException(paramName);
+            throw new ArgumentException("The value cannot be an empty string.", paramName);
         }
 #endif
     }
@@ -31,9 +32,10 @@ public static class ThrowHelper
 #if NET8_0_OR_GREATER
         ArgumentException.ThrowIfNullOrWhiteSpace(value, paramName);
 #else
+        IfNull(value, paramName);
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentNullException(paramName);
+            throw new ArgumentException("The value cannot be null or empty string.", paramName);
         }
 #endif
     }

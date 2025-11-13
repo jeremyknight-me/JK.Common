@@ -28,18 +28,12 @@
 
             <!-- Match fully qualified names of functions: -->
             <!-- (Use "\." to delimit namespaces in C# or Visual Basic, "::" in C++.)  -->
-            <!--
             <Functions>
               <Exclude>
-                <Function>^Fabrikam\.UnitTest\..*</Function>
-                <Function>^std::.*</Function>
-                <Function>^ATL::.*</Function>
-                <Function>.*::__GetTestMethodInfo.*</Function>
-                <Function>^Microsoft::VisualStudio::CppCodeCoverageFramework::.*</Function>
-                <Function>^Microsoft::VisualStudio::CppUnitTestFramework::.*</Function>
+                <Function>.*get_.*</Function>
+                <Function>.*set_.*</Function>
               </Exclude>
             </Functions>
-            -->
 
             <!-- Match attributes on any code element: -->
             <Attributes>

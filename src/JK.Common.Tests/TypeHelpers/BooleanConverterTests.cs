@@ -1,4 +1,4 @@
-﻿using JK.Common.Converters;
+﻿using JK.Common.TypeHelpers;
 
 namespace JK.Common.Tests.TypeHelpers;
 
@@ -17,11 +17,18 @@ public class BooleanConverterTests
     [InlineData("false", false)]
     [InlineData(0, false)]
     [InlineData("0", false)]
-    public void Convert(object value, bool expected)
+    public void Convert_Theories(object value, bool expected)
     {
         var sut = new BooleanConverter();
         var actual = sut.Convert(value);
         Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Convert_UnsupportedValue_ThrowsArgumentException()
+    {
+        var sut = new BooleanConverter();
+        Assert.Throws<ArgumentException>(() => sut.Convert("maybe"));
     }
 
     [Theory]
@@ -39,10 +46,17 @@ public class BooleanConverterTests
     [InlineData("false", false)]
     [InlineData(0, false)]
     [InlineData("0", false)]
-    public void ConvertToNullable(object value, bool? expected)
+    public void ConvertToNullable_Theories(object value, bool? expected)
     {
         var sut = new BooleanConverter();
         var actual = sut.ConvertToNullable(value);
         Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void ConvertToNullable_UnsupportedValue_ThrowsArgumentException()
+    {
+        var sut = new BooleanConverter();
+        Assert.Throws<ArgumentException>(() => sut.ConvertToNullable("perhaps"));
     }
 }
