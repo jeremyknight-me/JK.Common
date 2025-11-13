@@ -4,6 +4,57 @@ namespace JK.Common.Tests.Extensions.StringExtensionTests;
 
 public class ExtensionTests
 {
+    [Fact]
+    public void IsNull_TrueWhenNull()
+    {
+        string input = null;
+        Assert.True(input.IsNull());
+    }
+
+    [Theory]
+    [InlineData("John")]
+    [InlineData("")]
+    [InlineData(" ")]
+    public void IsNull_FalseTheories(string input)
+    {
+        Assert.False(input.IsNull());
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void IsNullOrEmpty_TrueTheories(string input)
+    {
+        Assert.True(input.IsNullOrEmpty());
+    }
+
+    [Theory]
+    [InlineData("John")]
+    [InlineData(" ")]
+    public void IsNullOrEmpty_FalseTheories(string input)
+    {
+        Assert.False(input.IsNullOrEmpty());
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData(" ")]
+    [InlineData("\n ")]
+    public void IsNullOrWhiteSpace_TrueTheories(string input)
+    {
+        Assert.True(input.IsNullOrWhiteSpace());
+    }
+
+    [Theory]
+    [InlineData("John")]
+    [InlineData("123")]
+    [InlineData(".")]
+    public void IsNullOrWhiteSpace_FalseTheories(string input)
+    {
+        Assert.False(input.IsNullOrWhiteSpace());
+    }
+
     [Theory]
     [InlineData("", 2, "")]
     [InlineData("Test", 2, "st")]

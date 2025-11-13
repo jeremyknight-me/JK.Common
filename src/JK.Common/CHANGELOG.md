@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased (7.0.0)
+## 7.0.0 (Unreleased)
 
 ### Added
 
@@ -17,6 +17,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added `FibonacciFactory` for generating Fibonacci sequences.
 - Added `DateRangeHelper` for determining date range overlaps.
 - Added `DayOfWeekExtensions` for weekday/weekend checks.
+- Added `IsNull()`, `IsNullOrEmpty`, and `IsNullOrWhitespace` extension methods in `StringExtensions`.
 
 ### Changed
 
