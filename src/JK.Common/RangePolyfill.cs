@@ -17,6 +17,7 @@ namespace System
     /// int lastElement = someArray[^1]; // lastElement = 5
     /// </code>
     /// </remarks>
+    [Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal readonly struct Index : IEquatable<Index>
     {
         private readonly int _value;
@@ -161,6 +162,7 @@ namespace System
     /// int[] subArray2 = someArray[1..^0]; // { 2, 3, 4, 5 }
     /// </code>
     /// </remarks>
+    [Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal readonly struct Range : IEquatable<Range>
     {
         /// <summary>Represent the inclusive start index of the Range.</summary>
@@ -262,6 +264,7 @@ namespace System
 namespace System.Runtime.CompilerServices
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 {
+    [Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal static class RuntimeHelpers
     {
         /// <summary>

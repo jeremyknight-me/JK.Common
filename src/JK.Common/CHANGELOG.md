@@ -7,16 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.com/jeremyknight-me).
 
-## Unreleased (7.0.0)
+## 7.0.0 (Unreleased)
 
 ### Added
 
 - Added support for .NET 10.
 - Added XML documentation to numerous methods and classes.
+- Added `AddIfNotNull` extension method in `CollectionExtensions`.
 - Added `AgeCalculator` for calculating age based on specified date.
 - Added `FibonacciFactory` for generating Fibonacci sequences.
 - Added `DateRangeHelper` for determining date range overlaps.
 - Added `DayOfWeekExtensions` for weekday/weekend checks.
+- Added `HashSetExtensions` extension methods. 
+- Added `ThrowHelper` for argument validation.
+- Added the following `StringExtensions` extension methods:
+  - `IsNull()`
+  - `IsNullOrEmpty()`
+  - `IsNullOrWhitespace()`
+  - `ReplaceWithEmpty()`
 
 ### Changed
 
@@ -41,6 +49,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Removed dependency on `JK.Common.Abstractions`.
 - Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
+- Removed `StringExtensions.Last` method in favor of `StringExtensions.Right()`.
 
 ## 6.0.0
 

@@ -1,25 +1,22 @@
-﻿using System.Linq;
-
-namespace JK.Common.Converters;
+﻿namespace JK.Common.TypeHelpers;
 
 /// <summary>
 /// Class initially built to aid in data imports.
 /// </summary>
 public sealed class BooleanConverter
 {
-    private readonly object[] _trueItems;
-    private readonly object[] _falseItems;
-    private readonly object[] _nullItems;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="BooleanConverter"/> class.
-    /// </summary>
-    public BooleanConverter()
+    private readonly Dictionary<string, bool?> _values = new(9, StringComparer.OrdinalIgnoreCase)
     {
-        _trueItems = ["TRUE", "True", "true", "Y", "y", "YES", "Yes", "yes", 1, "1"];
-        _falseItems = ["FALSE", "False", "false", "N", "n", "NO", "No", "no", 0, "0"];
-        _nullItems = [null, "", string.Empty];
-    }
+        { "true", true },
+        { "y", true },
+        { "yes", true },
+        { "1", true },
+        { "false", false },
+        { "n", false },
+        { "no", false },
+        { "0", false },
+        { string.Empty, null }
+    };
 
     /// <summary>
     /// Converts the specified value to a boolean.
@@ -29,17 +26,16 @@ public sealed class BooleanConverter
     /// <exception cref="ArgumentException">Thrown when the value cannot be converted to a boolean.</exception>
     public bool Convert(object value)
     {
-        if (value is string)
+        ThrowHelper.IfNull(value, nameof(value));
+        var stringValue = value is string s
+            ? s.Trim()
+            : value.ToString();
+        if (!_values.TryGetValue(stringValue, out var boolean) || boolean is null)
         {
-            value = value.ToString().Trim();
+            throw new ArgumentException("Value is not supported.");
         }
 
-        return value switch
-        {
-            var t when IsTrue(t) => true,
-            var f when IsFalse(f) => false,
-            _ => throw new ArgumentException("Value is not supported."),
-        };
+        return boolean.Value;
     }
 
     /// <summary>
@@ -49,17 +45,19 @@ public sealed class BooleanConverter
     /// <returns>The nullable boolean representation of the value.</returns>
     public bool? ConvertToNullable(object value)
     {
-        if (value is string)
+        if (value is null)
         {
-            value = value.ToString().Trim();
+            return null;
         }
 
-        return IsNull(value)
-            ? null
-            : Convert(value);
-    }
+        var stringValue = value is string s
+            ? s.Trim()
+            : value.ToString();
+        if (!_values.TryGetValue(stringValue, out var boolean))
+        {
+            throw new ArgumentException("Value is not supported.");
+        }
 
-    private bool IsTrue(in object value) => _trueItems.Contains(value);
-    private bool IsFalse(in object value) => _falseItems.Contains(value);
-    private bool IsNull(in object value) => _nullItems.Contains(value);
+        return boolean;
+    }
 }

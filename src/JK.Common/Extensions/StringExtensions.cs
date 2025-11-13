@@ -54,6 +54,30 @@ public static class StringExtensions
         public bool IsDateTime => new DateTimeSpecification().IsSatisfiedBy(text);
 
         /// <summary>
+        /// Determines whether the string is <c>null</c>.
+        /// </summary>
+        /// <remarks>
+        /// Returns <c>true</c> if the string is <c>null</c>; otherwise, <c>false</c>.
+        /// </remarks>
+        public bool IsNull() => text is null;
+
+        /// <summary>
+        /// Determines whether the string is <c>null</c> or an empty string.
+        /// </summary>
+        /// <remarks>
+        /// Returns <c>true</c> if the string is <c>null</c> or an empty string; otherwise, <c>false</c>.
+        /// </remarks>
+        public bool IsNullOrEmpty() => string.IsNullOrEmpty(text);
+
+        /// <summary>
+        /// Determines whether the string is <c>null</c>, empty, or consists only of white-space characters.
+        /// </summary>
+        /// <remarks>
+        /// Returns <c>true</c> if the string is <c>null</c>, empty, or consists only of white-space characters; otherwise, <c>false</c>.
+        /// </remarks>
+        public bool IsNullOrWhiteSpace() => string.IsNullOrWhiteSpace(text);
+
+        /// <summary>
         /// Determines if the given string is a number.
         /// Relies on <see cref="NumericSpecification"/>
         /// </summary>
@@ -89,13 +113,6 @@ public static class StringExtensions
         public bool IsValidZip => new ZipCodeSpecification().IsSatisfiedBy(text);
 
         /// <summary>
-        /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
-        /// </summary>
-        /// <param name="length">Number of characters to get from end of string.</param>
-        /// <returns>Returns the last X characters of the string.</returns>
-        public string Last(in int length) => text.Right(length);
-
-        /// <summary>
         /// Removes US (dollar) currency format characters from a string.
         /// </summary>
         /// <returns>String that can be parsed into a number.</returns>
@@ -118,6 +135,13 @@ public static class StringExtensions
         public string RemoveXml() => Regex.Replace(text, @"<(.|\n)*?>", string.Empty);
 
         /// <summary>
+        /// Replaces all occurrences of a specified string in the current string with an empty string.
+        /// </summary>
+        /// <param name="textToReplace">The string to be replaced with an empty string.</param>
+        /// <returns>A new string with all occurrences of <paramref name="textToReplace"/> removed.</returns>
+        public string ReplaceWithEmpty(string textToReplace) => text.Replace(textToReplace, string.Empty);
+
+        /// <summary>
         /// Reverses the characters within a string.
         /// </summary>
         /// <returns>The original string in reverse.</returns>
@@ -134,7 +158,7 @@ public static class StringExtensions
         }
 
         /// <summary>
-        /// Returns the specified number of characters from a string. Same as <see cref="Last"/>.
+        /// Returns the specified number of characters from the end of string. Same as <see cref="Last"/>.
         /// </summary>
         /// <param name="length">Number of characters to get from end of string.</param>
         /// <returns>Returns the last X characters of the string.</returns>

@@ -4,23 +4,55 @@ namespace JK.Common.Tests.Extensions.StringExtensionTests;
 
 public class ExtensionTests
 {
-    [Theory]
-    [InlineData("", 2, "")]
-    [InlineData("Test", 2, "st")]
-    [InlineData("Test", 4, "Test")]
-    [InlineData("Test", 6, "Test")]
-    public void Right_Theories(string input, int length, string expected)
+    [Fact]
+    public void IsNull_TrueWhenNull()
     {
-        var actual = input.Right(length);
-        Assert.Equal(expected, actual);
+        string input = null;
+        Assert.True(input.IsNull());
     }
 
-    [Fact]
-    public void Reverse_Test()
+    [Theory]
+    [InlineData("John")]
+    [InlineData("")]
+    [InlineData(" ")]
+    public void IsNull_FalseTheories(string input)
     {
-        const string s = "Sample Text";
-        var actual = s.Reverse();
-        Assert.Equal("txeT elpmaS", actual);
+        Assert.False(input.IsNull());
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void IsNullOrEmpty_TrueTheories(string input)
+    {
+        Assert.True(input.IsNullOrEmpty());
+    }
+
+    [Theory]
+    [InlineData("John")]
+    [InlineData(" ")]
+    public void IsNullOrEmpty_FalseTheories(string input)
+    {
+        Assert.False(input.IsNullOrEmpty());
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData(" ")]
+    [InlineData("\n ")]
+    public void IsNullOrWhiteSpace_TrueTheories(string input)
+    {
+        Assert.True(input.IsNullOrWhiteSpace());
+    }
+
+    [Theory]
+    [InlineData("John")]
+    [InlineData("123")]
+    [InlineData(".")]
+    public void IsNullOrWhiteSpace_FalseTheories(string input)
+    {
+        Assert.False(input.IsNullOrWhiteSpace());
     }
 
     [Theory]
@@ -39,6 +71,35 @@ public class ExtensionTests
     public void RemoveXml_Test(string input, string expected)
     {
         var actual = input.RemoveXml();
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData("abc", "a", "bc")]
+    [InlineData("abc abc", "a", "bc bc")]
+    [InlineData("abc", "d", "abc")]
+    public void ReplaceWithEmpty_Theories(string input, string replace, string expected)
+    {
+        var actual = input.ReplaceWithEmpty(replace);
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Reverse_Test()
+    {
+        const string s = "Sample Text";
+        var actual = s.Reverse();
+        Assert.Equal("txeT elpmaS", actual);
+    }
+
+    [Theory]
+    [InlineData("", 2, "")]
+    [InlineData("Test", 2, "st")]
+    [InlineData("Test", 4, "Test")]
+    [InlineData("Test", 6, "Test")]
+    public void Right_Theories(string input, int length, string expected)
+    {
+        var actual = input.Right(length);
         Assert.Equal(expected, actual);
     }
 }
