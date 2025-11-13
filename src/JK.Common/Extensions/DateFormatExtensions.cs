@@ -12,7 +12,7 @@ public static class DateFormatExtensions
         /// full date and long time string representation.
         /// </summary>
         /// <returns>Date and time string in the format: Sunday, January 31, 2010 12:45:30 PM</returns>
-        public string ToFullDateLongTimeFormat() => $"{date:f}";
+        public string ToFullDateLongTimeFormat() => $"{date:F}";
 
         /// <summary>
         /// Formats the value of the current DateTime object to its equivalent 
