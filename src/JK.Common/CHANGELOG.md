@@ -18,6 +18,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 - Added `DateRangeHelper` for determining date range overlaps.
 - Added `DayOfWeekExtensions` for weekday/weekend checks.
 - Added `IsNull()`, `IsNullOrEmpty`, and `IsNullOrWhitespace` extension methods in `StringExtensions`.
+- Added `ThrowHelper` for argument validation.
 
 ### Changed
 
