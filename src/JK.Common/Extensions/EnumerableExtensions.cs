@@ -31,9 +31,32 @@ public static class EnumerableExtensions
     /// <param name="action">The action to perform on each element.</param>
     public static void ForEach<T>(this IEnumerable<T> source, in Action<T> action)
     {
+        ThrowHelper.IfNull(source, nameof(source));
+        ThrowHelper.IfNull(action, nameof(action));
+
         foreach (T item in source)
         {
             action(item);
+        }
+    }
+
+    /// <summary>
+    /// Performs the specified action on each element of the IEnumerable.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements of source.</typeparam>
+    /// <param name="source">The sequence to iterate over.</param>
+    /// <param name="action">
+    /// The action to perform on each element. The action's second parameter is the index of the source element.
+    /// </param>
+    public static void ForEach<T>(this IEnumerable<T> source, in Action<T, int> action)
+    {
+        ThrowHelper.IfNull(source, nameof(source));
+        ThrowHelper.IfNull(action, nameof(action));
+
+        var index = 0;
+        foreach (T item in source)
+        {
+            action(item, index++);
         }
     }
 
