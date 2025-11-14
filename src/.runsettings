@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- This file is meant to be a solution level configuration. -->
 <!-- File name extension must be .runsettings -->
 <!-- See https://github.com/microsoft/codecoverage for more information. -->
 <RunSettings>
@@ -22,6 +23,7 @@
                 <ModulePath>.*jk\.[^/\\]+\.(dll|exe)$</ModulePath>
               </Include>
               <Exclude>
+                <!-- Exclude test projects -->
                 <ModulePath>.*tests.(dll|exe)</ModulePath>
               </Exclude>
             </ModulePaths>
@@ -30,6 +32,7 @@
             <!-- (Use "\." to delimit namespaces in C# or Visual Basic, "::" in C++.)  -->
             <Functions>
               <Exclude>
+                <!-- DO NOT include auto-properties in coverage -->
                 <Function>.*get_.*</Function>
                 <Function>.*set_.*</Function>
               </Exclude>
