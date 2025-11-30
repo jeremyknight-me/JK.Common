@@ -8,6 +8,7 @@
     <Version>5.0.0</Version>
     <Description>A utility library containing extensions to FluentValidation</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
