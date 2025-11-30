@@ -20,6 +20,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
  - Deep Cloner
  - Latitude and Longitude Classes
  - Template Processing
+ - Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
 
 ### JK.Common.Data.Sql
  - Generic SqlBulkCopy Operation
@@ -37,3 +38,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
 ### JK.Common.FluentValidation
 
  - Custom validators (address, email, etc.)
+
+### JK.Common.OpenXml
+
+ - Removed library.  [ClosedXml](https://github.com/ClosedXML/ClosedXML) is recommended.
