@@ -38,11 +38,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common.EntityFrameworkCore.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JK.Common.EntityFrameworkCore.SqlServer", "JK.Common.EntityFrameworkCore.SqlServer\JK.Common.EntityFrameworkCore.SqlServer.csproj", "{AC8AFA29-6989-4F3C-B1C8-4520DCF11A3C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common.PolyfillGenerators", "Common.PolyfillGenerators", "{FCAF7E60-D2E6-4647-9864-CDC561973D64}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common.Generators.Polyfills", "Common.Generators.Polyfills", "{FCAF7E60-D2E6-4647-9864-CDC561973D64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.PolyfillGenerators", "JK.Common.PolyfillGenerators\JK.Common.PolyfillGenerators.csproj", "{C8B56340-E809-4D41-B1B7-BF780787B2AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.PolyfillGenerators.Tests", "JK.Common.PolyfillGenerators.Tests\JK.Common.PolyfillGenerators.Tests.csproj", "{FA4C57F1-F800-41F4-9CFB-5DD2A9D3CF0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common.Generators.EnumHelpers", "Common.Generators.EnumHelpers", "{D6599A7A-51CD-4A9F-A74D-315BB0343FC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.Generators.EnumHelpers", "JK.Common.Generators.EnumHelpers\JK.Common.Generators.EnumHelpers.csproj", "{B5E1EFF3-C4C1-4C33-9EA9-C82DCFC13E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JK.Common.Generators.EnumHelpers.Tests", "JK.Common.Generators.EnumHelpers.Tests\JK.Common.Generators.EnumHelpers.Tests.csproj", "{120E6E48-BB9B-4729-8F3F-0BBBB3EB1C01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +100,14 @@ Global
 		{FA4C57F1-F800-41F4-9CFB-5DD2A9D3CF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA4C57F1-F800-41F4-9CFB-5DD2A9D3CF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA4C57F1-F800-41F4-9CFB-5DD2A9D3CF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E1EFF3-C4C1-4C33-9EA9-C82DCFC13E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E1EFF3-C4C1-4C33-9EA9-C82DCFC13E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E1EFF3-C4C1-4C33-9EA9-C82DCFC13E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E1EFF3-C4C1-4C33-9EA9-C82DCFC13E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{120E6E48-BB9B-4729-8F3F-0BBBB3EB1C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{120E6E48-BB9B-4729-8F3F-0BBBB3EB1C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{120E6E48-BB9B-4729-8F3F-0BBBB3EB1C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{120E6E48-BB9B-4729-8F3F-0BBBB3EB1C01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +124,8 @@ Global
 		{AC8AFA29-6989-4F3C-B1C8-4520DCF11A3C} = {4CF860AF-2AE6-48A3-B263-C1408906F46C}
 		{C8B56340-E809-4D41-B1B7-BF780787B2AB} = {FCAF7E60-D2E6-4647-9864-CDC561973D64}
 		{FA4C57F1-F800-41F4-9CFB-5DD2A9D3CF0B} = {FCAF7E60-D2E6-4647-9864-CDC561973D64}
+		{B5E1EFF3-C4C1-4C33-9EA9-C82DCFC13E17} = {D6599A7A-51CD-4A9F-A74D-315BB0343FC0}
+		{120E6E48-BB9B-4729-8F3F-0BBBB3EB1C01} = {D6599A7A-51CD-4A9F-A74D-315BB0343FC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86F24DB4-4BAA-44A9-8A59-08AB826C7CB8}
