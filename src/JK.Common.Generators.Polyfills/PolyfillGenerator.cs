@@ -1,17 +1,16 @@
 ﻿using System.Collections.Immutable;
-using JK.Common.PolyfillGenerators.Polyfills;
 
-namespace JK.Common.PolyfillGenerators;
+namespace JK.Common.Generators.Polyfills;
 
 [Generator]
 public sealed class PolyfillGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        IncrementalValuesProvider<IGeneratedPolyfill> polyfills = context.CompilationProvider
+        IncrementalValuesProvider<IPolyfill> polyfills = context.CompilationProvider
             .SelectMany((compilation, ct) =>
             {
-                IGeneratedPolyfill[] polyfills =
+                IPolyfill[] polyfills =
                 [
                     new IsExternalInitPolyfill()
                 ];

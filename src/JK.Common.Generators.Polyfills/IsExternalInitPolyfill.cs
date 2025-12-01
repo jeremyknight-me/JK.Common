@@ -1,6 +1,6 @@
-﻿namespace JK.Common.PolyfillGenerators.Polyfills;
+﻿namespace JK.Common.Generators.Polyfills;
 
-internal struct IsExternalInitPolyfill : IGeneratedPolyfill
+internal struct IsExternalInitPolyfill : IPolyfill
 {
     public string FileName => IsExternalInitPolyfillStrings.FileName;
 

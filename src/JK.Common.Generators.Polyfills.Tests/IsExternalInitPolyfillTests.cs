@@ -1,4 +1,4 @@
-﻿namespace JK.Common.PolyfillGenerators.Tests.Polyfills;
+﻿namespace JK.Common.Generators.Polyfills.Tests;
 
 public class IsExternalInitPolyfillTests
 {
