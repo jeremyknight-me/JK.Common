@@ -28,9 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JK.Common.Generators.EnumHelpers\JK.Common.Generators.EnumHelpers.csproj"
-                      OutputItemType="Analyzer"
-                      ReferenceOutputAssembly="true" />
+    <ProjectReference Include="..\JK.Common.Generators.EnumHelpers\JK.Common.Generators.EnumHelpers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
   </ItemGroup>
 
 </Project>
