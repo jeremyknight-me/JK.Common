@@ -1,5 +1,6 @@
 ﻿namespace JK.Common.Generators.EnumHelpers.Tests;
 
+[EnumHelpers]
 public enum ByteColors : byte
 {
     Red = 1,
@@ -7,6 +8,7 @@ public enum ByteColors : byte
     Blue = 3
 }
 
+[EnumHelpers]
 public enum IntColors
 {
     Red = 1,
