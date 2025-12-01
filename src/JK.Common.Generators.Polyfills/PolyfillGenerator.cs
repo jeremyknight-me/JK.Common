@@ -7,12 +7,12 @@ public sealed class PolyfillGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        IncrementalValuesProvider<IPolyfill> polyfills = context.CompilationProvider
+        IncrementalValuesProvider<Polyfill> polyfills = context.CompilationProvider
             .SelectMany((compilation, ct) =>
             {
-                IPolyfill[] polyfills =
+                Polyfill[] polyfills =
                 [
-                    new IsExternalInitPolyfill()
+                    IsExternalInitPolyfillFactory.Create()
                 ];
 
                 return polyfills.ToImmutableArray();
