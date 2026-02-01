@@ -1,7 +1,5 @@
 ﻿#if NET6_0_OR_GREATER
 
-using System.Drawing;
-
 namespace JK.Common.Extensions;
 
 /// <summary>
