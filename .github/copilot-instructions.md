@@ -1,5 +1,5 @@
 # Project Overview
-This project is a task management app built with React and Node.js
+This project is a utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.
 
 ## Folder Structure
 - `/src`: All source code including unit tests
