@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/Common.Data.Sql/">
+    <Project Path="JK.Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj" />
+    <Project Path="JK.Common.Data.Sql/JK.Common.Data.Sql.csproj" />
+  </Folder>
+  <Folder Name="/Common.EntityFrameworkCore.SqlServer/">
+    <Project Path="JK.Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj" />
+  </Folder>
+  <Folder Name="/Common.EntityFrameworkCore/">
+    <Project Path="JK.Common.EntityFrameworkCore.Tests/JK.Common.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="JK.Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.csproj" />
+  </Folder>
+  <Folder Name="/Common.FluentValidation/">
+    <Project Path="JK.Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj" />
+    <Project Path="JK.Common.FluentValidation/JK.Common.FluentValidation.csproj" />
+  </Folder>
+  <Folder Name="/Common.PolyfillGenerators/">
+    <Project Path="JK.Common.PolyfillGenerators.Tests/JK.Common.PolyfillGenerators.Tests.csproj" />
+    <Project Path="JK.Common.PolyfillGenerators/JK.Common.PolyfillGenerators.csproj" />
+  </Folder>
+  <Folder Name="/Common/">
+    <Project Path="JK.Common.Tests/JK.Common.Tests.csproj" />
+    <Project Path="JK.Common/JK.Common.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".runsettings" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+</Solution>
