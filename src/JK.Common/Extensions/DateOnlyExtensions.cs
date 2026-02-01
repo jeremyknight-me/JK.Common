@@ -1,5 +1,7 @@
 ﻿#if NET6_0_OR_GREATER
 
+using System.Drawing;
+
 namespace JK.Common.Extensions;
 
 /// <summary>
@@ -9,6 +11,22 @@ public static class DateOnlyExtensions
 {
     extension(DateOnly date)
     {
+        /// <summary>
+        /// Calculates the number of days between two DateOnly instances.
+        /// </summary>
+        /// <remarks>
+        /// This operator enables direct subtraction of two DateOnly values to determine the
+        /// interval in days.
+        /// </remarks>
+        /// <param name="left">The first date in the subtraction operation.</param>
+        /// <param name="right">The date to subtract from the left operand.</param>
+        /// <returns>
+        /// The number of days between the left and right dates. The result is positive if the left
+        /// date is later than the right date, negative if earlier, or zero if they are the same.
+        /// </returns>
+        public static int operator -(DateOnly left, DateOnly right)
+            => left.DayNumber - right.DayNumber;
+
         /// <summary>Adds given number of business days to a date.</summary>
         /// <param name="days">Number of days to add (can be negative).</param>
         /// <returns>The date the given amount of business days from the start date.</returns>
