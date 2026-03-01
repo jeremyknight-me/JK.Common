@@ -1,6 +1,6 @@
 # JK.Common Code Library
 
-A utility library containing boilerplate code, extension methods, new classes, and/or improvements to existing classes.  
+A collection of reusable .NET utilities and extension methods. The collection of JK.Common packages provide general-purpose helpers (string, date/time, collections), EF Core utilities, SQL bulk operations, and FluentValidation extensions to speed development of server-side services.
 
 [![buy me a coffee button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellowgreen)](https://ko-fi.com/jeremyknight) ![GitHub last commit](https://img.shields.io/github/last-commit/jeremyknight-me/JK.Common?color=red) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
@@ -12,33 +12,31 @@ A utility library containing boilerplate code, extension methods, new classes, a
 | [JK.Common.EntityFrameworkCore.SqlServer](src/JK.Common.EntityFrameworkCore.SqlServer/CHANGELOG.md) | [![JK.Common.EFCore.SqlServer CI](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-efcore-sql.yml/badge.svg)](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-efcore-sql.yml) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.EntityFrameworkCore.SqlServer.svg)](https://www.nuget.org/packages/JK.Common.EntityFrameworkCore.SqlServer/)  |
 | [JK.Common.FluentValidation](src/JK.Common.FluentValidation/CHANGELOG.md) | [![Common.FluentValidation CI](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-fluentvalidation.yml/badge.svg)](https://github.com/jeremyknight-me/JK.Common/actions/workflows/ci-common-fluentvalidation.yml) | [![Nuget](https://img.shields.io/nuget/v/JK.Common.FluentValidation.svg)](https://www.nuget.org/packages/JK.Common.FluentValidation/)  |
 
-## Components
+## Packages & Features
 
-### JK.Common
+- **JK.Common:** Helpers for `string`, `DateTime`, `IQueryable`, `IEnumerable`, deep cloning (`DeepCloner`), template processing utilities, and small geospatial types (latitude/longitude). Usage & docs: [src/JK.Common/README.md](src/JK.Common/README.md)
+- **JK.Common.Data.Sql:** Generic `SqlBulkCopy` operation and helpers for bulk insertion. Usage & docs: [src/JK.Common.Data.Sql/README.md](src/JK.Common.Data.Sql/README.md)
+ - **JK.Common.EntityFrameworkCore:** `ReadOnlyDbContext`, `AuditableEntity` with automatic audit property updates via SaveChanges interceptors. Usage & docs: [src/JK.Common.EntityFrameworkCore/README.md](src/JK.Common.EntityFrameworkCore/README.md)
+- **JK.Common.EntityFrameworkCore.SqlServer:** `PropertyBuilderExtensions` (`HasColumnTypeDateTime`, `HasColumnTypeNvarchar`, etc.) to simplify EF Core mappings. Usage & docs: [src/JK.Common.EntityFrameworkCore.SqlServer/README.md](src/JK.Common.EntityFrameworkCore.SqlServer/README.md)
+- **JK.Common.FluentValidation:** Common validators (address, email, etc.) to reuse across services. Usage & docs: [src/JK.Common.FluentValidation/README.md](src/JK.Common.FluentValidation/README.md)
 
- - Type helpers and extension methods for string, date time, IQueryable, IEnumerable, etc.
- - Deep Cloner
- - Latitude and Longitude Classes
- - Template Processing
- - Removed `DistanceConverter`, `TemperatureConverter`, and `TimeConverter`. [UnitsNet](https://github.com/angularsen/UnitsNet) is recommended.
+> Notes: 
+> - `DistanceConverter`, `TemperatureConverter`, and `TimeConverter` were removed — prefer `UnitsNet` for unit conversions. 
+> - `JK.Common.OpenXml` removed — prefer `ClosedXML`.
 
-### JK.Common.Data.Sql
- - Generic SqlBulkCopy Operation
+## Contributing
 
-### JK.Common.EntityFrameworkCore Components
+- Follow the `.editorconfig` rules in `src/.editorconfig`.
+- Create feature branches from `main` and open a PR with a descriptive summary.
+- Add unit tests for new behavior; run `dotnet test` locally.
+- CI runs on PRs; ensure checks pass before merging.
+- For release/versioning: update package versions and changelogs in the package folders.
 
- - ReadOnlyDbContext 
- - Context wide value change auditing. 
- - AuditableEntity with DateCreated, CreatedBy, DateModified, ModifiedBy properties as well as helper class to automatically update properties on SaveChanges
+## License & Code of Conduct
 
-### JK.Common.EntityFrameworkCore.SqlServer Components
+- Code of Conduct: `CODE_OF_CONDUCT.md`
+- License: See `LICENSE` in repository root.
 
- - PropertyBuilderExtensions (HasColumnTypeDateTime, HasColumnTypeNvarchar, etc.)
+## Release Notes & Changelog
 
-### JK.Common.FluentValidation
-
- - Custom validators (address, email, etc.)
-
-### JK.Common.OpenXml
-
- - Removed library.  [ClosedXml](https://github.com/ClosedXML/ClosedXML) is recommended.
+Each package has its own changelog; see the links in the table above.
