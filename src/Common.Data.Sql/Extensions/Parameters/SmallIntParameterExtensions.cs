@@ -1,5 +1,8 @@
 ﻿namespace JK.Common.Data.Sql.Extensions.Parameters;
 
+/// <summary>
+/// Extension methods for adding <see cref="SqlDbType.SmallInt"/> parameters to a <see cref="SqlParameterCollection"/>.
+/// </summary>
 public static class SmallIntParameterExtensions
 {
     extension(SqlParameterCollection parameters)

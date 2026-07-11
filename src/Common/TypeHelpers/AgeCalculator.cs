@@ -2,6 +2,9 @@
 
 namespace JK.Common.TypeHelpers;
 
+/// <summary>
+/// Calculates age in years from a start date to a given end date.
+/// </summary>
 public sealed class AgeCalculator
 {
     private readonly IDateTimeProvider _dateTimeProvider;

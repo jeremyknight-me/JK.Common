@@ -4,8 +4,12 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace JK.Common.EntityFrameworkCore.Interceptors;
 
+/// <summary>
+/// A <see cref="SaveChangesInterceptor"/> that automatically sets audit timestamps on <see cref="IAuditableEntity"/> instances.
+/// </summary>
 public sealed class AuditableSaveChangesInterceptor : SaveChangesInterceptor
 {
+    /// <inheritdoc />
     public override InterceptionResult<int> SavingChanges(
         DbContextEventData eventData,
         InterceptionResult<int> result)
@@ -18,6 +22,7 @@ public sealed class AuditableSaveChangesInterceptor : SaveChangesInterceptor
         return base.SavingChanges(eventData, result);
     }
 
+    /// <inheritdoc />
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(
         DbContextEventData eventData,
         InterceptionResult<int> result,

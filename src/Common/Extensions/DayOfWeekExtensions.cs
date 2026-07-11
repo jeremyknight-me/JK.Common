@@ -1,5 +1,8 @@
 ﻿namespace JK.Common.Extensions;
 
+/// <summary>
+/// Extension methods for <see cref="DayOfWeek"/>.
+/// </summary>
 public static class DayOfWeekExtensions
 {
     extension(DayOfWeek dayOfWeek)

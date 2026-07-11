@@ -1,5 +1,8 @@
 ﻿namespace JK.Common.Data.Sql.Extensions.Parameters;
 
+/// <summary>
+/// Extension methods for adding string parameters (<see cref="SqlDbType.Char"/>, <see cref="SqlDbType.NChar"/>, <see cref="SqlDbType.VarChar"/>, <see cref="SqlDbType.NVarChar"/>) to a <see cref="SqlParameterCollection"/>.
+/// </summary>
 public static class StringParameterExtensions
 {
     extension(SqlParameterCollection parameters)

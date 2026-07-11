@@ -56,6 +56,6 @@ public static class TypeExtensions
         /// </summary>
         /// <returns>True if the type is a nullable value type; otherwise, false.</returns>
         public bool IsNullableT()
-            => Nullable.GetUnderlyingType(type) != null;
+            => Nullable.GetUnderlyingType(type) is not null;
     }
 }

@@ -1,5 +1,8 @@
 ﻿namespace JK.Common.Data.Sql.Extensions.Parameters;
 
+/// <summary>
+/// Extension methods for adding <see cref="SqlDbType.Decimal"/> parameters to a <see cref="SqlParameterCollection"/>.
+/// </summary>
 public static class DecimalParameterExtensions
 {
     extension(SqlParameterCollection parameters)

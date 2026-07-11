@@ -5,6 +5,10 @@ using JK.Common.Data.Sql.Extensions;
 
 namespace JK.Common.Data.Sql;
 
+/// <summary>
+/// Performs bulk insert operations into a SQL Server database.
+/// </summary>
+/// <typeparam name="T">The type of items to insert.</typeparam>
 public class SqlBulkInsertOperation<T>
 {
     private readonly IAdoConnectionFactory _connectionFactory;

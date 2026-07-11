@@ -4,6 +4,9 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
+/// <summary>
+/// Extension methods for adding <see cref="SqlDbType.DateTime"/> and <see cref="SqlDbType.DateTime2"/> parameters to a <see cref="SqlParameterCollection"/>.
+/// </summary>
 public static class DateTimeParameterExtensions
 {
     extension(SqlParameterCollection parameters)

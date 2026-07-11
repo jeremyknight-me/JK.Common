@@ -3,6 +3,9 @@ using Microsoft.Data.SqlClient;
 
 namespace JK.Common.Data.Sql.Extensions.Parameters;
 
+/// <summary>
+/// Extension methods for adding <see cref="SqlDbType.Float"/> parameters to a <see cref="SqlParameterCollection"/>.
+/// </summary>
 public static class FloatParameterExtensions
 {
     extension(SqlParameterCollection parameters)

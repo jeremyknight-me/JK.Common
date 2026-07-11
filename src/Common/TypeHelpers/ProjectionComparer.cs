@@ -1,11 +1,27 @@
 ﻿namespace JK.Common.TypeHelpers;
 
-// found at: https://stackoverflow.com/a/21021391
+/// <summary>
+/// Provides an <see cref="IEqualityComparer{T}"/> implementation that compares objects by a projected value.
+/// </summary>
+/// <typeparam name="TSource">The type of objects to compare.</typeparam>
 public static class ProjectionComparer<TSource>
 {
+    /// <summary>
+    /// Creates an <see cref="IEqualityComparer{T}"/> that compares objects by the value returned by the specified selector.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the projected value.</typeparam>
+    /// <param name="selector">The projection function used to extract the comparison value.</param>
+    /// <returns>An <see cref="IEqualityComparer{T}"/> that compares objects by the projected value.</returns>
     public static IEqualityComparer<TSource> CompareBy<TValue>(Func<TSource, TValue> selector)
         => CompareBy(selector, EqualityComparer<TValue>.Default);
 
+    /// <summary>
+    /// Creates an <see cref="IEqualityComparer{T}"/> that compares objects by the value returned by the specified selector, using the specified comparer.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the projected value.</typeparam>
+    /// <param name="selector">The projection function used to extract the comparison value.</param>
+    /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> used to compare projected values.</param>
+    /// <returns>An <see cref="IEqualityComparer{T}"/> that compares objects by the projected value.</returns>
     public static IEqualityComparer<TSource> CompareBy<TValue>(Func<TSource, TValue> selector, IEqualityComparer<TValue> comparer)
         => new ComparerImpl<TValue>(selector, comparer);
 

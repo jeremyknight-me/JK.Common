@@ -3,10 +3,17 @@ using System.Text.RegularExpressions;
 
 namespace JK.Common.Data.Sql.Extensions;
 
+/// <summary>
+/// Extension methods for <see cref="SqlBulkCopy"/>.
+/// </summary>
 public static class SqlBulkCopyExtensions
 {
     extension(SqlBulkCopy bulk)
     {
+        /// <summary>
+        /// Throws a <see cref="DataException"/> if the SQL exception is caused by a column length mismatch.
+        /// </summary>
+        /// <param name="ex">The SQL exception to inspect.</param>
         public void ThrowIfColumnLengthException(SqlException ex)
         {
             if (ex.Message.Contains("Received an invalid column length from the bcp client for colid"))

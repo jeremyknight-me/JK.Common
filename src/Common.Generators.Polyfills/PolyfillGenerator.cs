@@ -3,9 +3,16 @@ using JK.Common.Generators.Polyfills.Fills;
 
 namespace JK.Common.Generators.Polyfills;
 
+/// <summary>
+/// A source generator that emits polyfill source files for missing language and runtime features.
+/// </summary>
 [Generator]
 public sealed class PolyfillGenerator : IIncrementalGenerator
 {
+    /// <summary>
+    /// Initializes the incremental generator.
+    /// </summary>
+    /// <param name="context">The initialization context.</param>
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         IncrementalValuesProvider<IGeneratedPolyfill> polyfills = context.CompilationProvider

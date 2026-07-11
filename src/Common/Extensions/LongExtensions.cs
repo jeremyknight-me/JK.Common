@@ -1,5 +1,8 @@
 ﻿namespace JK.Common.Extensions;
 
+/// <summary>
+/// Extension methods for <see cref="long"/> values.
+/// </summary>
 public static class LongExtensions
 {
     extension(long number)

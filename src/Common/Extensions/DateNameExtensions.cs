@@ -2,6 +2,9 @@
 
 namespace JK.Common.Extensions;
 
+/// <summary>
+/// Extension methods for retrieving localized day and month names.
+/// </summary>
 public static class DateNameExtensions
 {
     extension(DateTime date)

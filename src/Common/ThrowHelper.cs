@@ -1,5 +1,8 @@
 ﻿namespace JK.Common;
 
+/// <summary>
+/// Provides helper methods for common argument validation and exception throwing.
+/// </summary>
 public static class ThrowHelper
 {
     /// <summary>
