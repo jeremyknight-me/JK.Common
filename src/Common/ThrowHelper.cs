@@ -2,6 +2,11 @@
 
 public static class ThrowHelper
 {
+    /// <summary>
+    /// Throws an <see cref="ArgumentNullException"/> if the value is null.
+    /// </summary>
+    /// <param name="value">The value to validate.</param>
+    /// <param name="paramName">The name of the parameter.</param>
     public static void IfNull(object value, string paramName)
     {
 #if NET6_0_OR_GREATER
@@ -14,6 +19,11 @@ public static class ThrowHelper
 #endif
     }
 
+    /// <summary>
+    /// Throws an <see cref="ArgumentException"/> if the value is null or empty.
+    /// </summary>
+    /// <param name="value">The value to validate.</param>
+    /// <param name="paramName">The name of the parameter.</param>
     public static void IfNullOrEmpty(string value, string paramName)
     {
 #if NET7_0_OR_GREATER
@@ -27,6 +37,11 @@ public static class ThrowHelper
 #endif
     }
 
+    /// <summary>
+    /// Throws an <see cref="ArgumentException"/> if the value is null, empty, or whitespace.
+    /// </summary>
+    /// <param name="value">The value to validate.</param>
+    /// <param name="paramName">The name of the parameter.</param>
     public static void IfNullOrWhiteSpace(string value, string paramName)
     {
 #if NET8_0_OR_GREATER

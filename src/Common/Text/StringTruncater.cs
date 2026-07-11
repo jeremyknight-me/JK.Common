@@ -11,7 +11,7 @@ public sealed class StringTruncater
     /// Initializes a new instance of the <see cref="StringTruncater"/> class. 
     /// </summary>
     /// <param name="originalText">
-    /// Text to be truncated.
+    /// The text to be truncated.
     /// </param>
     public StringTruncater(string originalText)
     {

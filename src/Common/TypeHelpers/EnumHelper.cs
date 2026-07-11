@@ -18,7 +18,7 @@ public static class EnumHelper
     /// <returns>A list of ListItem for the given enum.</returns>
     public static IEnumerable<ListItem> ConvertToListItems(Type type)
     {
-        if (type == null)
+        if (type is null)
         {
             throw new ArgumentNullException(nameof(type));
         }

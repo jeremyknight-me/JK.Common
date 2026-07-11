@@ -6,11 +6,18 @@ public sealed class AgeCalculator
 {
     private readonly IDateTimeProvider _dateTimeProvider;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AgeCalculator"/> class.
+    /// </summary>
     public AgeCalculator()
     {
         _dateTimeProvider = new DefaultDateTimeProvider();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AgeCalculator"/> class.
+    /// </summary>
+    /// <param name="dateTimeProvider">The date time provider to use.</param>
     public AgeCalculator(IDateTimeProvider dateTimeProvider)
     {
         _dateTimeProvider = dateTimeProvider;
