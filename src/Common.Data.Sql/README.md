@@ -24,7 +24,7 @@ From repository root:
 
 ```bash
 dotnet restore
-cd src/JK.Common.Data.Sql
+cd src/Common.Data.Sql
 dotnet build
 dotnet test
 ```

@@ -26,7 +26,7 @@ From repository root:
 
 ```bash
 dotnet restore
-cd src/JK.Common
+cd src/Common
 dotnet build JK.Common.csproj
 dotnet test JK.Common.Tests.csproj
 ```

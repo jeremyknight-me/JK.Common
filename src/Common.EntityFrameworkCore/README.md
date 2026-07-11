@@ -24,6 +24,6 @@ From repository root:
 
 ```bash
 dotnet restore
-dotnet build src/JK.Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.csproj
-dotnet test src/JK.Common.EntityFrameworkCore.Tests/JK.Common.EntityFrameworkCore.Tests.csproj
+dotnet build src/Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.csproj
+dotnet test src/Common.EntityFrameworkCore.Tests/JK.Common.EntityFrameworkCore.Tests.csproj
 ```

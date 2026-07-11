@@ -23,7 +23,7 @@ From repository root:
 
 ```bash
 dotnet restore
-dotnet build src/JK.Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj
+dotnet build src/Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj
 ```
 
 Run EFCore-related tests via the root test project(s) targeting EF Core.

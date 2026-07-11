@@ -23,6 +23,6 @@ From repository root:
 
 ```bash
 dotnet restore
-dotnet build src/JK.Common.FluentValidation/JK.Common.FluentValidation.csproj
-dotnet test src/JK.Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj
+dotnet build src/Common.FluentValidation/JK.Common.FluentValidation.csproj
+dotnet test src/Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj
 ```

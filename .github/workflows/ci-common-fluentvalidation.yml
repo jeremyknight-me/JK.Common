@@ -5,13 +5,13 @@ on:
   push:
     branches: [ "master" ]
     paths:
-      - 'src/JK.Common.FluentValidation/**'
-      - 'src/JK.Common.FluentValidation.Tests/**'
+      - 'src/Common.FluentValidation/**'
+      - 'src/Common.FluentValidation.Tests/**'
   pull_request:
     branches: [ "master" ]
     paths:
-      - 'src/JK.FluentValidation.Common/**'
-      - 'src/JK.FluentValidation.Common.Tests/**'
+      - 'src/Common.FluentValidation/**'
+      - 'src/Common.FluentValidation.Tests/**'
 
 permissions:
   contents: read
@@ -32,6 +32,6 @@ jobs:
           9.x
           8.x
     - name: Build 
-      run: dotnet build ./src/JK.Common.FluentValidation/JK.Common.FluentValidation.csproj -c Release 
+      run: dotnet build ./src/Common.FluentValidation/JK.Common.FluentValidation.csproj -c Release 
     - name: Test 
-      run: dotnet test ./src/JK.Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj --verbosity normal
+      run: dotnet test ./src/Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj --verbosity normal

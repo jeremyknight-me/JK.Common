@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JK.Common.FluentValidation\JK.Common.FluentValidation.csproj" />
+    <ProjectReference Include="..\Common.FluentValidation\JK.Common.FluentValidation.csproj" />
   </ItemGroup>
 
 </Project>
