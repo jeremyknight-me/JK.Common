@@ -1,4 +1,4 @@
-﻿namespace JK.Common.PolyfillGenerators;
+﻿namespace JK.Common.Generators.Polyfills;
 
 internal interface IGeneratedPolyfill
 {

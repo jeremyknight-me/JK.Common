@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
-using JK.Common.PolyfillGenerators.Polyfills;
+using JK.Common.Generators.Polyfills.Polyfills;
 
-namespace JK.Common.PolyfillGenerators;
+namespace JK.Common.Generators.Polyfills;
 
 [Generator]
 public sealed class PolyfillGenerator : IIncrementalGenerator

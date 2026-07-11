@@ -14,9 +14,9 @@
     <Project Path="Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj" />
     <Project Path="Common.FluentValidation/JK.Common.FluentValidation.csproj" />
   </Folder>
-  <Folder Name="/Common.PolyfillGenerators/">
-    <Project Path="Common.PolyfillGenerators.Tests/JK.Common.PolyfillGenerators.Tests.csproj" />
-    <Project Path="Common.PolyfillGenerators/JK.Common.PolyfillGenerators.csproj" />
+  <Folder Name="/Common.Generators.Polyfills/">
+    <Project Path="Common.Generators.Polyfills.Tests/JK.Common.Generators.Polyfills.Tests.csproj" />
+    <Project Path="Common.Generators.Polyfills/JK.Common.Generators.Polyfills.csproj" />
   </Folder>
   <Folder Name="/Common/">
     <Project Path="Common.Tests/JK.Common.Tests.csproj" />
