@@ -79,37 +79,38 @@ void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>
         if (existing.Folder != null)
         {
             existing.Types.AddRange(types);
-        }
-        else
-        {
+}
+else
+{
             allNsEntries.Add((ns, gen.SimplifyNamespace(ns), new List<(string, string)>(types)));
-        }
+    }
     }
     allNsEntries.Sort((a, b) => string.Compare(a.Ns, b.Ns, StringComparison.Ordinal));
 }
 
 
 foreach (var xmlArg in xmlPaths)
-{
+    {
     var xmlPath = Path.GetFullPath(xmlArg);
     if (!File.Exists(xmlPath))
-    {
+        {
         Console.WriteLine($"Skipping (not found): {xmlPath}");
-        continue;
-    }
+            continue;
+        }
 
     Console.WriteLine($"\nProcessing: {xmlPath}");
 
-    var parser = new XmlDocParser();
+        Console.WriteLine($"  Parsing: {xmlPath}");
+        var parser = new XmlDocParser();
     var (typesByGroup, rootNamespace) = parser.Parse(xmlPath);
     var projectRoot = FindProjectRoot(rootNamespace, cachedCsprojs);
 
     var generator = new MarkdownGenerator(typeTemplate, memberTemplate, projectRoot);
     var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
-    membersProcessed += m;
-    filesCreated += f;
+        membersProcessed += m;
+        filesCreated += f;
     AccumulateNs(nsTypes, generator);
-}
+    }
 
 // Generate root README.md grouped by project
 var projectGroups = allNsEntries
@@ -160,9 +161,52 @@ string? FindTemplates()
     return null;
 }
 
-ProjectInfo FindProjectRoot(string rootNamespace, string[] csprojFiles)
+static int RunBuild(string csprojPath)
 {
+    var psi = new System.Diagnostics.ProcessStartInfo("dotnet", $"build \"{csprojPath}\" -f net10.0 -c Debug --nologo -v q")
+    {
+        RedirectStandardOutput = true,
+        RedirectStandardError = true,
+        UseShellExecute = false,
+        CreateNoWindow = true
+    };
+    using var process = System.Diagnostics.Process.Start(psi)!;
+    process.WaitForExit();
+    return process.ExitCode;
+}
+
+ProjectInfo FindProjectRoot(string rootNamespace, string[] csprojFiles)
+    {
     foreach (var csproj in csprojFiles)
+    {
+        if (csproj.Contains(".Tests.")) continue;
+        var doc = XDocument.Load(csproj);
+        var root = doc.Root!;
+        var ns = root.Name.Namespace;
+        var genDoc = root.Descendants(ns + "GenerateDocumentationFile")
+            .FirstOrDefault()?.Value;
+        if (!string.Equals(genDoc, "true", StringComparison.OrdinalIgnoreCase)) continue;
+
+        var rootNamespace = root.Descendants(ns + "RootNamespace").FirstOrDefault()?.Value;
+        var assemblyName = root.Descendants(ns + "AssemblyName").FirstOrDefault()?.Value;
+        var projectName = Path.GetFileNameWithoutExtension(csproj);
+        var projectDir = Path.GetDirectoryName(csproj)!;
+
+        projects.Add(new ProjectInfo
+        {
+            CsprojPath = csproj,
+            ProjectDir = projectDir,
+            AssemblyName = assemblyName ?? projectName,
+            RootNamespace = rootNamespace,
+            ProjectName = projectName
+        });
+    }
+    return projects;
+}
+
+ProjectInfo FindProjectRoot(string rootNamespace)
+{
+    foreach (var csproj in Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories))
     {
         var doc = XDocument.Load(csproj);
         var root = doc.Root!;
@@ -231,6 +275,7 @@ class ProjectInfo
     public required string AssemblyName { get; set; }
     public string? RootNamespace { get; set; }
     public required string ProjectName { get; set; }
+    public string TopLevelFolder => RootNamespace ?? ProjectName;
 }
 
 class TypeDoc
@@ -334,6 +379,29 @@ class Template
         });
 
         return clean ? CleanOutput(result) : result;
+        }
+
+        while (Regex.IsMatch(result, @"\{#if\s+(\w+)\}"))
+        {
+            var match = Regex.Match(result, @"\{#if\s+(\w+)\}");
+            var key = match.Groups[1].Value;
+            var openEnd = match.Index + match.Length;
+            var closeTag = FindClosingTag(result, openEnd, "{#if", "{/if}");
+            if (closeTag < 0) break;
+
+            var inner = result.Substring(openEnd, closeTag - openEnd);
+            var truthy = IsTruthy(item, key);
+            var replacement = truthy ? inner : "";
+            result = result.Substring(0, match.Index) + replacement + result.Substring(closeTag + "{/if}".Length);
+        }
+
+        result = Regex.Replace(result, @"\{(\w+(?:\.\w+)*)\}", m =>
+        {
+            var val = GetNestedValue(item, m.Groups[1].Value);
+            return val ?? "";
+        });
+
+        return CleanOutput(result);
     }
 
     private static string CleanOutput(string text)
@@ -463,7 +531,10 @@ class XmlDocParser
 
             if (kind == "T:")
             {
+                _typeMap[$"{ns}.{displayTypeName}"] = true;
                 var typeDoc = types[key];
+                typeDoc.Summary = ConvertXmlToMarkdown(member.Element("summary")) ?? typeDoc.Summary;
+                typeDoc.Remarks = ConvertXmlToMarkdown(member.Element("remarks")) ?? typeDoc.Remarks;
 
                 foreach (var tp in member.Elements("typeparam"))
                     typeDoc.TypeParams.Add(new ParamInfo(tp.Attribute("name")?.Value ?? "", ConvertXmlToMarkdown(tp) ?? ""));
@@ -563,7 +634,7 @@ class XmlDocParser
 
         XElement? source = member;
         if (isInherited)
-        {
+            {
             var cref = member.Element("inheritdoc")!.Attribute("cref")?.Value;
             if (cref != null && _generatedMembers.TryGetValue(cref, out var target))
             {
@@ -772,7 +843,7 @@ class XmlDocParser
                 sb.Append(',');
                 if (i + 1 < type.Length && type[i + 1] != ' ')
                     sb.Append(' ');
-            }
+    }
             else
             {
                 sb.Append(type[i]);
@@ -900,10 +971,10 @@ class XmlDocParser
                 var idx = int.Parse(m.Groups[1].Value);
                 return idx < typeParamCount ? typeParamNames[idx] : m.Value;
             });
-        }
+    }
         result = Regexes.GenericTick().Replace(result, m => FormatGenericArity(m.Value));
         return result;
-    }
+}
 }
 
 // ── Markdown Generator ──
@@ -934,6 +1005,8 @@ class MarkdownGenerator
             var folder = Path.Combine(outputPath, nsFolder);
             Directory.CreateDirectory(folder);
 
+            var constructorBodies = typeDoc.Constructors.Select(c => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(c)); }).ToList();
+            var methodBodies = typeDoc.Methods.Select(m => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(m)); }).ToList();
             var propertyBodies = typeDoc.Properties.Select(p => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(p)); }).ToList();
             var eventBodies = typeDoc.Events.Select(e => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(e)); }).ToList();
             var fieldBodies = typeDoc.Fields.Select(f => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(f)); }).ToList();
@@ -1043,7 +1116,11 @@ class MarkdownGenerator
         }
 
         return (membersProcessed, filesGenerated, nsTypes);
-    }
+        }
+        var rootPath = Path.Combine(outputPath, "README.md");
+        File.WriteAllText(rootPath, rootReadme);
+        Console.WriteLine($"Generated: {rootPath}");
+        filesGenerated++;
 
     internal static string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>").Replace("`", "\\`");
 

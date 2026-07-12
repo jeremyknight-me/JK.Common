@@ -127,6 +127,7 @@ Template files are in `templates/`:
 
 - `type.md` — page template for each type
 - `member.md` — template for methods, properties, events, and fields
+- `index.md` — unused (README files are generated inline)
 
 ## Example user prompts
 
