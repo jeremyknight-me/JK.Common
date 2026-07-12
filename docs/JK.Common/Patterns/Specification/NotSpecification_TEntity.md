@@ -1,0 +1,28 @@
+[Docs](../../../README.md) > [JK.Common](../../README.md) > NotSpecification<TEntity>
+
+# NotSpecification<TEntity>
+
+**Namespace:** `JK.Common.Patterns.Specification`
+
+Specification that negates the result of another specification.
+
+**Type Parameter:** `TEntity` — The type of entity.
+
+### #ctor
+
+**Signature:** ``#ctor(ISpecification specificationToUse)``
+
+**Summary:**
+Initializes a new instance of the **NotSpecification`1** class.
+
+**Parameters:**
+- **specificationToUse** — The specification to negate.
+
+**Remarks:**
+### IsSatisfiedBy *(Inherited)*
+
+**Signature:** ``IsSatisfiedBy(TEntity@)``
+
+**Summary:**
+
+**Remarks:**

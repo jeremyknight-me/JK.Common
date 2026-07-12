@@ -44,7 +44,7 @@ This skill uses a .NET file-based app (`XmlDocsToWiki.cs`) that runs with `dotne
 When given an XML path, the tool processes that one file:
 
 ```
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/JK.Common.xml
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/MyProject.xml
 ```
 
 ### Auto-discovery mode
@@ -69,26 +69,18 @@ Documentation is organized by project root namespace, with child namespaces as s
 ```
 docs/
 ├── README.md
-├── JK.Common/
+├── MyProject/
 │   ├── README.md
-│   ├── Constants.md
-│   ├── Data/
-│   │   ├── README.md
-│   │   ├── OperationBase.md
-│   │   └── Extensions/
-│   │       ├── README.md
-│   │       └── DataRecordExtensions.md
-│   ├── Extensions/
-│   │   └── StringExtensions.md
-│   └── Patterns/
-│       └── ServiceLocator/
-│           ├── README.md
-│           ├── IServiceLocator.md
-│           └── DefaultServiceLocator.md
-├── JK.Common.EntityFrameworkCore/
+│   ├── MyClass.md
+│   └── Models/
+│       ├── README.md
+│       └── Order.md
+├── MyProject.Data/
 │   ├── README.md
 │   └── Extensions/
-│       └── ModelBuilderExtensions.md
+│       └── RecordExtensions.md
+└── MyProject.Core/
+    └── README.md
 ```
 
 ### Namespace simplification
@@ -97,10 +89,10 @@ The tool uses the project name as the top-level folder (or `RootNamespace` if se
 
 | Full Namespace | Output Folder |
 |---|---|
-| `JK.Common` | `JK.Common/` |
-| `JK.Common.Data` | `JK.Common/Data/` |
-| `JK.Common.Data.Extensions` | `JK.Common/Data/Extensions/` |
-| `JK.Common.Patterns.ServiceLocator` | `JK.Common/Patterns/ServiceLocator/` |
+| `MyProject` | `MyProject/` |
+| `MyProject.Models` | `MyProject/Models/` |
+| `MyProject.Data.Extensions` | `MyProject.Data/Extensions/` |
+| `MyProject.Core.Services` | `MyProject.Core/Services/` |
 
 ## Features
 
