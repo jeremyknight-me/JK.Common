@@ -8,18 +8,40 @@ using System.Text.RegularExpressions;
 
 // ── Entry Point ──
 
-var outputPath = args.Length > 1 ? args[1] : "./docs";
+if (args.Length == 0 || (!File.Exists(args[0]) && !args[0].EndsWith(".xml", StringComparison.OrdinalIgnoreCase)))
+{
+    Console.WriteLine("Usage: dotnet run --file XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]");
+    Console.WriteLine();
+    Console.WriteLine("  xml-file   Path(s) to XML documentation files (one or more)");
+    Console.WriteLine("  output-path  Output directory (default: ./docs)");
+    Console.WriteLine();
+    Console.WriteLine("The agent should build projects first, then pass the resulting XML files here.");
+    return;
+}
+
+var xmlPaths = new List<string>();
+var outputPath = "./docs";
+
+for (int i = 0; i < args.Length; i++)
+{
+    if (File.Exists(args[i]) || args[i].EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
+        xmlPaths.Add(args[i]);
+    else
+        outputPath = args[i];
+}
+
 var templatesDir = FindTemplates(null)
     ?? throw new DirectoryNotFoundException("Could not find templates/ folder. Run from the repo root or next to the skill folder.");
 var typeTemplate = Template.Load(Path.Combine(templatesDir, "type.md"));
 var memberTemplate = Template.Load(Path.Combine(templatesDir, "member.md"));
 
 Console.WriteLine($"Templates: {templatesDir}");
+Console.WriteLine($"XML files: {xmlPaths.Count}");
+Console.WriteLine($"Output: {outputPath}");
 
 int membersProcessed = 0;
 int filesCreated = 0;
 var allNsEntries = new List<(string Ns, string Folder, List<(string displayName, string fileName)> Types)>();
-var seenNs = new HashSet<string>();
 
 void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>> nsTypes, MarkdownGenerator gen)
 {
@@ -40,10 +62,16 @@ void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>
 
 string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>");
 
-if (args.Length > 0 && File.Exists(args[0]))
+foreach (var xmlArg in xmlPaths)
 {
-    var xmlPath = Path.GetFullPath(args[0]);
-    Console.WriteLine($"Processing: {xmlPath}");
+    var xmlPath = Path.GetFullPath(xmlArg);
+    if (!File.Exists(xmlPath))
+    {
+        Console.WriteLine($"Skipping (not found): {xmlPath}");
+        continue;
+    }
+
+    Console.WriteLine($"\nProcessing: {xmlPath}");
 
     var parser = new XmlDocParser();
     var (typesByGroup, rootNamespace) = parser.Parse(xmlPath);
@@ -54,43 +82,6 @@ if (args.Length > 0 && File.Exists(args[0]))
     membersProcessed += m;
     filesCreated += f;
     AccumulateNs(nsTypes, generator);
-}
-else
-{
-    var projects = DiscoverProjects();
-    if (projects.Count == 0)
-    {
-        Console.WriteLine("No qualifying projects found.");
-        return;
-    }
-
-    foreach (var project in projects)
-    {
-        Console.WriteLine($"\nBuilding: {project.CsprojPath}");
-        var buildResult = RunBuild(project.CsprojPath);
-        if (buildResult != 0)
-        {
-            Console.WriteLine($"  Build failed, skipping.");
-            continue;
-        }
-
-        var xmlPath = Path.Combine(project.ProjectDir, "bin", "Debug", "net10.0", $"{project.AssemblyName}.xml");
-        if (!File.Exists(xmlPath))
-        {
-            Console.WriteLine($"  XML not found: {xmlPath}");
-            continue;
-        }
-
-        Console.WriteLine($"  Parsing: {xmlPath}");
-        var parser = new XmlDocParser();
-        var (typesByGroup, _) = parser.Parse(xmlPath);
-
-        var generator = new MarkdownGenerator(typeTemplate, memberTemplate, project);
-        var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
-        membersProcessed += m;
-        filesCreated += f;
-        AccumulateNs(nsTypes, generator);
-    }
 }
 
 // Generate root README.md grouped by project
@@ -140,76 +131,6 @@ string? FindTemplates(string? startDir)
         dir = parent.FullName;
     }
     return null;
-}
-
-static int RunBuild(string csprojPath)
-{
-    var psi = new System.Diagnostics.ProcessStartInfo("dotnet", $"build \"{csprojPath}\" -f net10.0 -c Debug --nologo -v q")
-    {
-        RedirectStandardOutput = true,
-        RedirectStandardError = true,
-        UseShellExecute = false,
-        CreateNoWindow = true
-    };
-    using var process = System.Diagnostics.Process.Start(psi)!;
-    process.WaitForExit();
-    return process.ExitCode;
-}
-
-List<ProjectInfo> DiscoverProjects()
-{
-    var dir = Directory.GetCurrentDirectory();
-    string? repoRoot = null;
-    for (int i = 0; i < 10; i++)
-    {
-        var hasSln = Directory.GetFiles(dir, "*.sln").Length > 0
-            || Directory.GetFiles(dir, "*.slnx").Length > 0
-            || Directory.Exists(Path.Combine(dir, "src")) && (
-                Directory.GetFiles(Path.Combine(dir, "src"), "*.sln").Length > 0
-                || Directory.GetFiles(Path.Combine(dir, "src"), "*.slnx").Length > 0);
-
-        if (hasSln)
-        {
-            repoRoot = dir;
-            break;
-        }
-        var parent = Directory.GetParent(dir);
-        if (parent == null) break;
-        dir = parent.FullName;
-    }
-    if (repoRoot == null)
-    {
-        Console.WriteLine("Could not find repo root (no .sln or .slnx found).");
-        return new();
-    }
-
-    Console.WriteLine($"Repo root: {repoRoot}");
-    var projects = new List<ProjectInfo>();
-    foreach (var csproj in Directory.GetFiles(Path.Combine(repoRoot, "src"), "*.csproj", SearchOption.AllDirectories))
-    {
-        if (csproj.Contains(".Tests.")) continue;
-        var doc = XDocument.Load(csproj);
-        var root = doc.Root!;
-        var ns = root.Name.Namespace;
-        var genDoc = root.Descendants(ns + "GenerateDocumentationFile")
-            .FirstOrDefault()?.Value;
-        if (!string.Equals(genDoc, "true", StringComparison.OrdinalIgnoreCase)) continue;
-
-        var rootNamespace = root.Descendants(ns + "RootNamespace").FirstOrDefault()?.Value;
-        var assemblyName = root.Descendants(ns + "AssemblyName").FirstOrDefault()?.Value;
-        var projectName = Path.GetFileNameWithoutExtension(csproj);
-        var projectDir = Path.GetDirectoryName(csproj)!;
-
-        projects.Add(new ProjectInfo
-        {
-            CsprojPath = csproj,
-            ProjectDir = projectDir,
-            AssemblyName = assemblyName ?? projectName,
-            RootNamespace = rootNamespace,
-            ProjectName = projectName
-        });
-    }
-    return projects;
 }
 
 ProjectInfo FindProjectRoot(string rootNamespace)

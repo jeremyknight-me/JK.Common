@@ -32,34 +32,43 @@ Use this skill when you want to:
 
 Invoke it with:
 
-- `/csharp-docs-wiki` — auto-discover all projects, build, and generate
-- `/csharp-docs-wiki bin/Debug/net8.0/MyProject.xml` — process a single XML file
+- `/csharp-docs-wiki` — agent discovers projects, builds, and generates docs from XML
+- `/csharp-docs-wiki bin/Debug/net10.0/MyProject.xml` — process a single XML file
 
 ## How it works
 
-This skill uses a .NET file-based app (`XmlDocsToWiki.cs`) that runs with `dotnet run`. It requires .NET 10 SDK or later.
+This skill uses a .NET file-based app (`XmlDocsToWiki.cs`) that converts XML documentation files into Markdown. It requires .NET 10 SDK or later. The agent is responsible for building projects and passing the resulting XML files to the tool.
 
-### Single file mode
+### Agent workflow
 
-When given an XML path, the tool processes that one file:
+When invoked, the agent should:
+
+1. Find the repo root by looking for `.sln` or `.slnx` files
+2. Discover all `.csproj` files under `src/` (excluding test projects)
+3. Filter to projects with `GenerateDocumentationFile` enabled
+4. Build each project: `dotnet build <csproj> -f net10.0`
+5. Collect the resulting XML documentation files from `bin/Debug/net10.0/`
+6. Pass all XML files to the tool:
 
 ```
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
+```
+
+### Usage
+
+```
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]
+```
+
+- `xml-file` — One or more paths to XML documentation files
+- `output-path` — Output directory (default: `./docs`)
+
+### Example
+
+```bash
+# Agent builds projects, then runs the tool
+dotnet build src/MyProject/MyProject.csproj -f net10.0
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/MyProject.xml
-```
-
-### Auto-discovery mode
-
-When invoked without arguments, the tool:
-
-1. Finds the repo root by looking for `.sln` or `.slnx` files
-2. Discovers all `.csproj` files under `src/` (excluding test projects)
-3. Filters to projects with `GenerateDocumentationFile` enabled
-4. Builds each project for `net10.0`
-5. Processes the resulting XML documentation files
-6. Generates the complete wiki under `docs/`
-
-```
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs
 ```
 
 ## Output structure
