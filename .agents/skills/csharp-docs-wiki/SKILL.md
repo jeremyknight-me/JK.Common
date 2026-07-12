@@ -42,6 +42,7 @@ This skill uses a .NET file-based app (`XmlDocsToWiki.cs`) that converts XML doc
 ### Agent workflow
 
 When invoked, the agent should:
+<<<<<<< HEAD
 
 1. Find the repo root by looking for `.sln` or `.slnx` files
 2. Discover all `.csproj` files under `src/` (excluding test projects)
@@ -71,6 +72,37 @@ dotnet build src/MyProject/MyProject.csproj -f net10.0
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/MyProject.xml
 ```
 
+=======
+
+1. Find the repo root by looking for `.sln` or `.slnx` files
+2. Discover all `.csproj` files under `src/` (excluding test projects)
+3. Filter to projects with `GenerateDocumentationFile` enabled
+4. Build each project: `dotnet build <csproj> -f net10.0`
+5. Collect the resulting XML documentation files from `bin/Debug/net10.0/`
+6. Pass all XML files to the tool:
+
+```
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
+```
+
+### Usage
+
+```
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]
+```
+
+- `xml-file` — One or more paths to XML documentation files
+- `output-path` — Output directory (default: `./docs`)
+
+### Example
+
+```bash
+# Agent builds projects, then runs the tool
+dotnet build src/MyProject/MyProject.csproj -f net10.0
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/MyProject.xml
+```
+
+>>>>>>> updated skill
 ## Output structure
 
 Documentation is organized by project root namespace, with child namespaces as subfolders. Each type gets its own Markdown file. Each folder gets a `README.md` index.

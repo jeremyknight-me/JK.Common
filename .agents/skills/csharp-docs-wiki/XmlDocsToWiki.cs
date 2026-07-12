@@ -8,12 +8,21 @@ using System.Text.RegularExpressions;
 
 // ── Entry Point ──
 
+<<<<<<< HEAD
 if (args.Length == 0 || args[0] == "--help" || args[0] == "-h")
 {
     Console.WriteLine("Usage: dotnet run --file XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]");
     Console.WriteLine();
     Console.WriteLine("  --files    One or more paths to XML documentation files (required)");
     Console.WriteLine("  --output   Output directory (default: ./docs)");
+=======
+if (args.Length == 0 || (!File.Exists(args[0]) && !args[0].EndsWith(".xml", StringComparison.OrdinalIgnoreCase)))
+{
+    Console.WriteLine("Usage: dotnet run --file XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]");
+    Console.WriteLine();
+    Console.WriteLine("  xml-file   Path(s) to XML documentation files (one or more)");
+    Console.WriteLine("  output-path  Output directory (default: ./docs)");
+>>>>>>> updated skill
     Console.WriteLine();
     Console.WriteLine("The agent should build projects first, then pass the resulting XML files here.");
     return;
@@ -24,6 +33,7 @@ var outputPath = "./docs";
 
 for (int i = 0; i < args.Length; i++)
 {
+<<<<<<< HEAD
     if (args[i] == "--files")
     {
         while (i + 1 < args.Length && !args[i + 1].StartsWith("--"))
@@ -58,6 +68,15 @@ if (xmlPaths.Count == 0)
 }
 
 var templatesDir = FindTemplates()
+=======
+    if (File.Exists(args[i]) || args[i].EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
+        xmlPaths.Add(args[i]);
+    else
+        outputPath = args[i];
+}
+
+var templatesDir = FindTemplates(null)
+>>>>>>> updated skill
     ?? throw new DirectoryNotFoundException("Could not find templates/ folder. Run from the repo root or next to the skill folder.");
 var typeTemplate = Template.Load(Path.Combine(templatesDir, "type.md"));
 var memberTemplate = Template.Load(Path.Combine(templatesDir, "member.md"));
@@ -69,7 +88,10 @@ Console.WriteLine($"Output: {outputPath}");
 int membersProcessed = 0;
 int filesCreated = 0;
 var allNsEntries = new List<(string Ns, string Folder, List<(string displayName, string fileName)> Types)>();
+<<<<<<< HEAD
 var cachedCsprojs = Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories);
+=======
+>>>>>>> updated skill
 
 void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>> nsTypes, MarkdownGenerator gen)
 {
@@ -90,6 +112,7 @@ else
 
 
 foreach (var xmlArg in xmlPaths)
+<<<<<<< HEAD
     {
     var xmlPath = Path.GetFullPath(xmlArg);
     if (!File.Exists(xmlPath))
@@ -111,6 +134,27 @@ foreach (var xmlArg in xmlPaths)
         filesCreated += f;
     AccumulateNs(nsTypes, generator);
     }
+=======
+{
+    var xmlPath = Path.GetFullPath(xmlArg);
+    if (!File.Exists(xmlPath))
+    {
+        Console.WriteLine($"Skipping (not found): {xmlPath}");
+        continue;
+    }
+
+    Console.WriteLine($"\nProcessing: {xmlPath}");
+
+    var parser = new XmlDocParser();
+    var (typesByGroup, rootNamespace) = parser.Parse(xmlPath);
+    var projectRoot = FindProjectRoot(rootNamespace);
+
+    var generator = new MarkdownGenerator(typeTemplate, memberTemplate, projectRoot);
+    var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
+    membersProcessed += m;
+    filesCreated += f;
+    AccumulateNs(nsTypes, generator);
+>>>>>>> updated skill
 }
 
 // Generate root README.md grouped by project
@@ -162,6 +206,7 @@ string? FindTemplates()
     return null;
 }
 
+<<<<<<< HEAD
 static int RunBuild(string csprojPath)
 {
     var psi = new System.Diagnostics.ProcessStartInfo("dotnet", $"build \"{csprojPath}\" -f net10.0 -c Debug --nologo -v q")
@@ -205,6 +250,8 @@ ProjectInfo FindProjectRoot(string rootNamespace, string[] csprojFiles)
     return projects;
 }
 
+=======
+>>>>>>> updated skill
 ProjectInfo FindProjectRoot(string rootNamespace)
 {
     foreach (var csproj in Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories))
