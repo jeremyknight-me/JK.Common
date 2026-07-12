@@ -31,5 +31,5 @@
 **Remarks:** {Remarks}
 
 {#each SeeAlso}
-- See: **{.}**
+- See: **{Value}**
 {/each}

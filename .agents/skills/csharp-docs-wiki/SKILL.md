@@ -19,7 +19,7 @@ To use this skill, ensure your `.csproj` enables XML documentation generation:
 </PropertyGroup>
 ```
 
-After building the project, the XML documentation file will appear under `bin/` (for example: `bin/Debug/net8.0/MyProject.xml`).
+After building the project, the XML documentation file will appear under `bin/` (for example: `bin/Debug/net10.0/MyProject.xml`).
 
 ## When to use this skill
 
@@ -50,13 +50,13 @@ When invoked, the agent should:
 5. Collect the resulting XML documentation files from `bin/Debug/net10.0/`
 6. Pass all XML files to the tool:
 
-```
+```bash
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
 ```
 
 ### Usage
 
-```
+```text
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]
 ```
 
