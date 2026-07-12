@@ -4,6 +4,7 @@
 
 **Namespace:** `JK.Common.DateTimeProviders`
 
+<<<<<<< HEAD
 ## Now *(Inherited)*
 
 **Signature:** `Now`
@@ -24,3 +25,26 @@ Returns a Dat **DateTime** eTime representing the current date. The date part
 **Signature:** `UtcNow`
 
 **Summary:**
+=======
+### Now *(Inherited)*
+
+**Signature:** ``Now``
+
+**Summary:**
+
+**Remarks:**
+### Today *(Inherited)*
+
+**Signature:** ``Today``
+
+**Summary:**
+
+**Remarks:**
+### UtcNow *(Inherited)*
+
+**Signature:** ``UtcNow``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

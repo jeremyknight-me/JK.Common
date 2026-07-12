@@ -8,6 +8,7 @@ Generic Or specification.
 
 **Type Parameter:** `TEntity` — The type of the entity.
 
+<<<<<<< HEAD
 ## OrSpecification<TEntity>
 
 **Summary:** Initializes a new instance of the **OrSpecificationT** class.
@@ -23,3 +24,24 @@ Generic Or specification.
 **Signature:** `IsSatisfiedBy(TEntity)`
 
 **Summary:**
+=======
+### #ctor
+
+**Signature:** ``#ctor(ISpecification left, ISpecification right)``
+
+**Summary:**
+Initializes a new instance of the **OrSpecification`1** class.
+
+**Parameters:**
+- **left** — The left entity.
+- **right** — The right entity.
+
+**Remarks:**
+### IsSatisfiedBy *(Inherited)*
+
+**Signature:** ``IsSatisfiedBy(TEntity@)``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

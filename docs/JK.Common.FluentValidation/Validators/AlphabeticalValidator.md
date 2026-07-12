@@ -6,6 +6,7 @@
 
 Validator to determine whether or not a string property contains only alphabetical characters.
 
+<<<<<<< HEAD
 ## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
@@ -23,3 +24,27 @@ Validator to determine whether or not a string property contains only alphabetic
 **Signature:** `Name`
 
 **Summary:**
+=======
+### GetDefaultMessageTemplate *(Inherited)*
+
+**Signature:** ``GetDefaultMessageTemplate(String)``
+
+**Summary:**
+
+**Remarks:**
+### IsStringValid *(Inherited)*
+
+**Signature:** ``IsStringValid(String)``
+
+**Summary:**
+
+**Remarks:**
+
+### Name *(Inherited)*
+
+**Signature:** ``Name``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

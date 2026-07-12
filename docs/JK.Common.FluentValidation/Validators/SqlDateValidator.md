@@ -6,6 +6,7 @@
 
 Validator that validates that a date property is a valid SQL date.
 
+<<<<<<< HEAD
 ## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
@@ -23,3 +24,27 @@ Validator that validates that a date property is a valid SQL date.
 **Signature:** `Name`
 
 **Summary:**
+=======
+### GetDefaultMessageTemplate *(Inherited)*
+
+**Signature:** ``GetDefaultMessageTemplate(String)``
+
+**Summary:**
+
+**Remarks:**
+### IsValid *(Inherited)*
+
+**Signature:** ``IsValid(ValidationContext{`0}, `1)``
+
+**Summary:**
+
+**Remarks:**
+
+### Name *(Inherited)*
+
+**Signature:** ``Name``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

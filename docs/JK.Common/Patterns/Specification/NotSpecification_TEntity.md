@@ -8,6 +8,7 @@ Specification that negates the result of another specification.
 
 **Type Parameter:** `TEntity` — The type of entity.
 
+<<<<<<< HEAD
 ## NotSpecification<TEntity>
 
 **Summary:** Initializes a new instance of the **NotSpecificationT** class.
@@ -21,3 +22,23 @@ Specification that negates the result of another specification.
 **Signature:** `IsSatisfiedBy(TEntity)`
 
 **Summary:**
+=======
+### #ctor
+
+**Signature:** ``#ctor(ISpecification specificationToUse)``
+
+**Summary:**
+Initializes a new instance of the **NotSpecification`1** class.
+
+**Parameters:**
+- **specificationToUse** — The specification to negate.
+
+**Remarks:**
+### IsSatisfiedBy *(Inherited)*
+
+**Signature:** ``IsSatisfiedBy(TEntity@)``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

@@ -6,6 +6,7 @@
 
 Formats a **CoordinateBase** as HTML in various display formats.
 
+<<<<<<< HEAD
 ## CoordinateHtmlFormatter
 
 **Summary:** Initializes a new instance of the **CoordinateHtmlFormatter** class.
@@ -67,3 +68,58 @@ Returns the coordinate as a string in degrees, minutes, and direction format.
 Returns the coordinate as a string in degrees, minutes, seconds, and direction format.
 
 **Returns:** The coordinate in degrees, minutes, seconds, and direction format.
+=======
+### #ctor
+
+**Signature:** ``#ctor(CoordinateBase coordinateToUse)``
+
+**Summary:**
+Initializes a new instance of the **CoordinateHtmlFormatter** class.
+
+**Parameters:**
+- **coordinateToUse** — The coordinate to format as HTML.
+
+**Remarks:**
+### ToStringDegrees *(Inherited)*
+
+**Signature:** ``ToStringDegrees()``
+
+**Summary:**
+
+**Remarks:**
+### ToStringDegreesMinutes *(Inherited)*
+
+**Signature:** ``ToStringDegreesMinutes()``
+
+**Summary:**
+
+**Remarks:**
+### ToStringDegreesMinutesSeconds *(Inherited)*
+
+**Signature:** ``ToStringDegreesMinutesSeconds()``
+
+**Summary:**
+
+**Remarks:**
+### ToStringDegreesDirection *(Inherited)*
+
+**Signature:** ``ToStringDegreesDirection()``
+
+**Summary:**
+
+**Remarks:**
+### ToStringDegreesMinutesDirection *(Inherited)*
+
+**Signature:** ``ToStringDegreesMinutesDirection()``
+
+**Summary:**
+
+**Remarks:**
+### ToStringDegreesMinutesSecondsDirection *(Inherited)*
+
+**Signature:** ``ToStringDegreesMinutesSecondsDirection()``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

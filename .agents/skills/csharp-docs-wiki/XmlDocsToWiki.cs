@@ -534,8 +534,6 @@ class XmlDocParser
             {
                 _typeMap[$"{ns}.{displayTypeName}"] = true;
                 var typeDoc = types[key];
-                typeDoc.Summary = ConvertXmlToMarkdown(member.Element("summary")) ?? typeDoc.Summary;
-                typeDoc.Remarks = ConvertXmlToMarkdown(member.Element("remarks")) ?? typeDoc.Remarks;
 
                 foreach (var tp in member.Elements("typeparam"))
                     typeDoc.TypeParams.Add(new ParamInfo(tp.Attribute("name")?.Value ?? "", ConvertXmlToMarkdown(tp) ?? ""));
@@ -1124,6 +1122,8 @@ class MarkdownGenerator
         filesGenerated++;
 
     internal static string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>").Replace("`", "\\`");
+
+    private static string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>");
 
     public string SimplifyNamespace(string ns)
     {

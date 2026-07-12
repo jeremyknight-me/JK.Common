@@ -6,6 +6,7 @@
 
 This class builds a delimited string.
 
+<<<<<<< HEAD
 ## StringDelimiter
 
 **Summary:** Initializes a new instance of the StringDelimiter class.
@@ -17,11 +18,28 @@ This class builds a delimited string.
 ## AddText
 
 **Signature:** `AddText(String addition)`
+=======
+### #ctor
+
+**Signature:** ``#ctor(String delimiter)``
+
+**Summary:**
+Initializes a new instance of the StringDelimiter class.
+
+**Parameters:**
+- **delimiter** — The string to use when delimiting sections.
+
+**Remarks:**
+### AddText
+
+**Signature:** ``AddText(String@ addition)``
+>>>>>>> initial docs folder changes
 
 **Summary:**
 Adds a block of text to the current string and delimits if necessary.
 
 **Parameters:**
+<<<<<<< HEAD
 
 - **addition** — The string to add to the current string.
 
@@ -31,3 +49,17 @@ Adds a block of text to the current string and delimits if necessary.
 
 **Summary:**
 Gets the delimited text string.
+=======
+- **addition** — The string to add to the current string.
+
+**Remarks:**
+
+### DelimitedText
+
+**Signature:** ``DelimitedText``
+
+**Summary:**
+Gets the delimited text string.
+
+**Remarks:**
+>>>>>>> initial docs folder changes

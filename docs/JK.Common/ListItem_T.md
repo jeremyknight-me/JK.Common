@@ -10,16 +10,34 @@ Class meant to represent data to be displayed in any of
 
 **Type Parameter:** `T` — Type of the object's identifier
 
+<<<<<<< HEAD
 ## Value
 
 **Signature:** `Value`
+=======
+### Value
+
+**Signature:** ``Value``
+>>>>>>> initial docs folder changes
 
 **Summary:**
 Gets or sets the value associated with the list item.
 
+<<<<<<< HEAD
 ## Text
 
 **Signature:** `Text`
 
 **Summary:**
 Gets or sets the display text of the list item.
+=======
+**Remarks:**
+### Text
+
+**Signature:** ``Text``
+
+**Summary:**
+Gets or sets the display text of the list item.
+
+**Remarks:**
+>>>>>>> initial docs folder changes

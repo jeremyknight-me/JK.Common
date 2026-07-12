@@ -6,6 +6,7 @@
 
 Validator that validates that a double property is a valid latitude.
 
+<<<<<<< HEAD
 ## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
@@ -23,3 +24,27 @@ Validator that validates that a double property is a valid latitude.
 **Signature:** `Name`
 
 **Summary:**
+=======
+### GetDefaultMessageTemplate *(Inherited)*
+
+**Signature:** ``GetDefaultMessageTemplate(String)``
+
+**Summary:**
+
+**Remarks:**
+### IsValid *(Inherited)*
+
+**Signature:** ``IsValid(ValidationContext{`0}, Decimal)``
+
+**Summary:**
+
+**Remarks:**
+
+### Name *(Inherited)*
+
+**Signature:** ``Name``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

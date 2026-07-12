@@ -6,6 +6,7 @@
 
 Implementation of Service Locator design pattern.
 
+<<<<<<< HEAD
 ## Locate *(Inherited)*
 
 **Signature:** `Locate<T>()`
@@ -32,3 +33,26 @@ Registers a service of the given type.
 
 **Summary:**
 Unregisters, or removes, a service from the Service Locator.
+=======
+### Locate` *(Inherited)*
+
+**Signature:** ``Locate`()``
+
+**Summary:**
+
+**Remarks:**
+### Register` *(Inherited)*
+
+**Signature:** ``Register`(``0)``
+
+**Summary:**
+
+**Remarks:**
+### Unregister` *(Inherited)*
+
+**Signature:** ``Unregister`()``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes

@@ -6,6 +6,7 @@
 
 Validator that validates that a string property is a valid zip code.
 
+<<<<<<< HEAD
 ## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
@@ -23,3 +24,27 @@ Validator that validates that a string property is a valid zip code.
 **Signature:** `Name`
 
 **Summary:**
+=======
+### GetDefaultMessageTemplate *(Inherited)*
+
+**Signature:** ``GetDefaultMessageTemplate(String)``
+
+**Summary:**
+
+**Remarks:**
+### IsStringValid *(Inherited)*
+
+**Signature:** ``IsStringValid(String)``
+
+**Summary:**
+
+**Remarks:**
+
+### Name *(Inherited)*
+
+**Signature:** ``Name``
+
+**Summary:**
+
+**Remarks:**
+>>>>>>> initial docs folder changes
