@@ -111,6 +111,7 @@ foreach (var xmlArg in xmlPaths)
         filesCreated += f;
     AccumulateNs(nsTypes, generator);
     }
+}
 
 // Generate root README.md grouped by project
 var projectGroups = allNsEntries
