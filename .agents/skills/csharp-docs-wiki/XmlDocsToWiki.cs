@@ -18,6 +18,25 @@ Console.WriteLine($"Templates: {templatesDir}");
 
 int membersProcessed = 0;
 int filesCreated = 0;
+var allNsEntries = new List<(string Ns, string Folder, List<string> Types)>();
+var seenNs = new HashSet<string>();
+
+void AccumulateNs(Dictionary<string, List<string>> nsTypes, MarkdownGenerator gen)
+{
+    foreach (var (ns, types) in nsTypes)
+    {
+        var existing = allNsEntries.FirstOrDefault(e => e.Ns == ns);
+        if (existing.Folder != null)
+        {
+            existing.Types.AddRange(types);
+        }
+        else
+        {
+            allNsEntries.Add((ns, gen.SimplifyNamespace(ns), new List<string>(types)));
+        }
+    }
+    allNsEntries.Sort((a, b) => string.Compare(a.Ns, b.Ns, StringComparison.Ordinal));
+}
 
 if (args.Length > 0 && File.Exists(args[0]))
 {
@@ -29,11 +48,10 @@ if (args.Length > 0 && File.Exists(args[0]))
     var projectRoot = FindProjectRoot(rootNamespace);
 
     var generator = new MarkdownGenerator(typeTemplate, memberTemplate, projectRoot);
-    var (m, f) = generator.Generate(typesByGroup, outputPath);
+    var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
     membersProcessed += m;
     filesCreated += f;
-
-    Console.WriteLine($"\nDone. Members: {membersProcessed}, Files: {filesCreated}");
+    AccumulateNs(nsTypes, generator);
 }
 else
 {
@@ -66,17 +84,36 @@ else
         var (typesByGroup, _) = parser.Parse(xmlPath);
 
         var generator = new MarkdownGenerator(typeTemplate, memberTemplate, project);
-        var (m, f) = generator.Generate(typesByGroup, outputPath);
+        var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
         membersProcessed += m;
         filesCreated += f;
+        AccumulateNs(nsTypes, generator);
     }
-
-    Console.WriteLine($"\nDone. Members: {membersProcessed}, Files: {filesCreated}");
 }
 
-Console.WriteLine($"README: {Path.GetFullPath(Path.Combine(outputPath, "README.md"))}");
+// Generate root README.md grouped by project
+var projectGroups = allNsEntries
+    .GroupBy(e => e.Folder.Split('/')[0])
+    .OrderBy(g => g.Key);
 
-// ── Helpers ──
+var rootReadme = "# Documentation\n\nThis documentation is automatically generated from XML documentation.\n";
+foreach (var group in projectGroups)
+{
+    rootReadme += $"\n## {group.Key}\n";
+    foreach (var entry in group.OrderBy(e => e.Ns))
+    {
+        rootReadme += $"\n### [{entry.Ns}]({entry.Folder}/README.md)\n";
+        foreach (var t in entry.Types.OrderBy(x => x))
+            rootReadme += $"- [{t}]({entry.Folder}/{t}.md)\n";
+    }
+}
+var rootPath = Path.Combine(outputPath, "README.md");
+File.WriteAllText(rootPath, rootReadme);
+Console.WriteLine($"Generated: {rootPath}");
+filesCreated++;
+
+Console.WriteLine($"\nDone. Members: {membersProcessed}, Files: {filesCreated}");
+Console.WriteLine($"README: {Path.GetFullPath(rootPath)}");
 
 string? FindTemplates(string? startDir)
 {
@@ -690,7 +727,7 @@ class MarkdownGenerator
         _project = project;
     }
 
-    public (int membersProcessed, int filesGenerated) Generate(Dictionary<string, TypeDoc> typesByGroup, string outputPath)
+    public (int membersProcessed, int filesGenerated, Dictionary<string, List<string>> namespaceTypes) Generate(Dictionary<string, TypeDoc> typesByGroup, string outputPath)
     {
         int membersProcessed = 0;
         int filesGenerated = 0;
@@ -751,24 +788,10 @@ class MarkdownGenerator
             filesGenerated++;
         }
 
-        // Generate root README.md
-        var rootReadme = $"# {_project.ProjectName} Documentation\n\nThis documentation is automatically generated from XML documentation.\n\n## Namespaces\n";
-        foreach (var ns in nsTypes.Keys.OrderBy(x => x))
-        {
-            var nsFolder = SimplifyNamespace(ns);
-            rootReadme += $"\n### [{ns}]({nsFolder}/README.md)\n";
-            foreach (var t in nsTypes[ns].OrderBy(x => x))
-                rootReadme += $"- [{t}]({nsFolder}/{t}.md)\n";
-        }
-        var rootPath = Path.Combine(outputPath, "README.md");
-        File.WriteAllText(rootPath, rootReadme);
-        Console.WriteLine($"Generated: {rootPath}");
-        filesGenerated++;
-
-        return (membersProcessed, filesGenerated);
+        return (membersProcessed, filesGenerated, nsTypes);
     }
 
-    private string SimplifyNamespace(string ns)
+    public string SimplifyNamespace(string ns)
     {
         var roots = new[] { _project.AssemblyName, _project.RootNamespace, _project.ProjectName }
             .Where(r => r != null)
