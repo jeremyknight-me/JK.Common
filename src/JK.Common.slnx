@@ -18,6 +18,10 @@
     <Project Path="Common.Generators.Polyfills.Tests/JK.Common.Generators.Polyfills.Tests.csproj" />
     <Project Path="Common.Generators.Polyfills/JK.Common.Generators.Polyfills.csproj" />
   </Folder>
+  <Folder Name="/Common.Generators.SqlBulkInsert/">
+    <Project Path="Common.Generators.SqlBulkInsert.Tests/JK.Common.Generators.SqlBulkInsert.Tests.csproj" />
+    <Project Path="Common.Generators.SqlBulkInsert/JK.Common.Generators.SqlBulkInsert.csproj" />
+  </Folder>
   <Folder Name="/Common/">
     <Project Path="Common.Tests/JK.Common.Tests.csproj" />
     <Project Path="Common/JK.Common.csproj" />
