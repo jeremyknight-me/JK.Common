@@ -24,10 +24,19 @@ var outputPath = "./docs";
 
 for (int i = 0; i < args.Length; i++)
 {
-    if (File.Exists(args[i]) || args[i].EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
+    var looksLikeXml = File.Exists(args[i]) || args[i].EndsWith(".xml", StringComparison.OrdinalIgnoreCase);
+    if (looksLikeXml)
+    {
         xmlPaths.Add(args[i]);
-    else
+    }
+    else if (i == args.Length - 1)
+    {
         outputPath = args[i];
+    }
+    else
+    {
+        Console.WriteLine($"Warning: ignoring unrecognized argument '{args[i]}' (not an existing/.xml file, and not the last argument).");
+    }
 }
 
 var templatesDir = FindTemplates(null)
@@ -368,7 +377,7 @@ class Template
         if (val is List<Dictionary<string, object?>> list) return list;
         if (val is List<Dictionary<string, string>> stringDicts)
             return stringDicts.Select(s => s.ToDictionary(kv => kv.Key, kv => (object?)kv.Value)).ToList();
-        if (val is List<string> strings) return strings.Select(s => new Dictionary<string, object?> { ["."] = s }).ToList();
+        if (val is List<string> strings) return strings.Select(s => new Dictionary<string, object?> { ["Value"] = s }).ToList();
         return new();
     }
 }
@@ -427,7 +436,7 @@ class XmlDocParser
                 typeName = beforeParams.Substring(secondLastDot + 1, lastDot - secondLastDot - 1);
             }
 
-            if (ns.StartsWith("System")) continue;
+            if (ns == "System" || ns.StartsWith("System.")) continue;
 
             var displayTypeName = Regex.Replace(typeName, @"`(\d+)", "_$1");
             var nestedDot = typeName.IndexOf('.');
