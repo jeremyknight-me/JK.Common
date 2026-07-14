@@ -56,7 +56,7 @@ dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/
 
 ### Usage
 
-```text
+```bash
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]
 ```
 
