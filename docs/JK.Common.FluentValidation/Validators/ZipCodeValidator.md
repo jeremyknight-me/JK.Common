@@ -8,23 +8,18 @@ Validator that validates that a string property is a valid zip code.
 
 ### GetDefaultMessageTemplate *(Inherited)*
 
-**Signature:** ``GetDefaultMessageTemplate(String)``
+**Signature:** `GetDefaultMessageTemplate(String)`
 
 **Summary:**
 
-**Remarks:**
 ### IsStringValid *(Inherited)*
 
-**Signature:** ``IsStringValid(String)``
+**Signature:** `IsStringValid(String)`
 
 **Summary:**
-
-**Remarks:**
 
 ### Name *(Inherited)*
 
-**Signature:** ``Name``
+**Signature:** `Name`
 
 **Summary:**
-
-**Remarks:**

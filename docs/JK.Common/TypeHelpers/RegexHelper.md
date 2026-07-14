@@ -8,150 +8,150 @@ Helper methods for common regular expression validations.
 
 ### IsAlphabetical
 
-**Signature:** ``IsAlphabetical(String value)``
+**Signature:** `IsAlphabetical(String value)`
 
 **Summary:**
 Determines whether the input string contains only alphabetical characters.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is alphabetical; otherwise, **false** .
 
-**Remarks:**
 ### IsAlphanumeric
 
-**Signature:** ``IsAlphanumeric(String value)``
+**Signature:** `IsAlphanumeric(String value)`
 
 **Summary:**
 Determines whether the input string contains only alphanumeric characters.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is alphanumeric; otherwise, **false** .
 
-**Remarks:**
 ### IsDecimal
 
-**Signature:** ``IsDecimal(String value)``
+**Signature:** `IsDecimal(String value)`
 
 **Summary:**
 Determines whether the input string is a valid decimal number.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a decimal; otherwise, **false** .
 
-**Remarks:**
 ### IsDecimalOrCurrency
 
-**Signature:** ``IsDecimalOrCurrency(String value)``
+**Signature:** `IsDecimalOrCurrency(String value)`
 
 **Summary:**
 Determines whether the input string is a valid decimal or currency value.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a decimal or currency; otherwise, **false** .
 
-**Remarks:**
 ### IsEmailAddress
 
-**Signature:** ``IsEmailAddress(String value)``
+**Signature:** `IsEmailAddress(String value)`
 
 **Summary:**
 Determines whether the input string is a valid email address.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is an email address; otherwise, **false** .
 
-**Remarks:**
 ### IsInteger
 
-**Signature:** ``IsInteger(String value)``
+**Signature:** `IsInteger(String value)`
 
 **Summary:**
 Determines whether the input string is a valid integer.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is an integer; otherwise, **false** .
 
-**Remarks:**
 ### IsIPv4
 
-**Signature:** ``IsIPv4(String value)``
+**Signature:** `IsIPv4(String value)`
 
 **Summary:**
 Determines whether the input string is a valid IPv4 address.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is an IPv4 address; otherwise, **false** .
 
-**Remarks:**
 ### IsSocialSecurityNumber
 
-**Signature:** ``IsSocialSecurityNumber(String value)``
+**Signature:** `IsSocialSecurityNumber(String value)`
 
 **Summary:**
 Determines whether the input string is a valid US Social Security Number.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid SSN; otherwise, **false** .
 
-**Remarks:**
 ### IsUnitedStatesPhoneNumber
 
-**Signature:** ``IsUnitedStatesPhoneNumber(String value)``
+**Signature:** `IsUnitedStatesPhoneNumber(String value)`
 
 **Summary:**
 Determines whether the input string is a valid United States phone number.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid US phone number; otherwise, **false** .
 
-**Remarks:**
 ### IsUrl
 
-**Signature:** ``IsUrl(String value)``
+**Signature:** `IsUrl(String value)`
 
 **Summary:**
 Determines whether the input string is a valid URL.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid URL; otherwise, **false** .
 
-**Remarks:**
 ### IsZipCode
 
-**Signature:** ``IsZipCode(String value)``
+**Signature:** `IsZipCode(String value)`
 
 **Summary:**
 Determines whether the input string is a valid US or Canadian zip code.
 
 **Parameters:**
+
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid zip code; otherwise, **false** .
 
-**Remarks:**
 ### AlphabeticalRegex
 
-**Signature:** ``AlphabeticalRegex()``
+**Signature:** `AlphabeticalRegex()`
 
 **Summary:**
 
@@ -170,9 +170,10 @@ RegexOptions.IgnoreCase
             ○ Match a character in the set [A-Za-z\u212A] atomically at least once.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### AlphanumericRegex
 
-**Signature:** ``AlphanumericRegex()``
+**Signature:** `AlphanumericRegex()`
 
 **Summary:**
 
@@ -191,9 +192,10 @@ RegexOptions.IgnoreCase
             ○ Match a character in the set [0-9A-Za-z\u212A] atomically at least once.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### DecimalRegex
 
-**Signature:** ``DecimalRegex()``
+**Signature:** `DecimalRegex()`
 
 **Summary:**
 
@@ -229,9 +231,10 @@ RegexOptions.IgnoreCase
                     ○ Match a Unicode digit atomically at least 1 and at most 2 times.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### DecimalOrCurrencyRegex
 
-**Signature:** ``DecimalOrCurrencyRegex()``
+**Signature:** `DecimalOrCurrencyRegex()`
 
 **Summary:**
 
@@ -273,9 +276,10 @@ RegexOptions.IgnoreCase
                     ○ Match a Unicode digit atomically at least 1 and at most 2 times.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### EmailAddressRegex
 
-**Signature:** ``EmailAddressRegex()``
+**Signature:** `EmailAddressRegex()`
 
 **Summary:**
 
@@ -299,9 +303,10 @@ RegexOptions.IgnoreCase
                 ○ Match a character in the set [\-0-9A-Za-z\u212A] atomically at least once.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### IntegerRegex
 
-**Signature:** ``IntegerRegex()``
+**Signature:** `IntegerRegex()`
 
 **Summary:**
 
@@ -321,9 +326,10 @@ RegexOptions.IgnoreCase
             ○ Match a Unicode digit atomically at least once.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### IPv4Regex
 
-**Signature:** ``IPv4Regex()``
+**Signature:** `IPv4Regex()`
 
 **Summary:**
 
@@ -400,9 +406,10 @@ RegexOptions.IgnoreCase
                         ○ Match a character in the set [0-9] atomically at least 1 and at most 2 times.
             ○ Match if at a word boundary.
 ```
+
 ### SocialSecurityNumberRegex
 
-**Signature:** ``SocialSecurityNumberRegex()``
+**Signature:** `SocialSecurityNumberRegex()`
 
 **Summary:**
 
@@ -436,9 +443,10 @@ RegexOptions.IgnoreCase
             ○ Match a Unicode digit exactly 4 times.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### UnitedStatesPhoneNumberRegex
 
-**Signature:** ``UnitedStatesPhoneNumberRegex()``
+**Signature:** `UnitedStatesPhoneNumberRegex()`
 
 **Summary:**
 
@@ -508,9 +516,10 @@ RegexOptions.IgnoreCase
                 ○ Match a character in the set [0-9] exactly 4 times.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### UrlRegex
 
-**Signature:** ``UrlRegex()``
+**Signature:** `UrlRegex()`
 
 **Summary:**
 
@@ -555,9 +564,10 @@ RegexOptions.IgnoreCase
                     ○ Match a character in the set [#-'+-9;?A-Z\\_a-z\u212A] atomically any number of times.
             ○ Match if at the end of the string or if before an ending newline.
 ```
+
 ### ZipCodeRegex
 
-**Signature:** ``ZipCodeRegex()``
+**Signature:** `ZipCodeRegex()`
 
 **Summary:**
 

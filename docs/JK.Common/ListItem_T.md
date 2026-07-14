@@ -12,17 +12,14 @@ Class meant to represent data to be displayed in any of
 
 ### Value
 
-**Signature:** ``Value``
+**Signature:** `Value`
 
 **Summary:**
 Gets or sets the value associated with the list item.
 
-**Remarks:**
 ### Text
 
-**Signature:** ``Text``
+**Signature:** `Text`
 
 **Summary:**
 Gets or sets the display text of the list item.
-
-**Remarks:**

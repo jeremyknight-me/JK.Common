@@ -8,17 +8,14 @@ Abstraction to disconnect **DateTimeOffset** from the system clock.
 
 ### Now
 
-**Signature:** ``Now``
+**Signature:** `Now`
 
 **Summary:**
 Returns a **DateTimeOffset** representing the current date and time.
 
-**Remarks:**
 ### UtcNow
 
-**Signature:** ``UtcNow``
+**Signature:** `UtcNow`
 
 **Summary:**
 Returns a **DateTimeOffset** representing the current UTC date and time.
-
-**Remarks:**

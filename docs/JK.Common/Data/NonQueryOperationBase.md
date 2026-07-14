@@ -6,24 +6,19 @@
 
 Provides a base class for non-query operations without parameter models.
 
-### #ctor
+### NonQueryOperationBase
 
-**Signature:** ``#ctor(IAdoConnectionFactory connectionFactory)``
-
-**Summary:**
-Initializes a new instance of the **NonQueryOperationBase** class.
+**Summary:** Initializes a new instance of the **NonQueryOperationBase** class.
 
 **Parameters:**
+
 - **connectionFactory** — The connection factory to use.
 
-**Remarks:**
 ### Execute
 
-**Signature:** ``Execute()``
+**Signature:** `Execute()`
 
 **Summary:**
 Executes the non-query operation.
 
 **Returns:** The number of rows affected.
-
-**Remarks:**

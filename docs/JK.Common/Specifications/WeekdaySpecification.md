@@ -8,14 +8,13 @@ Specification that determines if a **DateTime** value falls on a weekday (Monday
 
 ### IsSatisfiedBy
 
-**Signature:** ``IsSatisfiedBy(DateTime@ candidate)``
+**Signature:** `IsSatisfiedBy(DateTime candidate)`
 
 **Summary:**
 Determines whether the specified **DateTime** is a weekday (not Saturday or Sunday).
 
 **Parameters:**
+
 - **candidate** — The date to evaluate.
 
 **Returns:** **true** if the date is a weekday; otherwise, **false** .
-
-**Remarks:**

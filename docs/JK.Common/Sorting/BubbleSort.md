@@ -6,14 +6,13 @@
 
 Provides an implementation of the bubble sort algorithm.
 
-### Sort`
+### Sort
 
-**Signature:** ``Sort`(IList{``0} data)``
+**Signature:** `Sort(IList<T> data)`
 
 **Summary:**
 Sorts the specified list in ascending order using the bubble sort algorithm.
 
 **Parameters:**
-- **data** — The list to sort.
 
-**Remarks:**
+- **data** — The list to sort.

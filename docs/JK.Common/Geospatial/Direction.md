@@ -8,33 +8,28 @@ Represents the cardinal directions for geographic coordinates.
 
 ### N
 
-**Signature:** ``N``
+**Signature:** `N`
 
 **Summary:**
 North direction.
 
-**Remarks:**
 ### S
 
-**Signature:** ``S``
+**Signature:** `S`
 
 **Summary:**
 South direction.
 
-**Remarks:**
 ### E
 
-**Signature:** ``E``
+**Signature:** `E`
 
 **Summary:**
 East direction.
 
-**Remarks:**
 ### W
 
-**Signature:** ``W``
+**Signature:** `W`
 
 **Summary:**
 West direction.
-
-**Remarks:**

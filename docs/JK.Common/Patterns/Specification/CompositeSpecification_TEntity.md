@@ -8,32 +8,26 @@ Generic CompositeSpecification.
 
 **Type Parameter:** `TEntity` — The type of entity.
 
-### #ctor
+### CompositeSpecification<TEntity>
 
-**Signature:** ``#ctor(ISpecification leftEntity, ISpecification rightEntity)``
-
-**Summary:**
-Initializes a new instance of the CompositeSpecification class.
+**Summary:** Initializes a new instance of the CompositeSpecification class.
 
 **Parameters:**
-- **leftEntity** — The left entity.
-- **rightEntity** — The right entity.
 
-**Remarks:**
+- **leftEntity** — The left entity.
+
+- **rightEntity** — The right entity.
 
 ### Left
 
-**Signature:** ``Left``
+**Signature:** `Left`
 
 **Summary:**
 The composite specification's left entity.
 
-**Remarks:**
 ### Right
 
-**Signature:** ``Right``
+**Signature:** `Right`
 
 **Summary:**
 The composite specification's right entity.
-
-**Remarks:**

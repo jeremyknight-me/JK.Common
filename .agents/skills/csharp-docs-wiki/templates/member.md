@@ -28,7 +28,9 @@
 {Example}
 {/if}
 
+{#if HasRemarks}
 **Remarks:** {Remarks}
+{/if}
 
 {#each SeeAlso}
 - See: **{Value}**

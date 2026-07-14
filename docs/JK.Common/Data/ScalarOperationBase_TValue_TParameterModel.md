@@ -7,29 +7,26 @@
 Provides a base class for scalar operations with parameter models.
 
 **Type Parameter:** `TValue` — The type of the scalar result.
+
 **Type Parameter:** `TParameterModel` — The type of the parameter model.
 
-### #ctor
+### ScalarOperationBase<TValue, TParameterModel>
 
-**Signature:** ``#ctor(IAdoConnectionFactory connectionFactory)``
-
-**Summary:**
-Initializes a new instance of the **ScalarOperationBase`2** class.
+**Summary:** Initializes a new instance of the **ScalarOperationBase`2** class.
 
 **Parameters:**
+
 - **connectionFactory** — The connection factory to use.
 
-**Remarks:**
 ### Execute
 
-**Signature:** ``Execute(TParameterModel parameterModel)``
+**Signature:** `Execute(TParameterModel parameterModel)`
 
 **Summary:**
 Executes the scalar operation with the specified parameter model.
 
 **Parameters:**
+
 - **parameterModel** — The parameter model.
 
 **Returns:** The scalar result.
-
-**Remarks:**

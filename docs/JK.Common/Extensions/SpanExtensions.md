@@ -6,17 +6,17 @@
 
 Extension methods for **ReadOnlySpan** .
 
-### Parse`
+### Parse
 
-**Signature:** ``Parse`(Char} input, IFormatProvider formatProvider)``
+**Signature:** `Parse(Char> input, IFormatProvider formatProvider)`
 
 **Summary:**
-Parses a **ReadOnlySpan** into a specified type.
+Parses a **ReadOnlySpan`1** into a specified type.
 
 **Parameters:**
+
 - **input** — The span to parse.
+
 - **formatProvider** — Format provider to pass down to the **Parse** method.
 
 **Returns:** Parsed value of type T.
-
-**Remarks:**

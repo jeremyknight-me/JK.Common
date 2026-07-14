@@ -8,23 +8,18 @@ Validator that validates that a double property is a valid longitude.
 
 ### GetDefaultMessageTemplate *(Inherited)*
 
-**Signature:** ``GetDefaultMessageTemplate(String)``
+**Signature:** `GetDefaultMessageTemplate(String)`
 
 **Summary:**
 
-**Remarks:**
 ### IsValid *(Inherited)*
 
-**Signature:** ``IsValid(ValidationContext{`0}, Decimal)``
+**Signature:** `IsValid(ValidationContext<T>, Decimal)`
 
 **Summary:**
-
-**Remarks:**
 
 ### Name *(Inherited)*
 
-**Signature:** ``Name``
+**Signature:** `Name`
 
 **Summary:**
-
-**Remarks:**

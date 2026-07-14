@@ -8,55 +8,56 @@ Extension methods for configuring SQL Server string column types on **PropertyBu
 
 ### HasColumnTypeNvarchar
 
-**Signature:** ``HasColumnTypeNvarchar(String} propertyBuilder)``
+**Signature:** `HasColumnTypeNvarchar(String> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **nvarchar(max)** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeNvarchar
 
-**Signature:** ``HasColumnTypeNvarchar(String} propertyBuilder, Int32 length)``
+**Signature:** `HasColumnTypeNvarchar(String> propertyBuilder, Int32 length)`
 
 **Summary:**
 Configures the property to use the **nvarchar(length)** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
+
 - **length** — The maximum length of the column.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeVarchar
 
-**Signature:** ``HasColumnTypeVarchar(String} propertyBuilder)``
+**Signature:** `HasColumnTypeVarchar(String> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **varchar(max)** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeVarchar
 
-**Signature:** ``HasColumnTypeVarchar(String} propertyBuilder, Int32 length)``
+**Signature:** `HasColumnTypeVarchar(String> propertyBuilder, Int32 length)`
 
 **Summary:**
 Configures the property to use the **varchar(length)** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
+
 - **length** — The maximum length of the column.
 
 **Returns:** The property builder for chaining.
-
-**Remarks:**

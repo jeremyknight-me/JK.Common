@@ -8,12 +8,11 @@ Extension methods for **ModelConfigurationBuilder** .
 
 ### ApplyConventionPreferences
 
-**Signature:** ``ApplyConventionPreferences(ModelConfigurationBuilder configurationBuilder)``
+**Signature:** `ApplyConventionPreferences(ModelConfigurationBuilder configurationBuilder)`
 
 **Summary:**
 Applies default convention preferences for SQL Server column types and precision.
 
 **Parameters:**
-- **configurationBuilder** — The model configuration builder.
 
-**Remarks:**
+- **configurationBuilder** — The model configuration builder.

@@ -10,50 +10,48 @@ Defines the contract for a specification pattern.
 
 ### IsSatisfiedBy
 
-**Signature:** ``IsSatisfiedBy(TEntity@ candidate)``
+**Signature:** `IsSatisfiedBy(TEntity candidate)`
 
 **Summary:**
 Determines whether the specified candidate is satisfied by TEntity.
 
 **Parameters:**
+
 - **candidate** — The candidate.
 
 **Returns:** True if is satisfied by the specified candidate; otherwise false.
 
-**Remarks:**
 ### And
 
-**Signature:** ``And(ISpecification specification)``
+**Signature:** `And(ISpecification<TEntity> specification)`
 
 **Summary:**
 Ands the specified specification.
 
 **Parameters:**
+
 - **specification** — The specification
 
 **Returns:** Returns a new specification of type And.
 
-**Remarks:**
 ### Not
 
-**Signature:** ``Not()``
+**Signature:** `Not()`
 
 **Summary:**
 Performs the 'not' operators on this instance.
 
 **Returns:** Returns a new specification of type Not.
 
-**Remarks:**
 ### Or
 
-**Signature:** ``Or(ISpecification specification)``
+**Signature:** `Or(ISpecification<TEntity> specification)`
 
 **Summary:**
 Performs the 'or' operator on the specified specification.
 
 **Parameters:**
+
 - **specification** — The specification.
 
 **Returns:** Returns a new specification of type Or.
-
-**Remarks:**

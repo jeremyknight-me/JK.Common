@@ -6,23 +6,20 @@
 
 Extension methods for the Decimal object.
 
-### get_DecimalPart *(Inherited)*
+### DecimalPart *(Inherited)*
 
-**Signature:** ``get_DecimalPart(Decimal)``
+**Signature:** `DecimalPart`
 
 **Summary:**
 Gets the decimal part (right side of decimal) from the given decimal.
 
 **Returns:** Right side of decimal as integer
 
-**Remarks:**
-### get_WholePart *(Inherited)*
+### WholePart *(Inherited)*
 
-**Signature:** ``get_WholePart(Decimal)``
+**Signature:** `WholePart`
 
 **Summary:**
 Gets the whole part (left side of decimal) from the given decimal.
 
 **Returns:** Left side of decimal as integer
-
-**Remarks:**

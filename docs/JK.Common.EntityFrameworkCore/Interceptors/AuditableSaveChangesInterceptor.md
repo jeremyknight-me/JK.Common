@@ -8,15 +8,12 @@ A **SaveChangesInterceptor** that automatically sets audit timestamps on **IAudi
 
 ### SavingChanges *(Inherited)*
 
-**Signature:** ``SavingChanges(DbContextEventData, Int32})``
+**Signature:** `SavingChanges(DbContextEventData, Int32>)`
 
 **Summary:**
 
-**Remarks:**
 ### SavingChangesAsync *(Inherited)*
 
-**Signature:** ``SavingChangesAsync(DbContextEventData, Int32}, CancellationToken)``
+**Signature:** `SavingChangesAsync(DbContextEventData, Int32>, CancellationToken)`
 
 **Summary:**
-
-**Remarks:**

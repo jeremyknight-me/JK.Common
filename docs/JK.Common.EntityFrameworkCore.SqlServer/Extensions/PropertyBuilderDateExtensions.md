@@ -8,79 +8,78 @@ Extension methods for configuring SQL Server date and time column types on **Pro
 
 ### HasColumnTypeDateTime
 
-**Signature:** ``HasColumnTypeDateTime(DateTime} propertyBuilder)``
+**Signature:** `HasColumnTypeDateTime(DateTime> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **datetime** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeDateTime
 
-**Signature:** ``HasColumnTypeDateTime(DateTime}} propertyBuilder)``
+**Signature:** `HasColumnTypeDateTime(DateTime>> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **datetime** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeDateTime2
 
-**Signature:** ``HasColumnTypeDateTime2(DateTime} propertyBuilder)``
+**Signature:** `HasColumnTypeDateTime2(DateTime> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **datetime2** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeDateTime2
 
-**Signature:** ``HasColumnTypeDateTime2(DateTime}} propertyBuilder)``
+**Signature:** `HasColumnTypeDateTime2(DateTime>> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **datetime2** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeDateTimeOffset
 
-**Signature:** ``HasColumnTypeDateTimeOffset(DateTimeOffset} propertyBuilder)``
+**Signature:** `HasColumnTypeDateTimeOffset(DateTimeOffset> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **datetimeoffset** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
 
-**Remarks:**
 ### HasColumnTypeDateTimeOffset
 
-**Signature:** ``HasColumnTypeDateTimeOffset(DateTimeOffset}} propertyBuilder)``
+**Signature:** `HasColumnTypeDateTimeOffset(DateTimeOffset>> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **datetimeoffset** SQL Server column type.
 
 **Parameters:**
+
 - **propertyBuilder** — The property builder.
 
 **Returns:** The property builder for chaining.
-
-**Remarks:**

@@ -10,29 +10,24 @@ Abstraction on ISpecification that supplies And, Or and Not.
 
 ### IsSatisfiedBy *(Inherited)*
 
-**Signature:** ``IsSatisfiedBy(TEntity@)``
+**Signature:** `IsSatisfiedBy(TEntity)`
 
 **Summary:**
 
-**Remarks:**
 ### And *(Inherited)*
 
-**Signature:** ``And(ISpecification)``
+**Signature:** `And(ISpecification<TEntity>)`
 
 **Summary:**
 
-**Remarks:**
 ### Not *(Inherited)*
 
-**Signature:** ``Not()``
+**Signature:** `Not()`
 
 **Summary:**
 
-**Remarks:**
 ### Or *(Inherited)*
 
-**Signature:** ``Or(ISpecification)``
+**Signature:** `Or(ISpecification<TEntity>)`
 
 **Summary:**
-
-**Remarks:**

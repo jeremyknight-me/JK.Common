@@ -6,24 +6,20 @@
 
 Implementation of Service Locator design pattern.
 
-### Locate` *(Inherited)*
+### Locate *(Inherited)*
 
-**Signature:** ``Locate`()``
-
-**Summary:**
-
-**Remarks:**
-### Register` *(Inherited)*
-
-**Signature:** ``Register`(``0)``
+**Signature:** `Locate()`
 
 **Summary:**
 
-**Remarks:**
-### Unregister` *(Inherited)*
+### Register *(Inherited)*
 
-**Signature:** ``Unregister`()``
+**Signature:** `Register(T)`
 
 **Summary:**
 
-**Remarks:**
+### Unregister *(Inherited)*
+
+**Signature:** `Unregister()`
+
+**Summary:**

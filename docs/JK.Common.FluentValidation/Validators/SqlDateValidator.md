@@ -8,23 +8,18 @@ Validator that validates that a date property is a valid SQL date.
 
 ### GetDefaultMessageTemplate *(Inherited)*
 
-**Signature:** ``GetDefaultMessageTemplate(String)``
+**Signature:** `GetDefaultMessageTemplate(String)`
 
 **Summary:**
 
-**Remarks:**
 ### IsValid *(Inherited)*
 
-**Signature:** ``IsValid(ValidationContext{`0}, `1)``
+**Signature:** `IsValid(ValidationContext<T>, T2)`
 
 **Summary:**
-
-**Remarks:**
 
 ### Name *(Inherited)*
 
-**Signature:** ``Name``
+**Signature:** `Name`
 
 **Summary:**
-
-**Remarks:**

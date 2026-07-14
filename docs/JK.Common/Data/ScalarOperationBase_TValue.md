@@ -8,24 +8,19 @@ Provides a base class for scalar operations without parameter models.
 
 **Type Parameter:** `TValue` — The type of the scalar result.
 
-### #ctor
+### ScalarOperationBase<TValue>
 
-**Signature:** ``#ctor(IAdoConnectionFactory connectionFactory)``
-
-**Summary:**
-Initializes a new instance of the **ScalarOperationBase`1** class.
+**Summary:** Initializes a new instance of the **ScalarOperationBase`1** class.
 
 **Parameters:**
+
 - **connectionFactory** — The connection factory to use.
 
-**Remarks:**
 ### Execute
 
-**Signature:** ``Execute()``
+**Signature:** `Execute()`
 
 **Summary:**
 Executes the scalar operation.
 
 **Returns:** The scalar result.
-
-**Remarks:**

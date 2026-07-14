@@ -6,13 +6,11 @@
 
 Extension methods for **DayOfWeek** .
 
-### get_IsWeekday *(Inherited)*
+### IsWeekday *(Inherited)*
 
-**Signature:** ``get_IsWeekday(DayOfWeek)``
+**Signature:** `IsWeekday`
 
 **Summary:**
 Determines whether or not the given day of week is a weekday.
 
 **Returns:** True if weekday, otherwise false.
-
-**Remarks:**

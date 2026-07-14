@@ -8,11 +8,9 @@ Creates ADO.NET database connections.
 
 ### Make
 
-**Signature:** ``Make()``
+**Signature:** `Make()`
 
 **Summary:**
 Creates and returns a new database connection.
 
 **Returns:** A new **IDbConnection** instance.
-
-**Remarks:**

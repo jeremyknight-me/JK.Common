@@ -6,14 +6,13 @@
 
 Provides a static implementation of the insertion sort algorithm.
 
-### Sort`
+### Sort
 
-**Signature:** ``Sort`(IList{``0} list)``
+**Signature:** `Sort(IList<T> list)`
 
 **Summary:**
 Sorts the specified list in ascending order using the insertion sort algorithm.
 
 **Parameters:**
-- **list** — The list to sort.
 
-**Remarks:**
+- **list** — The list to sort.

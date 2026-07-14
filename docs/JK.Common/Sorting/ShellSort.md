@@ -6,14 +6,13 @@
 
 Provides an implementation of the shell sort algorithm.
 
-### Sort`
+### Sort
 
-**Signature:** ``Sort`(IList{``0} list)``
+**Signature:** `Sort(IList<T> list)`
 
 **Summary:**
 Sorts the specified list in ascending order using the shell sort algorithm.
 
 **Parameters:**
-- **list** — The list to sort.
 
-**Remarks:**
+- **list** — The list to sort.

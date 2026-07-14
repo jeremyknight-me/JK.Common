@@ -6,123 +6,110 @@
 
 Extension methods for retrieving localized day and month names.
 
-### get_AbbreviatedDayName *(Inherited)*
+### AbbreviatedDayName *(Inherited)*
 
-**Signature:** ``get_AbbreviatedDayName(DateTime)``
-
-**Summary:**
-Gets the abbreviated day name.
-
-**Returns:** Abbreviated day name.
-
-**Remarks:**
-### get_AbbreviatedMonthName *(Inherited)*
-
-**Signature:** ``get_AbbreviatedMonthName(DateTime)``
-
-**Summary:**
-Gets the abbreviated month name.
-
-**Returns:** Abbreviated month name.
-
-**Remarks:**
-### get_DayName *(Inherited)*
-
-**Signature:** ``get_DayName(DateTime)``
-
-**Summary:**
-Gets the full name of a given day.
-
-**Returns:** Full day name.
-
-**Remarks:**
-### get_MonthName *(Inherited)*
-
-**Signature:** ``get_MonthName(DateTime)``
-
-**Summary:**
-Gets the full name of a month.
-
-**Returns:** Full month name.
-
-**Remarks:**
-### get_AbbreviatedDayName *(Inherited)*
-
-**Signature:** ``get_AbbreviatedDayName(DateTimeOffset)``
+**Signature:** `AbbreviatedDayName`
 
 **Summary:**
 Gets the abbreviated day name.
 
 **Returns:** Abbreviated day name.
 
-**Remarks:**
-### get_AbbreviatedMonthName *(Inherited)*
+### AbbreviatedMonthName *(Inherited)*
 
-**Signature:** ``get_AbbreviatedMonthName(DateTimeOffset)``
+**Signature:** `AbbreviatedMonthName`
 
 **Summary:**
 Gets the abbreviated month name.
 
 **Returns:** Abbreviated month name.
 
-**Remarks:**
-### get_DayName *(Inherited)*
+### DayName *(Inherited)*
 
-**Signature:** ``get_DayName(DateTimeOffset)``
+**Signature:** `DayName`
 
 **Summary:**
 Gets the full name of a given day.
 
 **Returns:** Full day name.
 
-**Remarks:**
-### get_MonthName *(Inherited)*
+### MonthName *(Inherited)*
 
-**Signature:** ``get_MonthName(DateTimeOffset)``
+**Signature:** `MonthName`
 
 **Summary:**
 Gets the full name of a month.
 
 **Returns:** Full month name.
 
-**Remarks:**
-### get_AbbreviatedDayName *(Inherited)*
+### AbbreviatedDayName *(Inherited)*
 
-**Signature:** ``get_AbbreviatedDayName(DateOnly)``
+**Signature:** `AbbreviatedDayName`
 
 **Summary:**
 Gets the abbreviated day name.
 
 **Returns:** Abbreviated day name.
 
-**Remarks:**
-### get_AbbreviatedMonthName *(Inherited)*
+### AbbreviatedMonthName *(Inherited)*
 
-**Signature:** ``get_AbbreviatedMonthName(DateOnly)``
+**Signature:** `AbbreviatedMonthName`
 
 **Summary:**
 Gets the abbreviated month name.
 
 **Returns:** Abbreviated month name.
 
-**Remarks:**
-### get_DayName *(Inherited)*
+### DayName *(Inherited)*
 
-**Signature:** ``get_DayName(DateOnly)``
+**Signature:** `DayName`
 
 **Summary:**
 Gets the full name of a given day.
 
 **Returns:** Full day name.
 
-**Remarks:**
-### get_MonthName *(Inherited)*
+### MonthName *(Inherited)*
 
-**Signature:** ``get_MonthName(DateOnly)``
+**Signature:** `MonthName`
 
 **Summary:**
 Gets the full name of a month.
 
 **Returns:** Full month name.
 
-**Remarks:**
+### AbbreviatedDayName *(Inherited)*
+
+**Signature:** `AbbreviatedDayName`
+
+**Summary:**
+Gets the abbreviated day name.
+
+**Returns:** Abbreviated day name.
+
+### AbbreviatedMonthName *(Inherited)*
+
+**Signature:** `AbbreviatedMonthName`
+
+**Summary:**
+Gets the abbreviated month name.
+
+**Returns:** Abbreviated month name.
+
+### DayName *(Inherited)*
+
+**Signature:** `DayName`
+
+**Summary:**
+Gets the full name of a given day.
+
+**Returns:** Full day name.
+
+### MonthName *(Inherited)*
+
+**Signature:** `MonthName`
+
+**Summary:**
+Gets the full name of a month.
+
+**Returns:** Full month name.

@@ -8,15 +8,12 @@ Base class for entities that track creation and modification timestamps.
 
 ### DateCreatedUtc *(Inherited)*
 
-**Signature:** ``DateCreatedUtc``
+**Signature:** `DateCreatedUtc`
 
 **Summary:**
 
-**Remarks:**
 ### DateModifiedUtc *(Inherited)*
 
-**Signature:** ``DateModifiedUtc``
+**Signature:** `DateModifiedUtc`
 
 **Summary:**
-
-**Remarks:**

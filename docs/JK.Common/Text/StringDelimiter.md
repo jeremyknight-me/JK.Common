@@ -6,34 +6,28 @@
 
 This class builds a delimited string.
 
-### #ctor
+### StringDelimiter
 
-**Signature:** ``#ctor(String delimiter)``
-
-**Summary:**
-Initializes a new instance of the StringDelimiter class.
+**Summary:** Initializes a new instance of the StringDelimiter class.
 
 **Parameters:**
+
 - **delimiter** — The string to use when delimiting sections.
 
-**Remarks:**
 ### AddText
 
-**Signature:** ``AddText(String@ addition)``
+**Signature:** `AddText(String addition)`
 
 **Summary:**
 Adds a block of text to the current string and delimits if necessary.
 
 **Parameters:**
-- **addition** — The string to add to the current string.
 
-**Remarks:**
+- **addition** — The string to add to the current string.
 
 ### DelimitedText
 
-**Signature:** ``DelimitedText``
+**Signature:** `DelimitedText`
 
 **Summary:**
 Gets the delimited text string.
-
-**Remarks:**

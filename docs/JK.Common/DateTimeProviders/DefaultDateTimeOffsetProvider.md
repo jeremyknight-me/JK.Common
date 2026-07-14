@@ -6,15 +6,12 @@
 
 ### Now *(Inherited)*
 
-**Signature:** ``Now``
+**Signature:** `Now`
 
 **Summary:**
 
-**Remarks:**
 ### UtcNow *(Inherited)*
 
-**Signature:** ``UtcNow``
+**Signature:** `UtcNow`
 
 **Summary:**
-
-**Remarks:**

@@ -6,76 +6,70 @@
 
 Calculates age in years from a start date to a given end date.
 
-### #ctor
+### AgeCalculator
 
-**Signature:** ``#ctor()``
+**Summary:** Initializes a new instance of the **AgeCalculator** class.
 
-**Summary:**
-Initializes a new instance of the **AgeCalculator** class.
+### AgeCalculator
 
-**Remarks:**
-### #ctor
-
-**Signature:** ``#ctor(IDateTimeProvider dateTimeProvider)``
-
-**Summary:**
-Initializes a new instance of the **AgeCalculator** class.
+**Summary:** Initializes a new instance of the **AgeCalculator** class.
 
 **Parameters:**
+
 - **dateTimeProvider** — The date time provider to use.
 
-**Remarks:**
 ### Calculate
 
-**Signature:** ``Calculate(DateOnly@ startDate)``
+**Signature:** `Calculate(DateOnly startDate)`
 
 **Summary:**
 Calculates the age in years from the specified **startDate** to today.
 
 **Parameters:**
+
 - **startDate** — The start date (typically the date of birth).
 
 **Returns:** The calculated age in years.
 
-**Remarks:**
 ### Calculate
 
-**Signature:** ``Calculate(DateOnly@ startDate, DateOnly@ endDate)``
+**Signature:** `Calculate(DateOnly startDate, DateOnly endDate)`
 
 **Summary:**
 Calculates the age in years from the specified **startDate** to the specified **endDate** .
 
 **Parameters:**
+
 - **startDate** — The start date (typically the date of birth).
+
 - **endDate** — The end date to calculate the age as of.
 
 **Returns:** The calculated age in years.
 
-**Remarks:**
 ### Calculate
 
-**Signature:** ``Calculate(DateTime@ startDate)``
+**Signature:** `Calculate(DateTime startDate)`
 
 **Summary:**
 Calculates the age in years from the specified **startDate** to today.
 
 **Parameters:**
+
 - **startDate** — The start date (typically the date of birth).
 
 **Returns:** The calculated age in years.
 
-**Remarks:**
 ### Calculate
 
-**Signature:** ``Calculate(DateTime@ startDate, DateTime@ endDate)``
+**Signature:** `Calculate(DateTime startDate, DateTime endDate)`
 
 **Summary:**
 Calculates the age in years from the specified **startDate** to the specified **endDate** .
 
 **Parameters:**
+
 - **startDate** — The start date (typically the date of birth).
+
 - **endDate** — The end date to calculate the age as of.
 
 **Returns:** The calculated age in years.
-
-**Remarks:**

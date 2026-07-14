@@ -8,17 +8,14 @@ Represents the type of a geographic coordinate (latitude or longitude).
 
 ### Latitude
 
-**Signature:** ``Latitude``
+**Signature:** `Latitude`
 
 **Summary:**
 Latitude coordinate type.
 
-**Remarks:**
 ### Longitude
 
-**Signature:** ``Longitude``
+**Signature:** `Longitude`
 
 **Summary:**
 Longitude coordinate type.
-
-**Remarks:**

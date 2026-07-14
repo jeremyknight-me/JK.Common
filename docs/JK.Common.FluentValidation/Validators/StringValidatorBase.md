@@ -8,21 +8,19 @@ String property abstract validator.
 
 ### IsStringValid
 
-**Signature:** ``IsStringValid(String value)``
+**Signature:** `IsStringValid(String value)`
 
 **Summary:**
 Determine if the given string is valid.
 
 **Parameters:**
+
 - **value** — String value to validate
 
 **Returns:** True if valid, otherwise false.
 
-**Remarks:**
 ### IsValid *(Inherited)*
 
-**Signature:** ``IsValid(ValidationContext{`0}, String)``
+**Signature:** `IsValid(ValidationContext<T>, String)`
 
 **Summary:**
-
-**Remarks:**

@@ -13,12 +13,16 @@
 
 **Summary:** {Summary}
 
+{#if HasParams}
 **Parameters:**
 {#each Params}
 - **{Name}** — {Description}
 {/each}
+{/if}
 
+{#if HasRemarks}
 **Remarks:** {Remarks}
+{/if}
 {/each}
 
 {#each Methods}
@@ -41,4 +45,6 @@
 {Body}
 {/each}
 
+{#if Remarks}
 {Remarks}
+{/if}

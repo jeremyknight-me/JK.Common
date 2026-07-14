@@ -8,26 +8,23 @@ Base class for ADO.NET operations that return a single scalar value.
 
 **Type Parameter:** `T` — The type of the scalar result.
 
-### #ctor
+### ScalarOperationBase<T>
 
-**Signature:** ``#ctor(DbContext context, CommandType adoCommandType, String adoCommandText)``
-
-**Summary:**
-Initializes a new instance of the **ScalarOperationBase`1** class.
+**Summary:** Initializes a new instance of the **ScalarOperationBase`1** class.
 
 **Parameters:**
+
 - **context** — The database context.
+
 - **adoCommandType** — The ADO command type.
+
 - **adoCommandText** — The ADO command text.
 
-**Remarks:**
 ### Execute
 
-**Signature:** ``Execute()``
+**Signature:** `Execute()`
 
 **Summary:**
 Executes the command and returns the scalar result.
 
 **Returns:** The scalar value returned by the command.
-
-**Remarks:**

@@ -8,7 +8,7 @@ Class which contains methods which formats a DateTime into a string.
 
 ### ToFullDateLongTimeFormat *(Inherited)*
 
-**Signature:** ``ToFullDateLongTimeFormat(DateTime@)``
+**Signature:** `ToFullDateLongTimeFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -16,10 +16,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: Sunday, January 31, 2010 12:45:30 PM
 
-**Remarks:**
 ### ToFullDateShortTimeFormat *(Inherited)*
 
-**Signature:** ``ToFullDateShortTimeFormat(DateTime@)``
+**Signature:** `ToFullDateShortTimeFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -27,10 +26,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: Sunday, January 31, 2010 12:45 PM
 
-**Remarks:**
 ### ToGeneralDateShortTimeFormat *(Inherited)*
 
-**Signature:** ``ToGeneralDateShortTimeFormat(DateTime@)``
+**Signature:** `ToGeneralDateShortTimeFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -38,10 +36,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: 1/31/2010 12:45 PM
 
-**Remarks:**
 ### ToMonthDayFormat *(Inherited)*
 
-**Signature:** ``ToMonthDayFormat(DateTime@)``
+**Signature:** `ToMonthDayFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -49,10 +46,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: January 31
 
-**Remarks:**
 ### ToRfc1123Format *(Inherited)*
 
-**Signature:** ``ToRfc1123Format(DateTime@)``
+**Signature:** `ToRfc1123Format(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -60,10 +56,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: Sun, 31 Jan 2010 12:45:30 GMT
 
-**Remarks:**
 ### ToSortableFormat *(Inherited)*
 
-**Signature:** ``ToSortableFormat(DateTime@)``
+**Signature:** `ToSortableFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -71,10 +66,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: 2010-01-31T12:45:30
 
-**Remarks:**
 ### ToUniversalSortableFormat *(Inherited)*
 
-**Signature:** ``ToUniversalSortableFormat(DateTime@)``
+**Signature:** `ToUniversalSortableFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -82,10 +76,9 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: 2010-01-31 12:45:30Z
 
-**Remarks:**
 ### ToUniversalFormat *(Inherited)*
 
-**Signature:** ``ToUniversalFormat(DateTime@)``
+**Signature:** `ToUniversalFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
@@ -94,15 +87,12 @@ Formats the value of the current DateTime object to its equivalent
 **Returns:** Date and time string in the format: Sunday, January 31, 2010 6:45:30 PM
             (This takes into account time zone and returns UTC time)
 
-**Remarks:**
 ### ToYearMonthFormat *(Inherited)*
 
-**Signature:** ``ToYearMonthFormat(DateTime@)``
+**Signature:** `ToYearMonthFormat(DateTime)`
 
 **Summary:**
 Formats the value of the current DateTime object to its equivalent 
             year and month string representation.
 
 **Returns:** Date and time string in the format: January, 2010
-
-**Remarks:**

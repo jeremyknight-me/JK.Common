@@ -6,56 +6,46 @@
 
 Formats a **CoordinateBase** as plain text in various display formats.
 
-### #ctor
+### CoordinateTextFormatter
 
-**Signature:** ``#ctor(CoordinateBase coordinateToUse)``
-
-**Summary:**
-Initializes a new instance of the **CoordinateTextFormatter** class.
+**Summary:** Initializes a new instance of the **CoordinateTextFormatter** class.
 
 **Parameters:**
+
 - **coordinateToUse** — The coordinate to format as text.
 
-**Remarks:**
 ### ToStringDegrees *(Inherited)*
 
-**Signature:** ``ToStringDegrees()``
+**Signature:** `ToStringDegrees()`
 
 **Summary:**
 
-**Remarks:**
 ### ToStringDegreesMinutes *(Inherited)*
 
-**Signature:** ``ToStringDegreesMinutes()``
+**Signature:** `ToStringDegreesMinutes()`
 
 **Summary:**
 
-**Remarks:**
 ### ToStringDegreesMinutesSeconds *(Inherited)*
 
-**Signature:** ``ToStringDegreesMinutesSeconds()``
+**Signature:** `ToStringDegreesMinutesSeconds()`
 
 **Summary:**
 
-**Remarks:**
 ### ToStringDegreesDirection *(Inherited)*
 
-**Signature:** ``ToStringDegreesDirection()``
+**Signature:** `ToStringDegreesDirection()`
 
 **Summary:**
 
-**Remarks:**
 ### ToStringDegreesMinutesDirection *(Inherited)*
 
-**Signature:** ``ToStringDegreesMinutesDirection()``
+**Signature:** `ToStringDegreesMinutesDirection()`
 
 **Summary:**
 
-**Remarks:**
 ### ToStringDegreesMinutesSecondsDirection *(Inherited)*
 
-**Signature:** ``ToStringDegreesMinutesSecondsDirection()``
+**Signature:** `ToStringDegreesMinutesSecondsDirection()`
 
 **Summary:**
-
-**Remarks:**

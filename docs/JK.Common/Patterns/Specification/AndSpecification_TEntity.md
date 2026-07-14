@@ -8,22 +8,18 @@ Generic And specification.
 
 **Type Parameter:** `TEntity` — The type of the entity.
 
-### #ctor
+### AndSpecification<TEntity>
 
-**Signature:** ``#ctor(ISpecification left, ISpecification right)``
-
-**Summary:**
-Initializes a new instance of the **AndSpecification`1** class.
+**Summary:** Initializes a new instance of the **AndSpecification`1** class.
 
 **Parameters:**
+
 - **left** — The left entity.
+
 - **right** — The right entity.
 
-**Remarks:**
 ### IsSatisfiedBy *(Inherited)*
 
-**Signature:** ``IsSatisfiedBy(TEntity@)``
+**Signature:** `IsSatisfiedBy(TEntity)`
 
 **Summary:**
-
-**Remarks:**

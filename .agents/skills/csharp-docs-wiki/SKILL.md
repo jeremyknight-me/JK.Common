@@ -51,24 +51,24 @@ When invoked, the agent should:
 6. Pass all XML files to the tool:
 
 ```bash
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
 ```
 
 ### Usage
 
 ```bash
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]
 ```
 
-- `xml-file` — One or more paths to XML documentation files
-- `output-path` — Output directory (default: `./docs`)
+- `--files` — One or more paths to XML documentation files (required)
+- `--output` — Output directory (default: `./docs`)
 
 ### Example
 
 ```bash
 # Agent builds projects, then runs the tool
 dotnet build src/MyProject/MyProject.csproj -f net10.0
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/MyProject.xml
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/MyProject.xml
 ```
 
 ## Output structure
@@ -134,4 +134,4 @@ Template files are in `templates/`:
 - "Generate C# documentation from the XML file."
 - "Update the docs folder using the XML documentation."
 - "Create a Markdown wiki from my XML doc comments."
-- "/csharp-docs-wiki bin/Debug/net10.0/MyProject.xml"
+- "/csharp-docs-wiki bin/Debug/net10.0/MyProject.xml" — agent passes to `--files`
