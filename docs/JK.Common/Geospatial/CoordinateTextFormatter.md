@@ -1,0 +1,69 @@
+[Docs](../../README.md) > [JK.Common](../README.md) > CoordinateTextFormatter
+
+# CoordinateTextFormatter
+
+**Namespace:** `JK.Common.Geospatial`
+
+Formats a **CoordinateBase** as plain text in various display formats.
+
+## CoordinateTextFormatter
+
+**Summary:** Initializes a new instance of the **CoordinateTextFormatter** class.
+
+**Parameters:**
+
+- **coordinateToUse** — The coordinate to format as text.
+
+## ToStringDegrees *(Inherited)*
+
+**Signature:** `ToStringDegrees()`
+
+**Summary:**
+Returns the coordinate as a string in degrees format.
+
+**Returns:** The coordinate in degrees format.
+
+## ToStringDegreesMinutes *(Inherited)*
+
+**Signature:** `ToStringDegreesMinutes()`
+
+**Summary:**
+Returns the coordinate as a string in degrees and minutes format.
+
+**Returns:** The coordinate in degrees and minutes format.
+
+## ToStringDegreesMinutesSeconds *(Inherited)*
+
+**Signature:** `ToStringDegreesMinutesSeconds()`
+
+**Summary:**
+Returns the coordinate as a string in degrees, minutes, and seconds format.
+
+**Returns:** The coordinate in degrees, minutes, and seconds format.
+
+## ToStringDegreesDirection *(Inherited)*
+
+**Signature:** `ToStringDegreesDirection()`
+
+**Summary:**
+Returns the coordinate as a string in degrees and direction format.
+
+**Returns:** The coordinate in degrees and direction format.
+
+## ToStringDegreesMinutesDirection *(Inherited)*
+
+**Signature:** `ToStringDegreesMinutesDirection()`
+
+**Summary:**
+Returns the coordinate as a string in degrees, minutes, and direction format.
+
+**Returns:** The coordinate in degrees, minutes, and direction format.
+
+## ToStringDegreesMinutesSecondsDirection *(Inherited)*
+
+**Signature:** `ToStringDegreesMinutesSecondsDirection()`
+
+**Summary:**
+Returns the coordinate as a string in degrees, minutes, seconds, and direction format.
+
+**Returns:** The coordinate in degrees, minutes, seconds, and direction format.
