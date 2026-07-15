@@ -1,50 +1,50 @@
-# {TypeName}
+# {{ TypeName }}
 
-**Namespace:** `{Namespace}`
+**Namespace:** `{{ Namespace }}`
 
-{Summary}
+{{ Summary }}
 
-{#each TypeParams}
-**Type Parameter:** `{Name}` — {Description}
-{/each}
+{% for param in TypeParams %}
+**Type Parameter:** `{{ param.Name }}` — {{ param.Description }}
+{% endfor %}
 
-{#each Constructors}
-## {DisplayName}
+{% for ctor in Constructors %}
+## {{ ctor.DisplayName }}
 
-**Summary:** {Summary}
+**Summary:** {{ ctor.Summary }}
 
-{#if HasParams}
+{% if ctor.HasParams %}
 **Parameters:**
-{#each Params}
-- **{Name}** — {Description}
-{/each}
-{/if}
+{% for p in ctor.Params %}
+- **{{ p.Name }}** — {{ p.Description }}
+{% endfor %}
+{% endif %}
 
-{#if HasRemarks}
-**Remarks:** {Remarks}
-{/if}
-{/each}
+{% if ctor.HasRemarks %}
+**Remarks:** {{ ctor.Remarks }}
+{% endif %}
+{% endfor %}
 
-{#each Methods}
-{Body}
-{/each}
+{% for method in Methods %}
+{{ method.Body }}
+{% endfor %}
 
-{#each Properties}
-{Body}
-{/each}
+{% for property in Properties %}
+{{ property.Body }}
+{% endfor %}
 
-{#each Events}
-{Body}
-{/each}
+{% for event in Events %}
+{{ event.Body }}
+{% endfor %}
 
-{#each Fields}
-{Body}
-{/each}
+{% for field in Fields %}
+{{ field.Body }}
+{% endfor %}
 
-{#each NestedTypes}
-{Body}
-{/each}
+{% for nested in NestedTypes %}
+{{ nested.Body }}
+{% endfor %}
 
-{#if Remarks}
-{Remarks}
-{/if}
+{% if Remarks %}
+{{ Remarks }}
+{% endif %}

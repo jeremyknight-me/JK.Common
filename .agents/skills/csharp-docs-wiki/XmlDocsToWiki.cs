@@ -2,9 +2,12 @@
 #:property PackAsTool=false
 #:property TargetFramework=net10.0
 #:property ImplicitUsings=enable
+#:package Fluid.Core@2.*
 
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
+using Fluid;
+using Fluid.Parser;
 
 // ── Entry Point ──
 
@@ -187,14 +190,6 @@ ProjectInfo FindProjectRoot(string rootNamespace, string[] csprojFiles)
 
 static partial class Regexes
 {
-    [GeneratedRegex(@"\{#each\s+(\w+)\}")]
-    public static partial Regex Each();
-    [GeneratedRegex(@"\{#if\s+(\w+)\}")]
-    public static partial Regex If();
-    [GeneratedRegex(@"\{(\w+(?:\.\w+)*)\}")]
-    public static partial Regex Var();
-    [GeneratedRegex(@"\n{3,}")]
-    public static partial Regex Newlines();
     [GeneratedRegex(@"_\d+$")]
     public static partial Regex TrailingGeneric();
     [GeneratedRegex(@"`+(\d+)")]
@@ -279,122 +274,48 @@ class MemberDoc
     public bool HasExample => !string.IsNullOrWhiteSpace(Example);
 }
 
-// ── Template Engine ──
+// ── Template Engine (Fluid) ──
 
 class Template
 {
-    private readonly string _raw;
+    private static readonly FluidParser _parser = new();
+    private static readonly TemplateOptions _options;
 
-    private Template(string raw) => _raw = raw;
-
-    public static Template Load(string path) => new(File.ReadAllText(path));
-
-    public string Render(Dictionary<string, object?> context) => RenderTemplate(_raw, context, clean: true);
-
-    private static string RenderTemplate(string template, Dictionary<string, object?> context, bool clean)
+    static Template()
     {
-        var result = template;
+        _options = new TemplateOptions();
+        _options.Trimming = TrimmingFlags.TagLeft | TrimmingFlags.TagRight;
+        _options.Greedy = false;
+        _options.MemberAccessStrategy.Register<MemberDoc>();
+        _options.MemberAccessStrategy.Register<ParamInfo>();
+        _options.MemberAccessStrategy.Register<ExceptionInfo>();
+    }
 
-        while (Regexes.Each().IsMatch(result))
+    private readonly IFluidTemplate _template;
+
+    private Template(IFluidTemplate template) => _template = template;
+
+    public static Template Load(string path)
+    {
+        var source = File.ReadAllText(path);
+        if (!_parser.TryParse(source, out var template, out var error))
+            throw new InvalidOperationException($"Template parse error: {error}");
+        return new Template(template);
+    }
+
+    public string Render(object model)
+    {
+        var ctx = new TemplateContext(_options);
+        if (model is IDictionary<string, object?> dict)
         {
-            var match = Regexes.Each().Match(result);
-            var key = match.Groups[1].Value;
-            var openEnd = match.Index + match.Length;
-            var closeTag = FindClosingTag(result, openEnd, "{#each", "{/each}");
-            if (closeTag < 0) break;
-
-            var inner = result.Substring(openEnd, closeTag - openEnd);
-            var items = GetListValue(context, key);
-            var replacement = items.Count > 0
-                ? string.Join("\n", items.Select(item => RenderTemplate(inner, item, clean: false)))
-                : "";
-            result = result.Substring(0, match.Index) + replacement + result.Substring(closeTag + "{/each}".Length);
+            foreach (var (key, value) in dict)
+                ctx.SetValue(key, value);
         }
-
-        while (Regexes.If().IsMatch(result))
+        else
         {
-            var match = Regexes.If().Match(result);
-            var key = match.Groups[1].Value;
-            var openEnd = match.Index + match.Length;
-            var closeTag = FindClosingTag(result, openEnd, "{#if", "{/if}");
-            if (closeTag < 0) break;
-
-            var inner = result.Substring(openEnd, closeTag - openEnd);
-            var truthy = IsTruthy(context, key);
-            var replacement = truthy ? inner : "";
-            result = result.Substring(0, match.Index) + replacement + result.Substring(closeTag + "{/if}".Length);
+            ctx = new TemplateContext(model, _options);
         }
-
-        result = Regexes.Var().Replace(result, m =>
-        {
-            var key = m.Groups[1].Value;
-            if (key.All(char.IsDigit)) return m.Value;
-            var val = GetNestedValue(context, key);
-            return val ?? "";
-        });
-
-        return clean ? CleanOutput(result) : result;
-    }
-
-    private static string CleanOutput(string text)
-    {
-        text = text.Replace("\r\n", "\n");
-        return Regexes.Newlines().Replace(text, "\n\n").Trim();
-    }
-
-    private static int FindClosingTag(string text, int start, string openTag, string closeTag)
-    {
-        int depth = 1;
-        int pos = start;
-        while (depth > 0 && pos < text.Length)
-        {
-            var nextOpen = text.IndexOf(openTag, pos);
-            var nextClose = text.IndexOf(closeTag, pos);
-            if (nextClose < 0) return -1;
-            if (nextOpen >= 0 && nextOpen < nextClose)
-            {
-                depth++;
-                pos = nextOpen + openTag.Length;
-            }
-            else
-            {
-                depth--;
-                if (depth == 0) return nextClose;
-                pos = nextClose + closeTag.Length;
-            }
-        }
-        return -1;
-    }
-
-    private static bool IsTruthy(Dictionary<string, object?> ctx, string key)
-    {
-        if (!ctx.TryGetValue(key, out var val) || val == null) return false;
-        if (val is bool b) return b;
-        if (val is string s) return s.Length > 0;
-        if (val is System.Collections.IList list) return list.Count > 0;
-        return true;
-    }
-
-    private static string? GetNestedValue(Dictionary<string, object?> ctx, string path)
-    {
-        var parts = path.Split('.');
-        object? current = ctx;
-        foreach (var part in parts)
-        {
-            if (current is Dictionary<string, object?> dict && dict.TryGetValue(part, out var next))
-                current = next;
-            else
-                return null;
-        }
-        return current?.ToString() ?? "";
-    }
-
-    private static List<Dictionary<string, object?>> GetListValue(Dictionary<string, object?> ctx, string key)
-    {
-        if (!ctx.TryGetValue(key, out var val)) return new();
-        if (val is List<Dictionary<string, object?>> list) return list;
-        if (val is List<string> strings) return strings.Select(s => new Dictionary<string, object?> { ["Value"] = s }).ToList();
-        return new();
+        return _template.Render(ctx);
     }
 }
 
@@ -957,26 +878,16 @@ class MarkdownGenerator
 
             var nestedBodies = typeDoc.NestedTypes.Select(n => $"### {n.TypeName}\n\n{n.Summary}").ToList();
 
+            membersProcessed += typeDoc.Constructors.Count;
+
             var context = new Dictionary<string, object?>
             {
                 ["TypeName"] = typeDoc.GenericDisplayName,
                 ["Namespace"] = ns,
                 ["Summary"] = typeDoc.Summary,
                 ["Remarks"] = typeDoc.Remarks,
-                ["TypeParams"] = typeDoc.TypeParams.Select(tp => new Dictionary<string, object?> { ["Name"] = tp.Name, ["Description"] = tp.Description }).ToList<Dictionary<string, object?>>(),
-                ["Constructors"] = typeDoc.Constructors.Select(c =>
-                {
-                    membersProcessed++;
-                    return new Dictionary<string, object?>
-                    {
-                        ["DisplayName"] = c.DisplayName,
-                        ["Summary"] = c.Summary,
-                        ["HasParams"] = c.HasParams,
-                        ["Params"] = c.Params.Select(p => new Dictionary<string, object?> { ["Name"] = p.Name, ["Description"] = p.Description }).ToList<Dictionary<string, object?>>(),
-                        ["HasRemarks"] = c.HasRemarks,
-                        ["Remarks"] = c.Remarks
-                    };
-                }).ToList(),
+                ["TypeParams"] = typeDoc.TypeParams,
+                ["Constructors"] = typeDoc.Constructors,
                 ["Methods"] = methodBodies2.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Properties"] = propertyBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Events"] = eventBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
@@ -1065,26 +976,10 @@ class MarkdownGenerator
         return ns.Replace(".", "/");
     }
 
-    private Dictionary<string, object?> BuildMemberContext(MemberDoc member)
+    private static object BuildMemberContext(MemberDoc member)
     {
-        return new Dictionary<string, object?>
-        {
-            ["DisplayName"] = member.DisplayName,
-            ["Heading"] = string.IsNullOrEmpty(member.Heading) ? member.DisplayName : member.Heading,
-            ["InheritedSuffix"] = member.InheritedSuffix,
-            ["Signature"] = member.Signature,
-            ["Summary"] = member.Summary,
-            ["Remarks"] = member.Remarks,
-            ["Returns"] = member.Returns,
-            ["Params"] = member.Params.Select(p => new Dictionary<string, object?> { ["Name"] = p.Name, ["Description"] = p.Description }).ToList<Dictionary<string, object?>>(),
-            ["Exceptions"] = member.Exceptions.Select(e => new Dictionary<string, object?> { ["Type"] = e.Type, ["Description"] = e.Description }).ToList<Dictionary<string, object?>>(),
-            ["Example"] = member.Example,
-            ["SeeAlso"] = member.SeeAlso,
-            ["HasParams"] = member.HasParams,
-            ["HasReturns"] = member.HasReturns,
-            ["HasRemarks"] = member.HasRemarks,
-            ["HasExceptions"] = member.HasExceptions,
-            ["HasExample"] = member.HasExample
-        };
+        if (string.IsNullOrEmpty(member.Heading))
+            member.Heading = member.DisplayName;
+        return member;
     }
 }

@@ -109,7 +109,7 @@ The tool uses the project name as the top-level folder (or `RootNamespace` if se
 ## Features
 
 - **Cross-platform**: Runs on any OS with .NET SDK (no PowerShell dependency)
-- **Template-based output**: Customize documentation by editing templates in `templates/`
+- **Template-based output**: Customize documentation by editing Liquid templates in `templates/` (powered by [Fluid](https://github.com/sebastienros/fluid))
 - **Nested types**: Included in parent type's file
 - **Inherited members**: Marked with "(Inherited)" indicator
 - **XML tag support**: Converts `<see>`, `<code>`, `<example>`, `<list>`, etc. to Markdown
@@ -117,14 +117,14 @@ The tool uses the project name as the top-level folder (or `RootNamespace` if se
 
 ## Templates
 
-Templates use a simple syntax:
+Templates use [Liquid](https://shopify.github.io/liquid/) syntax via the [Fluid](https://github.com/sebastienros/fluid) template engine:
 
 | Feature | Syntax | Example |
 |---|---|---|
-| Variable | `{Variable}` | `{TypeName}` |
-| Loop | `{#each Items}...{/each}` | `{#each Methods}{Body}{/each}` |
-| Conditional | `{#if Condition}...{/if}` | `{#if HasReturns}{Returns}{/if}` |
-| Literal `{` | `{{` | `{{not a variable}}` |
+| Variable | `{{ Variable }}` | `{{ TypeName }}` |
+| Loop | `{% for item in Items %}...{% endfor %}` | `{% for m in Methods %}{{ m.Body }}{% endfor %}` |
+| Conditional | `{% if Condition %}...{% endif %}` | `{% if HasReturns %}**Returns:** {{ Returns }}{% endif %}` |
+| Nested access | `{{ item.Property }}` | `{{ param.Name }}` |
 
 Template files are in `templates/`:
 
