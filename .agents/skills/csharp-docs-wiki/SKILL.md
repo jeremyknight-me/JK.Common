@@ -53,25 +53,30 @@ When invoked, the agent should:
 5. Collect the resulting XML documentation files from `bin/Debug/net10.0/`
 6. Pass all XML files to the tool:
 
-```bash
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
-```
-
 ### Usage
 
 ```bash
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --help
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]
 ```
 
 - `--files` — One or more paths to XML documentation files (required)
 - `--output` — Output directory (default: `./docs`)
+- `--help` — Show usage and option details
+- Unknown arguments are treated as errors (strict parsing)
 
 ### Example
 
 ```bash
-# Agent builds projects, then runs the tool
-dotnet build src/MyProject/MyProject.csproj -f net10.0
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/MyProject.xml
+# Agent builds projects that emit XML documentation, then runs the tool
+dotnet build path/to/MyProject.csproj -f net10.0
+dotnet build path/to/MyProject.Data.csproj -f net10.0
+
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- \
+  --files \
+    path/to/MyProject/bin/Debug/net10.0/MyProject.xml \
+    path/to/MyProject.Data/bin/Debug/net10.0/MyProject.Data.xml \
+  --output docs
 ```
 
 ## Output structure

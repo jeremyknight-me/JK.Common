@@ -3,140 +3,118 @@
 #:property TargetFramework=net10.0
 #:property ImplicitUsings=enable
 #:package Fluid.Core@2.*
+#:package System.CommandLine@2.*
 
+using System.CommandLine;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
 using Fluid;
-using Fluid.Parser;
 
-// ── Entry Point ──
-
-if (args.Length == 0 || args[0] == "--help" || args[0] == "-h")
+RootCommand rootCommand = new("Generate Markdown wiki from XML documentation.");
+Option<string[]> filesOption = new("--files")
 {
-    Console.WriteLine("Usage: dotnet run --file XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]");
-    Console.WriteLine();
-    Console.WriteLine("  --files    One or more paths to XML documentation files (required)");
-    Console.WriteLine("  --output   Output directory (default: ./docs)");
-    Console.WriteLine();
-    Console.WriteLine("The agent should build projects first, then pass the resulting XML files here.");
-    return;
-}
-
-List<string> xmlPaths = [];
-var outputPath = "./docs";
-
-for (int i = 0; i < args.Length; i++)
+    Description = "One or more paths to XML documentation files (required)",
+    Required = true,
+    Arity = ArgumentArity.OneOrMore,
+    AllowMultipleArgumentsPerToken = true,
+};
+Option<string> outputOption = new("--output")
 {
-    if (args[i] == "--files")
-    {
-        while (i + 1 < args.Length && !args[i + 1].StartsWith("--"))
-        {
-            i++;
-            xmlPaths.Add(args[i]);
-        }
-    }
-    else if (args[i] == "--output")
-    {
-        if (i + 1 < args.Length)
-        {
-            i++;
-            outputPath = args[i];
-        }
-        else
-        {
-            Console.WriteLine("Error: --output requires a value.");
-            return;
-        }
-    }
-    else
-    {
-        Console.WriteLine($"Warning: ignoring unrecognized argument '{args[i]}'.");
-    }
-}
+    Description = "Output directory (default: ./docs)",
+};
 
-if (xmlPaths.Count == 0)
+rootCommand.Add(filesOption);
+rootCommand.Add(outputOption);
+rootCommand.SetAction(parseResult =>
 {
-    Console.WriteLine("Error: no XML files specified. Use --files <file> [file ...].");
-    return;
-}
+    var files = parseResult.GetValue(filesOption) ?? [];
+    var output = parseResult.GetValue(outputOption) ?? "./docs";
+    Process(files, output);
+});
 
-var templatesDir = FindTemplates()
-    ?? throw new DirectoryNotFoundException("Could not find templates/ folder. Run from the repo root or next to the skill folder.");
-var typeTemplate = Template.Load(Path.Combine(templatesDir, "type.md"));
-var memberTemplate = Template.Load(Path.Combine(templatesDir, "member.md"));
+var parseResult = rootCommand.Parse(args);
+return parseResult.Invoke();
 
-Console.WriteLine($"Templates: {templatesDir}");
-Console.WriteLine($"XML files: {xmlPaths.Count}");
-Console.WriteLine($"Output: {outputPath}");
-
-int membersProcessed = 0;
-int filesCreated = 0;
-List<(string Ns, string Folder, List<(string displayName, string fileName)> Types)> allNsEntries = [];
-var cachedCsprojs = Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories);
-
-void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>> nsTypes, MarkdownGenerator gen)
+void Process(string[] xmlPaths, string outputPath)
 {
-    foreach (var (ns, types) in nsTypes)
-    {
-        if (allNsEntries.FirstOrDefault(e => e.Ns == ns) is { Folder: not null } existing)
-        {
-            existing.Types.AddRange(types);
-        }
-        else
-        {
-            allNsEntries.Add((ns, gen.SimplifyNamespace(ns), [.. types]));
-        }
-    }
-    allNsEntries.Sort((a, b) => string.Compare(a.Ns, b.Ns, StringComparison.Ordinal));
-}
+    var templatesDir = FindTemplates()
+        ?? throw new DirectoryNotFoundException("Could not find templates/ folder. Run from the repo root or next to the skill folder.");
+    var typeTemplate = Template.Load(Path.Combine(templatesDir, "type.md"));
+    var memberTemplate = Template.Load(Path.Combine(templatesDir, "member.md"));
 
-foreach (var xmlArg in xmlPaths)
-{
-    var xmlPath = Path.GetFullPath(xmlArg);
-    if (!File.Exists(xmlPath))
+    Console.WriteLine($"Templates: {templatesDir}");
+    Console.WriteLine($"XML files: {xmlPaths.Length}");
+    Console.WriteLine($"Output: {outputPath}");
+
+    int membersProcessed = 0;
+    int filesCreated = 0;
+    List<(string Ns, string Folder, List<(string displayName, string fileName)> Types)> allNsEntries = [];
+    var cachedCsprojs = Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories);
+
+    void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>> nsTypes, MarkdownGenerator gen)
     {
-        Console.WriteLine($"Skipping (not found): {xmlPath}");
-        continue;
+        foreach (var (ns, types) in nsTypes)
+        {
+            if (allNsEntries.FirstOrDefault(e => e.Ns == ns) is { Folder: not null } existing)
+            {
+                existing.Types.AddRange(types);
+            }
+            else
+            {
+                allNsEntries.Add((ns, gen.SimplifyNamespace(ns), [.. types]));
+            }
+        }
+        allNsEntries.Sort((a, b) => string.Compare(a.Ns, b.Ns, StringComparison.Ordinal));
     }
 
-    Console.WriteLine($"\nProcessing: {xmlPath}");
-
-    var parser = new XmlDocParser();
-    var (typesByGroup, rootNamespace) = parser.Parse(xmlPath);
-    var projectRoot = FindProjectRoot(rootNamespace, cachedCsprojs);
-
-    var generator = new MarkdownGenerator(typeTemplate, memberTemplate, projectRoot);
-    var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
-    membersProcessed += m;
-    filesCreated += f;
-    AccumulateNs(nsTypes, generator);
-}
-
-// Generate root README.md grouped by project
-var projectGroups = allNsEntries
-    .GroupBy(e => e.Folder.Split('/')[0])
-    .OrderBy(g => g.Key);
-
-var rootReadme = new System.Text.StringBuilder("# Documentation\n\nThis documentation is automatically generated from XML documentation.\n");
-foreach (var group in projectGroups)
-{
-    rootReadme.Append($"\n## {group.Key}\n");
-    foreach (var entry in group.OrderBy(e => e.Ns))
+    foreach (var xmlArg in xmlPaths)
     {
-        rootReadme.Append($"\n### [{entry.Ns}]({entry.Folder}/README.md)\n");
-        foreach (var entry2 in entry.Types.OrderBy(x => x.displayName))
+        var xmlPath = Path.GetFullPath(xmlArg);
+        if (!File.Exists(xmlPath))
         {
-            rootReadme.Append($"- [{MarkdownGenerator.Esc(entry2.displayName)}]({entry.Folder}/{entry2.fileName}.md)\n");
+            Console.WriteLine($"Skipping (not found): {xmlPath}");
+            continue;
+        }
+
+        Console.WriteLine($"\nProcessing: {xmlPath}");
+
+        var parser = new XmlDocParser();
+        var (typesByGroup, rootNamespace) = parser.Parse(xmlPath);
+        var projectRoot = FindProjectRoot(rootNamespace, cachedCsprojs);
+
+        var generator = new MarkdownGenerator(typeTemplate, memberTemplate, projectRoot);
+        var (m, f, nsTypes) = generator.Generate(typesByGroup, outputPath);
+        membersProcessed += m;
+        filesCreated += f;
+        AccumulateNs(nsTypes, generator);
+    }
+
+    // Generate root README.md grouped by project
+    var projectGroups = allNsEntries
+        .GroupBy(e => e.Folder.Split('/')[0])
+        .OrderBy(g => g.Key);
+
+    var rootReadme = new System.Text.StringBuilder("# Documentation\n\nThis documentation is automatically generated from XML documentation.\n");
+    foreach (var group in projectGroups)
+    {
+        rootReadme.Append($"\n## {group.Key}\n");
+        foreach (var entry in group.OrderBy(e => e.Ns))
+        {
+            rootReadme.Append($"\n### [{entry.Ns}]({entry.Folder}/README.md)\n");
+            foreach (var entry2 in entry.Types.OrderBy(x => x.displayName))
+            {
+                rootReadme.Append($"- [{MarkdownGenerator.Esc(entry2.displayName)}]({entry.Folder}/{entry2.fileName}.md)\n");
+            }
         }
     }
-}
-var rootPath = Path.Combine(outputPath, "README.md");
-File.WriteAllText(rootPath, rootReadme.ToString());
-Console.WriteLine($"Generated: {rootPath}");
-filesCreated++;
+    var rootPath = Path.Combine(outputPath, "README.md");
+    File.WriteAllText(rootPath, rootReadme.ToString());
+    Console.WriteLine($"Generated: {rootPath}");
+    filesCreated++;
 
-Console.WriteLine($"\nDone. Members: {membersProcessed}, Files: {filesCreated}");
-Console.WriteLine($"README: {Path.GetFullPath(rootPath)}");
+    Console.WriteLine($"\nDone. Members: {membersProcessed}, Files: {filesCreated}");
+    Console.WriteLine($"README: {Path.GetFullPath(rootPath)}");
+}
 
 string? FindTemplates()
 {
