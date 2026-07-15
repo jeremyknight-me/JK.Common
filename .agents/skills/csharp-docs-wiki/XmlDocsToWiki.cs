@@ -175,17 +175,10 @@ ProjectInfo FindProjectRoot(string rootNamespace, string[] csprojFiles)
         var pn = Path.GetFileNameWithoutExtension(csproj);
         if (string.Equals(rn ?? an ?? pn, rootNamespace, StringComparison.Ordinal))
         {
-            return new ProjectInfo
-            {
-                CsprojPath = csproj,
-                ProjectDir = Path.GetDirectoryName(csproj)!,
-                AssemblyName = an ?? pn,
-                RootNamespace = rn,
-                ProjectName = pn
-            };
+            return new ProjectInfo(csproj, Path.GetDirectoryName(csproj)!, an ?? pn, rn, pn);
         }
     }
-    return new ProjectInfo { ProjectName = rootNamespace, AssemblyName = rootNamespace, RootNamespace = null, ProjectDir = ".", CsprojPath = "" };
+    return new ProjectInfo("", ".", rootNamespace, null, rootNamespace);
 }
 
 static partial class Regexes
@@ -218,15 +211,7 @@ static partial class Regexes
 
 record ParamInfo(string Name, string Description);
 record ExceptionInfo(string Type, string Description);
-
-class ProjectInfo
-{
-    public required string CsprojPath { get; set; }
-    public required string ProjectDir { get; set; }
-    public required string AssemblyName { get; set; }
-    public string? RootNamespace { get; set; }
-    public required string ProjectName { get; set; }
-}
+record ProjectInfo(string CsprojPath, string ProjectDir, string AssemblyName, string? RootNamespace, string ProjectName);
 
 class TypeDoc
 {
