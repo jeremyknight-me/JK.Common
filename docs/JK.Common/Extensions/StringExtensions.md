@@ -104,7 +104,7 @@ Reverses the characters within a string.
 **Signature:** `Right(String, Int32 length)`
 
 **Summary:**
-Returns the specified number of characters from the end of string. Same as **!:Last** .
+Returns the specified number of characters from the end of string. Same as **Last** .
 
 **Parameters:**
 
