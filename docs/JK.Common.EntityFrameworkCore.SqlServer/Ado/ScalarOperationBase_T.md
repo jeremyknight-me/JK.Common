@@ -9,6 +9,7 @@ Base class for ADO.NET operations that return a single scalar value.
 **Type Parameter:** `T` — The type of the scalar result.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## ScalarOperationBase<T>
 
 **Summary:** Initializes a new instance of the **ScalarOperationBaseT** class.
@@ -25,6 +26,8 @@ Base class for ADO.NET operations that return a single scalar value.
 
 **Signature:** `Execute()`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(DbContext context, CommandType adoCommandType, String adoCommandText)``
@@ -41,11 +44,15 @@ Initializes a new instance of the **ScalarOperationBase`1** class.
 ### Execute
 
 **Signature:** ``Execute()``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Executes the command and returns the scalar result.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 **Returns:** The scalar value returned by the command.
 =======
@@ -53,3 +60,8 @@ Executes the command and returns the scalar result.
 
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Returns:** The scalar value returned by the command.
+
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

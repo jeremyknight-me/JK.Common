@@ -19,7 +19,11 @@ To use this skill, ensure your `.csproj` enables XML documentation generation:
 </PropertyGroup>
 ```
 
+<<<<<<< HEAD
 After building the project, the XML documentation file will appear under `bin/` (for example: `bin/Debug/net10.0/MyProject.xml`).
+=======
+After building the project, the XML documentation file will appear under `bin/` (for example: `bin/Debug/net8.0/MyProject.xml`).
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 ## When to use this skill
 
@@ -42,6 +46,7 @@ This skill uses a .NET file-based app (`XmlDocsToWiki.cs`) that converts XML doc
 ### Agent workflow
 
 When invoked, the agent should:
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 1. Find the repo root by looking for `.sln` or `.slnx` files
@@ -73,6 +78,8 @@ dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bi
 ```
 
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 1. Find the repo root by looking for `.sln` or `.slnx` files
 2. Discover all `.csproj` files under `src/` (excluding test projects)
@@ -102,7 +109,10 @@ dotnet build src/MyProject/MyProject.csproj -f net10.0
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- bin/Debug/net10.0/MyProject.xml
 ```
 
+<<<<<<< HEAD
 >>>>>>> updated skill
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ## Output structure
 
 Documentation is organized by project root namespace, with child namespaces as subfolders. Each type gets its own Markdown file. Each folder gets a `README.md` index.
@@ -166,4 +176,8 @@ Template files are in `templates/`:
 - "Generate C# documentation from the XML file."
 - "Update the docs folder using the XML documentation."
 - "Create a Markdown wiki from my XML doc comments."
+<<<<<<< HEAD
 - "/csharp-docs-wiki bin/Debug/net10.0/MyProject.xml" — agent passes to `--files`
+=======
+- "/csharp-docs-wiki bin/Debug/net10.0/MyProject.xml"
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -7,6 +7,7 @@
 Helper methods for common regular expression validations.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsAlphabetical
 
 **Signature:** `IsAlphabetical(String value)`
@@ -15,259 +16,363 @@ Helper methods for common regular expression validations.
 
 **Signature:** ``IsAlphabetical(String value)``
 >>>>>>> initial docs folder changes
+=======
+### IsAlphabetical
+
+**Signature:** ``IsAlphabetical(String value)``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string contains only alphabetical characters.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is alphabetical; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsAlphanumeric
 
 **Signature:** `IsAlphanumeric(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsAlphanumeric
 
 **Signature:** ``IsAlphanumeric(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string contains only alphanumeric characters.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is alphanumeric; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsDecimal
 
 **Signature:** `IsDecimal(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsDecimal
 
 **Signature:** ``IsDecimal(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid decimal number.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a decimal; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsDecimalOrCurrency
 
 **Signature:** `IsDecimalOrCurrency(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsDecimalOrCurrency
 
 **Signature:** ``IsDecimalOrCurrency(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid decimal or currency value.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a decimal or currency; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsEmailAddress
 
 **Signature:** `IsEmailAddress(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsEmailAddress
 
 **Signature:** ``IsEmailAddress(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid email address.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is an email address; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsInteger
 
 **Signature:** `IsInteger(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsInteger
 
 **Signature:** ``IsInteger(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid integer.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is an integer; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsIPv4
 
 **Signature:** `IsIPv4(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsIPv4
 
 **Signature:** ``IsIPv4(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid IPv4 address.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is an IPv4 address; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsSocialSecurityNumber
 
 **Signature:** `IsSocialSecurityNumber(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsSocialSecurityNumber
 
 **Signature:** ``IsSocialSecurityNumber(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid US Social Security Number.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid SSN; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsUnitedStatesPhoneNumber
 
 **Signature:** `IsUnitedStatesPhoneNumber(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsUnitedStatesPhoneNumber
 
 **Signature:** ``IsUnitedStatesPhoneNumber(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid United States phone number.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid US phone number; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsUrl
 
 **Signature:** `IsUrl(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsUrl
 
 **Signature:** ``IsUrl(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid URL.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid URL; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsZipCode
 
 **Signature:** `IsZipCode(String value)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsZipCode
 
 **Signature:** ``IsZipCode(String value)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the input string is a valid US or Canadian zip code.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — The string to validate.
 
 **Returns:** **true** if the string is a valid zip code; otherwise, **false** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## AlphabeticalRegex
 
 **Signature:** `AlphabeticalRegex()`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### AlphabeticalRegex
 
 **Signature:** ``AlphabeticalRegex()``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
@@ -287,6 +392,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## AlphanumericRegex
 
@@ -296,6 +402,11 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``AlphanumericRegex()``
 >>>>>>> initial docs folder changes
+=======
+### AlphanumericRegex
+
+**Signature:** ``AlphanumericRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
@@ -315,6 +426,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## DecimalRegex
 
@@ -324,16 +436,25 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``DecimalRegex()``
 >>>>>>> initial docs folder changes
+=======
+### DecimalRegex
+
+**Signature:** ``DecimalRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
 **Remarks:** Pattern: 
  ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 ^(((\\d{1,3},?)(\\d{3},?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
 =======
 ^(((\\d{1,3},?)(\\d,?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
 >>>>>>> initial docs folder changes
+=======
+^(((\\d{1,3},?)(\\d,?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ``` 
  Options: 
  ```
@@ -364,6 +485,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## DecimalOrCurrencyRegex
 
@@ -373,16 +495,25 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``DecimalOrCurrencyRegex()``
 >>>>>>> initial docs folder changes
+=======
+### DecimalOrCurrencyRegex
+
+**Signature:** ``DecimalOrCurrencyRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
 **Remarks:** Pattern: 
  ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 ^(-|\\$|-\\$|\\$-)?(((\\d{1,3},?)(\\d{3},?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
 =======
 ^(-|\\$|-\\$|\\$-)?(((\\d{1,3},?)(\\d,?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
 >>>>>>> initial docs folder changes
+=======
+^(-|\\$|-\\$|\\$-)?(((\\d{1,3},?)(\\d,?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ``` 
  Options: 
  ```
@@ -419,6 +550,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## EmailAddressRegex
 
@@ -428,6 +560,11 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``EmailAddressRegex()``
 >>>>>>> initial docs folder changes
+=======
+### EmailAddressRegex
+
+**Signature:** ``EmailAddressRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
@@ -452,6 +589,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## IntegerRegex
 
@@ -461,6 +599,11 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``IntegerRegex()``
 >>>>>>> initial docs folder changes
+=======
+### IntegerRegex
+
+**Signature:** ``IntegerRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
@@ -481,6 +624,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## IPv4Regex
 
@@ -490,6 +634,11 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``IPv4Regex()``
 >>>>>>> initial docs folder changes
+=======
+### IPv4Regex
+
+**Signature:** ``IPv4Regex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
@@ -567,6 +716,7 @@ RegexOptions.IgnoreCase
             ○ Match if at a word boundary.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## SocialSecurityNumberRegex
 
@@ -576,16 +726,25 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``SocialSecurityNumberRegex()``
 >>>>>>> initial docs folder changes
+=======
+### SocialSecurityNumberRegex
+
+**Signature:** ``SocialSecurityNumberRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
 **Remarks:** Pattern: 
  ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 ^(?!000)(?!666)(?!9)\\d{3}([- ]?)(?!00)\\d{2}\\1(?!0000)\\d{4}$
 =======
 ^(?!000)(?!666)(?!9)\\d([- ]?)(?!00)\\d\\1(?!0000)\\d$
 >>>>>>> initial docs folder changes
+=======
+^(?!000)(?!666)(?!9)\\d([- ]?)(?!00)\\d\\1(?!0000)\\d$
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ``` 
  Options: 
  ```
@@ -614,6 +773,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## UnitedStatesPhoneNumberRegex
 
@@ -623,16 +783,25 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``UnitedStatesPhoneNumberRegex()``
 >>>>>>> initial docs folder changes
+=======
+### UnitedStatesPhoneNumberRegex
+
+**Signature:** ``UnitedStatesPhoneNumberRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
 **Remarks:** Pattern: 
  ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 ^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})$
 =======
 ^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9])\\s*(?:[.-]\\s*)?([0-9])$
 >>>>>>> initial docs folder changes
+=======
+^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9])\\s*(?:[.-]\\s*)?([0-9])$
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ``` 
  Options: 
  ```
@@ -697,6 +866,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## UrlRegex
 
@@ -706,6 +876,11 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``UrlRegex()``
 >>>>>>> initial docs folder changes
+=======
+### UrlRegex
+
+**Signature:** ``UrlRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
@@ -751,6 +926,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## ZipCodeRegex
 
@@ -760,16 +936,25 @@ RegexOptions.IgnoreCase
 
 **Signature:** ``ZipCodeRegex()``
 >>>>>>> initial docs folder changes
+=======
+### ZipCodeRegex
+
+**Signature:** ``ZipCodeRegex()``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 
 **Remarks:** Pattern: 
  ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 ^(\\d{5}-\\d{4}|\\d{5}|\\d{9})$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$
 =======
 ^(\\d-\\d|\\d|\\d)$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$
 >>>>>>> initial docs folder changes
+=======
+^(\\d-\\d|\\d|\\d)$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ``` 
  Options: 
  ```

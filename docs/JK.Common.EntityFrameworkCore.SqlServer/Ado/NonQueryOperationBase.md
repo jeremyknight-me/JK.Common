@@ -7,6 +7,7 @@
 Base class for ADO.NET non-query operations (INSERT, UPDATE, DELETE) executed through a **DbContext** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## NonQueryOperationBase
 
 **Summary:** Initializes a new instance of the **NonQueryOperationBase** class.
@@ -26,6 +27,8 @@ Base class for ADO.NET non-query operations (INSERT, UPDATE, DELETE) executed th
 **Summary:**
 Executes the non-query command against the database.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(DbContext context, CommandType adoCommandType, String adoCommandText)``
@@ -46,5 +49,9 @@ Initializes a new instance of the **NonQueryOperationBase** class.
 **Summary:**
 Executes the non-query command against the database.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -7,6 +7,7 @@
 Class which truncates strings.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## StringTruncater
 
 **Summary:** Initializes a new instance of the **StringTruncater** class.
@@ -30,6 +31,8 @@ Class which truncates strings.
 
 **Signature:** `TruncateToLength(Int32 length)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(String originalText)``
@@ -57,20 +60,27 @@ Initializes a new instance of the **StringTruncater** class.
 ### TruncateToLength
 
 **Signature:** ``TruncateToLength(Int32@ length)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Truncates the original text to a given length.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **length** — Length of string to output.
 
 **Returns:** Original text truncated to given length.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Indicator
 
@@ -80,6 +90,8 @@ Truncates the original text to a given length.
 Gets or sets the indicator to concatenate to the end of truncated text.
             Ex: '...'
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 
 ### Indicator
@@ -90,5 +102,9 @@ Gets or sets the indicator to concatenate to the end of truncated text.
 Gets or sets the indicator to concatenate to the end of truncated text.
             Ex: '...'
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

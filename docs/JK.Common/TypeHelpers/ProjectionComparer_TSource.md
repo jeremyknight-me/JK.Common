@@ -5,6 +5,7 @@
 **Namespace:** `JK.Common.TypeHelpers`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Provides an **IEqualityComparer&lt;T&gt;** implementation that compares objects by a projected value.
 
 **Type Parameter:** `TSource` — The type of objects to compare.
@@ -37,6 +38,8 @@ Creates an **IEqualityComparer&lt;T&gt;** that compares objects by the value ret
 
 **Returns:** An **IEqualityComparer&lt;T&gt;** that compares objects by the projected value.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 Provides an **IEqualityComparer`1** implementation that compares objects by a projected value.
 
 **Type Parameter:** `TSource` — The type of objects to compare.
@@ -67,5 +70,9 @@ Creates an **IEqualityComparer`1** that compares objects by the value returned b
 
 **Returns:** An **IEqualityComparer`1** that compares objects by the projected value.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

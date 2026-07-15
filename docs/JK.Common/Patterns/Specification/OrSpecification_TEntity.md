@@ -9,6 +9,7 @@ Generic Or specification.
 **Type Parameter:** `TEntity` — The type of the entity.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## OrSpecification<TEntity>
 
 **Summary:** Initializes a new instance of the **OrSpecificationT** class.
@@ -25,6 +26,8 @@ Generic Or specification.
 
 **Summary:**
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(ISpecification left, ISpecification right)``
@@ -43,5 +46,9 @@ Initializes a new instance of the **OrSpecification`1** class.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

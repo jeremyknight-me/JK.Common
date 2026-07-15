@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 // ── Entry Point ──
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 if (args.Length == 0 || args[0] == "--help" || args[0] == "-h")
 {
     Console.WriteLine("Usage: dotnet run --file XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]");
@@ -16,13 +17,18 @@ if (args.Length == 0 || args[0] == "--help" || args[0] == "-h")
     Console.WriteLine("  --files    One or more paths to XML documentation files (required)");
     Console.WriteLine("  --output   Output directory (default: ./docs)");
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 if (args.Length == 0 || (!File.Exists(args[0]) && !args[0].EndsWith(".xml", StringComparison.OrdinalIgnoreCase)))
 {
     Console.WriteLine("Usage: dotnet run --file XmlDocsToWiki.cs -- <xml-file> [xml-file2 ...] [output-path]");
     Console.WriteLine();
     Console.WriteLine("  xml-file   Path(s) to XML documentation files (one or more)");
     Console.WriteLine("  output-path  Output directory (default: ./docs)");
+<<<<<<< HEAD
 >>>>>>> updated skill
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     Console.WriteLine();
     Console.WriteLine("The agent should build projects first, then pass the resulting XML files here.");
     return;
@@ -33,6 +39,7 @@ var outputPath = "./docs";
 
 for (int i = 0; i < args.Length; i++)
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
     if (args[i] == "--files")
     {
@@ -69,6 +76,8 @@ if (xmlPaths.Count == 0)
 
 var templatesDir = FindTemplates()
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     if (File.Exists(args[i]) || args[i].EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
         xmlPaths.Add(args[i]);
     else
@@ -76,7 +85,10 @@ var templatesDir = FindTemplates()
 }
 
 var templatesDir = FindTemplates(null)
+<<<<<<< HEAD
 >>>>>>> updated skill
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     ?? throw new DirectoryNotFoundException("Could not find templates/ folder. Run from the repo root or next to the skill folder.");
 var typeTemplate = Template.Load(Path.Combine(templatesDir, "type.md"));
 var memberTemplate = Template.Load(Path.Combine(templatesDir, "member.md"));
@@ -89,9 +101,12 @@ int membersProcessed = 0;
 int filesCreated = 0;
 var allNsEntries = new List<(string Ns, string Folder, List<(string displayName, string fileName)> Types)>();
 <<<<<<< HEAD
+<<<<<<< HEAD
 var cachedCsprojs = Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories);
 =======
 >>>>>>> updated skill
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>> nsTypes, MarkdownGenerator gen)
 {
@@ -101,15 +116,24 @@ void AccumulateNs(Dictionary<string, List<(string displayName, string fileName)>
         if (existing.Folder != null)
         {
             existing.Types.AddRange(types);
+<<<<<<< HEAD
 }
 else
 {
             allNsEntries.Add((ns, gen.SimplifyNamespace(ns), new List<(string, string)>(types)));
     }
+=======
+        }
+        else
+        {
+            allNsEntries.Add((ns, gen.SimplifyNamespace(ns), new List<(string, string)>(types)));
+        }
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     }
     allNsEntries.Sort((a, b) => string.Compare(a.Ns, b.Ns, StringComparison.Ordinal));
 }
 
+<<<<<<< HEAD
 
 foreach (var xmlArg in xmlPaths)
 <<<<<<< HEAD
@@ -135,6 +159,11 @@ foreach (var xmlArg in xmlPaths)
     AccumulateNs(nsTypes, generator);
     }
 =======
+=======
+string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>");
+
+foreach (var xmlArg in xmlPaths)
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 {
     var xmlPath = Path.GetFullPath(xmlArg);
     if (!File.Exists(xmlPath))
@@ -154,7 +183,10 @@ foreach (var xmlArg in xmlPaths)
     membersProcessed += m;
     filesCreated += f;
     AccumulateNs(nsTypes, generator);
+<<<<<<< HEAD
 >>>>>>> updated skill
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 }
 
 // Generate root README.md grouped by project
@@ -162,6 +194,7 @@ var projectGroups = allNsEntries
     .GroupBy(e => e.Folder.Split('/')[0])
     .OrderBy(g => g.Key);
 
+<<<<<<< HEAD
 var rootReadme = new System.Text.StringBuilder("# Documentation\n\nThis documentation is automatically generated from XML documentation.\n");
 foreach (var group in projectGroups)
 {
@@ -175,13 +208,32 @@ foreach (var group in projectGroups)
 }
 var rootPath = Path.Combine(outputPath, "README.md");
 File.WriteAllText(rootPath, rootReadme.ToString());
+=======
+var rootReadme = "# Documentation\n\nThis documentation is automatically generated from XML documentation.\n";
+foreach (var group in projectGroups)
+{
+    rootReadme += $"\n## {group.Key}\n";
+    foreach (var entry in group.OrderBy(e => e.Ns))
+    {
+        rootReadme += $"\n### [{entry.Ns}]({entry.Folder}/README.md)\n";
+        foreach (var entry2 in entry.Types.OrderBy(x => x.displayName))
+            rootReadme += $"- [{Esc(entry2.displayName)}]({entry.Folder}/{entry2.fileName}.md)\n";
+    }
+}
+var rootPath = Path.Combine(outputPath, "README.md");
+File.WriteAllText(rootPath, rootReadme);
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 Console.WriteLine($"Generated: {rootPath}");
 filesCreated++;
 
 Console.WriteLine($"\nDone. Members: {membersProcessed}, Files: {filesCreated}");
 Console.WriteLine($"README: {Path.GetFullPath(rootPath)}");
 
+<<<<<<< HEAD
 string? FindTemplates()
+=======
+string? FindTemplates(string? startDir)
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 {
     var dir = Directory.GetCurrentDirectory();
     for (int i = 0; i < 10; i++)
@@ -206,6 +258,7 @@ string? FindTemplates()
     return null;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 static int RunBuild(string csprojPath)
 {
@@ -252,6 +305,8 @@ ProjectInfo FindProjectRoot(string rootNamespace, string[] csprojFiles)
 
 =======
 >>>>>>> updated skill
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ProjectInfo FindProjectRoot(string rootNamespace)
 {
     foreach (var csproj in Directory.GetFiles(".", "*.csproj", SearchOption.AllDirectories))
@@ -277,6 +332,7 @@ ProjectInfo FindProjectRoot(string rootNamespace)
     return new ProjectInfo { ProjectName = rootNamespace, AssemblyName = rootNamespace, RootNamespace = null, ProjectDir = ".", CsprojPath = "" };
 }
 
+<<<<<<< HEAD
 static partial class Regexes
 {
     [GeneratedRegex(@"\{#each\s+(\w+)\}")]
@@ -316,6 +372,10 @@ static partial class Regexes
 record ParamInfo(string Name, string Description);
 record ExceptionInfo(string Type, string Description);
 
+=======
+// ── Model ──
+
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 class ProjectInfo
 {
     public required string CsprojPath { get; set; }
@@ -332,13 +392,21 @@ class TypeDoc
     public string TypeName { get; set; } = "";
     public string Summary { get; set; } = "";
     public string Remarks { get; set; } = "";
+<<<<<<< HEAD
     public List<ParamInfo> TypeParams { get; set; } = new();
+=======
+    public List<Dictionary<string, string>> TypeParams { get; set; } = new();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     public List<string> TypeParamNames { get; set; } = new();
     public string GenericDisplayName
     {
         get
         {
+<<<<<<< HEAD
             var baseName = Regexes.TrailingGeneric().Replace(TypeName, "");
+=======
+            var baseName = Regex.Replace(TypeName, @"_\d+$", "");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             return TypeParamNames.Count > 0
                 ? $"{baseName}<{string.Join(", ", TypeParamNames)}>"
                 : baseName;
@@ -355,19 +423,30 @@ class TypeDoc
 class MemberDoc
 {
     public string DisplayName { get; set; } = "";
+<<<<<<< HEAD
     public string Heading { get; set; } = "";
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     public string InheritedSuffix { get; set; } = "";
     public string Signature { get; set; } = "";
     public string Summary { get; set; } = "";
     public string Remarks { get; set; } = "";
     public string Returns { get; set; } = "";
+<<<<<<< HEAD
     public List<ParamInfo> Params { get; set; } = new();
     public List<ExceptionInfo> Exceptions { get; set; } = new();
+=======
+    public List<Dictionary<string, string>> Params { get; set; } = new();
+    public List<Dictionary<string, string>> Exceptions { get; set; } = new();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     public string Example { get; set; } = "";
     public List<string> SeeAlso { get; set; } = new();
     public bool HasParams => Params.Count > 0;
     public bool HasReturns => !string.IsNullOrWhiteSpace(Returns);
+<<<<<<< HEAD
     public bool HasRemarks => !string.IsNullOrWhiteSpace(Remarks);
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     public bool HasExceptions => Exceptions.Count > 0;
     public bool HasExample => !string.IsNullOrWhiteSpace(Example);
 }
@@ -382,6 +461,7 @@ class Template
 
     public static Template Load(string path) => new(File.ReadAllText(path));
 
+<<<<<<< HEAD
     public string Render(Dictionary<string, object?> context) => RenderTemplate(_raw, context, clean: true);
 
     private static string RenderTemplate(string template, Dictionary<string, object?> context, bool clean)
@@ -391,6 +471,15 @@ class Template
         while (Regexes.Each().IsMatch(result))
         {
             var match = Regexes.Each().Match(result);
+=======
+    public string Render(Dictionary<string, object?> context)
+    {
+        var result = _raw;
+
+        while (Regex.IsMatch(result, @"\{#each\s+(\w+)\}"))
+        {
+            var match = Regex.Match(result, @"\{#each\s+(\w+)\}");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             var key = match.Groups[1].Value;
             var openEnd = match.Index + match.Length;
             var closeTag = FindClosingTag(result, openEnd, "{#each", "{/each}");
@@ -399,14 +488,24 @@ class Template
             var inner = result.Substring(openEnd, closeTag - openEnd);
             var items = GetListValue(context, key);
             var replacement = items.Count > 0
+<<<<<<< HEAD
                 ? string.Join("\n", items.Select(item => RenderTemplate(inner, item, clean: false)))
+=======
+                ? string.Join("\n", items.Select(item => RenderSingle(inner, item)))
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                 : "";
             result = result.Substring(0, match.Index) + replacement + result.Substring(closeTag + "{/each}".Length);
         }
 
+<<<<<<< HEAD
         while (Regexes.If().IsMatch(result))
         {
             var match = Regexes.If().Match(result);
+=======
+        while (Regex.IsMatch(result, @"\{#if\s+(\w+)\}"))
+        {
+            var match = Regex.Match(result, @"\{#if\s+(\w+)\}");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             var key = match.Groups[1].Value;
             var openEnd = match.Index + match.Length;
             var closeTag = FindClosingTag(result, openEnd, "{#if", "{/if}");
@@ -418,6 +517,7 @@ class Template
             result = result.Substring(0, match.Index) + replacement + result.Substring(closeTag + "{/if}".Length);
         }
 
+<<<<<<< HEAD
         result = Regexes.Var().Replace(result, m =>
         {
             var key = m.Groups[1].Value;
@@ -427,6 +527,35 @@ class Template
         });
 
         return clean ? CleanOutput(result) : result;
+=======
+        result = Regex.Replace(result, @"\{(\w+(?:\.\w+)*)\}", m =>
+        {
+            var val = GetNestedValue(context, m.Groups[1].Value);
+            return val ?? "";
+        });
+
+        return CleanOutput(result);
+    }
+
+    private string RenderSingle(string template, Dictionary<string, object?> item)
+    {
+        var result = template;
+
+        while (Regex.IsMatch(result, @"\{#each\s+(\w+)\}"))
+        {
+            var match = Regex.Match(result, @"\{#each\s+(\w+)\}");
+            var key = match.Groups[1].Value;
+            var openEnd = match.Index + match.Length;
+            var closeTag = FindClosingTag(result, openEnd, "{#each", "{/each}");
+            if (closeTag < 0) break;
+
+            var inner = result.Substring(openEnd, closeTag - openEnd);
+            var items = GetListValue(item, key);
+            var replacement = items.Count > 0
+                ? string.Join("\n", items.Select(child => RenderSingle(inner, child)))
+                : "";
+            result = result.Substring(0, match.Index) + replacement + result.Substring(closeTag + "{/each}".Length);
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
         }
 
         while (Regex.IsMatch(result, @"\{#if\s+(\w+)\}"))
@@ -454,8 +583,12 @@ class Template
 
     private static string CleanOutput(string text)
     {
+<<<<<<< HEAD
         text = text.Replace("\r\n", "\n");
         return Regexes.Newlines().Replace(text, "\n\n").Trim();
+=======
+        return Regex.Replace(text, @"\n{3,}", "\n\n").Trim();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     }
 
     private static int FindClosingTag(string text, int start, string openTag, string closeTag)
@@ -509,7 +642,13 @@ class Template
     {
         if (!ctx.TryGetValue(key, out var val)) return new();
         if (val is List<Dictionary<string, object?>> list) return list;
+<<<<<<< HEAD
         if (val is List<string> strings) return strings.Select(s => new Dictionary<string, object?> { ["Value"] = s }).ToList();
+=======
+        if (val is List<Dictionary<string, string>> stringDicts)
+            return stringDicts.Select(s => s.ToDictionary(kv => kv.Key, kv => (object?)kv.Value)).ToList();
+        if (val is List<string> strings) return strings.Select(s => new Dictionary<string, object?> { ["."] = s }).ToList();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
         return new();
     }
 }
@@ -518,6 +657,10 @@ class Template
 
 class XmlDocParser
 {
+<<<<<<< HEAD
+=======
+    private readonly Dictionary<string, bool> _typeMap = new();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     private readonly Dictionary<string, XElement> _generatedMembers = new();
 
     public (Dictionary<string, TypeDoc> types, string rootNamespace) Parse(string xmlPath)
@@ -526,11 +669,19 @@ class XmlDocParser
         var types = new Dictionary<string, TypeDoc>();
         string rootNamespace = doc.Root?.Element("assembly")?.Element("name")?.Value ?? "";
 
+<<<<<<< HEAD
         // First pass: collect members for inheritdoc resolution
         foreach (var member in doc.Descendants("member"))
         {
             var name = member.Attribute("name")?.Value;
             if (name != null)
+=======
+        // First pass: collect <G>$ members for inheritdoc resolution
+        foreach (var member in doc.Descendants("member"))
+        {
+            var name = member.Attribute("name")?.Value;
+            if (name != null && name.Contains("<G>$"))
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                 _generatedMembers[name] = member;
         }
 
@@ -567,15 +718,25 @@ class XmlDocParser
                 typeName = beforeParams.Substring(secondLastDot + 1, lastDot - secondLastDot - 1);
             }
 
+<<<<<<< HEAD
             if (ns == "System" || ns.StartsWith("System.")) continue;
 
             var displayTypeName = Regexes.GenericArg().Replace(typeName, "_$1");
+=======
+            if (ns.StartsWith("System")) continue;
+
+            var displayTypeName = Regex.Replace(typeName, @"`(\d+)", "_$1");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             var nestedDot = typeName.IndexOf('.');
             string rootType = nestedDot >= 0 ? typeName.Substring(0, nestedDot) : typeName;
             var key = $"{ns}/{rootType}";
 
             if (!types.ContainsKey(key))
+<<<<<<< HEAD
                 types[key] = new TypeDoc { Namespace = ns, TypeName = Regexes.GenericArg().Replace(rootType, "_$1") };
+=======
+                types[key] = new TypeDoc { Namespace = ns, TypeName = Regex.Replace(rootType, @"`(\d+)", "_$1") };
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
             if (kind == "T:")
             {
@@ -583,9 +744,15 @@ class XmlDocParser
                 var typeDoc = types[key];
 
                 foreach (var tp in member.Elements("typeparam"))
+<<<<<<< HEAD
                     typeDoc.TypeParams.Add(new ParamInfo(tp.Attribute("name")?.Value ?? "", ConvertXmlToMarkdown(tp) ?? ""));
 
                 typeDoc.TypeParamNames = typeDoc.TypeParams.Select(tp => tp.Name).ToList();
+=======
+                    typeDoc.TypeParams.Add(new() { ["Name"] = tp.Attribute("name")?.Value ?? "", ["Description"] = ConvertXmlToMarkdown(tp) ?? "" });
+
+                typeDoc.TypeParamNames = typeDoc.TypeParams.Select(tp => tp["Name"]).ToList();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
                 typeDoc.Summary = ConvertXmlToMarkdown(member.Element("summary"), typeDoc.TypeParamNames) ?? typeDoc.Summary;
                 typeDoc.Remarks = ConvertXmlToMarkdown(member.Element("remarks"), typeDoc.TypeParamNames) ?? typeDoc.Remarks;
@@ -594,13 +761,18 @@ class XmlDocParser
                 {
                     var parentKey = $"{ns}/{typeName.Substring(0, nestedDot)}";
                     if (!types.ContainsKey(parentKey))
+<<<<<<< HEAD
                         types[parentKey] = new TypeDoc { Namespace = ns, TypeName = Regexes.GenericTick().Replace(typeName.Substring(0, nestedDot), "") };
+=======
+                        types[parentKey] = new TypeDoc { Namespace = ns, TypeName = Regex.Replace(typeName.Substring(0, nestedDot), @"`\d+", "") };
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                     types[parentKey].NestedTypes.Add(new TypeDoc { TypeName = displayTypeName, Summary = typeDoc.Summary, Namespace = ns });
                 }
             }
             else
             {
                 var typeDoc = types[key];
+<<<<<<< HEAD
 
                 // Extract method-level type params (appended after type-level params)
                 var methodTypeParamNames = new List<string>(typeDoc.TypeParamNames);
@@ -633,6 +805,15 @@ class XmlDocParser
                         else if (memberDoc.DisplayName == "#ctor" || memberDoc.DisplayName == "#cctor")
                         {
                             memberDoc.DisplayName = typeDoc.GenericDisplayName;
+=======
+                var memberDoc = ParseMember(member, name, kind, typeDoc.TypeParamNames);
+                switch (kind)
+                {
+                    case "M:":
+                        if (memberDoc.DisplayName == ".ctor" || memberDoc.DisplayName == ".cctor")
+                        {
+                            memberDoc.DisplayName = typeDoc.TypeName;
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                             typeDoc.Constructors.Add(memberDoc);
                         }
                         else typeDoc.Methods.Add(memberDoc);
@@ -661,6 +842,7 @@ class XmlDocParser
         var lastDot = beforeParams.LastIndexOf('.');
         var memberPart = lastDot >= 0 ? beforeParams.Substring(lastDot + 1) : beforeParams;
 
+<<<<<<< HEAD
         var displayName = Regexes.GenericTick().Replace(memberPart, "");
 
         var methodGenericArity = 0;
@@ -676,10 +858,15 @@ class XmlDocParser
         }
 
         var signature = BuildSignature(full, displayName, kind, typeParamNames, methodGenericTypeParams);
+=======
+        var displayName = Regex.Replace(memberPart, @"`\d+", "");
+        var signature = BuildSignature(full, displayName, kind, typeParamNames);
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
         var isInherited = member.Element("inheritdoc") != null;
 
         XElement? source = member;
         if (isInherited)
+<<<<<<< HEAD
             {
             var cref = member.Element("inheritdoc")!.Attribute("cref")?.Value;
             if (cref != null && _generatedMembers.TryGetValue(cref, out var target))
@@ -709,6 +896,24 @@ class XmlDocParser
                 p.Attribute("name")?.Value ?? "",
                 ConvertXmlToMarkdown(p, typeParamNames, methodGenericTypeParams) ?? ""
             )).ToList();
+=======
+        {
+            var cref = member.Element("inheritdoc")!.Attribute("cref")?.Value;
+            if (cref != null && _generatedMembers.TryGetValue(cref, out var target))
+                source = target;
+        }
+
+        var summary = ConvertXmlToMarkdown(source.Element("summary"), typeParamNames) ?? "";
+        var remarks = ConvertXmlToMarkdown(source.Element("remarks"), typeParamNames) ?? "";
+        var returns = ConvertXmlToMarkdown(source.Element("returns"), typeParamNames) ?? "";
+
+        var paramList = source.Elements("param")
+            .Select(p => new Dictionary<string, string>
+            {
+                ["Name"] = p.Attribute("name")?.Value ?? "",
+                ["Description"] = ConvertXmlToMarkdown(p, typeParamNames) ?? ""
+            }).ToList();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
         signature = AppendParamNames(signature, paramList);
 
@@ -716,6 +921,7 @@ class XmlDocParser
             .Select(e =>
             {
                 var cref = e.Attribute("cref")?.Value ?? "";
+<<<<<<< HEAD
                 cref = Regexes.CrefPrefix().Replace(cref, "");
                 cref = Regexes.CrefParams().Replace(cref, "");
                 return new ExceptionInfo(cref, ConvertXmlToMarkdown(e, typeParamNames, methodGenericTypeParams) ?? "");
@@ -726,6 +932,22 @@ class XmlDocParser
             .Select(sa => sa.Attribute("cref")?.Value ?? "")
             .Where(c => c.Length > 0)
             .Select(c => Regexes.CrefParams().Replace(Regexes.CrefPrefix().Replace(c, ""), ""))
+=======
+                cref = Regex.Replace(cref, @"^[TMPFE]:", "");
+                cref = Regex.Replace(cref, @"\(.*$", "");
+                return new Dictionary<string, string>
+                {
+                    ["Type"] = cref,
+                    ["Description"] = ConvertXmlToMarkdown(e, typeParamNames) ?? ""
+                };
+            }).ToList();
+
+        var example = ConvertXmlToMarkdown(source.Element("example"), typeParamNames) ?? "";
+        var seeAlso = source.Elements("seealso")
+            .Select(sa => sa.Attribute("cref")?.Value ?? "")
+            .Where(c => c.Length > 0)
+            .Select(c => Regex.Replace(Regex.Replace(c, @"^[TMPFE]:", ""), @"\(.*$", ""))
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             .ToList();
 
         return new MemberDoc
@@ -743,6 +965,7 @@ class XmlDocParser
         };
     }
 
+<<<<<<< HEAD
     private string BuildSignature(string full, string displayName, string kind, List<string> typeParamNames, List<string> methodGenericTypeParams)
     {
         if (kind != "M:") return displayName;
@@ -782,14 +1005,44 @@ class XmlDocParser
                 p = Regexes.GenericArray().Replace(p, "$1<");
                 p = Regexes.TrailingBracket().Replace(p, ">");
                 p = NormalizeGenericSpacing(p);
+=======
+    private string BuildSignature(string full, string displayName, string kind, List<string> typeParamNames)
+    {
+        if (kind != "M:") return displayName;
+
+        var match = Regex.Match(full, @"\((.+)\)$");
+        if (!match.Success) return $"{displayName}()";
+
+        var paramStr = match.Groups[1].Value;
+        var displayParams = paramStr.Split(',')
+            .Select(p =>
+            {
+                p = p.Trim();
+                p = Regex.Replace(p, @".*\.", "");
+                p = Regex.Replace(p, @"\[\]$", "[]");
+                p = Regex.Replace(p, @".*\.(\w+)`?\d*\[", "$1<");
+                p = Regex.Replace(p, @"\]$", ">");
+                p = Regex.Replace(p, @"`(\d+)", m =>
+                {
+                    var idx = int.Parse(m.Groups[1].Value);
+                    return idx < typeParamNames.Count ? typeParamNames[idx] : m.Value;
+                });
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                 return p;
             })
             .ToList();
 
+<<<<<<< HEAD
         return $"{displayName}{genericDisplay}({string.Join(", ", displayParams)})";
     }
 
     private string AppendParamNames(string signature, List<ParamInfo> paramList)
+=======
+        return $"{displayName}({string.Join(", ", displayParams)})";
+    }
+
+    private string AppendParamNames(string signature, List<Dictionary<string, string>> paramList)
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     {
         if (paramList.Count == 0) return signature;
 
@@ -800,7 +1053,11 @@ class XmlDocParser
         var paramStr = signature.Substring(open + 1, close - open - 1);
         if (string.IsNullOrWhiteSpace(paramStr)) return signature;
 
+<<<<<<< HEAD
         var types = SplitParams(paramStr);
+=======
+        var types = paramStr.Split(',').Select(t => t.Trim()).ToList();
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
         var offset = types.Count - paramList.Count;
         if (offset < 0) return signature;
 
@@ -809,7 +1066,11 @@ class XmlDocParser
             var idx = i - offset;
             if (idx >= 0 && idx < paramList.Count)
             {
+<<<<<<< HEAD
                 var name = paramList[idx].Name;
+=======
+                var name = paramList[idx]["Name"];
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                 if (!string.IsNullOrEmpty(name))
                     return $"{type} {name}";
             }
@@ -819,6 +1080,7 @@ class XmlDocParser
         return $"{signature.Substring(0, open + 1)}{string.Join(", ", enhanced)}{signature.Substring(close)}";
     }
 
+<<<<<<< HEAD
     private static string StripNamespace(string type)
     {
         var sb = new System.Text.StringBuilder(type.Length);
@@ -899,6 +1161,9 @@ class XmlDocParser
     }
 
     private string? ConvertXmlToMarkdown(XElement? node, List<string>? typeParamNames = null, List<string>? methodGenericTypeParams = null)
+=======
+    private string? ConvertXmlToMarkdown(XElement? node, List<string>? typeParamNames = null)
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
     {
         if (node == null) return null;
 
@@ -915,6 +1180,7 @@ class XmlDocParser
                 {
                     case "see" when el.Attribute("cref") != null:
                         var cref = el.Attribute("cref")!.Value;
+<<<<<<< HEAD
                         var crName = Regexes.CrefPrefix().Replace(cref, "");
                         crName = Regexes.CrefParams().Replace(crName, "");
                         if (typeParamNames != null && typeParamNames.Count > 0)
@@ -933,6 +1199,18 @@ class XmlDocParser
                             });
                         }
                         crName = Regexes.GenericTick().Replace(crName, m => FormatGenericArity(m.Value));
+=======
+                        var crName = Regex.Replace(cref, @"^[TMPFE]:", "");
+                        crName = Regex.Replace(crName, @"\(.*$", "");
+                        if (typeParamNames != null && typeParamNames.Count > 0)
+                            crName = Regex.Replace(crName, @"`(\d+)", m =>
+                            {
+                                var idx = int.Parse(m.Groups[1].Value);
+                                return idx < typeParamNames.Count ? typeParamNames[idx] : m.Value;
+                            });
+                        else
+                            crName = Regex.Replace(crName, @"`\d+", "");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                         var crDisplay = el.Value.Length > 0 ? el.Value : crName.Split('.').Last();
                         parts.Add($"**{crDisplay}**");
                         break;
@@ -951,13 +1229,18 @@ class XmlDocParser
                         parts.Add($"**{el.Attribute("name")?.Value ?? ""}**");
                         break;
                     case "c":
+<<<<<<< HEAD
                         parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}**");
+=======
+                        parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames)}**");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                         break;
                     case "code":
                         var lang = el.Attribute("language")?.Value ?? "";
                         parts.Add($"```{lang}\n{el.Value.TrimEnd()}\n```");
                         break;
                     case "b":
+<<<<<<< HEAD
                         parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}**");
                         break;
                     case "i":
@@ -965,6 +1248,15 @@ class XmlDocParser
                         break;
                     case "u":
                         parts.Add($"<u>{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}</u>");
+=======
+                        parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames)}**");
+                        break;
+                    case "i":
+                        parts.Add($"*{ConvertXmlToMarkdown(el, typeParamNames)}*");
+                        break;
+                    case "u":
+                        parts.Add($"<u>{ConvertXmlToMarkdown(el, typeParamNames)}</u>");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                         break;
                     case "br":
                         parts.Add("\n");
@@ -975,15 +1267,24 @@ class XmlDocParser
                         parts.Add($"[{aText}]({aHref})");
                         break;
                     case "para":
+<<<<<<< HEAD
                         parts.Add($"\n{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}\n");
+=======
+                        parts.Add($"\n{ConvertXmlToMarkdown(el, typeParamNames)}\n");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                         break;
                     case "list":
                         var listType = el.Attribute("type")?.Value ?? "bullet";
                         var listParts = el.Elements("item")
                             .Select((item, idx) =>
                             {
+<<<<<<< HEAD
                                 var term = ConvertXmlToMarkdown(item.Element("term"), typeParamNames, methodGenericTypeParams) ?? "";
                                 var desc = ConvertXmlToMarkdown(item.Element("description"), typeParamNames, methodGenericTypeParams) ?? "";
+=======
+                                var term = ConvertXmlToMarkdown(item.Element("term"), typeParamNames) ?? "";
+                                var desc = ConvertXmlToMarkdown(item.Element("description"), typeParamNames) ?? "";
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                                 return listType == "number"
                                     ? $"{idx + 1}. **{term}** — {desc}"
                                     : $"- **{term}** — {desc}";
@@ -992,16 +1293,26 @@ class XmlDocParser
                         break;
                     case "exception":
                         var exCref = el.Attribute("cref")?.Value ?? "";
+<<<<<<< HEAD
                         exCref = Regexes.CrefPrefix().Replace(exCref, "");
                         exCref = Regexes.CrefParams().Replace(exCref, "");
                         parts.Add($"- **{exCref}**: {ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}");
                         break;
                     default:
                         parts.Add(ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams) ?? "");
+=======
+                        exCref = Regex.Replace(exCref, @"^[TMPFE]:", "");
+                        exCref = Regex.Replace(exCref, @"\(.*$", "");
+                        parts.Add($"- **{exCref}**: {ConvertXmlToMarkdown(el, typeParamNames)}");
+                        break;
+                    default:
+                        parts.Add(ConvertXmlToMarkdown(el, typeParamNames) ?? "");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                         break;
                 }
             }
         }
+<<<<<<< HEAD
         var result = string.Join(" ", parts).Trim();
         if (typeParamNames != null && typeParamNames.Count > 0)
         {
@@ -1021,6 +1332,10 @@ class XmlDocParser
         result = Regexes.GenericTick().Replace(result, m => FormatGenericArity(m.Value));
         return result;
 }
+=======
+        return string.Join(" ", parts).Trim();
+    }
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 }
 
 // ── Markdown Generator ──
@@ -1056,6 +1371,7 @@ class MarkdownGenerator
             var propertyBodies = typeDoc.Properties.Select(p => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(p)); }).ToList();
             var eventBodies = typeDoc.Events.Select(e => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(e)); }).ToList();
             var fieldBodies = typeDoc.Fields.Select(f => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(f)); }).ToList();
+<<<<<<< HEAD
 
             var methodOverloadCounts = typeDoc.Methods.GroupBy(m => m.DisplayName).ToDictionary(g => g.Key, g => g.Count());
             var methodHeadings = typeDoc.Methods.Select(m =>
@@ -1074,6 +1390,8 @@ class MarkdownGenerator
                 return _memberTemplate.Render(BuildMemberContext(m));
             }).ToList();
 
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             var nestedBodies = typeDoc.NestedTypes.Select(n => $"### {n.TypeName}\n\n{n.Summary}").ToList();
 
             var context = new Dictionary<string, object?>
@@ -1082,6 +1400,7 @@ class MarkdownGenerator
                 ["Namespace"] = ns,
                 ["Summary"] = typeDoc.Summary,
                 ["Remarks"] = typeDoc.Remarks,
+<<<<<<< HEAD
                 ["TypeParams"] = typeDoc.TypeParams.Select(tp => new Dictionary<string, object?> { ["Name"] = tp.Name, ["Description"] = tp.Description }).ToList<Dictionary<string, object?>>(),
                 ["Constructors"] = typeDoc.Constructors.Select(c =>
                 {
@@ -1097,6 +1416,11 @@ class MarkdownGenerator
                     };
                 }).ToList(),
                 ["Methods"] = methodBodies2.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
+=======
+                ["TypeParams"] = typeDoc.TypeParams,
+                ["Constructors"] = constructorBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
+                ["Methods"] = methodBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
                 ["Properties"] = propertyBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Events"] = eventBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Fields"] = fieldBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
@@ -1124,7 +1448,11 @@ class MarkdownGenerator
                 .Replace("<", "_")
                 .Replace(">", "")
                 .Replace(", ", "_");
+<<<<<<< HEAD
             safeName = Regexes.UnsafeChars().Replace(safeName, "_");
+=======
+            safeName = Regex.Replace(safeName, @"[:""|?*]", "_");
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             var mdFile = Path.Combine(folder, $"{safeName}.md");
             File.WriteAllText(mdFile, rendered);
             Console.WriteLine($"Generated: {mdFile}");
@@ -1141,11 +1469,16 @@ class MarkdownGenerator
             var folder = Path.Combine(outputPath, nsFolder);
             Directory.CreateDirectory(folder);
 
+<<<<<<< HEAD
             var readme = new System.Text.StringBuilder();
+=======
+            var readme = "";
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             var projectFolder = nsFolder.Split('/')[0];
             if (nsFolder.Contains('/'))
             {
                 var projUp = string.Join("/", Enumerable.Repeat("..", nsFolder.Split('/').Length - 1));
+<<<<<<< HEAD
                 readme.Append($"[← {projectFolder}]({projUp}/README.md)\n\n");
             }
             else
@@ -1157,11 +1490,25 @@ class MarkdownGenerator
                 readme.Append($"- [{Esc(entry.displayName)}]({entry.fileName}.md)\n");
             var readmePath = Path.Combine(folder, "README.md");
             File.WriteAllText(readmePath, readme.ToString());
+=======
+                readme += $"[← {projectFolder}]({projUp}/README.md)\n\n";
+            }
+            else
+            {
+                readme += $"[← Documentation](../README.md)\n\n";
+            }
+            readme += $"# {ns}\n\n## Types\n";
+            foreach (var entry in typeEntries.OrderBy(x => x.displayName))
+                readme += $"- [{Esc(entry.displayName)}]({entry.fileName}.md)\n";
+            var readmePath = Path.Combine(folder, "README.md");
+            File.WriteAllText(readmePath, readme);
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             Console.WriteLine($"Generated: {readmePath}");
             filesGenerated++;
         }
 
         return (membersProcessed, filesGenerated, nsTypes);
+<<<<<<< HEAD
         }
         var rootPath = Path.Combine(outputPath, "README.md");
         File.WriteAllText(rootPath, rootReadme);
@@ -1169,6 +1516,9 @@ class MarkdownGenerator
         filesGenerated++;
 
     internal static string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>").Replace("`", "\\`");
+=======
+    }
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
     private static string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>");
 
@@ -1195,6 +1545,7 @@ class MarkdownGenerator
         return new Dictionary<string, object?>
         {
             ["DisplayName"] = member.DisplayName,
+<<<<<<< HEAD
             ["Heading"] = string.IsNullOrEmpty(member.Heading) ? member.DisplayName : member.Heading,
             ["InheritedSuffix"] = member.InheritedSuffix,
             ["Signature"] = member.Signature,
@@ -1203,11 +1554,23 @@ class MarkdownGenerator
             ["Returns"] = member.Returns,
             ["Params"] = member.Params.Select(p => new Dictionary<string, object?> { ["Name"] = p.Name, ["Description"] = p.Description }).ToList<Dictionary<string, object?>>(),
             ["Exceptions"] = member.Exceptions.Select(e => new Dictionary<string, object?> { ["Type"] = e.Type, ["Description"] = e.Description }).ToList<Dictionary<string, object?>>(),
+=======
+            ["InheritedSuffix"] = member.InheritedSuffix,
+            ["Signature"] = $"`{member.Signature}`",
+            ["Summary"] = member.Summary,
+            ["Remarks"] = member.Remarks,
+            ["Returns"] = member.Returns,
+            ["Params"] = member.Params,
+            ["Exceptions"] = member.Exceptions,
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             ["Example"] = member.Example,
             ["SeeAlso"] = member.SeeAlso,
             ["HasParams"] = member.HasParams,
             ["HasReturns"] = member.HasReturns,
+<<<<<<< HEAD
             ["HasRemarks"] = member.HasRemarks,
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
             ["HasExceptions"] = member.HasExceptions,
             ["HasExample"] = member.HasExample
         };

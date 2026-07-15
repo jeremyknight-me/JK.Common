@@ -9,6 +9,7 @@ Abstraction on ISpecification that supplies And, Or and Not.
 **Type Parameter:** `TEntity` — The type of entity.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsSatisfiedBy *(Inherited)*
 
 **Signature:** `IsSatisfiedBy(TEntity)`
@@ -50,6 +51,8 @@ Initializes a new instance of the **AndSpecificationT** class.
 
 - **right** — The right entity.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### IsSatisfiedBy *(Inherited)*
 
 **Signature:** ``IsSatisfiedBy(TEntity@)``
@@ -77,5 +80,9 @@ Initializes a new instance of the **AndSpecificationT** class.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

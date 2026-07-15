@@ -9,6 +9,7 @@ Generic And specification.
 **Type Parameter:** `TEntity` — The type of the entity.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## AndSpecification<TEntity>
 
 **Summary:** Initializes a new instance of the **AndSpecificationT** class.
@@ -32,6 +33,8 @@ Determines whether the specified candidate is satisfied by TEntity.
 
 **Returns:** True if is satisfied by the specified candidate; otherwise false.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(ISpecification left, ISpecification right)``
@@ -50,5 +53,9 @@ Initializes a new instance of the **AndSpecification`1** class.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

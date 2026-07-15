@@ -7,6 +7,7 @@
 A **SaveChangesInterceptor** that automatically sets audit timestamps on **IAuditableEntity** instances.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## SavingChanges *(Inherited)*
 
 **Signature:** `SavingChanges(DbContextEventData, InterceptionResult<Int32>)`
@@ -19,6 +20,8 @@ A **SaveChangesInterceptor** that automatically sets audit timestamps on **IAudi
 
 **Summary:**
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### SavingChanges *(Inherited)*
 
 **Signature:** ``SavingChanges(DbContextEventData, Int32})``
@@ -32,5 +35,9 @@ A **SaveChangesInterceptor** that automatically sets audit timestamps on **IAudi
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -7,6 +7,7 @@
 Validator that validates that a date property is a valid SQL date.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
@@ -25,6 +26,8 @@ Validator that validates that a date property is a valid SQL date.
 
 **Summary:**
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** ``GetDefaultMessageTemplate(String)``
@@ -46,5 +49,9 @@ Validator that validates that a date property is a valid SQL date.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

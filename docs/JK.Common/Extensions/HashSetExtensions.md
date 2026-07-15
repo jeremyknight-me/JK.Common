@@ -5,6 +5,7 @@
 **Namespace:** `JK.Common.Extensions`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Helper and utility extension methods for **HashSet&lt;T&gt;** .
 
 ## AddRange *(Inherited)*
@@ -44,6 +45,8 @@ Adds the specified value to the **HashSet&lt;T&gt;** if it is not **null** .
 
 **Returns:** **true** if the value was added to the set; **false** if the value was **null** or already present.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 Helper and utility extension methods for **HashSet** .
 
 ### AddRange` *(Inherited)*
@@ -80,5 +83,9 @@ Adds the specified value to the **HashSet** if it is not **null** .
 
 **Returns:** **true** if the value was added to the set; **false** if the value was **null** or already present.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -7,6 +7,7 @@
 String property abstract validator.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsStringValid
 
 **Signature:** `IsStringValid(String value)`
@@ -15,19 +16,28 @@ String property abstract validator.
 
 **Signature:** ``IsStringValid(String value)``
 >>>>>>> initial docs folder changes
+=======
+### IsStringValid
+
+**Signature:** ``IsStringValid(String value)``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determine if the given string is valid.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **value** — String value to validate
 
 **Returns:** True if valid, otherwise false.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## IsValid *(Inherited)*
 
@@ -35,6 +45,8 @@ Determine if the given string is valid.
 
 **Summary:**
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsValid *(Inherited)*
 
@@ -42,5 +54,9 @@ Determine if the given string is valid.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

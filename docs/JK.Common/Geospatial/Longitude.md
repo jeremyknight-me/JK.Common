@@ -7,6 +7,7 @@
 Represents a longitude ("x" axis) coordinate.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class.
@@ -114,6 +115,8 @@ Gets the coordinate type (latitude or longitude).
 **Summary:**
 Gets the validation specification for the coordinate.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(Decimal degrees)``
@@ -224,5 +227,9 @@ Initializes a new instance of the **Longitude** class with minutes, seconds, and
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -7,6 +7,7 @@
 Specification to determine if a string is a valid date and time.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
@@ -15,20 +16,32 @@ Specification to determine if a string is a valid date and time.
 
 **Signature:** ``IsSatisfiedBy(String@ candidate)``
 >>>>>>> initial docs folder changes
+=======
+### IsSatisfiedBy
+
+**Signature:** ``IsSatisfiedBy(String@ candidate)``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines whether the specified candidate string is a valid date and time.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 - **candidate** — The string to evaluate as a date and time.
 
 **Returns:** **true** if the candidate is not null or empty and can be parsed as a **DateTime** ; otherwise, **false** .
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **candidate** — The string to evaluate as a date and time.
 
 **Returns:** **true** if the candidate is not null or empty and can be parsed as a **DateTime** ; otherwise, **false** .
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

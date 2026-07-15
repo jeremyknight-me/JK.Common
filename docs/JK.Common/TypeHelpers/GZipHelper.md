@@ -7,6 +7,7 @@
 Class which contains methods for GZip compression.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## GZipCompressFile
 
 **Signature:** `GZipCompressFile(String inFileName, String outFileName)`
@@ -15,11 +16,17 @@ Class which contains methods for GZip compression.
 
 **Signature:** ``GZipCompressFile(String@ inFileName, String@ outFileName)``
 >>>>>>> initial docs folder changes
+=======
+### GZipCompressFile
+
+**Signature:** ``GZipCompressFile(String@ inFileName, String@ outFileName)``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Compresses a file using GZip compression.
 
 **Parameters:**
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 - **inFileName** — File name of original file.
@@ -30,6 +37,8 @@ Compresses a file using GZip compression.
 
 **Signature:** `GZipDecompressFile(String inFileName, String outFileName)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **inFileName** — File name of original file.
 - **outFileName** — File name to give to compressed file.
 
@@ -37,12 +46,16 @@ Compresses a file using GZip compression.
 ### GZipDecompressFile
 
 **Signature:** ``GZipDecompressFile(String@ inFileName, String@ outFileName)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Decompresses a file which was compressed using GZip compression.
 
 **Parameters:**
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 - **inFileName** — File name of compressed file.
@@ -54,3 +67,9 @@ Decompresses a file which was compressed using GZip compression.
 
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+- **inFileName** — File name of compressed file.
+- **outFileName** — File name to give to decompressed file.
+
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

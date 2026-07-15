@@ -7,6 +7,7 @@
 Extension methods for the **String** object.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## ConvertFromBase64 *(Inherited)*
 
 **Signature:** `ConvertFromBase64(String, Encoding encoding)`
@@ -15,42 +16,60 @@ Extension methods for the **String** object.
 
 **Signature:** ``ConvertFromBase64(String, Encoding encoding)``
 >>>>>>> initial docs folder changes
+=======
+### ConvertFromBase64 *(Inherited)*
+
+**Signature:** ``ConvertFromBase64(String, Encoding encoding)``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Converts a Base64-encoded string to its decoded string representation using the specified encoding.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **encoding** — The encoding to use for decoding. If null, ASCII encoding is used.
 
 **Returns:** The decoded string, or the original string if it is null or empty.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## ConvertToBase64 *(Inherited)*
 
 **Signature:** `ConvertToBase64(String, Encoding encoding)`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### ConvertToBase64 *(Inherited)*
 
 **Signature:** ``ConvertToBase64(String, Encoding encoding)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Converts the current string to its Base64-encoded representation using the specified encoding.
 
 **Parameters:**
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 - **encoding** — The encoding to use for encoding. If null, ASCII encoding is used.
 
 **Returns:** The Base64-encoded string, or the original string if it is null or empty.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## IsNull *(Inherited)*
 
@@ -217,11 +236,16 @@ Parses a string into a specified type.
 
 **Signature:** `IsDateTime`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### get_IsDateTime *(Inherited)*
 
 **Signature:** ``get_IsDateTime(String)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines if the given string is a date/time. 
@@ -230,10 +254,13 @@ Determines if the given string is a date/time.
 **Returns:** True if a date, otherwise false.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsNumeric *(Inherited)*
 
 **Signature:** `IsNumeric`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### IsNull *(Inherited)*
 
@@ -262,7 +289,10 @@ Determines whether the string is **null** , empty, or consists only of white-spa
 ### get_IsNumeric *(Inherited)*
 
 **Signature:** ``get_IsNumeric(String)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Determines if the given string is a number.
@@ -271,15 +301,21 @@ Determines if the given string is a number.
 **Returns:** True if a number, otherwise false.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsValidEmailAddress *(Inherited)*
 
 **Signature:** `IsValidEmailAddress`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### get_IsValidEmailAddress *(Inherited)*
 
 **Signature:** ``get_IsValidEmailAddress(String)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Validates that a string is a valid email address.
@@ -288,15 +324,21 @@ Validates that a string is a valid email address.
 **Returns:** True if valid email otherwise false.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsValidIpAddress *(Inherited)*
 
 **Signature:** `IsValidIpAddress`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### get_IsValidIpAddress *(Inherited)*
 
 **Signature:** ``get_IsValidIpAddress(String)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Validates that a string is a valid IP v4 address.
@@ -305,15 +347,21 @@ Validates that a string is a valid IP v4 address.
 **Returns:** True if valid IP v4 address otherwise false.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsValidUnitedStatesPhoneNumber *(Inherited)*
 
 **Signature:** `IsValidUnitedStatesPhoneNumber`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### get_IsValidUnitedStatesPhoneNumber *(Inherited)*
 
 **Signature:** ``get_IsValidUnitedStatesPhoneNumber(String)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Validates that a string is a valid United States phone number.
@@ -322,23 +370,32 @@ Validates that a string is a valid United States phone number.
 **Returns:** True if valid US phone number otherwise false.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## IsValidZip *(Inherited)*
 
 **Signature:** `IsValidZip`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### get_IsValidZip *(Inherited)*
 
 **Signature:** ``get_IsValidZip(String)``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Validates that a string is a valid zip code.
             Relies on **ZipCodeSpecification**
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 **Returns:** True if valid zip code otherwise false.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Returns:** True if valid zip code otherwise false.
 
 **Remarks:**
@@ -471,5 +528,9 @@ Parses a string into a specified type.
 
 **Returns:** Parsed value of type T.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -7,6 +7,7 @@
 Formats a **CoordinateBase** as HTML in various display formats.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## CoordinateHtmlFormatter
 
 **Summary:** Initializes a new instance of the **CoordinateHtmlFormatter** class.
@@ -69,6 +70,8 @@ Returns the coordinate as a string in degrees, minutes, seconds, and direction f
 
 **Returns:** The coordinate in degrees, minutes, seconds, and direction format.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(CoordinateBase coordinateToUse)``
@@ -121,5 +124,9 @@ Initializes a new instance of the **CoordinateHtmlFormatter** class.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

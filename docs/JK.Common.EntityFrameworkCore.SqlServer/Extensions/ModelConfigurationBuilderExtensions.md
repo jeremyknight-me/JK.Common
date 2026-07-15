@@ -7,6 +7,7 @@
 Extension methods for **ModelConfigurationBuilder** .
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## ApplyConventionPreferences
 
 **Signature:** `ApplyConventionPreferences(ModelConfigurationBuilder configurationBuilder)`
@@ -15,11 +16,17 @@ Extension methods for **ModelConfigurationBuilder** .
 
 **Signature:** ``ApplyConventionPreferences(ModelConfigurationBuilder configurationBuilder)``
 >>>>>>> initial docs folder changes
+=======
+### ApplyConventionPreferences
+
+**Signature:** ``ApplyConventionPreferences(ModelConfigurationBuilder configurationBuilder)``
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Applies default convention preferences for SQL Server column types and precision.
 
 **Parameters:**
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 - **configurationBuilder** — The model configuration builder.
@@ -28,3 +35,8 @@ Applies default convention preferences for SQL Server column types and precision
 
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+- **configurationBuilder** — The model configuration builder.
+
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

@@ -9,6 +9,7 @@ Generic CompositeSpecification.
 **Type Parameter:** `TEntity` — The type of entity.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## CompositeSpecification<TEntity>
 
 **Summary:** Initializes a new instance of the CompositeSpecification class.
@@ -23,6 +24,8 @@ Generic CompositeSpecification.
 
 **Signature:** `Left`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(ISpecification leftEntity, ISpecification rightEntity)``
@@ -39,11 +42,15 @@ Initializes a new instance of the CompositeSpecification class.
 ### Left
 
 **Signature:** ``Left``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 The composite specification's left entity.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Right
 
@@ -52,6 +59,8 @@ The composite specification's left entity.
 **Summary:**
 The composite specification's right entity.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### Right
 
@@ -60,5 +69,9 @@ The composite specification's right entity.
 **Summary:**
 The composite specification's right entity.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

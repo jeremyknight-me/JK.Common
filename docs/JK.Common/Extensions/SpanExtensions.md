@@ -5,6 +5,7 @@
 **Namespace:** `JK.Common.Extensions`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Extension methods for **ReadOnlySpan&lt;T&gt;** .
 
 ## Parse
@@ -22,6 +23,8 @@ Parses a **ReadOnlySpan&lt;T&gt;** into a specified type.
 
 **Returns:** Parsed value of type T.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 Extension methods for **ReadOnlySpan** .
 
 ### Parse`
@@ -37,5 +40,9 @@ Parses a **ReadOnlySpan** into a specified type.
 
 **Returns:** Parsed value of type T.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

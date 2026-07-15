@@ -7,6 +7,7 @@
 Class which places values from objects into a given template.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## TemplateProcessor
 
 **Summary:** Initializes a new instance of the **TemplateProcessor** class.
@@ -31,6 +32,8 @@ Class which places values from objects into a given template.
 
 **Signature:** `ProcessTemplate()`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor(String template)``
@@ -58,7 +61,10 @@ Initializes a new instance of the **TemplateProcessor** class.
 ### ProcessTemplate
 
 **Signature:** ``ProcessTemplate()``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Processes the template using the given objects.
@@ -66,34 +72,47 @@ Processes the template using the given objects.
 **Returns:** Template format with data inserted where tokens existed.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Objects
 
 **Signature:** `Objects`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 
 ### Objects
 
 **Signature:** ``Objects``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Gets or sets the list of objects containing the data to be used in the template.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## TokenStart
 
 **Signature:** `TokenStart`
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### TokenStart
 
 **Signature:** ``TokenStart``
+<<<<<<< HEAD
 >>>>>>> initial docs folder changes
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 
 **Summary:**
 Gets or sets the starting value of the tokens used in the template.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## TokenEnd
 
@@ -102,6 +121,8 @@ Gets or sets the starting value of the tokens used in the template.
 **Summary:**
 Gets or sets the ending value of the tokens used in the template.
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 **Remarks:**
 ### TokenEnd
 
@@ -110,5 +131,9 @@ Gets or sets the ending value of the tokens used in the template.
 **Summary:**
 Gets or sets the ending value of the tokens used in the template.
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0

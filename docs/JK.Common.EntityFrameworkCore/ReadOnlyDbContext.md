@@ -7,6 +7,7 @@
 A read-only **DbContext** that disables change tracking and throws on save attempts.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## ReadOnlyDbContext
 
 **Summary:** Initializes a new instance of the **ReadOnlyDbContext** class.
@@ -43,6 +44,8 @@ A read-only **DbContext** that disables change tracking and throws on save attem
 
 **Summary:**
 =======
+=======
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
 ### #ctor
 
 **Signature:** ``#ctor()``
@@ -89,5 +92,9 @@ Initializes a new instance of the **ReadOnlyDbContext** class.
 
 **Summary:**
 
+<<<<<<< HEAD
 **Remarks:**
 >>>>>>> initial docs folder changes
+=======
+**Remarks:**
+>>>>>>> d66d5e94771075443ea96deaa1b24a052ee196d0
