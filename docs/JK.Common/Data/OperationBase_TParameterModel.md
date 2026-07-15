@@ -8,21 +8,21 @@ Provides a base class for operations with parameter models.
 
 **Type Parameter:** `TParameterModel` — The type of the parameter model.
 
-### OperationBase<TParameterModel>
+## OperationBase<TParameterModel>
 
-**Summary:** Initializes a new instance of the **OperationBase`1** class.
+**Summary:** Initializes a new instance of the **OperationBaseT** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-### Dispose *(Inherited)*
+## Dispose *(Inherited)*
 
 **Signature:** `Dispose()`
 
 **Summary:**
 
-### ConfigureCommand
+## ConfigureCommand
 
 **Signature:** `ConfigureCommand(IDbCommand command, TParameterModel parameterModel)`
 
@@ -35,7 +35,7 @@ Configures the command with the specified parameter model.
 
 - **parameterModel** — The parameter model to use for configuration.
 
-### MakeCommand
+## MakeCommand
 
 **Signature:** `MakeCommand(TParameterModel parameterModel)`
 
@@ -48,21 +48,21 @@ Creates and configures a command using the specified parameter model.
 
 **Returns:** The configured **IDbCommand** .
 
-### OpenConnection
+## OpenConnection
 
 **Signature:** `OpenConnection()`
 
 **Summary:**
 Opens the database connection if it is not already open.
 
-### EnsureConnection
+## EnsureConnection
 
 **Signature:** `EnsureConnection()`
 
 **Summary:**
 Ensures the database connection is created.
 
-### ConnectionFactory
+## ConnectionFactory
 
 **Signature:** `ConnectionFactory`
 

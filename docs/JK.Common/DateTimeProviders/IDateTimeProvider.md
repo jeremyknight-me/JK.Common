@@ -6,14 +6,14 @@
 
 Abstraction to disconnect **DateTime** from the system clock.
 
-### Now
+## Now
 
 **Signature:** `Now`
 
 **Summary:**
 Returns a **DateTime** representing the current date and time.
 
-### Today
+## Today
 
 **Signature:** `Today`
 
@@ -22,7 +22,7 @@ Returns a Dat **DateTime** eTime representing the current date. The date part
             of the returned value is the current date, and the time-of-day part of
             the returned value is zero (midnight).
 
-### UtcNow
+## UtcNow
 
 **Signature:** `UtcNow`
 

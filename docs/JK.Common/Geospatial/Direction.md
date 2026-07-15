@@ -6,28 +6,28 @@
 
 Represents the cardinal directions for geographic coordinates.
 
-### N
+## N
 
 **Signature:** `N`
 
 **Summary:**
 North direction.
 
-### S
+## S
 
 **Signature:** `S`
 
 **Summary:**
 South direction.
 
-### E
+## E
 
 **Signature:** `E`
 
 **Summary:**
 East direction.
 
-### W
+## W
 
 **Signature:** `W`
 

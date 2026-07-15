@@ -4,22 +4,22 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **ConcurrentBag** .
+Helper and utility extension methods for **ConcurrentBag&lt;T&gt;** .
 
-### AddRange *(Inherited)*
+## AddRange *(Inherited)*
 
-**Signature:** `AddRange(ConcurrentBag<T>, IEnumerable<T> list)`
+**Signature:** `AddRange<T>(ConcurrentBag<T>, IEnumerable<T> list)`
 
 **Summary:**
-Adds a range of items to the **ConcurrentBag`1** .
+Adds a range of items to the **ConcurrentBag&lt;T&gt;** .
 
 **Parameters:**
 
 - **list** — The items to add.
 
-### AddRangeIfNotNull *(Inherited)*
+## AddRangeIfNotNull *(Inherited)*
 
-**Signature:** `AddRangeIfNotNull(ConcurrentBag<T>, IEnumerable<T> items)`
+**Signature:** `AddRangeIfNotNull<T>(ConcurrentBag<T>, IEnumerable<T> items)`
 
 **Summary:**
 Adds the specified items to the collection if they are not **null** .

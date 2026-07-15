@@ -6,7 +6,7 @@
 
 Specification to determine if a string is a valid United States phone number.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

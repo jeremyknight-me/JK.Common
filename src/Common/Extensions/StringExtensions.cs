@@ -203,10 +203,16 @@ public static class StringExtensions
         }
 
         /// <summary>
+        /// Converts an empty string to null.
+        /// </summary>
+        /// <returns>Null if the string is empty or null; otherwise, the original string.</returns>
+        public string ToNullIfEmpty() => string.IsNullOrEmpty(text) ? null : text;
+
+        /// <summary>
         /// Converts a null string to an empty string.
         /// </summary>
         /// <returns>An empty string if null; otherwise, the original string.</returns>
-        public string ToNullIfEmpty() => text ?? string.Empty;
+        public string ToEmptyIfNull() => text ?? string.Empty;
 
         /// <summary>
         /// Trims a block of text to a specified length. The string will be trimmed to 

@@ -6,7 +6,7 @@
 
 Specification to determine if a string is a valid United States ZIP code.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

@@ -6,14 +6,14 @@
 
 Abstraction to disconnect **DateTimeOffset** from the system clock.
 
-### Now
+## Now
 
 **Signature:** `Now`
 
 **Summary:**
 Returns a **DateTimeOffset** representing the current date and time.
 
-### UtcNow
+## UtcNow
 
 **Signature:** `UtcNow`
 

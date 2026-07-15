@@ -6,7 +6,7 @@
 
 Base object for latitudes and longitudes coordinates.
 
-### CoordinateBase
+## CoordinateBase
 
 **Summary:** Initializes a new instance of the **CoordinateBase** class.
 
@@ -18,7 +18,7 @@ Base object for latitudes and longitudes coordinates.
 
 - **seconds** — The seconds component of the coordinate. Defaults to 0.
 
-### CoordinateBase
+## CoordinateBase
 
 **Summary:** Initializes a new instance of the **CoordinateBase** class with a direction.
 
@@ -28,7 +28,7 @@ Base object for latitudes and longitudes coordinates.
 
 - **direction** — The cardinal direction of the coordinate.
 
-### CoordinateBase
+## CoordinateBase
 
 **Summary:** Initializes a new instance of the **CoordinateBase** class with minutes and a direction.
 
@@ -40,7 +40,7 @@ Base object for latitudes and longitudes coordinates.
 
 - **direction** — The cardinal direction of the coordinate.
 
-### CoordinateBase
+## CoordinateBase
 
 **Summary:** Initializes a new instance of the **CoordinateBase** class with minutes, seconds, and a direction.
 
@@ -54,7 +54,7 @@ Base object for latitudes and longitudes coordinates.
 
 - **direction** — The cardinal direction of the coordinate.
 
-### ToString
+## ToString()
 
 **Signature:** `ToString()`
 
@@ -63,7 +63,7 @@ Returns a string that represents the current coordinate in decimal degrees.
 
 **Returns:** A string that represents the current coordinate.
 
-### ToString
+## ToString(DisplayFormat format)
 
 **Signature:** `ToString(DisplayFormat format)`
 
@@ -76,7 +76,7 @@ Formats the value of the current coordinate using the specified format.
 
 **Returns:** The value of the current coordinate in the specified format.
 
-### ToHtmlString
+## ToHtmlString
 
 **Signature:** `ToHtmlString(DisplayFormat format)`
 
@@ -89,7 +89,7 @@ Formats the value of the current coordinate as HTML using the specified format.
 
 **Returns:** The value of the current coordinate in the specified HTML format.
 
-### GetValidDirections
+## GetValidDirections
 
 **Signature:** `GetValidDirections()`
 
@@ -98,7 +98,7 @@ Gets the valid directions for the coordinate type.
 
 **Returns:** A collection of valid directions.
 
-### SetIsNegative
+## SetIsNegative(Decimal degrees)
 
 **Signature:** `SetIsNegative(Decimal degrees)`
 
@@ -109,7 +109,7 @@ Sets whether the coordinate is negative based on the degrees value.
 
 - **degrees** — The degrees value to evaluate.
 
-### SetIsNegative
+## SetIsNegative(Direction direction)
 
 **Signature:** `SetIsNegative(Direction direction)`
 
@@ -120,7 +120,7 @@ Sets whether the coordinate is negative based on the direction.
 
 - **direction** — The direction to evaluate.
 
-### Validate
+## Validate(Decimal value)
 
 **Signature:** `Validate(Decimal value)`
 
@@ -135,7 +135,7 @@ Validates the coordinate value using the validation specification.
 
 - **System.ArgumentOutOfRangeException**: Thrown if the value is not valid for this type of coordinate.
 
-### Validate
+## Validate(Decimal value, Direction direction)
 
 **Signature:** `Validate(Decimal value, Direction direction)`
 
@@ -152,91 +152,91 @@ Validates the coordinate value and direction using the validation specification.
 
 - **System.ArgumentOutOfRangeException**: Thrown if the value or direction is not valid for this type of coordinate.
 
-### IsNegative
+## IsNegative
 
 **Signature:** `IsNegative`
 
 **Summary:**
 Gets or sets whether the coordinate represents positive or negative point.
 
-### Coordinate
+## Coordinate
 
 **Signature:** `Coordinate`
 
 **Summary:**
 Gets or sets the absolute value of the coordinate.
 
-### CoordinateSigned
+## CoordinateSigned
 
 **Signature:** `CoordinateSigned`
 
 **Summary:**
 Gets the signed value of the coordinate.
 
-### DecimalDegrees
+## DecimalDegrees
 
 **Signature:** `DecimalDegrees`
 
 **Summary:**
 Gets the unsigned degrees rounded to 10 decimal places.
 
-### DecimalDegreesSigned
+## DecimalDegreesSigned
 
 **Signature:** `DecimalDegreesSigned`
 
 **Summary:**
 Gets the signed degrees rounded to 10 decimal places.
 
-### DegreesSigned
+## DegreesSigned
 
 **Signature:** `DegreesSigned`
 
 **Summary:**
 Gets the signed degrees as an integer.
 
-### Degrees
+## Degrees
 
 **Signature:** `Degrees`
 
 **Summary:**
 Gets the unsigned degrees as an integer.
 
-### DecimalMinutes
+## DecimalMinutes
 
 **Signature:** `DecimalMinutes`
 
 **Summary:**
 Gets the minutes to 3 decimal places.
 
-### Minutes
+## Minutes
 
 **Signature:** `Minutes`
 
 **Summary:**
 Gets the minutes as an integer.
 
-### Seconds
+## Seconds
 
 **Signature:** `Seconds`
 
 **Summary:**
 Gets the seconds as an integer.
 
-### Direction
+## Direction
 
 **Signature:** `Direction`
 
 **Summary:**
 Gets the cardinal direction of the coordinate.
 
-### CoordinateType
+## CoordinateType
 
 **Signature:** `CoordinateType`
 
 **Summary:**
 Gets the coordinate type (latitude or longitude).
 
-### ValidationSpecification
+## ValidationSpecification
 
 **Signature:** `ValidationSpecification`
 

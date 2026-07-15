@@ -8,15 +8,15 @@ Provides a base class for scalar operations without parameter models.
 
 **Type Parameter:** `TValue` — The type of the scalar result.
 
-### ScalarOperationBase<TValue>
+## ScalarOperationBase<TValue>
 
-**Summary:** Initializes a new instance of the **ScalarOperationBase`1** class.
+**Summary:** Initializes a new instance of the **ScalarOperationBaseT** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-### Execute
+## Execute
 
 **Signature:** `Execute()`
 

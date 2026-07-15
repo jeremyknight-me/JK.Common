@@ -6,7 +6,7 @@
 
 Base class for ADO.NET operations executed through a **DbContext** .
 
-### OperationBase
+## OperationBase
 
 **Summary:** Initializes a new instance of the **OperationBase** class.
 
@@ -14,7 +14,7 @@ Base class for ADO.NET operations executed through a **DbContext** .
 
 - **dbContext** — The database context.
 
-### SetupParameters
+## SetupParameters
 
 **Signature:** `SetupParameters(IDbCommand command)`
 
@@ -25,7 +25,7 @@ Sets up parameters for the ADO command. Override to add custom parameters.
 
 - **command** — The ADO command to configure.
 
-### SetupCommand
+## SetupCommand
 
 **Signature:** `SetupCommand(CommandType commandType, String commandText)`
 
@@ -40,7 +40,7 @@ Creates and configures an ADO command with the specified command type and text.
 
 **Returns:** A configured **IDbCommand** .
 
-### Context
+## Context
 
 **Signature:** `Context`
 

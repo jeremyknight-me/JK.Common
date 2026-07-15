@@ -6,7 +6,7 @@
 
 Factory for creating **TransactionScope** instances with default or specified isolation levels.
 
-### Create
+## Create()
 
 **Signature:** `Create()`
 
@@ -15,7 +15,7 @@ Creates a **TransactionScope** with the default isolation level (ReadCommitted).
 
 **Returns:** A new **TransactionScope** instance.
 
-### Create
+## Create(IsolationLevel isolationLevel)
 
 **Signature:** `Create(IsolationLevel isolationLevel)`
 

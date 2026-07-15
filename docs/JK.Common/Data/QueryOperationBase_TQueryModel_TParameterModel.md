@@ -10,15 +10,15 @@ Provides a base class for query operations with parameter models.
 
 **Type Parameter:** `TParameterModel` — The type of the parameter model.
 
-### QueryOperationBase<TQueryModel, TParameterModel>
+## QueryOperationBase<TQueryModel, TParameterModel>
 
-**Summary:** Initializes a new instance of the **QueryOperationBase`2** class.
+**Summary:** Initializes a new instance of the **QueryOperationBaseT** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-### Execute
+## Execute
 
 **Signature:** `Execute(TParameterModel parameterModel)`
 
@@ -31,9 +31,9 @@ Executes the query operation with the specified parameter model.
 
 **Returns:** A read-only list of query result models.
 
-### MakeModel
+## MakeModel
 
-**Signature:** `MakeModel(IDataReader, String dataRecord, Int32> ordinalCache)`
+**Signature:** `MakeModel(IDataReader dataRecord, IDictionary<String, Int32> ordinalCache)`
 
 **Summary:**
 Creates a model instance from the data record and ordinal cache.
@@ -46,7 +46,7 @@ Creates a model instance from the data record and ordinal cache.
 
 **Returns:** The model instance.
 
-### MakeOrdinalCache
+## MakeOrdinalCache
 
 **Signature:** `MakeOrdinalCache(IDataReader dataReader)`
 
@@ -59,7 +59,7 @@ Creates the ordinal cache from the data reader.
 
 **Returns:** The ordinal cache.
 
-### Behavior
+## Behavior
 
 **Signature:** `Behavior`
 

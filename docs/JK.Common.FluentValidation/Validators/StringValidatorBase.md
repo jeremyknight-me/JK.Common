@@ -6,7 +6,7 @@
 
 String property abstract validator.
 
-### IsStringValid
+## IsStringValid
 
 **Signature:** `IsStringValid(String value)`
 
@@ -19,7 +19,7 @@ Determine if the given string is valid.
 
 **Returns:** True if valid, otherwise false.
 
-### IsValid *(Inherited)*
+## IsValid *(Inherited)*
 
 **Signature:** `IsValid(ValidationContext<T>, String)`
 

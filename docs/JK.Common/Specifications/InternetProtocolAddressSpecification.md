@@ -6,7 +6,7 @@
 
 Specification to determine if a string is a valid IPv4 address.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

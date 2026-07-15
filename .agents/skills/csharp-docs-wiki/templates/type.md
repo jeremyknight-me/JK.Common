@@ -9,7 +9,7 @@
 {/each}
 
 {#each Constructors}
-### {DisplayName}
+## {DisplayName}
 
 **Summary:** {Summary}
 

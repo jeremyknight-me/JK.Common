@@ -8,9 +8,9 @@ Generic Or specification.
 
 **Type Parameter:** `TEntity` — The type of the entity.
 
-### OrSpecification<TEntity>
+## OrSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **OrSpecification`1** class.
+**Summary:** Initializes a new instance of the **OrSpecificationT** class.
 
 **Parameters:**
 
@@ -18,7 +18,7 @@ Generic Or specification.
 
 - **right** — The right entity.
 
-### IsSatisfiedBy *(Inherited)*
+## IsSatisfiedBy *(Inherited)*
 
 **Signature:** `IsSatisfiedBy(TEntity)`
 

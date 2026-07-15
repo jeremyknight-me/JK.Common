@@ -6,7 +6,7 @@
 
 Extension methods for the **String** object.
 
-### ConvertFromBase64 *(Inherited)*
+## ConvertFromBase64 *(Inherited)*
 
 **Signature:** `ConvertFromBase64(String, Encoding encoding)`
 
@@ -19,7 +19,7 @@ Converts a Base64-encoded string to its decoded string representation using the 
 
 **Returns:** The decoded string, or the original string if it is null or empty.
 
-### ConvertToBase64 *(Inherited)*
+## ConvertToBase64 *(Inherited)*
 
 **Signature:** `ConvertToBase64(String, Encoding encoding)`
 
@@ -32,7 +32,7 @@ Converts the current string to its Base64-encoded representation using the speci
 
 **Returns:** The Base64-encoded string, or the original string if it is null or empty.
 
-### IsNull *(Inherited)*
+## IsNull *(Inherited)*
 
 **Signature:** `IsNull(String)`
 
@@ -41,7 +41,7 @@ Determines whether the string is **null** .
 
 **Remarks:** Returns **true** if the string is **null** ; otherwise, **false** .
 
-### IsNullOrEmpty *(Inherited)*
+## IsNullOrEmpty *(Inherited)*
 
 **Signature:** `IsNullOrEmpty(String)`
 
@@ -50,7 +50,7 @@ Determines whether the string is **null** or an empty string.
 
 **Remarks:** Returns **true** if the string is **null** or an empty string; otherwise, **false** .
 
-### IsNullOrWhiteSpace *(Inherited)*
+## IsNullOrWhiteSpace *(Inherited)*
 
 **Signature:** `IsNullOrWhiteSpace(String)`
 
@@ -59,7 +59,7 @@ Determines whether the string is **null** , empty, or consists only of white-spa
 
 **Remarks:** Returns **true** if the string is **null** , empty, or consists only of white-space characters; otherwise, **false** .
 
-### RemoveUnitedStatesCurrencyFormat *(Inherited)*
+## RemoveUnitedStatesCurrencyFormat *(Inherited)*
 
 **Signature:** `RemoveUnitedStatesCurrencyFormat(String)`
 
@@ -68,7 +68,7 @@ Removes US (dollar) currency format characters from a string.
 
 **Returns:** String that can be parsed into a number.
 
-### RemoveXml *(Inherited)*
+## RemoveXml *(Inherited)*
 
 **Signature:** `RemoveXml(String)`
 
@@ -77,7 +77,7 @@ Removes XML/HTML from given text block.
 
 **Returns:** Clean string with no XML/HTML.
 
-### ReplaceWithEmpty *(Inherited)*
+## ReplaceWithEmpty *(Inherited)*
 
 **Signature:** `ReplaceWithEmpty(String, String textToReplace)`
 
@@ -90,7 +90,7 @@ Replaces all occurrences of a specified string in the current string with an emp
 
 **Returns:** A new string with all occurrences of **textToReplace** removed.
 
-### Reverse *(Inherited)*
+## Reverse *(Inherited)*
 
 **Signature:** `Reverse(String)`
 
@@ -99,7 +99,7 @@ Reverses the characters within a string.
 
 **Returns:** The original string in reverse.
 
-### Right *(Inherited)*
+## Right *(Inherited)*
 
 **Signature:** `Right(String, Int32 length)`
 
@@ -112,7 +112,7 @@ Returns the specified number of characters from the end of string. Same as **!:L
 
 **Returns:** Returns the last X characters of the string.
 
-### ToNullableDecimal *(Inherited)*
+## ToNullableDecimal *(Inherited)*
 
 **Signature:** `ToNullableDecimal(String)`
 
@@ -121,7 +121,7 @@ Attempts to parse the string as a decimal value. Returns null if the string is n
 
 **Returns:** The parsed decimal value, or null if parsing fails.
 
-### ToNullableInteger *(Inherited)*
+## ToNullableInteger *(Inherited)*
 
 **Signature:** `ToNullableInteger(String)`
 
@@ -130,16 +130,25 @@ Attempts to parse the string as an integer value. Returns null if the string is 
 
 **Returns:** The parsed integer value, or null if parsing fails.
 
-### ToNullIfEmpty *(Inherited)*
+## ToNullIfEmpty *(Inherited)*
 
 **Signature:** `ToNullIfEmpty(String)`
+
+**Summary:**
+Converts an empty string to null.
+
+**Returns:** Null if the string is empty or null; otherwise, the original string.
+
+## ToEmptyIfNull *(Inherited)*
+
+**Signature:** `ToEmptyIfNull(String)`
 
 **Summary:**
 Converts a null string to an empty string.
 
 **Returns:** An empty string if null; otherwise, the original string.
 
-### Truncate *(Inherited)*
+## Truncate(String, Int32 length) *(Inherited)*
 
 **Signature:** `Truncate(String, Int32 length)`
 
@@ -154,7 +163,7 @@ Trims a block of text to a specified length. The string will be trimmed to
 
 **Returns:** Truncated, or shortened, text.
 
-### Truncate *(Inherited)*
+## Truncate(String, Int32 length, String indicator) *(Inherited)*
 
 **Signature:** `Truncate(String, Int32 length, String indicator)`
 
@@ -171,9 +180,9 @@ Trims a block of text to a specified length. The string will be trimmed to
 
 **Returns:** Truncated, or shortened, text with an indicator marking where the truncation occurred.
 
-### Parse *(Inherited)*
+## Parse *(Inherited)*
 
-**Signature:** `Parse(String, IFormatProvider formatProvider)`
+**Signature:** `Parse<T>(String, IFormatProvider formatProvider)`
 
 **Summary:**
 Parses a string into a specified type.
@@ -184,7 +193,7 @@ Parses a string into a specified type.
 
 **Returns:** Parsed value of type T.
 
-### IsDateTime *(Inherited)*
+## IsDateTime *(Inherited)*
 
 **Signature:** `IsDateTime`
 
@@ -194,7 +203,7 @@ Determines if the given string is a date/time.
 
 **Returns:** True if a date, otherwise false.
 
-### IsNumeric *(Inherited)*
+## IsNumeric *(Inherited)*
 
 **Signature:** `IsNumeric`
 
@@ -204,7 +213,7 @@ Determines if the given string is a number.
 
 **Returns:** True if a number, otherwise false.
 
-### IsValidEmailAddress *(Inherited)*
+## IsValidEmailAddress *(Inherited)*
 
 **Signature:** `IsValidEmailAddress`
 
@@ -214,7 +223,7 @@ Validates that a string is a valid email address.
 
 **Returns:** True if valid email otherwise false.
 
-### IsValidIpAddress *(Inherited)*
+## IsValidIpAddress *(Inherited)*
 
 **Signature:** `IsValidIpAddress`
 
@@ -224,7 +233,7 @@ Validates that a string is a valid IP v4 address.
 
 **Returns:** True if valid IP v4 address otherwise false.
 
-### IsValidUnitedStatesPhoneNumber *(Inherited)*
+## IsValidUnitedStatesPhoneNumber *(Inherited)*
 
 **Signature:** `IsValidUnitedStatesPhoneNumber`
 
@@ -234,7 +243,7 @@ Validates that a string is a valid United States phone number.
 
 **Returns:** True if valid US phone number otherwise false.
 
-### IsValidZip *(Inherited)*
+## IsValidZip *(Inherited)*
 
 **Signature:** `IsValidZip`
 

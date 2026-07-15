@@ -8,15 +8,15 @@ Provides a base class for non-query operations with parameter models.
 
 **Type Parameter:** `TParameterModel` — The type of the parameter model.
 
-### NonQueryOperationBase<TParameterModel>
+## NonQueryOperationBase<TParameterModel>
 
-**Summary:** Initializes a new instance of the **NonQueryOperationBase`1** class.
+**Summary:** Initializes a new instance of the **NonQueryOperationBaseT** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-### Execute
+## Execute
 
 **Signature:** `Execute(TParameterModel parameterModel)`
 

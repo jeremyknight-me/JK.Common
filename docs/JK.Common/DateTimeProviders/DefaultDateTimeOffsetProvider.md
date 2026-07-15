@@ -4,13 +4,13 @@
 
 **Namespace:** `JK.Common.DateTimeProviders`
 
-### Now *(Inherited)*
+## Now *(Inherited)*
 
 **Signature:** `Now`
 
 **Summary:**
 
-### UtcNow *(Inherited)*
+## UtcNow *(Inherited)*
 
 **Signature:** `UtcNow`
 

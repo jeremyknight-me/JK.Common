@@ -6,9 +6,9 @@
 
 Provides an implementation of the selection sort algorithm.
 
-### Sort
+## Sort
 
-**Signature:** `Sort(IList<T> list)`
+**Signature:** `Sort<T>(IList<T> list)`
 
 **Summary:**
 Sorts the specified list in ascending order using the selection sort algorithm.

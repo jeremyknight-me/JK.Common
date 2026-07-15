@@ -6,18 +6,18 @@
 
 Extension methods for **ModelBuilder** .
 
-### ApplyAllAssemblyConfigurations *(Inherited)*
+## ApplyAllAssemblyConfigurations *(Inherited)*
 
 **Signature:** `ApplyAllAssemblyConfigurations(ModelBuilder, Assembly assembly)`
 
 **Summary:**
-Applies all **IEntityTypeConfiguration** implementations from the specified assembly.
+Applies all **IEntityTypeConfiguration&lt;T&gt;** implementations from the specified assembly.
 
 **Parameters:**
 
 - **assembly** — The assembly to scan. If **null** , the calling assembly is used.
 
-### EnsureRelationshipDeleteBehavior *(Inherited)*
+## EnsureRelationshipDeleteBehavior *(Inherited)*
 
 **Signature:** `EnsureRelationshipDeleteBehavior(ModelBuilder, DeleteBehavior deleteBehavior)`
 

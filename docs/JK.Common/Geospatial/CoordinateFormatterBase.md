@@ -6,7 +6,7 @@
 
 Base class for formatting coordinates in various display formats.
 
-### CoordinateFormatterBase
+## CoordinateFormatterBase
 
 **Summary:** Initializes a new instance of the **CoordinateFormatterBase** class.
 
@@ -14,7 +14,7 @@ Base class for formatting coordinates in various display formats.
 
 - **coordinateToUse** — The coordinate to format.
 
-### Format
+## Format
 
 **Signature:** `Format(DisplayFormat format)`
 
@@ -27,7 +27,7 @@ Formats the coordinate using the specified display format.
 
 **Returns:** The formatted coordinate string.
 
-### ToStringDegrees
+## ToStringDegrees
 
 **Signature:** `ToStringDegrees()`
 
@@ -36,7 +36,7 @@ Returns the coordinate as a string in degrees format.
 
 **Returns:** The coordinate in degrees format.
 
-### ToStringDegreesMinutes
+## ToStringDegreesMinutes
 
 **Signature:** `ToStringDegreesMinutes()`
 
@@ -45,7 +45,7 @@ Returns the coordinate as a string in degrees and minutes format.
 
 **Returns:** The coordinate in degrees and minutes format.
 
-### ToStringDegreesMinutesSeconds
+## ToStringDegreesMinutesSeconds
 
 **Signature:** `ToStringDegreesMinutesSeconds()`
 
@@ -54,7 +54,7 @@ Returns the coordinate as a string in degrees, minutes, and seconds format.
 
 **Returns:** The coordinate in degrees, minutes, and seconds format.
 
-### ToStringDegreesDirection
+## ToStringDegreesDirection
 
 **Signature:** `ToStringDegreesDirection()`
 
@@ -63,7 +63,7 @@ Returns the coordinate as a string in degrees and direction format.
 
 **Returns:** The coordinate in degrees and direction format.
 
-### ToStringDegreesMinutesDirection
+## ToStringDegreesMinutesDirection
 
 **Signature:** `ToStringDegreesMinutesDirection()`
 
@@ -72,7 +72,7 @@ Returns the coordinate as a string in degrees, minutes, and direction format.
 
 **Returns:** The coordinate in degrees, minutes, and direction format.
 
-### ToStringDegreesMinutesSecondsDirection
+## ToStringDegreesMinutesSecondsDirection
 
 **Signature:** `ToStringDegreesMinutesSecondsDirection()`
 
@@ -81,7 +81,7 @@ Returns the coordinate as a string in degrees, minutes, seconds, and direction f
 
 **Returns:** The coordinate in degrees, minutes, seconds, and direction format.
 
-### Coordinate
+## Coordinate
 
 **Signature:** `Coordinate`
 

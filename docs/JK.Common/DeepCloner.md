@@ -6,7 +6,7 @@
 
 Object used to create deep clones using XML serialization.
 
-### Clone
+## Clone
 
 **Signature:** `Clone(Object valueToClone)`
 

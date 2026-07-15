@@ -6,7 +6,7 @@
 
 Provides a base class for operations without parameter models.
 
-### OperationBase
+## OperationBase
 
 **Summary:** Initializes a new instance of the **OperationBase** class.
 
@@ -14,13 +14,13 @@ Provides a base class for operations without parameter models.
 
 - **connectionFactory** — The connection factory to use.
 
-### Dispose *(Inherited)*
+## Dispose *(Inherited)*
 
 **Signature:** `Dispose()`
 
 **Summary:**
 
-### ConfigureCommand
+## ConfigureCommand
 
 **Signature:** `ConfigureCommand(IDbCommand command)`
 
@@ -31,7 +31,7 @@ Configures the command.
 
 - **command** — The command to configure.
 
-### MakeCommand
+## MakeCommand
 
 **Signature:** `MakeCommand()`
 
@@ -40,21 +40,21 @@ Creates and configures a command.
 
 **Returns:** The configured **IDbCommand** .
 
-### OpenConnection
+## OpenConnection
 
 **Signature:** `OpenConnection()`
 
 **Summary:**
 Opens the database connection if it is not already open.
 
-### EnsureConnection
+## EnsureConnection
 
 **Signature:** `EnsureConnection()`
 
 **Summary:**
 Ensures the database connection is created.
 
-### ConnectionFactory
+## ConnectionFactory
 
 **Signature:** `ConnectionFactory`
 

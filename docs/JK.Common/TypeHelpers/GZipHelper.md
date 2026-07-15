@@ -6,7 +6,7 @@
 
 Class which contains methods for GZip compression.
 
-### GZipCompressFile
+## GZipCompressFile
 
 **Signature:** `GZipCompressFile(String inFileName, String outFileName)`
 
@@ -19,7 +19,7 @@ Compresses a file using GZip compression.
 
 - **outFileName** — File name to give to compressed file.
 
-### GZipDecompressFile
+## GZipDecompressFile
 
 **Signature:** `GZipDecompressFile(String inFileName, String outFileName)`
 

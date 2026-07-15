@@ -6,7 +6,7 @@
 
 Creates ADO.NET database connections.
 
-### Make
+## Make
 
 **Signature:** `Make()`
 

@@ -8,7 +8,7 @@ Defines the contract for a specification pattern.
 
 **Type Parameter:** `TEntity` — The type of entity to evaluate.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(TEntity candidate)`
 
@@ -21,7 +21,7 @@ Determines whether the specified candidate is satisfied by TEntity.
 
 **Returns:** True if is satisfied by the specified candidate; otherwise false.
 
-### And
+## And
 
 **Signature:** `And(ISpecification<TEntity> specification)`
 
@@ -34,7 +34,7 @@ Ands the specified specification.
 
 **Returns:** Returns a new specification of type And.
 
-### Not
+## Not
 
 **Signature:** `Not()`
 
@@ -43,7 +43,7 @@ Performs the 'not' operators on this instance.
 
 **Returns:** Returns a new specification of type Not.
 
-### Or
+## Or
 
 **Signature:** `Or(ISpecification<TEntity> specification)`
 

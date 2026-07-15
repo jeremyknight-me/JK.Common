@@ -6,9 +6,9 @@
 
 Provides an implementation of the shell sort algorithm.
 
-### Sort
+## Sort
 
-**Signature:** `Sort(IList<T> list)`
+**Signature:** `Sort<T>(IList<T> list)`
 
 **Summary:**
 Sorts the specified list in ascending order using the shell sort algorithm.

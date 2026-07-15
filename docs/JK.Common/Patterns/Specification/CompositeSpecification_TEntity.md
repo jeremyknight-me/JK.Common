@@ -8,7 +8,7 @@ Generic CompositeSpecification.
 
 **Type Parameter:** `TEntity` — The type of entity.
 
-### CompositeSpecification<TEntity>
+## CompositeSpecification<TEntity>
 
 **Summary:** Initializes a new instance of the CompositeSpecification class.
 
@@ -18,14 +18,14 @@ Generic CompositeSpecification.
 
 - **rightEntity** — The right entity.
 
-### Left
+## Left
 
 **Signature:** `Left`
 
 **Summary:**
 The composite specification's left entity.
 
-### Right
+## Right
 
 **Signature:** `Right`
 

@@ -6,7 +6,7 @@
 
 Helper methods for working with date ranges.
 
-### DoesOverlap
+## DoesOverlap(DateTime startOne, DateTime endOne, DateTime startTwo, DateTime endTwo)
 
 **Signature:** `DoesOverlap(DateTime startOne, DateTime endOne, DateTime startTwo, DateTime endTwo)`
 
@@ -25,7 +25,7 @@ Determines whether or not two date ranges overlap.
 
 **Returns:** True if overlap, otherwise false.
 
-### DoesOverlap
+## DoesOverlap(DateTimeOffset startOne, DateTimeOffset endOne, DateTimeOffset startTwo, DateTimeOffset endTwo)
 
 **Signature:** `DoesOverlap(DateTimeOffset startOne, DateTimeOffset endOne, DateTimeOffset startTwo, DateTimeOffset endTwo)`
 
@@ -44,7 +44,7 @@ Determines whether or not two date ranges overlap.
 
 **Returns:** True if overlap, otherwise false.
 
-### DoesOverlap
+## DoesOverlap(DateOnly startOne, DateOnly endOne, DateOnly startTwo, DateOnly endTwo)
 
 **Signature:** `DoesOverlap(DateOnly startOne, DateOnly endOne, DateOnly startTwo, DateOnly endTwo)`
 

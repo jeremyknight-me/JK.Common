@@ -6,7 +6,7 @@
 
 Extension methods for **ModelConfigurationBuilder** .
 
-### ApplyConventionPreferences
+## ApplyConventionPreferences
 
 **Signature:** `ApplyConventionPreferences(ModelConfigurationBuilder configurationBuilder)`
 

@@ -6,42 +6,42 @@
 
 Represents the display format for geographic coordinates.
 
-### Degrees
+## Degrees
 
 **Signature:** `Degrees`
 
 **Summary:**
 Degrees only (DDD.dddddddd).
 
-### DegreesMinutes
+## DegreesMinutes
 
 **Signature:** `DegreesMinutes`
 
 **Summary:**
 Degrees and minutes (DDD° MM.mmm').
 
-### DegreesMinutesSeconds
+## DegreesMinutesSeconds
 
 **Signature:** `DegreesMinutesSeconds`
 
 **Summary:**
 Degrees, minutes, and seconds (DDD° MM' SS").
 
-### DegreesDirection
+## DegreesDirection
 
 **Signature:** `DegreesDirection`
 
 **Summary:**
 Degrees and direction (DDD° [N|S|E|W]).
 
-### DegreesMinutesDirection
+## DegreesMinutesDirection
 
 **Signature:** `DegreesMinutesDirection`
 
 **Summary:**
 Degrees, minutes, and direction (DDD° MM.mmm' [N|S|E|W]).
 
-### DegreesMinutesSecondsDirection
+## DegreesMinutesSecondsDirection
 
 **Signature:** `DegreesMinutesSecondsDirection`
 

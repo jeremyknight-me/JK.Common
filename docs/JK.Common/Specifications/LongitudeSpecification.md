@@ -6,7 +6,7 @@
 
 Specification to determine if a decimal value is a valid longitude.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(Decimal candidate)`
 

@@ -4,11 +4,11 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **IQueryable** .
+Helper and utility extension methods for **IQueryable&lt;T&gt;** .
 
-### SortBy *(Inherited)*
+## SortBy(IQueryable<T>, Func<T, T2> keySelector, Boolean isAscending) *(Inherited)*
 
-**Signature:** `SortBy(IQueryable<T>, Func<T, T2> keySelector, Boolean isAscending)`
+**Signature:** `SortBy<T, T2>(IQueryable<T>, Func<T, T2> keySelector, Boolean isAscending)`
 
 **Summary:**
 Sorts the elements of a sequence in ascending or descending order according to a key.
@@ -19,11 +19,11 @@ Sorts the elements of a sequence in ascending or descending order according to a
 
 - **isAscending** — True to sort ascending, false for descending.
 
-**Returns:** An **IQueryableT2** whose elements are sorted according to a key.
+**Returns:** An **IQueryable&lt;T&gt;** whose elements are sorted according to a key.
 
-### SortBy *(Inherited)*
+## SortBy(IQueryable<T>, String propertyName, Boolean ascending) *(Inherited)*
 
-**Signature:** `SortBy(IQueryable<T>, String propertyName, Boolean ascending)`
+**Signature:** `SortBy<T>(IQueryable<T>, String propertyName, Boolean ascending)`
 
 **Summary:**
 Sorts the elements of a sequence in ascending or descending order according to a property name.
@@ -34,11 +34,11 @@ Sorts the elements of a sequence in ascending or descending order according to a
 
 - **ascending** — True to sort ascending, false for descending.
 
-**Returns:** An **IQueryable`1** whose elements are sorted according to the property name.
+**Returns:** An **IQueryable&lt;T&gt;** whose elements are sorted according to the property name.
 
-### WhereIf *(Inherited)*
+## WhereIf *(Inherited)*
 
-**Signature:** `WhereIf(IQueryable<T>, Boolean, Func<T condition, Boolean>> predicate)`
+**Signature:** `WhereIf<T>(IQueryable<T>, Boolean condition, Expression<Func<T, Boolean>> predicate)`
 
 **Summary:**
 Filters a sequence based on a condition.
@@ -49,4 +49,4 @@ Filters a sequence based on a condition.
 
 - **predicate** — A function to test each element for a condition.
 
-**Returns:** An **IQueryable`1** that contains elements from the input sequence that satisfy the condition if true, otherwise the original sequence.
+**Returns:** An **IQueryable&lt;T&gt;** that contains elements from the input sequence that satisfy the condition if true, otherwise the original sequence.

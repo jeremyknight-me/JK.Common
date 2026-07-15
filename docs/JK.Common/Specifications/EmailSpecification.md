@@ -6,7 +6,7 @@
 
 Specification to determine if a string is a valid email address.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

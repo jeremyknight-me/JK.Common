@@ -6,14 +6,16 @@
 
 Base class for entities that track creation and modification timestamps.
 
-### DateCreatedUtc *(Inherited)*
+## DateCreatedUtc *(Inherited)*
 
 **Signature:** `DateCreatedUtc`
 
 **Summary:**
+Gets the UTC date and time when the entity was created.
 
-### DateModifiedUtc *(Inherited)*
+## DateModifiedUtc *(Inherited)*
 
 **Signature:** `DateModifiedUtc`
 
 **Summary:**
+Gets the UTC date and time when the entity was last modified.

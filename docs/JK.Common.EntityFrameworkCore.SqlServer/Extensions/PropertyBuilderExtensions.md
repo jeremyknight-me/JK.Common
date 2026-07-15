@@ -4,11 +4,11 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Extensions`
 
-Extension methods for configuring SQL Server column types on **PropertyBuilder** .
+Extension methods for configuring SQL Server column types on **PropertyBuilder&lt;T&gt;** .
 
-### HasColumnTypeUniqueIdentifier
+## HasColumnTypeUniqueIdentifier(PropertyBuilder<Guid> propertyBuilder)
 
-**Signature:** `HasColumnTypeUniqueIdentifier(Guid> propertyBuilder)`
+**Signature:** `HasColumnTypeUniqueIdentifier(PropertyBuilder<Guid> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **uniqueidentifier** SQL Server column type.
@@ -19,9 +19,9 @@ Configures the property to use the **uniqueidentifier** SQL Server column type.
 
 **Returns:** The property builder for chaining.
 
-### HasColumnTypeUniqueIdentifier
+## HasColumnTypeUniqueIdentifier(PropertyBuilder<Nullable<Guid>> propertyBuilder)
 
-**Signature:** `HasColumnTypeUniqueIdentifier(Guid>> propertyBuilder)`
+**Signature:** `HasColumnTypeUniqueIdentifier(PropertyBuilder<Nullable<Guid>> propertyBuilder)`
 
 **Summary:**
 Configures the property to use the **uniqueidentifier** SQL Server column type.

@@ -4,19 +4,22 @@
 
 **Namespace:** `JK.Common.DateTimeProviders`
 
-### Now *(Inherited)*
+## Now *(Inherited)*
 
 **Signature:** `Now`
 
 **Summary:**
 
-### Today *(Inherited)*
+## Today *(Inherited)*
 
 **Signature:** `Today`
 
 **Summary:**
+Returns a Dat **DateTime** eTime representing the current date. The date part
+            of the returned value is the current date, and the time-of-day part of
+            the returned value is zero (midnight).
 
-### UtcNow *(Inherited)*
+## UtcNow *(Inherited)*
 
 **Signature:** `UtcNow`
 

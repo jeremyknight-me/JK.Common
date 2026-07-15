@@ -6,9 +6,9 @@
 
 Provides an implementation of the bubble sort algorithm.
 
-### Sort
+## Sort
 
-**Signature:** `Sort(IList<T> data)`
+**Signature:** `Sort<T>(IList<T> data)`
 
 **Summary:**
 Sorts the specified list in ascending order using the bubble sort algorithm.

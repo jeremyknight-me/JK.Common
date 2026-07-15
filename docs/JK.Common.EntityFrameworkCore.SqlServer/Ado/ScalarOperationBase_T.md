@@ -8,9 +8,9 @@ Base class for ADO.NET operations that return a single scalar value.
 
 **Type Parameter:** `T` — The type of the scalar result.
 
-### ScalarOperationBase<T>
+## ScalarOperationBase<T>
 
-**Summary:** Initializes a new instance of the **ScalarOperationBase`1** class.
+**Summary:** Initializes a new instance of the **ScalarOperationBaseT** class.
 
 **Parameters:**
 
@@ -20,7 +20,7 @@ Base class for ADO.NET operations that return a single scalar value.
 
 - **adoCommandText** — The ADO command text.
 
-### Execute
+## Execute
 
 **Signature:** `Execute()`
 

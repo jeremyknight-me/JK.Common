@@ -6,9 +6,9 @@
 
 Provides a static implementation of the insertion sort algorithm.
 
-### Sort
+## Sort
 
-**Signature:** `Sort(IList<T> list)`
+**Signature:** `Sort<T>(IList<T> list)`
 
 **Summary:**
 Sorts the specified list in ascending order using the insertion sort algorithm.

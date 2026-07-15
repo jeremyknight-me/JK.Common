@@ -6,7 +6,7 @@
 
 Specification that determines if a **DateTime** value is valid for a SQL 'datetime' column (year >= 1753).
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(DateTime candidate)`
 

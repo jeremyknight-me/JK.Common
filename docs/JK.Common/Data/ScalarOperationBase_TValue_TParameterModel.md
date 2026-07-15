@@ -10,15 +10,15 @@ Provides a base class for scalar operations with parameter models.
 
 **Type Parameter:** `TParameterModel` — The type of the parameter model.
 
-### ScalarOperationBase<TValue, TParameterModel>
+## ScalarOperationBase<TValue, TParameterModel>
 
-**Summary:** Initializes a new instance of the **ScalarOperationBase`2** class.
+**Summary:** Initializes a new instance of the **ScalarOperationBaseT** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-### Execute
+## Execute
 
 **Signature:** `Execute(TParameterModel parameterModel)`
 

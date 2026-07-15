@@ -199,6 +199,8 @@ static partial class Regexes
     public static partial Regex TrailingGeneric();
     [GeneratedRegex(@"`+(\d+)")]
     public static partial Regex GenericArg();
+    [GeneratedRegex(@"`{2,}(\d+)")]
+    public static partial Regex MethodGenericArg();
     [GeneratedRegex(@"`+\d+")]
     public static partial Regex GenericTick();
     [GeneratedRegex(@"^[TMPFE]:")]
@@ -209,8 +211,6 @@ static partial class Regexes
     public static partial Regex UnsafeChars();
     [GeneratedRegex(@"\((.+)\)$")]
     public static partial Regex MethodParams();
-    [GeneratedRegex(@".*\.")]
-    public static partial Regex NamespacePrefix();
     [GeneratedRegex(@"\[\]$")]
     public static partial Regex TrailingArray();
     [GeneratedRegex(@".*\.(\w+)`?\d*\[")]
@@ -262,6 +262,7 @@ class TypeDoc
 class MemberDoc
 {
     public string DisplayName { get; set; } = "";
+    public string Heading { get; set; } = "";
     public string InheritedSuffix { get; set; } = "";
     public string Signature { get; set; } = "";
     public string Summary { get; set; } = "";
@@ -326,7 +327,9 @@ class Template
 
         result = Regexes.Var().Replace(result, m =>
         {
-            var val = GetNestedValue(context, m.Groups[1].Value);
+            var key = m.Groups[1].Value;
+            if (key.All(char.IsDigit)) return m.Value;
+            var val = GetNestedValue(context, key);
             return val ?? "";
         });
 
@@ -407,11 +410,11 @@ class XmlDocParser
         var types = new Dictionary<string, TypeDoc>();
         string rootNamespace = doc.Root?.Element("assembly")?.Element("name")?.Value ?? "";
 
-        // First pass: collect <G>$ members for inheritdoc resolution
+        // First pass: collect members for inheritdoc resolution
         foreach (var member in doc.Descendants("member"))
         {
             var name = member.Attribute("name")?.Value;
-            if (name != null && name.Contains("<G>$"))
+            if (name != null)
                 _generatedMembers[name] = member;
         }
 
@@ -482,16 +485,21 @@ class XmlDocParser
             {
                 var typeDoc = types[key];
 
-                // For generic methods on non-generic types, extract method-level type params
+                // Extract method-level type params (appended after type-level params)
                 var methodTypeParamNames = new List<string>(typeDoc.TypeParamNames);
-                if (kind == "M:" && methodTypeParamNames.Count == 0)
+                var methodGenericTypeParams = new List<string>();
+                if (kind == "M:")
                 {
                     var methodGenericMatch = Regexes.GenericArg().Match(beforeParams);
                     if (methodGenericMatch.Success)
                     {
                         var count = int.Parse(methodGenericMatch.Groups[1].Value);
                         for (int i = 0; i < count; i++)
-                            methodTypeParamNames.Add(i == 0 ? "T" : $"T{i + 1}");
+                        {
+                            var tpName = i == 0 ? "T" : $"T{i + 1}";
+                            methodTypeParamNames.Add(tpName);
+                            methodGenericTypeParams.Add(tpName);
+                        }
                     }
                 }
 
@@ -537,7 +545,20 @@ class XmlDocParser
         var memberPart = lastDot >= 0 ? beforeParams.Substring(lastDot + 1) : beforeParams;
 
         var displayName = Regexes.GenericTick().Replace(memberPart, "");
-        var signature = BuildSignature(full, displayName, kind, typeParamNames);
+
+        var methodGenericArity = 0;
+        var arityMatch = Regexes.GenericArg().Match(memberPart);
+        if (arityMatch.Success)
+            methodGenericArity = int.Parse(arityMatch.Groups[1].Value);
+
+        var methodGenericTypeParams = new List<string>();
+        if (methodGenericArity > 0)
+        {
+            for (int i = 0; i < methodGenericArity; i++)
+                methodGenericTypeParams.Add(i == 0 ? "T" : $"T{i + 1}");
+        }
+
+        var signature = BuildSignature(full, displayName, kind, typeParamNames, methodGenericTypeParams);
         var isInherited = member.Element("inheritdoc") != null;
 
         XElement? source = member;
@@ -545,17 +566,31 @@ class XmlDocParser
         {
             var cref = member.Element("inheritdoc")!.Attribute("cref")?.Value;
             if (cref != null && _generatedMembers.TryGetValue(cref, out var target))
+            {
                 source = target;
+            }
+            else if (cref == null)
+            {
+                var currentMethodName = name.Contains('.') ? name.Substring(name.LastIndexOf('.') + 1) : name;
+                var inheritedMatch = _generatedMembers
+                    .Where(kvp => kvp.Key != name &&
+                                  kvp.Key.EndsWith($".{currentMethodName}") &&
+                                  !kvp.Key.Contains("<G>$"))
+                    .Select(kvp => kvp.Value)
+                    .FirstOrDefault();
+                if (inheritedMatch != null)
+                    source = inheritedMatch;
+            }
         }
 
-        var summary = ConvertXmlToMarkdown(source.Element("summary"), typeParamNames) ?? "";
-        var remarks = ConvertXmlToMarkdown(source.Element("remarks"), typeParamNames) ?? "";
-        var returns = ConvertXmlToMarkdown(source.Element("returns"), typeParamNames) ?? "";
+        var summary = ConvertXmlToMarkdown(source.Element("summary"), typeParamNames, methodGenericTypeParams) ?? "";
+        var remarks = ConvertXmlToMarkdown(source.Element("remarks"), typeParamNames, methodGenericTypeParams) ?? "";
+        var returns = ConvertXmlToMarkdown(source.Element("returns"), typeParamNames, methodGenericTypeParams) ?? "";
 
         var paramList = source.Elements("param")
             .Select(p => new ParamInfo(
                 p.Attribute("name")?.Value ?? "",
-                ConvertXmlToMarkdown(p, typeParamNames) ?? ""
+                ConvertXmlToMarkdown(p, typeParamNames, methodGenericTypeParams) ?? ""
             )).ToList();
 
         signature = AppendParamNames(signature, paramList);
@@ -566,10 +601,10 @@ class XmlDocParser
                 var cref = e.Attribute("cref")?.Value ?? "";
                 cref = Regexes.CrefPrefix().Replace(cref, "");
                 cref = Regexes.CrefParams().Replace(cref, "");
-                return new ExceptionInfo(cref, ConvertXmlToMarkdown(e, typeParamNames) ?? "");
+                return new ExceptionInfo(cref, ConvertXmlToMarkdown(e, typeParamNames, methodGenericTypeParams) ?? "");
             }).ToList();
 
-        var example = ConvertXmlToMarkdown(source.Element("example"), typeParamNames) ?? "";
+        var example = ConvertXmlToMarkdown(source.Element("example"), typeParamNames, methodGenericTypeParams) ?? "";
         var seeAlso = source.Elements("seealso")
             .Select(sa => sa.Attribute("cref")?.Value ?? "")
             .Where(c => c.Length > 0)
@@ -591,34 +626,50 @@ class XmlDocParser
         };
     }
 
-    private string BuildSignature(string full, string displayName, string kind, List<string> typeParamNames)
+    private string BuildSignature(string full, string displayName, string kind, List<string> typeParamNames, List<string> methodGenericTypeParams)
     {
         if (kind != "M:") return displayName;
 
+        var genericDisplay = methodGenericTypeParams.Count > 0
+            ? $"<{string.Join(", ", methodGenericTypeParams)}>"
+            : "";
+
         var match = Regexes.MethodParams().Match(full);
-        if (!match.Success) return $"{displayName}()";
+        if (!match.Success)
+        {
+            return $"{displayName}{genericDisplay}()";
+        }
 
         var paramStr = match.Groups[1].Value;
-        var displayParams = paramStr.Split(',')
+        var typeParamCount = typeParamNames.Count - methodGenericTypeParams.Count;
+        var converted = paramStr.Replace("{", "<").Replace("}", ">");
+        var displayParams = SplitParams(converted)
             .Select(p =>
             {
                 p = p.Trim();
-                p = p.Replace("{", "<").Replace("}", ">");
-                p = Regexes.NamespacePrefix().Replace(p, "");
+                p = StripNamespace(p);
+                p = Regexes.MethodGenericArg().Replace(p, m =>
+                {
+                    var idx = int.Parse(m.Groups[1].Value);
+                    var adjustedIdx = typeParamCount + idx;
+                    return adjustedIdx < typeParamNames.Count ? typeParamNames[adjustedIdx] : m.Value;
+                });
+                p = Regexes.GenericArg().Replace(p, m =>
+                {
+                    var idx = int.Parse(m.Groups[1].Value);
+                    return idx < typeParamCount ? typeParamNames[idx] : m.Value;
+                });
+                p = Regexes.GenericTick().Replace(p, "");
                 p = p.Replace("@", "");
                 p = Regexes.TrailingArray().Replace(p, "[]");
                 p = Regexes.GenericArray().Replace(p, "$1<");
                 p = Regexes.TrailingBracket().Replace(p, ">");
-                p = Regexes.GenericArg().Replace(p, m =>
-                {
-                    var idx = int.Parse(m.Groups[1].Value);
-                    return idx < typeParamNames.Count ? typeParamNames[idx] : m.Value;
-                });
+                p = NormalizeGenericSpacing(p);
                 return p;
             })
             .ToList();
 
-        return $"{displayName}({string.Join(", ", displayParams)})";
+        return $"{displayName}{genericDisplay}({string.Join(", ", displayParams)})";
     }
 
     private string AppendParamNames(string signature, List<ParamInfo> paramList)
@@ -632,7 +683,7 @@ class XmlDocParser
         var paramStr = signature.Substring(open + 1, close - open - 1);
         if (string.IsNullOrWhiteSpace(paramStr)) return signature;
 
-        var types = paramStr.Split(',').Select(t => t.Trim()).ToList();
+        var types = SplitParams(paramStr);
         var offset = types.Count - paramList.Count;
         if (offset < 0) return signature;
 
@@ -651,7 +702,86 @@ class XmlDocParser
         return $"{signature.Substring(0, open + 1)}{string.Join(", ", enhanced)}{signature.Substring(close)}";
     }
 
-    private string? ConvertXmlToMarkdown(XElement? node, List<string>? typeParamNames = null)
+    private static string StripNamespace(string type)
+    {
+        var sb = new System.Text.StringBuilder(type.Length);
+        int depth = 0;
+        int segStart = 0;
+        for (int i = 0; i <= type.Length; i++)
+        {
+            bool atEnd = i == type.Length;
+            char c = atEnd ? '\0' : type[i];
+            if (c == '<' || c == ',' || c == '>' || atEnd)
+            {
+                var segment = sb.ToString(segStart, sb.Length - segStart);
+                var lastDot = segment.LastIndexOf('.');
+                if (lastDot >= 0)
+                    sb.Remove(segStart, lastDot + 1);
+                if (!atEnd) sb.Append(c);
+                if (c == '<') depth++;
+                else if (c == '>') depth--;
+                segStart = sb.Length;
+            }
+            else
+            {
+                sb.Append(c);
+            }
+        }
+        return sb.ToString();
+    }
+
+    private static List<string> SplitParams(string paramStr)
+    {
+        var result = new List<string>();
+        int depth = 0, start = 0;
+        for (int i = 0; i <= paramStr.Length; i++)
+        {
+            if (i == paramStr.Length || (paramStr[i] == ',' && depth == 0))
+            {
+                result.Add(paramStr.Substring(start, i - start).Trim());
+                start = i + 1;
+            }
+            else if (i < paramStr.Length && paramStr[i] == '<') depth++;
+            else if (i < paramStr.Length && paramStr[i] == '>') depth--;
+        }
+        return result;
+    }
+
+    private static string FormatGenericArity(string aritySuffix)
+    {
+        var digits = System.Text.RegularExpressions.Regex.Match(aritySuffix, @"\d+");
+        if (!digits.Success) return "";
+        var n = int.Parse(digits.Value);
+        if (n <= 0) return "";
+        var names = new System.Collections.Generic.List<string>(n);
+        for (int i = 0; i < n; i++)
+            names.Add(i == 0 ? "T" : $"T{i + 1}");
+        return $"&lt;{string.Join(", ", names)}&gt;";
+    }
+
+    private static string NormalizeGenericSpacing(string type)
+    {
+        int depth = 0;
+        var sb = new System.Text.StringBuilder(type.Length + 4);
+        for (int i = 0; i < type.Length; i++)
+        {
+            if (type[i] == '<') depth++;
+            else if (type[i] == '>') depth--;
+            if (type[i] == ',' && depth > 0)
+            {
+                sb.Append(',');
+                if (i + 1 < type.Length && type[i + 1] != ' ')
+                    sb.Append(' ');
+            }
+            else
+            {
+                sb.Append(type[i]);
+            }
+        }
+        return sb.ToString();
+    }
+
+    private string? ConvertXmlToMarkdown(XElement? node, List<string>? typeParamNames = null, List<string>? methodGenericTypeParams = null)
     {
         if (node == null) return null;
 
@@ -671,13 +801,21 @@ class XmlDocParser
                         var crName = Regexes.CrefPrefix().Replace(cref, "");
                         crName = Regexes.CrefParams().Replace(crName, "");
                         if (typeParamNames != null && typeParamNames.Count > 0)
+                        {
+                            var typeParamCount = typeParamNames.Count - (methodGenericTypeParams?.Count ?? 0);
+                            crName = Regexes.MethodGenericArg().Replace(crName, m =>
+                            {
+                                var idx = int.Parse(m.Groups[1].Value);
+                                var adjustedIdx = typeParamCount + idx;
+                                return adjustedIdx < typeParamNames.Count ? typeParamNames[adjustedIdx] : m.Value;
+                            });
                             crName = Regexes.GenericArg().Replace(crName, m =>
                             {
                                 var idx = int.Parse(m.Groups[1].Value);
-                                return idx < typeParamNames.Count ? typeParamNames[idx] : m.Value;
+                                return idx < typeParamCount ? typeParamNames[idx] : m.Value;
                             });
-                        else
-                            crName = Regexes.GenericTick().Replace(crName, "");
+                        }
+                        crName = Regexes.GenericTick().Replace(crName, m => FormatGenericArity(m.Value));
                         var crDisplay = el.Value.Length > 0 ? el.Value : crName.Split('.').Last();
                         parts.Add($"**{crDisplay}**");
                         break;
@@ -696,20 +834,20 @@ class XmlDocParser
                         parts.Add($"**{el.Attribute("name")?.Value ?? ""}**");
                         break;
                     case "c":
-                        parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames)}**");
+                        parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}**");
                         break;
                     case "code":
                         var lang = el.Attribute("language")?.Value ?? "";
                         parts.Add($"```{lang}\n{el.Value.TrimEnd()}\n```");
                         break;
                     case "b":
-                        parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames)}**");
+                        parts.Add($"**{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}**");
                         break;
                     case "i":
-                        parts.Add($"*{ConvertXmlToMarkdown(el, typeParamNames)}*");
+                        parts.Add($"*{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}*");
                         break;
                     case "u":
-                        parts.Add($"<u>{ConvertXmlToMarkdown(el, typeParamNames)}</u>");
+                        parts.Add($"<u>{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}</u>");
                         break;
                     case "br":
                         parts.Add("\n");
@@ -720,15 +858,15 @@ class XmlDocParser
                         parts.Add($"[{aText}]({aHref})");
                         break;
                     case "para":
-                        parts.Add($"\n{ConvertXmlToMarkdown(el, typeParamNames)}\n");
+                        parts.Add($"\n{ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}\n");
                         break;
                     case "list":
                         var listType = el.Attribute("type")?.Value ?? "bullet";
                         var listParts = el.Elements("item")
                             .Select((item, idx) =>
                             {
-                                var term = ConvertXmlToMarkdown(item.Element("term"), typeParamNames) ?? "";
-                                var desc = ConvertXmlToMarkdown(item.Element("description"), typeParamNames) ?? "";
+                                var term = ConvertXmlToMarkdown(item.Element("term"), typeParamNames, methodGenericTypeParams) ?? "";
+                                var desc = ConvertXmlToMarkdown(item.Element("description"), typeParamNames, methodGenericTypeParams) ?? "";
                                 return listType == "number"
                                     ? $"{idx + 1}. **{term}** — {desc}"
                                     : $"- **{term}** — {desc}";
@@ -739,15 +877,32 @@ class XmlDocParser
                         var exCref = el.Attribute("cref")?.Value ?? "";
                         exCref = Regexes.CrefPrefix().Replace(exCref, "");
                         exCref = Regexes.CrefParams().Replace(exCref, "");
-                        parts.Add($"- **{exCref}**: {ConvertXmlToMarkdown(el, typeParamNames)}");
+                        parts.Add($"- **{exCref}**: {ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams)}");
                         break;
                     default:
-                        parts.Add(ConvertXmlToMarkdown(el, typeParamNames) ?? "");
+                        parts.Add(ConvertXmlToMarkdown(el, typeParamNames, methodGenericTypeParams) ?? "");
                         break;
                 }
             }
         }
-        return string.Join(" ", parts).Trim();
+        var result = string.Join(" ", parts).Trim();
+        if (typeParamNames != null && typeParamNames.Count > 0)
+        {
+            var typeParamCount = typeParamNames.Count - (methodGenericTypeParams?.Count ?? 0);
+            result = Regexes.MethodGenericArg().Replace(result, m =>
+            {
+                var idx = int.Parse(m.Groups[1].Value);
+                var adjustedIdx = typeParamCount + idx;
+                return adjustedIdx < typeParamNames.Count ? typeParamNames[adjustedIdx] : m.Value;
+            });
+            result = Regexes.GenericArg().Replace(result, m =>
+            {
+                var idx = int.Parse(m.Groups[1].Value);
+                return idx < typeParamCount ? typeParamNames[idx] : m.Value;
+            });
+        }
+        result = Regexes.GenericTick().Replace(result, m => FormatGenericArity(m.Value));
+        return result;
     }
 }
 
@@ -779,10 +934,27 @@ class MarkdownGenerator
             var folder = Path.Combine(outputPath, nsFolder);
             Directory.CreateDirectory(folder);
 
-            var methodBodies = typeDoc.Methods.Select(m => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(m)); }).ToList();
             var propertyBodies = typeDoc.Properties.Select(p => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(p)); }).ToList();
             var eventBodies = typeDoc.Events.Select(e => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(e)); }).ToList();
             var fieldBodies = typeDoc.Fields.Select(f => { membersProcessed++; return _memberTemplate.Render(BuildMemberContext(f)); }).ToList();
+
+            var methodOverloadCounts = typeDoc.Methods.GroupBy(m => m.DisplayName).ToDictionary(g => g.Key, g => g.Count());
+            var methodHeadings = typeDoc.Methods.Select(m =>
+            {
+                var count = methodOverloadCounts.GetValueOrDefault(m.DisplayName, 1);
+                if (count <= 1) return m.DisplayName;
+                var sigParts = m.Signature;
+                var parenIndex = sigParts.IndexOf('(');
+                return parenIndex >= 0 ? $"{m.DisplayName}{sigParts.Substring(parenIndex)}" : m.DisplayName;
+            }).ToList();
+
+            var methodBodies2 = typeDoc.Methods.Select((m, i) =>
+            {
+                membersProcessed++;
+                m.Heading = methodHeadings[i];
+                return _memberTemplate.Render(BuildMemberContext(m));
+            }).ToList();
+
             var nestedBodies = typeDoc.NestedTypes.Select(n => $"### {n.TypeName}\n\n{n.Summary}").ToList();
 
             var context = new Dictionary<string, object?>
@@ -805,7 +977,7 @@ class MarkdownGenerator
                         ["Remarks"] = c.Remarks
                     };
                 }).ToList(),
-                ["Methods"] = methodBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
+                ["Methods"] = methodBodies2.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Properties"] = propertyBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Events"] = eventBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
                 ["Fields"] = fieldBodies.Select(b => new Dictionary<string, object?> { ["Body"] = b }).ToList(),
@@ -898,6 +1070,7 @@ class MarkdownGenerator
         return new Dictionary<string, object?>
         {
             ["DisplayName"] = member.DisplayName,
+            ["Heading"] = string.IsNullOrEmpty(member.Heading) ? member.DisplayName : member.Heading,
             ["InheritedSuffix"] = member.InheritedSuffix,
             ["Signature"] = member.Signature,
             ["Summary"] = member.Summary,

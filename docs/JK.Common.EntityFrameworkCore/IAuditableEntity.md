@@ -6,14 +6,14 @@
 
 Defines an entity that tracks creation and modification timestamps.
 
-### DateCreatedUtc
+## DateCreatedUtc
 
 **Signature:** `DateCreatedUtc`
 
 **Summary:**
 Gets the UTC date and time when the entity was created.
 
-### DateModifiedUtc
+## DateModifiedUtc
 
 **Signature:** `DateModifiedUtc`
 

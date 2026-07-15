@@ -6,7 +6,7 @@
 
 Class which places values from objects into a given template.
 
-### TemplateProcessor
+## TemplateProcessor
 
 **Summary:** Initializes a new instance of the **TemplateProcessor** class.
 
@@ -14,7 +14,7 @@ Class which places values from objects into a given template.
 
 - **template** — Template place data values into.
 
-### TemplateProcessor
+## TemplateProcessor
 
 **Summary:** Initializes a new instance of the **TemplateProcessor** class.
 
@@ -26,7 +26,7 @@ Class which places values from objects into a given template.
 
 - **tokenEnd** — Ending value of the tokens used in the template.
 
-### ProcessTemplate
+## ProcessTemplate
 
 **Signature:** `ProcessTemplate()`
 
@@ -35,21 +35,21 @@ Processes the template using the given objects.
 
 **Returns:** Template format with data inserted where tokens existed.
 
-### Objects
+## Objects
 
 **Signature:** `Objects`
 
 **Summary:**
 Gets or sets the list of objects containing the data to be used in the template.
 
-### TokenStart
+## TokenStart
 
 **Signature:** `TokenStart`
 
 **Summary:**
 Gets or sets the starting value of the tokens used in the template.
 
-### TokenEnd
+## TokenEnd
 
 **Signature:** `TokenEnd`
 

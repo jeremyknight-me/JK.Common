@@ -6,16 +6,16 @@
 
 Helper and utility extension methods for **Type** .
 
-### DoesImplement *(Inherited)*
+## DoesImplement *(Inherited)*
 
-**Signature:** `DoesImplement(Type)`
+**Signature:** `DoesImplement<T>(Type)`
 
 **Summary:**
 Determines whether or not a type implements the given interface.
 
 **Returns:** True if implemented, otherwise false.
 
-### GetTypeFromEntity *(Inherited)*
+## GetTypeFromEntity *(Inherited)*
 
 **Signature:** `GetTypeFromEntity(Type)`
 
@@ -24,25 +24,25 @@ Attempts to get the underlying **Type** from an Entity Framework proxied type.
 
 **Returns:** Underlying entity **Type** .
 
-### IsNullable *(Inherited)*
+## IsNullable(Type) *(Inherited)*
 
 **Signature:** `IsNullable(Type)`
 
 **Summary:**
-Determines whether or not a type is nullable (including **Nullable** , aka T?)
+Determines whether or not a type is nullable (including **Nullable&lt;T&gt;** , aka T?)
 
 **Returns:** True if nullable, otherwise false
 
-### IsNullable *(Inherited)*
+## IsNullable(Type) *(Inherited)*
 
-**Signature:** `IsNullable(Type)`
+**Signature:** `IsNullable<T>(Type)`
 
 **Summary:**
-Determines whether or not a type is nullable (including **Nullable`1** , aka T?)
+Determines whether or not a type is nullable (including **Nullable&lt;T&gt;** , aka T?)
 
 **Returns:** True if nullable, otherwise false
 
-### IsNullableT *(Inherited)*
+## IsNullableT *(Inherited)*
 
 **Signature:** `IsNullableT(Type)`
 

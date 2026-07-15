@@ -6,7 +6,7 @@
 
 Represents a longitude ("x" axis) coordinate.
 
-### Longitude
+## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class.
 
@@ -14,7 +14,7 @@ Represents a longitude ("x" axis) coordinate.
 
 - **degrees** — The degrees component of the longitude.
 
-### Longitude
+## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class.
 
@@ -24,7 +24,7 @@ Represents a longitude ("x" axis) coordinate.
 
 - **minutes** — The minutes component of the longitude.
 
-### Longitude
+## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class.
 
@@ -36,7 +36,7 @@ Represents a longitude ("x" axis) coordinate.
 
 - **seconds** — The seconds component of the longitude.
 
-### Longitude
+## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class with a direction.
 
@@ -46,7 +46,7 @@ Represents a longitude ("x" axis) coordinate.
 
 - **direction** — The cardinal direction of the longitude.
 
-### Longitude
+## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class with minutes and a direction.
 
@@ -58,7 +58,7 @@ Represents a longitude ("x" axis) coordinate.
 
 - **direction** — The cardinal direction of the longitude.
 
-### Longitude
+## Longitude
 
 **Summary:** Initializes a new instance of the **Longitude** class with minutes, seconds, and a direction.
 
@@ -72,32 +72,43 @@ Represents a longitude ("x" axis) coordinate.
 
 - **direction** — The cardinal direction of the longitude.
 
-### GetValidDirections *(Inherited)*
+## GetValidDirections *(Inherited)*
 
 **Signature:** `GetValidDirections()`
 
 **Summary:**
+Gets the valid directions for the coordinate type.
 
-### SetIsNegative *(Inherited)*
+**Returns:** A collection of valid directions.
 
-**Signature:** `SetIsNegative(Direction)`
+## SetIsNegative *(Inherited)*
+
+**Signature:** `SetIsNegative(Direction direction)`
 
 **Summary:**
+Sets whether the coordinate is negative based on the direction.
 
-### Direction *(Inherited)*
+**Parameters:**
+
+- **direction** — The direction to evaluate.
+
+## Direction *(Inherited)*
 
 **Signature:** `Direction`
 
 **Summary:**
+Gets the cardinal direction of the coordinate.
 
-### CoordinateType *(Inherited)*
+## CoordinateType *(Inherited)*
 
 **Signature:** `CoordinateType`
 
 **Summary:**
+Gets the coordinate type (latitude or longitude).
 
-### ValidationSpecification *(Inherited)*
+## ValidationSpecification *(Inherited)*
 
 **Signature:** `ValidationSpecification`
 
 **Summary:**
+Gets the validation specification for the coordinate.

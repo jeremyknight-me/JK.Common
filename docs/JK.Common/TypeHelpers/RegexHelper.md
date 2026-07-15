@@ -6,7 +6,7 @@
 
 Helper methods for common regular expression validations.
 
-### IsAlphabetical
+## IsAlphabetical
 
 **Signature:** `IsAlphabetical(String value)`
 
@@ -19,7 +19,7 @@ Determines whether the input string contains only alphabetical characters.
 
 **Returns:** **true** if the string is alphabetical; otherwise, **false** .
 
-### IsAlphanumeric
+## IsAlphanumeric
 
 **Signature:** `IsAlphanumeric(String value)`
 
@@ -32,7 +32,7 @@ Determines whether the input string contains only alphanumeric characters.
 
 **Returns:** **true** if the string is alphanumeric; otherwise, **false** .
 
-### IsDecimal
+## IsDecimal
 
 **Signature:** `IsDecimal(String value)`
 
@@ -45,7 +45,7 @@ Determines whether the input string is a valid decimal number.
 
 **Returns:** **true** if the string is a decimal; otherwise, **false** .
 
-### IsDecimalOrCurrency
+## IsDecimalOrCurrency
 
 **Signature:** `IsDecimalOrCurrency(String value)`
 
@@ -58,7 +58,7 @@ Determines whether the input string is a valid decimal or currency value.
 
 **Returns:** **true** if the string is a decimal or currency; otherwise, **false** .
 
-### IsEmailAddress
+## IsEmailAddress
 
 **Signature:** `IsEmailAddress(String value)`
 
@@ -71,7 +71,7 @@ Determines whether the input string is a valid email address.
 
 **Returns:** **true** if the string is an email address; otherwise, **false** .
 
-### IsInteger
+## IsInteger
 
 **Signature:** `IsInteger(String value)`
 
@@ -84,7 +84,7 @@ Determines whether the input string is a valid integer.
 
 **Returns:** **true** if the string is an integer; otherwise, **false** .
 
-### IsIPv4
+## IsIPv4
 
 **Signature:** `IsIPv4(String value)`
 
@@ -97,7 +97,7 @@ Determines whether the input string is a valid IPv4 address.
 
 **Returns:** **true** if the string is an IPv4 address; otherwise, **false** .
 
-### IsSocialSecurityNumber
+## IsSocialSecurityNumber
 
 **Signature:** `IsSocialSecurityNumber(String value)`
 
@@ -110,7 +110,7 @@ Determines whether the input string is a valid US Social Security Number.
 
 **Returns:** **true** if the string is a valid SSN; otherwise, **false** .
 
-### IsUnitedStatesPhoneNumber
+## IsUnitedStatesPhoneNumber
 
 **Signature:** `IsUnitedStatesPhoneNumber(String value)`
 
@@ -123,7 +123,7 @@ Determines whether the input string is a valid United States phone number.
 
 **Returns:** **true** if the string is a valid US phone number; otherwise, **false** .
 
-### IsUrl
+## IsUrl
 
 **Signature:** `IsUrl(String value)`
 
@@ -136,7 +136,7 @@ Determines whether the input string is a valid URL.
 
 **Returns:** **true** if the string is a valid URL; otherwise, **false** .
 
-### IsZipCode
+## IsZipCode
 
 **Signature:** `IsZipCode(String value)`
 
@@ -149,7 +149,7 @@ Determines whether the input string is a valid US or Canadian zip code.
 
 **Returns:** **true** if the string is a valid zip code; otherwise, **false** .
 
-### AlphabeticalRegex
+## AlphabeticalRegex
 
 **Signature:** `AlphabeticalRegex()`
 
@@ -171,7 +171,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### AlphanumericRegex
+## AlphanumericRegex
 
 **Signature:** `AlphanumericRegex()`
 
@@ -193,7 +193,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### DecimalRegex
+## DecimalRegex
 
 **Signature:** `DecimalRegex()`
 
@@ -201,7 +201,7 @@ RegexOptions.IgnoreCase
 
 **Remarks:** Pattern: 
  ```
-^(((\\d{1,3},?)(\\d,?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
+^(((\\d{1,3},?)(\\d{3},?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
 ``` 
  Options: 
  ```
@@ -232,7 +232,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### DecimalOrCurrencyRegex
+## DecimalOrCurrencyRegex
 
 **Signature:** `DecimalOrCurrencyRegex()`
 
@@ -240,7 +240,7 @@ RegexOptions.IgnoreCase
 
 **Remarks:** Pattern: 
  ```
-^(-|\\$|-\\$|\\$-)?(((\\d{1,3},?)(\\d,?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
+^(-|\\$|-\\$|\\$-)?(((\\d{1,3},?)(\\d{3},?)+|\\d{1,3})|\\d+)(\\.\\d{1,2})?$
 ``` 
  Options: 
  ```
@@ -277,7 +277,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### EmailAddressRegex
+## EmailAddressRegex
 
 **Signature:** `EmailAddressRegex()`
 
@@ -304,7 +304,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### IntegerRegex
+## IntegerRegex
 
 **Signature:** `IntegerRegex()`
 
@@ -327,7 +327,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### IPv4Regex
+## IPv4Regex
 
 **Signature:** `IPv4Regex()`
 
@@ -407,7 +407,7 @@ RegexOptions.IgnoreCase
             ○ Match if at a word boundary.
 ```
 
-### SocialSecurityNumberRegex
+## SocialSecurityNumberRegex
 
 **Signature:** `SocialSecurityNumberRegex()`
 
@@ -415,7 +415,7 @@ RegexOptions.IgnoreCase
 
 **Remarks:** Pattern: 
  ```
-^(?!000)(?!666)(?!9)\\d([- ]?)(?!00)\\d\\1(?!0000)\\d$
+^(?!000)(?!666)(?!9)\\d{3}([- ]?)(?!00)\\d{2}\\1(?!0000)\\d{4}$
 ``` 
  Options: 
  ```
@@ -444,7 +444,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### UnitedStatesPhoneNumberRegex
+## UnitedStatesPhoneNumberRegex
 
 **Signature:** `UnitedStatesPhoneNumberRegex()`
 
@@ -452,7 +452,7 @@ RegexOptions.IgnoreCase
 
 **Remarks:** Pattern: 
  ```
-^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9])\\s*(?:[.-]\\s*)?([0-9])$
+^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})$
 ``` 
  Options: 
  ```
@@ -517,7 +517,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### UrlRegex
+## UrlRegex
 
 **Signature:** `UrlRegex()`
 
@@ -565,7 +565,7 @@ RegexOptions.IgnoreCase
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
-### ZipCodeRegex
+## ZipCodeRegex
 
 **Signature:** `ZipCodeRegex()`
 
@@ -573,7 +573,7 @@ RegexOptions.IgnoreCase
 
 **Remarks:** Pattern: 
  ```
-^(\\d-\\d|\\d|\\d)$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$
+^(\\d{5}-\\d{4}|\\d{5}|\\d{9})$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$
 ``` 
  Options: 
  ```

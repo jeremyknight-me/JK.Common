@@ -1,4 +1,4 @@
-### {DisplayName}{InheritedSuffix}
+## {Heading}{InheritedSuffix}
 
 **Signature:** `{Signature}`
 

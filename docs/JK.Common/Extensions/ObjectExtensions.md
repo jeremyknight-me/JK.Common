@@ -6,7 +6,7 @@
 
 Helper and utility extension methods for **Object** .
 
-### IsNull
+## IsNull
 
 **Signature:** `IsNull(Object value)`
 
@@ -19,7 +19,7 @@ Determines whether the object is null.
 
 **Returns:** **true** if the value is null; otherwise, **false** .
 
-### IsNotNull
+## IsNotNull
 
 **Signature:** `IsNotNull(Object value)`
 

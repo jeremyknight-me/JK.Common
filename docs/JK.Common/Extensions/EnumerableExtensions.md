@@ -4,11 +4,11 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **IEnumerable** .
+Helper and utility extension methods for **IEnumerable&lt;T&gt;** .
 
-### ForEach
+## ForEach(IEnumerable<T> source, Action<T> action)
 
-**Signature:** `ForEach(IEnumerable<T> source, Action<T> action)`
+**Signature:** `ForEach<T>(IEnumerable<T> source, Action<T> action)`
 
 **Summary:**
 Performs the specified action on each element of the IEnumerable.
@@ -19,9 +19,9 @@ Performs the specified action on each element of the IEnumerable.
 
 - **action** — The action to perform on each element.
 
-### ForEach
+## ForEach(IEnumerable<T> source, Action<T, Int32> action)
 
-**Signature:** `ForEach(IEnumerable<T>, Action<T source, Int32> action)`
+**Signature:** `ForEach<T>(IEnumerable<T> source, Action<T, Int32> action)`
 
 **Summary:**
 Performs the specified action on each element of the IEnumerable.
@@ -32,9 +32,9 @@ Performs the specified action on each element of the IEnumerable.
 
 - **action** — The action to perform on each element. The action's second parameter is the index of the source element.
 
-### AsIndexedEnumerable
+## AsIndexedEnumerable
 
-**Signature:** `AsIndexedEnumerable(IEnumerable<T> source)`
+**Signature:** `AsIndexedEnumerable<T>(IEnumerable<T> source)`
 
 **Summary:**
 Returns a sequence of tuples containing the element and its index.

@@ -8,9 +8,9 @@ Base class for ADO.NET query operations that return a collection of results.
 
 **Type Parameter:** `T` — The type of items returned by the query.
 
-### QueryOperationBase<T>
+## QueryOperationBase<T>
 
-**Summary:** Initializes a new instance of the **QueryOperationBase`1** class.
+**Summary:** Initializes a new instance of the **QueryOperationBaseT** class.
 
 **Parameters:**
 
@@ -20,7 +20,7 @@ Base class for ADO.NET query operations that return a collection of results.
 
 - **adoCommandText** — The ADO command text.
 
-### Execute
+## Execute
 
 **Signature:** `Execute()`
 
@@ -29,7 +29,7 @@ Executes the query and returns the results.
 
 **Returns:** A collection of items returned by the query.
 
-### ParseRecord
+## ParseRecord
 
 **Signature:** `ParseRecord(IDataRecord dataRecord)`
 

@@ -6,7 +6,7 @@
 
 Class which contains methods which formats a DateTime into a string.
 
-### ToFullDateLongTimeFormat *(Inherited)*
+## ToFullDateLongTimeFormat *(Inherited)*
 
 **Signature:** `ToFullDateLongTimeFormat(DateTime)`
 
@@ -16,7 +16,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: Sunday, January 31, 2010 12:45:30 PM
 
-### ToFullDateShortTimeFormat *(Inherited)*
+## ToFullDateShortTimeFormat *(Inherited)*
 
 **Signature:** `ToFullDateShortTimeFormat(DateTime)`
 
@@ -26,7 +26,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: Sunday, January 31, 2010 12:45 PM
 
-### ToGeneralDateShortTimeFormat *(Inherited)*
+## ToGeneralDateShortTimeFormat *(Inherited)*
 
 **Signature:** `ToGeneralDateShortTimeFormat(DateTime)`
 
@@ -36,7 +36,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: 1/31/2010 12:45 PM
 
-### ToMonthDayFormat *(Inherited)*
+## ToMonthDayFormat *(Inherited)*
 
 **Signature:** `ToMonthDayFormat(DateTime)`
 
@@ -46,7 +46,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: January 31
 
-### ToRfc1123Format *(Inherited)*
+## ToRfc1123Format *(Inherited)*
 
 **Signature:** `ToRfc1123Format(DateTime)`
 
@@ -56,7 +56,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: Sun, 31 Jan 2010 12:45:30 GMT
 
-### ToSortableFormat *(Inherited)*
+## ToSortableFormat *(Inherited)*
 
 **Signature:** `ToSortableFormat(DateTime)`
 
@@ -66,7 +66,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: 2010-01-31T12:45:30
 
-### ToUniversalSortableFormat *(Inherited)*
+## ToUniversalSortableFormat *(Inherited)*
 
 **Signature:** `ToUniversalSortableFormat(DateTime)`
 
@@ -76,7 +76,7 @@ Formats the value of the current DateTime object to its equivalent
 
 **Returns:** Date and time string in the format: 2010-01-31 12:45:30Z
 
-### ToUniversalFormat *(Inherited)*
+## ToUniversalFormat *(Inherited)*
 
 **Signature:** `ToUniversalFormat(DateTime)`
 
@@ -87,7 +87,7 @@ Formats the value of the current DateTime object to its equivalent
 **Returns:** Date and time string in the format: Sunday, January 31, 2010 6:45:30 PM
             (This takes into account time zone and returns UTC time)
 
-### ToYearMonthFormat *(Inherited)*
+## ToYearMonthFormat *(Inherited)*
 
 **Signature:** `ToYearMonthFormat(DateTime)`
 

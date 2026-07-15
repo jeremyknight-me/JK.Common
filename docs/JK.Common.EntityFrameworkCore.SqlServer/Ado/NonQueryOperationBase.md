@@ -6,7 +6,7 @@
 
 Base class for ADO.NET non-query operations (INSERT, UPDATE, DELETE) executed through a **DbContext** .
 
-### NonQueryOperationBase
+## NonQueryOperationBase
 
 **Summary:** Initializes a new instance of the **NonQueryOperationBase** class.
 
@@ -18,7 +18,7 @@ Base class for ADO.NET non-query operations (INSERT, UPDATE, DELETE) executed th
 
 - **adoCommandText** — The ADO command text.
 
-### Execute
+## Execute
 
 **Signature:** `Execute()`
 

@@ -6,7 +6,7 @@
 
 Extension methods for **DayOfWeek** .
 
-### IsWeekday *(Inherited)*
+## IsWeekday *(Inherited)*
 
 **Signature:** `IsWeekday`
 

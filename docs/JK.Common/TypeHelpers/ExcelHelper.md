@@ -6,7 +6,7 @@
 
 Provides helper methods for working with Excel-related data.
 
-### GetColumnName
+## GetColumnName
 
 **Signature:** `GetColumnName(Int32 columnNumber)`
 

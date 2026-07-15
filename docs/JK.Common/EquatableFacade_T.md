@@ -8,7 +8,7 @@ Provides a facade for comparing objects of type **T** for equality.
 
 **Type Parameter:** `T` — The type of objects to compare.
 
-### AreEqual
+## AreEqual
 
 **Signature:** `AreEqual(Object left, Object right)`
 
@@ -27,7 +27,7 @@ Determines whether two objects are equal, using the **AreObjectsEqual** function
 
 - **System.ArgumentException**: Thrown if either argument is not of type **T** .
 
-### AreObjectsEqual
+## AreObjectsEqual
 
 **Signature:** `AreObjectsEqual`
 

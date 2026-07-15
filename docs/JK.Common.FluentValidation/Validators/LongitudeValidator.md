@@ -6,19 +6,19 @@
 
 Validator that validates that a double property is a valid longitude.
 
-### GetDefaultMessageTemplate *(Inherited)*
+## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
 
 **Summary:**
 
-### IsValid *(Inherited)*
+## IsValid *(Inherited)*
 
 **Signature:** `IsValid(ValidationContext<T>, Decimal)`
 
 **Summary:**
 
-### Name *(Inherited)*
+## Name *(Inherited)*
 
 **Signature:** `Name`
 

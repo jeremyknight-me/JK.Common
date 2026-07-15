@@ -6,7 +6,7 @@
 
 Provides a base class for non-query operations without parameter models.
 
-### NonQueryOperationBase
+## NonQueryOperationBase
 
 **Summary:** Initializes a new instance of the **NonQueryOperationBase** class.
 
@@ -14,7 +14,7 @@ Provides a base class for non-query operations without parameter models.
 
 - **connectionFactory** — The connection factory to use.
 
-### Execute
+## Execute
 
 **Signature:** `Execute()`
 

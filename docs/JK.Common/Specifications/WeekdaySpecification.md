@@ -6,7 +6,7 @@
 
 Specification that determines if a **DateTime** value falls on a weekday (Monday through Friday).
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(DateTime candidate)`
 

@@ -6,9 +6,9 @@
 
 Wrapper/facade for XML Serialization/Deserialization functionality of .NET.
 
-### DeserializeString
+## DeserializeString
 
-**Signature:** `DeserializeString(String xml)`
+**Signature:** `DeserializeString<T>(String xml)`
 
 **Summary:**
 Uses XML serialization to convert an XML string to its object representation.
@@ -19,9 +19,9 @@ Uses XML serialization to convert an XML string to its object representation.
 
 **Returns:** An object of the given type loaded from the given string.
 
-### Serialize
+## Serialize
 
-**Signature:** `Serialize(T entity)`
+**Signature:** `Serialize<T>(T entity)`
 
 **Summary:**
 Uses XML serialization to convert an object into its XML representation.

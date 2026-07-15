@@ -6,7 +6,7 @@
 
 Class which truncates strings.
 
-### StringTruncater
+## StringTruncater
 
 **Summary:** Initializes a new instance of the **StringTruncater** class.
 
@@ -14,7 +14,7 @@ Class which truncates strings.
 
 - **originalText** — The text to be truncated.
 
-### StringTruncater
+## StringTruncater
 
 **Summary:** Initializes a new instance of the **StringTruncater** class.
 
@@ -25,7 +25,7 @@ Class which truncates strings.
 - **indicator** — Indicator to be placed within the truncated text to indicate that 
             a truncation has taken place.
 
-### TruncateToLength
+## TruncateToLength
 
 **Signature:** `TruncateToLength(Int32 length)`
 
@@ -38,7 +38,7 @@ Truncates the original text to a given length.
 
 **Returns:** Original text truncated to given length.
 
-### Indicator
+## Indicator
 
 **Signature:** `Indicator`
 

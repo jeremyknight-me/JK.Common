@@ -6,7 +6,7 @@
 
 Specification to determine if a string is alphabetical.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

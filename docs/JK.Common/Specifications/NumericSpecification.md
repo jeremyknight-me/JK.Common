@@ -6,7 +6,7 @@
 
 Specification to determine if a string represents a numeric value.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

@@ -6,7 +6,7 @@
 
 Specification to determine if a string's length does not exceed a maximum value.
 
-### MaximumLengthSpecification
+## MaximumLengthSpecification
 
 **Summary:** Initializes a new instance of the **MaximumLengthSpecification** class.
 
@@ -14,7 +14,7 @@ Specification to determine if a string's length does not exceed a maximum value.
 
 - **maximumLengthToUse** — The maximum allowed length for the string.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 
@@ -27,7 +27,7 @@ Determines whether the specified candidate string's length is less than or equal
 
 **Returns:** **true** if the candidate's length is less than or equal to **MaximumLength** ; otherwise, **false** .
 
-### MaximumLength
+## MaximumLength
 
 **Signature:** `MaximumLength`
 

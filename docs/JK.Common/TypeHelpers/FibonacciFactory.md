@@ -6,7 +6,7 @@
 
 Provides helper methods for common mathematical operations.
 
-### Make
+## Make
 
 **Signature:** `Make(Int64 first, Int64 second, Int32 limit)`
 
@@ -21,4 +21,4 @@ Generates a Fibonacci sequence starting with the specified numbers up to the giv
 
 - **limit** — The number of elements to generate in the sequence.
 
-**Returns:** An **IEnumerable** containing the Fibonacci sequence.
+**Returns:** An **IEnumerable&lt;T&gt;** containing the Fibonacci sequence.

@@ -6,14 +6,14 @@
 
 Represents the type of a geographic coordinate (latitude or longitude).
 
-### Latitude
+## Latitude
 
 **Signature:** `Latitude`
 
 **Summary:**
 Latitude coordinate type.
 
-### Longitude
+## Longitude
 
 **Signature:** `Longitude`
 

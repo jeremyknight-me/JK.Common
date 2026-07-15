@@ -6,7 +6,7 @@
 
 Class initially built to aid in data imports.
 
-### Convert
+## Convert
 
 **Signature:** `Convert(Object value)`
 
@@ -23,7 +23,7 @@ Converts the specified value to a boolean.
 
 - **System.ArgumentException**: Thrown when the value cannot be converted to a boolean.
 
-### ConvertToNullable
+## ConvertToNullable
 
 **Signature:** `ConvertToNullable(Object value)`
 

@@ -6,7 +6,7 @@
 
 Class which contains enum utility methods.
 
-### ConvertToListItems
+## ConvertToListItems
 
 **Signature:** `ConvertToListItems(Type type)`
 
@@ -21,9 +21,9 @@ Gets a list of the items within an enum. Values will be filled with
 
 **Returns:** A list of ListItem for the given enum.
 
-### GetAttribute
+## GetAttribute
 
-**Signature:** `GetAttribute(Enum enumVal)`
+**Signature:** `GetAttribute<T>(Enum enumVal)`
 
 **Summary:**
 Gets the first attribute of the specified type applied to the given enum value.
@@ -34,9 +34,9 @@ Gets the first attribute of the specified type applied to the given enum value.
 
 **Returns:** The first attribute of type T if found; otherwise, null.
 
-### GetDisplayName
+## GetDisplayName
 
-**Signature:** `GetDisplayName(T value)`
+**Signature:** `GetDisplayName<T>(T value)`
 
 **Summary:**
 Gets the display name for the specified enum value, using the DisplayAttribute if present.
@@ -47,9 +47,9 @@ Gets the display name for the specified enum value, using the DisplayAttribute i
 
 **Returns:** The display name if found; otherwise, the enum value name.
 
-### GetByByte
+## GetByByte(Byte value)
 
-**Signature:** `GetByByte(Byte value)`
+**Signature:** `GetByByte<T>(Byte value)`
 
 **Summary:**
 Gets an Enumeration value by its associated byte value.
@@ -60,9 +60,9 @@ Gets an Enumeration value by its associated byte value.
 
 **Returns:** Enumeration value of type T.
 
-### GetByByte
+## GetByByte(Nullable<Byte> value)
 
-**Signature:** `GetByByte(Byte> value)`
+**Signature:** `GetByByte<T>(Nullable<Byte> value)`
 
 **Summary:**
 Gets an Enumeration value by its associated nullable byte value.
@@ -73,9 +73,9 @@ Gets an Enumeration value by its associated nullable byte value.
 
 **Returns:** Enumeration value of type T, or null if value is null.
 
-### GetByte
+## GetByte(T value)
 
-**Signature:** `GetByte(T value)`
+**Signature:** `GetByte<T>(T value)`
 
 **Summary:**
 Gets the byte value associated with the given enumeration type value.
@@ -86,9 +86,9 @@ Gets the byte value associated with the given enumeration type value.
 
 **Returns:** Byte value.
 
-### GetByte
+## GetByte(Nullable<T> value)
 
-**Signature:** `GetByte(Nullable<T> value)`
+**Signature:** `GetByte<T>(Nullable<T> value)`
 
 **Summary:**
 Gets the nullable byte value associated with the given enumeration type value.
@@ -99,9 +99,9 @@ Gets the nullable byte value associated with the given enumeration type value.
 
 **Returns:** Nullable byte value.
 
-### GetByInteger
+## GetByInteger(Int32 value)
 
-**Signature:** `GetByInteger(Int32 value)`
+**Signature:** `GetByInteger<T>(Int32 value)`
 
 **Summary:**
 Gets an Enumeration value by its associated integer value.
@@ -112,9 +112,9 @@ Gets an Enumeration value by its associated integer value.
 
 **Returns:** Enumeration value of type T.
 
-### GetByInteger
+## GetByInteger(Nullable<Int32> value)
 
-**Signature:** `GetByInteger(Int32> value)`
+**Signature:** `GetByInteger<T>(Nullable<Int32> value)`
 
 **Summary:**
 Gets an Enumeration value by its associated nullable integer value.
@@ -125,9 +125,9 @@ Gets an Enumeration value by its associated nullable integer value.
 
 **Returns:** Enumeration value of type T, or null if value is null.
 
-### GetInteger
+## GetInteger(T value)
 
-**Signature:** `GetInteger(T value)`
+**Signature:** `GetInteger<T>(T value)`
 
 **Summary:**
 Gets the integer value associated with the given enumeration type value.
@@ -138,9 +138,9 @@ Gets the integer value associated with the given enumeration type value.
 
 **Returns:** Integer value.
 
-### GetInteger
+## GetInteger(Nullable<T> value)
 
-**Signature:** `GetInteger(Nullable<T> value)`
+**Signature:** `GetInteger<T>(Nullable<T> value)`
 
 **Summary:**
 Gets the nullable integer value associated with the given enumeration type value.

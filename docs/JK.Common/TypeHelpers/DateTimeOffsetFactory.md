@@ -6,7 +6,7 @@
 
 Provides factory methods for creating **DateTimeOffset** instances with specific time zones.
 
-### Make
+## Make(DateTime date, String timeZoneId)
 
 **Signature:** `Make(DateTime date, String timeZoneId)`
 
@@ -21,7 +21,7 @@ Creates a **DateTimeOffset** from a **DateTime** and a time zone ID.
 
 **Returns:** A **DateTimeOffset** representing the specified date and time in the given time zone.
 
-### Make
+## Make(Int32 year, Int32 month, Int32 day, String timeZoneId)
 
 **Signature:** `Make(Int32 year, Int32 month, Int32 day, String timeZoneId)`
 
@@ -40,7 +40,7 @@ Creates a **DateTimeOffset** from year, month, day, and a time zone ID.
 
 **Returns:** A **DateTimeOffset** representing the specified date in the given time zone.
 
-### Make
+## Make(Int32 year, Int32 month, Int32 day, Int32 hour, Int32 minute, Int32 second, String timeZoneId)
 
 **Signature:** `Make(Int32 year, Int32 month, Int32 day, Int32 hour, Int32 minute, Int32 second, String timeZoneId)`
 

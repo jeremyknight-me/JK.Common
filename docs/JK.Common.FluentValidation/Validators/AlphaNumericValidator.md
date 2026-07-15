@@ -6,19 +6,19 @@
 
 Validator that validates that a string property contains alphanumeric characters.
 
-### GetDefaultMessageTemplate *(Inherited)*
+## GetDefaultMessageTemplate *(Inherited)*
 
 **Signature:** `GetDefaultMessageTemplate(String)`
 
 **Summary:**
 
-### IsStringValid *(Inherited)*
+## IsStringValid *(Inherited)*
 
 **Signature:** `IsStringValid(String)`
 
 **Summary:**
 
-### Name *(Inherited)*
+## Name *(Inherited)*
 
 **Signature:** `Name`
 

@@ -6,7 +6,7 @@
 
 This class builds a delimited string.
 
-### StringDelimiter
+## StringDelimiter
 
 **Summary:** Initializes a new instance of the StringDelimiter class.
 
@@ -14,7 +14,7 @@ This class builds a delimited string.
 
 - **delimiter** — The string to use when delimiting sections.
 
-### AddText
+## AddText
 
 **Signature:** `AddText(String addition)`
 
@@ -25,7 +25,7 @@ Adds a block of text to the current string and delimits if necessary.
 
 - **addition** — The string to add to the current string.
 
-### DelimitedText
+## DelimitedText
 
 **Signature:** `DelimitedText`
 

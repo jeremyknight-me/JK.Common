@@ -8,15 +8,15 @@ Specification that negates the result of another specification.
 
 **Type Parameter:** `TEntity` — The type of entity.
 
-### NotSpecification<TEntity>
+## NotSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **NotSpecification`1** class.
+**Summary:** Initializes a new instance of the **NotSpecificationT** class.
 
 **Parameters:**
 
 - **specificationToUse** — The specification to negate.
 
-### IsSatisfiedBy *(Inherited)*
+## IsSatisfiedBy *(Inherited)*
 
 **Signature:** `IsSatisfiedBy(TEntity)`
 

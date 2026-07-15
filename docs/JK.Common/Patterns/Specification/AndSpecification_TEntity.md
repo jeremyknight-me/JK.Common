@@ -8,9 +8,9 @@ Generic And specification.
 
 **Type Parameter:** `TEntity` — The type of the entity.
 
-### AndSpecification<TEntity>
+## AndSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **AndSpecification`1** class.
+**Summary:** Initializes a new instance of the **AndSpecificationT** class.
 
 **Parameters:**
 
@@ -18,8 +18,15 @@ Generic And specification.
 
 - **right** — The right entity.
 
-### IsSatisfiedBy *(Inherited)*
+## IsSatisfiedBy *(Inherited)*
 
-**Signature:** `IsSatisfiedBy(TEntity)`
+**Signature:** `IsSatisfiedBy(TEntity candidate)`
 
 **Summary:**
+Determines whether the specified candidate is satisfied by TEntity.
+
+**Parameters:**
+
+- **candidate** — The candidate.
+
+**Returns:** True if is satisfied by the specified candidate; otherwise false.

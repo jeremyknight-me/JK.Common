@@ -10,14 +10,14 @@ Class meant to represent data to be displayed in any of
 
 **Type Parameter:** `T` — Type of the object's identifier
 
-### Value
+## Value
 
 **Signature:** `Value`
 
 **Summary:**
 Gets or sets the value associated with the list item.
 
-### Text
+## Text
 
 **Signature:** `Text`
 

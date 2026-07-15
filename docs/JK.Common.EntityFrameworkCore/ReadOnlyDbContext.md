@@ -6,11 +6,11 @@
 
 A read-only **DbContext** that disables change tracking and throws on save attempts.
 
-### ReadOnlyDbContext
+## ReadOnlyDbContext
 
 **Summary:** Initializes a new instance of the **ReadOnlyDbContext** class.
 
-### ReadOnlyDbContext
+## ReadOnlyDbContext
 
 **Summary:** Initializes a new instance of the **ReadOnlyDbContext** class.
 
@@ -18,25 +18,25 @@ A read-only **DbContext** that disables change tracking and throws on save attem
 
 - **options** — The options for this context.
 
-### SaveChanges *(Inherited)*
+## SaveChanges() *(Inherited)*
 
 **Signature:** `SaveChanges()`
 
 **Summary:**
 
-### SaveChanges *(Inherited)*
+## SaveChanges(Boolean) *(Inherited)*
 
 **Signature:** `SaveChanges(Boolean)`
 
 **Summary:**
 
-### SaveChangesAsync *(Inherited)*
+## SaveChangesAsync(Boolean, CancellationToken) *(Inherited)*
 
 **Signature:** `SaveChangesAsync(Boolean, CancellationToken)`
 
 **Summary:**
 
-### SaveChangesAsync *(Inherited)*
+## SaveChangesAsync(CancellationToken) *(Inherited)*
 
 **Signature:** `SaveChangesAsync(CancellationToken)`
 

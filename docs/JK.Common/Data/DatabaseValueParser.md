@@ -6,9 +6,9 @@
 
 Static class which adds database value parsing.
 
-### GetValueOrDefault
+## GetValueOrDefault(Object value)
 
-**Signature:** `GetValueOrDefault(Object value)`
+**Signature:** `GetValueOrDefault<T>(Object value)`
 
 **Summary:**
 Gets the value of an object or returns the objects default type.
@@ -19,9 +19,9 @@ Gets the value of an object or returns the objects default type.
 
 **Returns:** Object's type default if DBNull, otherwise the object's value.
 
-### GetValueOrDefault
+## GetValueOrDefault(Object value, T defaultValue)
 
-**Signature:** `GetValueOrDefault(Object value, T defaultValue)`
+**Signature:** `GetValueOrDefault<T>(Object value, T defaultValue)`
 
 **Summary:**
 Gets the value of an object or returns the given default value.
@@ -34,9 +34,9 @@ Gets the value of an object or returns the given default value.
 
 **Returns:** Given default value if DBNull, otherwise the object's value.
 
-### GetValueOrNull
+## GetValueOrNull
 
-**Signature:** `GetValueOrNull(Object value)`
+**Signature:** `GetValueOrNull<T>(Object value)`
 
 **Summary:**
 Gets the value of an object or null.
@@ -47,9 +47,9 @@ Gets the value of an object or null.
 
 **Returns:** Null if DBNull, otherwise the object's value.
 
-### GetValueOrDbNull
+## GetValueOrDbNull
 
-**Signature:** `GetValueOrDbNull(Nullable<T> nullable)`
+**Signature:** `GetValueOrDbNull<T>(Nullable<T> nullable)`
 
 **Summary:**
 Get value or DbNull from a Nullable type.

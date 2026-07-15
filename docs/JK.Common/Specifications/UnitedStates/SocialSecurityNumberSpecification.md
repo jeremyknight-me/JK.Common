@@ -6,7 +6,7 @@
 
 Specification to determine if a string is a valid United States Social Security Number (SSN).
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 

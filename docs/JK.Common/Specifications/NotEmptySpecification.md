@@ -6,7 +6,7 @@
 
 Specification to determine if a string is not null, empty, or whitespace.
 
-### IsSatisfiedBy
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(String candidate)`
 
