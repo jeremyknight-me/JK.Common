@@ -3,6 +3,9 @@ name: csharp-docs-wiki
 description: Generate a Markdown wiki in the docs folder from the compiler-generated C# XML documentation file.
 user-invocable: true
 argument-hint: "[optional path to XML documentation file]"
+metadata:
+  author: "Jeremy Knight"
+  version: "0.1"
 ---
 
 # C# XML Documentation → Markdown Wiki
