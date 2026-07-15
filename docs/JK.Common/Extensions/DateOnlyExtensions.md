@@ -19,11 +19,9 @@ Calculates the number of days between two DateOnly instances.
 
 - **right** — The date to subtract from the left operand.
 
-**Returns:** The number of days between the left and right dates. The result is positive if the left
-            date is later than the right date, negative if earlier, or zero if they are the same.
+**Returns:** The number of days between the left and right dates. The result is positive if the left date is later than the right date, negative if earlier, or zero if they are the same.
 
-**Remarks:** This operator enables direct subtraction of two DateOnly values to determine the
-            interval in days.
+**Remarks:** This operator enables direct subtraction of two DateOnly values to determine the interval in days.
 
 ## AddWorkDays *(Inherited)*
 

@@ -205,6 +205,8 @@ static partial class Regexes
     public static partial Regex GenericArray();
     [GeneratedRegex(@"\]$")]
     public static partial Regex TrailingBracket();
+    [GeneratedRegex(@"\s+")]
+    public static partial Regex MultipleWhitespace();
 }
 
 // ── Model ──
@@ -269,7 +271,7 @@ class Template
     static Template()
     {
         _options = new TemplateOptions();
-        _options.Trimming = TrimmingFlags.TagLeft | TrimmingFlags.TagRight;
+        _options.Trimming = TrimmingFlags.None;
         _options.Greedy = false;
         _options.MemberAccessStrategy.Register<MemberDoc>();
         _options.MemberAccessStrategy.Register<ParamInfo>();
@@ -687,6 +689,9 @@ class XmlDocParser
         return sb.ToString();
     }
 
+    private static string CollapseWhitespace(string s) =>
+        Regexes.MultipleWhitespace().Replace(s.Trim(), " ");
+
     private string? ConvertXmlToMarkdown(XElement? node, List<string>? typeParamNames = null, List<string>? methodGenericTypeParams = null)
     {
         if (node == null) return null;
@@ -696,7 +701,7 @@ class XmlDocParser
         {
             if (child is XText text)
             {
-                parts.Add(text.Value.Trim());
+                parts.Add(CollapseWhitespace(text.Value));
             }
             else if (child is XElement el)
             {
@@ -897,6 +902,7 @@ class MarkdownGenerator
                 breadcrumb = $"[Docs]({up}/README.md) > [{projectFolder}](README.md) > {typeName}\n\n";
             }
             rendered = breadcrumb + rendered;
+            rendered = CleanUpMarkdownWhitespace(rendered);
             var safeName = typeDoc.GenericDisplayName
                 .Replace("<", "_")
                 .Replace(">", "")
@@ -942,6 +948,25 @@ class MarkdownGenerator
     }
 
     internal static string Esc(string s) => s.Replace("<", "\\<").Replace(">", "\\>").Replace("`", "\\`");
+
+    internal static string CleanUpMarkdownWhitespace(string markdown)
+    {
+        var lines = markdown.Split('\n');
+        var result = new List<string>();
+        bool lastWasBlank = false;
+        foreach (var raw in lines)
+        {
+            var line = raw.TrimEnd('\r');
+            bool isBlank = string.IsNullOrWhiteSpace(line);
+            if (isBlank && lastWasBlank)
+                continue;
+            result.Add(line);
+            lastWasBlank = isBlank;
+        }
+        while (result.Count > 0 && string.IsNullOrWhiteSpace(result[^1]))
+            result.RemoveAt(result.Count - 1);
+        return string.Join('\n', result);
+    }
 
     public string SimplifyNamespace(string ns)
     {

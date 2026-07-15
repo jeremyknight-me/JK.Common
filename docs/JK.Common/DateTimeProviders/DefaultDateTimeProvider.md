@@ -15,9 +15,7 @@
 **Signature:** `Today`
 
 **Summary:**
-Returns a Dat **DateTime** eTime representing the current date. The date part
-            of the returned value is the current date, and the time-of-day part of
-            the returned value is zero (midnight).
+Returns a Dat **DateTime** eTime representing the current date. The date part of the returned value is the current date, and the time-of-day part of the returned value is zero (midnight).
 
 ## UtcNow *(Inherited)*
 

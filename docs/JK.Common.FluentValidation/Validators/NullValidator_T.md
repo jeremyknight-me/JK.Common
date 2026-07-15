@@ -6,4 +6,4 @@
 
 Null object pattern AbstractValidator implementation.
 
-**Type Parameter:** `T` —
+**Type Parameter:** `T` — 

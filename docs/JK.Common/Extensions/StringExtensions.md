@@ -153,9 +153,7 @@ Converts a null string to an empty string.
 **Signature:** `Truncate(String, Int32 length)`
 
 **Summary:**
-Trims a block of text to a specified length. The string will be trimmed to 
-            the previous space coming before the length position passed.
-            Relies on **StringTruncater**
+Trims a block of text to a specified length. The string will be trimmed to the previous space coming before the length position passed. Relies on **StringTruncater**
 
 **Parameters:**
 
@@ -168,9 +166,7 @@ Trims a block of text to a specified length. The string will be trimmed to
 **Signature:** `Truncate(String, Int32 length, String indicator)`
 
 **Summary:**
-Trims a block of text to a specified length. The string will be trimmed to 
-            the previous space coming before the length position passed.
-            Relies on **StringTruncater**
+Trims a block of text to a specified length. The string will be trimmed to the previous space coming before the length position passed. Relies on **StringTruncater**
 
 **Parameters:**
 
@@ -198,8 +194,7 @@ Parses a string into a specified type.
 **Signature:** `IsDateTime`
 
 **Summary:**
-Determines if the given string is a date/time. 
-            Relies on **DateTimeSpecification**
+Determines if the given string is a date/time. Relies on **DateTimeSpecification**
 
 **Returns:** True if a date, otherwise false.
 
@@ -208,8 +203,7 @@ Determines if the given string is a date/time.
 **Signature:** `IsNumeric`
 
 **Summary:**
-Determines if the given string is a number.
-            Relies on **NumericSpecification**
+Determines if the given string is a number. Relies on **NumericSpecification**
 
 **Returns:** True if a number, otherwise false.
 
@@ -218,8 +212,7 @@ Determines if the given string is a number.
 **Signature:** `IsValidEmailAddress`
 
 **Summary:**
-Validates that a string is a valid email address.
-            Relies on **EmailSpecification**
+Validates that a string is a valid email address. Relies on **EmailSpecification**
 
 **Returns:** True if valid email otherwise false.
 
@@ -228,8 +221,7 @@ Validates that a string is a valid email address.
 **Signature:** `IsValidIpAddress`
 
 **Summary:**
-Validates that a string is a valid IP v4 address.
-            Relies on **InternetProtocolAddressSpecification**
+Validates that a string is a valid IP v4 address. Relies on **InternetProtocolAddressSpecification**
 
 **Returns:** True if valid IP v4 address otherwise false.
 
@@ -238,8 +230,7 @@ Validates that a string is a valid IP v4 address.
 **Signature:** `IsValidUnitedStatesPhoneNumber`
 
 **Summary:**
-Validates that a string is a valid United States phone number.
-            Relies on **PhoneNumberSpecification**
+Validates that a string is a valid United States phone number. Relies on **PhoneNumberSpecification**
 
 **Returns:** True if valid US phone number otherwise false.
 
@@ -248,7 +239,6 @@ Validates that a string is a valid United States phone number.
 **Signature:** `IsValidZip`
 
 **Summary:**
-Validates that a string is a valid zip code.
-            Relies on **ZipCodeSpecification**
+Validates that a string is a valid zip code. Relies on **ZipCodeSpecification**
 
 **Returns:** True if valid zip code otherwise false.

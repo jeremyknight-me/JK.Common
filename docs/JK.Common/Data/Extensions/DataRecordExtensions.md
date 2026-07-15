@@ -11,8 +11,7 @@ Extension methods for IDataRecord
 **Signature:** `GetValueOrDefault<T>(IDataRecord, String name)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -25,8 +24,7 @@ Gets the value of the given field from the data reader or the
 **Signature:** `GetValueOrDefault<T>(IDataRecord, String name, T defaultValue)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -41,8 +39,7 @@ Gets the value of the given field from the data reader or the
 **Signature:** `GetValueOrDefault<T>(IDataRecord, Int32 index)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -55,8 +52,7 @@ Gets the value of the given field from the data reader or the
 **Signature:** `GetValueOrDefault<T>(IDataRecord, Int32 index, T defaultValue)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 

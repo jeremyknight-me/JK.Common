@@ -22,8 +22,7 @@ Class which truncates strings.
 
 - **originalText** — Text to be truncated.
 
-- **indicator** — Indicator to be placed within the truncated text to indicate that 
-            a truncation has taken place.
+- **indicator** — Indicator to be placed within the truncated text to indicate that a truncation has taken place.
 
 ## TruncateToLength
 
@@ -43,5 +42,4 @@ Truncates the original text to a given length.
 **Signature:** `Indicator`
 
 **Summary:**
-Gets or sets the indicator to concatenate to the end of truncated text.
-            Ex: '...'
+Gets or sets the indicator to concatenate to the end of truncated text. Ex: '...'

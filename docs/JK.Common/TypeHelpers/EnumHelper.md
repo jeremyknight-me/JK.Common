@@ -11,9 +11,7 @@ Class which contains enum utility methods.
 **Signature:** `ConvertToListItems(Type type)`
 
 **Summary:**
-Gets a list of the items within an enum. Values will be filled with 
-            the constant given to each enum value and the Display will be filled with
-            either the enum value or the ComponentModel DescriptionAttribute.
+Gets a list of the items within an enum. Values will be filled with the constant given to each enum value and the Display will be filled with either the enum value or the ComponentModel DescriptionAttribute.
 
 **Parameters:**
 
