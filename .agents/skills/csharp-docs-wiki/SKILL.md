@@ -51,16 +51,18 @@ When invoked, the agent should:
 3. Filter to projects with `GenerateDocumentationFile` enabled
 4. Build each project: `dotnet build <csproj> -f net10.0`
 5. Collect the resulting XML documentation files from `bin/Debug/net10.0/`
-6. Pass all XML files to the tool:
+6. Locate the templates directory at `<skill-base-directory>/templates` which contains `type.md` and `member.md`
+7. Pass all XML files and the templates directory to the tool
 
 ### Usage
 
 ```bash
 dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --help
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] --templatePath <path> [--output <path>]
 ```
 
 - `--files` — One or more paths to XML documentation files (required)
+- `--templatePath` — Path to the templates directory containing `type.md` and `member.md` (required)
 - `--output` — Output directory (default: `./docs`)
 - `--help` — Show usage and option details
 - Unknown arguments are treated as errors (strict parsing)
@@ -76,6 +78,7 @@ dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- \
   --files \
     path/to/MyProject/bin/Debug/net10.0/MyProject.xml \
     path/to/MyProject.Data/bin/Debug/net10.0/MyProject.Data.xml \
+  --templatePath <skill-base-directory>/templates \
   --output docs
 ```
 
