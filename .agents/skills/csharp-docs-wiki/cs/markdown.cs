@@ -116,6 +116,59 @@ public class MarkdownGenerator(Template typeTemplate, Template memberTemplate, P
             filesGenerated++;
         }
 
+        // Generate READMEs for intermediate namespace folders that have sub-namespaces but no direct types
+        var allNsFolders = nsTypes.Keys
+            .Select(ns => SimplifyNamespace(ns))
+            .ToList();
+        var intermediateFolders = new HashSet<string>();
+        foreach (var nsFolder in allNsFolders)
+        {
+            var parts = nsFolder.Split('/');
+            for (int i = 1; i < parts.Length; i++)
+            {
+                var parent = string.Join('/', parts[..i]);
+                if (!allNsFolders.Contains(parent))
+                {
+                    intermediateFolders.Add(parent);
+                }
+            }
+        }
+
+        foreach (var nsFolder in intermediateFolders)
+        {
+            var folder = Path.Combine(outputPath, nsFolder);
+            Directory.CreateDirectory(folder);
+            var childNamespaces = allNsFolders
+                .Where(f => f.StartsWith(nsFolder + "/") && f.Count(c => c == '/') == nsFolder.Count(c => c == '/') + 1)
+                .OrderBy(f => f)
+                .ToList();
+            if (childNamespaces.Count == 0)
+            {
+                continue;
+            }
+
+            Helpers.DeleteLegacyNamespaceFile(Path.Combine(folder, "README.md"), outputPath);
+
+            var ns = nsFolder.Replace('/', '.');
+            var depth = nsFolder.Split('/').Length;
+            var projectFolder = nsFolder.Split('/')[0];
+            System.Text.StringBuilder readme = new();
+            readme.Append(nsFolder.Contains('/')
+                ? $"[← {projectFolder}]({string.Join("/", Enumerable.Repeat("..", depth - 1))}/README.md)\n\n"
+                : $"[← Documentation](../README.md)\n\n");
+            readme.Append($"# {ns}\n\n## Namespaces\n");
+            foreach (var child in childNamespaces)
+            {
+                var childName = child[(nsFolder.Length + 1)..];
+                readme.Append($"- [{childName}]({childName}/README.md)\n");
+            }
+
+            var readmePath = Path.Combine(folder, "README.md");
+            File.WriteAllText(readmePath, readme.ToString());
+            Console.WriteLine($"Generated: {readmePath}");
+            filesGenerated++;
+        }
+
         return (membersProcessed, filesGenerated, nsTypes);
     }
 

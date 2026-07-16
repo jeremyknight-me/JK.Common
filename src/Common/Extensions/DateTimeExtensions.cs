@@ -40,7 +40,7 @@ public static class DateTimeExtensions
         /// <returns>True if is a weekday, otherwise false.</returns>
         public bool IsWeekday => date.DayOfWeek.IsWeekday;
 
-        /// <summary>Determines if given date is a weekday.</summary>
+        /// <summary>Determines if given date is a weekend.</summary>
         /// <returns>True if is a weekend, otherwise false.</returns>
         public bool IsWeekend => !date.DayOfWeek.IsWeekday;
     }

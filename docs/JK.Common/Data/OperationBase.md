@@ -17,11 +17,9 @@ Initializes a new instance of the **OperationBase** class.
 
 - **connectionFactory** — The connection factory to use.
 
-## Dispose *(Inherited)*
+## Dispose
 
 **Signature:** `Dispose()`
-
-**Summary:**
 
 ## ConfigureCommand
 

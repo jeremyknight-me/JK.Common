@@ -6,7 +6,7 @@
 
 Extension methods for the **String** object.
 
-## ConvertFromBase64 *(Inherited)*
+## ConvertFromBase64
 
 **Signature:** `ConvertFromBase64(String, Encoding)`
 
@@ -19,7 +19,7 @@ Converts a Base64-encoded string to its decoded string representation using the 
 
 **Returns:** The decoded string, or the original string if it is null or empty.
 
-## ConvertToBase64 *(Inherited)*
+## ConvertToBase64
 
 **Signature:** `ConvertToBase64(String, Encoding)`
 
@@ -32,7 +32,7 @@ Converts the current string to its Base64-encoded representation using the speci
 
 **Returns:** The Base64-encoded string, or the original string if it is null or empty.
 
-## IsNull *(Inherited)*
+## IsNull
 
 **Signature:** `IsNull(String)`
 
@@ -41,7 +41,7 @@ Determines whether the string is **null**.
 
 **Remarks:** Returns **true** if the string is **null**; otherwise, **false**.
 
-## IsNullOrEmpty *(Inherited)*
+## IsNullOrEmpty
 
 **Signature:** `IsNullOrEmpty(String)`
 
@@ -50,7 +50,7 @@ Determines whether the string is **null** or an empty string.
 
 **Remarks:** Returns **true** if the string is **null** or an empty string; otherwise, **false**.
 
-## IsNullOrWhiteSpace *(Inherited)*
+## IsNullOrWhiteSpace
 
 **Signature:** `IsNullOrWhiteSpace(String)`
 
@@ -59,7 +59,7 @@ Determines whether the string is **null**, empty, or consists only of white-spac
 
 **Remarks:** Returns **true** if the string is **null**, empty, or consists only of white-space characters; otherwise, **false**.
 
-## RemoveUnitedStatesCurrencyFormat *(Inherited)*
+## RemoveUnitedStatesCurrencyFormat
 
 **Signature:** `RemoveUnitedStatesCurrencyFormat(String)`
 
@@ -68,7 +68,7 @@ Removes US (dollar) currency format characters from a string.
 
 **Returns:** String that can be parsed into a number.
 
-## RemoveXml *(Inherited)*
+## RemoveXml
 
 **Signature:** `RemoveXml(String)`
 
@@ -77,7 +77,7 @@ Removes XML/HTML from given text block.
 
 **Returns:** Clean string with no XML/HTML.
 
-## ReplaceWithEmpty *(Inherited)*
+## ReplaceWithEmpty
 
 **Signature:** `ReplaceWithEmpty(String, String)`
 
@@ -90,7 +90,7 @@ Replaces all occurrences of a specified string in the current string with an emp
 
 **Returns:** A new string with all occurrences of **textToReplace** removed.
 
-## Reverse *(Inherited)*
+## Reverse
 
 **Signature:** `Reverse(String)`
 
@@ -99,7 +99,7 @@ Reverses the characters within a string.
 
 **Returns:** The original string in reverse.
 
-## Right *(Inherited)*
+## Right
 
 **Signature:** `Right(String, Int32)`
 
@@ -112,7 +112,7 @@ Returns the specified number of characters from the end of string. Same as **Las
 
 **Returns:** Returns the last X characters of the string.
 
-## ToNullableDecimal *(Inherited)*
+## ToNullableDecimal
 
 **Signature:** `ToNullableDecimal(String)`
 
@@ -121,7 +121,7 @@ Attempts to parse the string as a decimal value. Returns null if the string is n
 
 **Returns:** The parsed decimal value, or null if parsing fails.
 
-## ToNullableInteger *(Inherited)*
+## ToNullableInteger
 
 **Signature:** `ToNullableInteger(String)`
 
@@ -130,7 +130,7 @@ Attempts to parse the string as an integer value. Returns null if the string is 
 
 **Returns:** The parsed integer value, or null if parsing fails.
 
-## ToNullIfEmpty *(Inherited)*
+## ToNullIfEmpty
 
 **Signature:** `ToNullIfEmpty(String)`
 
@@ -139,7 +139,7 @@ Converts an empty string to null.
 
 **Returns:** Null if the string is empty or null; otherwise, the original string.
 
-## ToEmptyIfNull *(Inherited)*
+## ToEmptyIfNull
 
 **Signature:** `ToEmptyIfNull(String)`
 
@@ -148,7 +148,7 @@ Converts a null string to an empty string.
 
 **Returns:** An empty string if null; otherwise, the original string.
 
-## Truncate(String, Int32) *(Inherited)*
+## Truncate(String, Int32)
 
 **Signature:** `Truncate(String, Int32)`
 
@@ -161,7 +161,7 @@ Trims a block of text to a specified length. The string will be trimmed to the p
 
 **Returns:** Truncated, or shortened, text.
 
-## Truncate(String, Int32, String) *(Inherited)*
+## Truncate(String, Int32, String)
 
 **Signature:** `Truncate(String, Int32, String)`
 
@@ -176,7 +176,7 @@ Trims a block of text to a specified length. The string will be trimmed to the p
 
 **Returns:** Truncated, or shortened, text with an indicator marking where the truncation occurred.
 
-## Parse *(Inherited)*
+## Parse
 
 **Signature:** `Parse<T>(String, IFormatProvider)`
 
@@ -189,7 +189,7 @@ Parses a string into a specified type.
 
 **Returns:** Parsed value of type T.
 
-## IsDateTime *(Inherited)*
+## IsDateTime
 
 **Signature:** `IsDateTime`
 
@@ -198,7 +198,7 @@ Determines if the given string is a date/time. Relies on **DateTimeSpecification
 
 **Returns:** True if a date, otherwise false.
 
-## IsNumeric *(Inherited)*
+## IsNumeric
 
 **Signature:** `IsNumeric`
 
@@ -207,7 +207,7 @@ Determines if the given string is a number. Relies on **NumericSpecification**
 
 **Returns:** True if a number, otherwise false.
 
-## IsValidEmailAddress *(Inherited)*
+## IsValidEmailAddress
 
 **Signature:** `IsValidEmailAddress`
 
@@ -216,7 +216,7 @@ Validates that a string is a valid email address. Relies on **EmailSpecification
 
 **Returns:** True if valid email otherwise false.
 
-## IsValidIpAddress *(Inherited)*
+## IsValidIpAddress
 
 **Signature:** `IsValidIpAddress`
 
@@ -225,7 +225,7 @@ Validates that a string is a valid IP v4 address. Relies on **InternetProtocolAd
 
 **Returns:** True if valid IP v4 address otherwise false.
 
-## IsValidUnitedStatesPhoneNumber *(Inherited)*
+## IsValidUnitedStatesPhoneNumber
 
 **Signature:** `IsValidUnitedStatesPhoneNumber`
 
@@ -234,7 +234,7 @@ Validates that a string is a valid United States phone number. Relies on **Phone
 
 **Returns:** True if valid US phone number otherwise false.
 
-## IsValidZip *(Inherited)*
+## IsValidZip
 
 **Signature:** `IsValidZip`
 

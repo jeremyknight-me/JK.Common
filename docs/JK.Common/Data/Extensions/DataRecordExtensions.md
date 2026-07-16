@@ -6,7 +6,7 @@
 
 Extension methods for IDataRecord
 
-## GetValueOrDefault<T>(IDataRecord, String) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, String)
 
 **Signature:** `GetValueOrDefault<T>(IDataRecord, String)`
 
@@ -19,7 +19,7 @@ Gets the value of the given field from the data reader or the default for the ob
 
 **Returns:** The given field's value or the default for the object type.
 
-## GetValueOrDefault<T>(IDataRecord, String, T) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, String, T)
 
 **Signature:** `GetValueOrDefault<T>(IDataRecord, String, T)`
 
@@ -34,7 +34,7 @@ Gets the value of the given field from the data reader or the default for the ob
 
 **Returns:** The given field's value or the given default.
 
-## GetValueOrDefault<T>(IDataRecord, Int32) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, Int32)
 
 **Signature:** `GetValueOrDefault<T>(IDataRecord, Int32)`
 
@@ -47,7 +47,7 @@ Gets the value of the given field from the data reader or the default for the ob
 
 **Returns:** The given field's value or the default for the object type.
 
-## GetValueOrDefault<T>(IDataRecord, Int32, T) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, Int32, T)
 
 **Signature:** `GetValueOrDefault<T>(IDataRecord, Int32, T)`
 
@@ -62,7 +62,7 @@ Gets the value of the given field from the data reader or the default for the ob
 
 **Returns:** The given field's value or the given default.
 
-## GetValueOrNull<T>(IDataRecord, String) *(Inherited)*
+## GetValueOrNull<T>(IDataRecord, String)
 
 **Signature:** `GetValueOrNull<T>(IDataRecord, String)`
 
@@ -75,7 +75,7 @@ Gets the value of the given field from the data reader or null.
 
 **Returns:** The given field's value or null.
 
-## GetValueOrNull<T>(IDataRecord, Int32) *(Inherited)*
+## GetValueOrNull<T>(IDataRecord, Int32)
 
 **Signature:** `GetValueOrNull<T>(IDataRecord, Int32)`
 
@@ -88,7 +88,7 @@ Gets the value of the given field from the data reader or null.
 
 **Returns:** The given field's value or null.
 
-## HasColumn *(Inherited)*
+## HasColumn
 
 **Signature:** `HasColumn(IDataRecord, String)`
 
@@ -101,7 +101,7 @@ Determine whether or not the given column exists in the record.
 
 **Returns:** True if column found, otherwise false.
 
-## IsDbNull *(Inherited)*
+## IsDbNull
 
 **Signature:** `IsDbNull(IDataRecord, String)`
 

@@ -24,26 +24,18 @@ Initializes a new instance of the **ReadOnlyDbContext** class.
 
 - **options** — The options for this context.
 
-## SaveChanges() *(Inherited)*
+## SaveChanges()
 
 **Signature:** `SaveChanges()`
 
-**Summary:**
-
-## SaveChanges(Boolean) *(Inherited)*
+## SaveChanges(Boolean)
 
 **Signature:** `SaveChanges(Boolean)`
 
-**Summary:**
-
-## SaveChangesAsync(Boolean, CancellationToken) *(Inherited)*
+## SaveChangesAsync(Boolean, CancellationToken)
 
 **Signature:** `SaveChangesAsync(Boolean, CancellationToken)`
 
-**Summary:**
-
-## SaveChangesAsync(CancellationToken) *(Inherited)*
+## SaveChangesAsync(CancellationToken)
 
 **Signature:** `SaveChangesAsync(CancellationToken)`
-
-**Summary:**

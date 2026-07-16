@@ -4,14 +4,12 @@
 
 **Namespace:** `JK.Common.DateTimeProviders`
 
-## Now *(Inherited)*
+Default implementation of **IDateTimeOffsetProvider** that returns the current system time offset.
+
+## Now
 
 **Signature:** `Now`
 
-**Summary:**
-
-## UtcNow *(Inherited)*
+## UtcNow
 
 **Signature:** `UtcNow`
-
-**Summary:**

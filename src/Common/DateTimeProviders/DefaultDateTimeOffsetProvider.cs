@@ -1,6 +1,8 @@
 ﻿namespace JK.Common.DateTimeProviders;
 
-/// <inheritdoc/>
+/// <summary>
+/// Default implementation of <see cref="IDateTimeOffsetProvider"/> that returns the current system time offset.
+/// </summary>
 public sealed class DefaultDateTimeOffsetProvider : IDateTimeOffsetProvider
 {
     /// <inheritdoc/>

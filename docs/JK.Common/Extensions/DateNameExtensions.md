@@ -6,7 +6,7 @@
 
 Extension methods for retrieving localized day and month names.
 
-## AbbreviatedDayName *(Inherited)*
+## AbbreviatedDayName
 
 **Signature:** `AbbreviatedDayName`
 
@@ -15,7 +15,7 @@ Gets the abbreviated day name.
 
 **Returns:** Abbreviated day name.
 
-## AbbreviatedMonthName *(Inherited)*
+## AbbreviatedMonthName
 
 **Signature:** `AbbreviatedMonthName`
 
@@ -24,7 +24,7 @@ Gets the abbreviated month name.
 
 **Returns:** Abbreviated month name.
 
-## DayName *(Inherited)*
+## DayName
 
 **Signature:** `DayName`
 
@@ -33,7 +33,7 @@ Gets the full name of a given day.
 
 **Returns:** Full day name.
 
-## MonthName *(Inherited)*
+## MonthName
 
 **Signature:** `MonthName`
 
@@ -42,7 +42,7 @@ Gets the full name of a month.
 
 **Returns:** Full month name.
 
-## AbbreviatedDayName *(Inherited)*
+## AbbreviatedDayName
 
 **Signature:** `AbbreviatedDayName`
 
@@ -51,7 +51,7 @@ Gets the abbreviated day name.
 
 **Returns:** Abbreviated day name.
 
-## AbbreviatedMonthName *(Inherited)*
+## AbbreviatedMonthName
 
 **Signature:** `AbbreviatedMonthName`
 
@@ -60,7 +60,7 @@ Gets the abbreviated month name.
 
 **Returns:** Abbreviated month name.
 
-## DayName *(Inherited)*
+## DayName
 
 **Signature:** `DayName`
 
@@ -69,7 +69,7 @@ Gets the full name of a given day.
 
 **Returns:** Full day name.
 
-## MonthName *(Inherited)*
+## MonthName
 
 **Signature:** `MonthName`
 
@@ -78,7 +78,7 @@ Gets the full name of a month.
 
 **Returns:** Full month name.
 
-## AbbreviatedDayName *(Inherited)*
+## AbbreviatedDayName
 
 **Signature:** `AbbreviatedDayName`
 
@@ -87,7 +87,7 @@ Gets the abbreviated day name.
 
 **Returns:** Abbreviated day name.
 
-## AbbreviatedMonthName *(Inherited)*
+## AbbreviatedMonthName
 
 **Signature:** `AbbreviatedMonthName`
 
@@ -96,7 +96,7 @@ Gets the abbreviated month name.
 
 **Returns:** Abbreviated month name.
 
-## DayName *(Inherited)*
+## DayName
 
 **Signature:** `DayName`
 
@@ -105,7 +105,7 @@ Gets the full name of a given day.
 
 **Returns:** Full day name.
 
-## MonthName *(Inherited)*
+## MonthName
 
 **Signature:** `MonthName`
 

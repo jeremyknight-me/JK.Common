@@ -42,6 +42,7 @@ public class MemberDoc
     public List<ExceptionInfo> Exceptions { get; set; } = [];
     public string Example { get; set; } = "";
     public List<string> SeeAlso { get; set; } = [];
+    public bool HasSummary => !string.IsNullOrWhiteSpace(Summary);
     public bool HasParams => Params.Count > 0;
     public bool HasReturns => !string.IsNullOrWhiteSpace(Returns);
     public bool HasRemarks => !string.IsNullOrWhiteSpace(Remarks);

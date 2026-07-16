@@ -76,4 +76,35 @@ public static partial class Helpers
         });
         return text;
     }
+
+    public static string ResolveAngleBracketGenericArgs(string text, List<string> typeParamNames, int methodGenericCount)
+    {
+        if (typeParamNames.Count == 0)
+        {
+            return text;
+        }
+
+        var typeParamCount = typeParamNames.Count - methodGenericCount;
+        return Regex.Replace(text, @"<([^<>]+)>", m =>
+        {
+            var inner = m.Groups[1].Value;
+            var parts = inner.Split(',', StringSplitOptions.TrimEntries);
+            var resolved = parts.Select((p, i) =>
+            {
+                if (i < typeParamCount && i < typeParamNames.Count)
+                {
+                    return typeParamNames[i];
+                }
+
+                var methodIdx = i - typeParamCount;
+                if (methodIdx >= 0 && methodIdx < methodGenericCount && i < typeParamNames.Count)
+                {
+                    return typeParamNames[i];
+                }
+
+                return p;
+            });
+            return $"<{string.Join(", ", resolved)}>";
+        });
+    }
 }

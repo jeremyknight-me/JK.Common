@@ -13,7 +13,7 @@ Provides a base class for query operations without parameter models.
 **Signature:** `QueryOperationBase<TQueryModel>(IAdoConnectionFactory connectionFactory)`
 
 **Summary:**
-Initializes a new instance of the **QueryOperationBase&lt;T&gt;** class.
+Initializes a new instance of the **`QueryOperationBase<TQueryModel>`** class.
 
 **Parameters:**
 

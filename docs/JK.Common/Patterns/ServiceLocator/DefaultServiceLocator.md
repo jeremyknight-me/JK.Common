@@ -6,20 +6,14 @@
 
 Implementation of Service Locator design pattern.
 
-## Locate *(Inherited)*
+## Locate
 
 **Signature:** `Locate<T>()`
 
-**Summary:**
-
-## Register *(Inherited)*
+## Register
 
 **Signature:** `Register<T>(T)`
 
-**Summary:**
-
-## Unregister *(Inherited)*
+## Unregister
 
 **Signature:** `Unregister<T>()`
-
-**Summary:**

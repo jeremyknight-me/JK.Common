@@ -13,7 +13,7 @@ Provides a base class for scalar operations without parameter models.
 **Signature:** `ScalarOperationBase<TValue>(IAdoConnectionFactory connectionFactory)`
 
 **Summary:**
-Initializes a new instance of the **ScalarOperationBase&lt;T&gt;** class.
+Initializes a new instance of the **`ScalarOperationBase<TValue>`** class.
 
 **Parameters:**
 

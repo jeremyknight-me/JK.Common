@@ -9,11 +9,11 @@ Helper and utility extension methods for **Boolean**.
 
 ### [CollectionExtensions](CollectionExtensions.md)
 
-Helper and utility extension methods for **ICollection&lt;T&gt;** and **IReadOnlyCollection&lt;T&gt;**.
+Helper and utility extension methods for **`ICollection<T>`** and **`IReadOnlyCollection<T>`**.
 
 ### [ConcurrentBagExtensions](ConcurrentBagExtensions.md)
 
-Helper and utility extension methods for **ConcurrentBag&lt;T&gt;**.
+Helper and utility extension methods for **`ConcurrentBag<T>`**.
 
 ### [DateFormatExtensions](DateFormatExtensions.md)
 
@@ -45,11 +45,11 @@ Extension methods for the Decimal object.
 
 ### [EnumerableExtensions](EnumerableExtensions.md)
 
-Helper and utility extension methods for **IEnumerable&lt;T&gt;**.
+Helper and utility extension methods for **`IEnumerable<T>`**.
 
 ### [HashSetExtensions](HashSetExtensions.md)
 
-Helper and utility extension methods for **HashSet&lt;T&gt;**.
+Helper and utility extension methods for **`HashSet<T>`**.
 
 ### [LongExtensions](LongExtensions.md)
 
@@ -61,11 +61,11 @@ Helper and utility extension methods for **Object**.
 
 ### [QueryableExtensions](QueryableExtensions.md)
 
-Helper and utility extension methods for **IQueryable&lt;T&gt;**.
+Helper and utility extension methods for **`IQueryable<T>`**.
 
 ### [SpanExtensions](SpanExtensions.md)
 
-Extension methods for **ReadOnlySpan&lt;T&gt;**.
+Extension methods for **`ReadOnlySpan<T>`**.
 
 ### [StringExtensions](StringExtensions.md)
 

@@ -6,14 +6,10 @@
 
 A **SaveChangesInterceptor** that automatically sets audit timestamps on **IAuditableEntity** instances.
 
-## SavingChanges *(Inherited)*
+## SavingChanges
 
 **Signature:** `SavingChanges(DbContextEventData, InterceptionResult<Int32>)`
 
-**Summary:**
-
-## SavingChangesAsync *(Inherited)*
+## SavingChangesAsync
 
 **Signature:** `SavingChangesAsync(DbContextEventData, InterceptionResult<Int32>, CancellationToken)`
-
-**Summary:**

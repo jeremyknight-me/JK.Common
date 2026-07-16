@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Extensions`
 
-Extension methods for configuring SQL Server string column types on **PropertyBuilder&lt;T&gt;**.
+Extension methods for configuring SQL Server string column types on **`PropertyBuilder<T>`**.
 
 ## HasColumnTypeNvarchar(PropertyBuilder<String> propertyBuilder)
 

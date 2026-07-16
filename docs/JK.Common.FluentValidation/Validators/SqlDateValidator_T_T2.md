@@ -6,20 +6,14 @@
 
 Validator that validates that a date property is a valid SQL date.
 
-## GetDefaultMessageTemplate *(Inherited)*
+## GetDefaultMessageTemplate
 
 **Signature:** `GetDefaultMessageTemplate(String)`
 
-**Summary:**
-
-## IsValid *(Inherited)*
+## IsValid
 
 **Signature:** `IsValid(ValidationContext<T>, T2)`
 
-**Summary:**
-
-## Name *(Inherited)*
+## Name
 
 **Signature:** `Name`
-
-**Summary:**

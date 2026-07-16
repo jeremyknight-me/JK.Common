@@ -90,32 +90,22 @@ Initializes a new instance of the **Latitude** class with minutes, seconds, and 
 
 - **direction** — The cardinal direction of the latitude.
 
-## GetValidDirections *(Inherited)*
+## GetValidDirections
 
 **Signature:** `GetValidDirections()`
 
-**Summary:**
-
-## SetIsNegative *(Inherited)*
+## SetIsNegative
 
 **Signature:** `SetIsNegative(Direction)`
 
-**Summary:**
-
-## Direction *(Inherited)*
+## Direction
 
 **Signature:** `Direction`
 
-**Summary:**
-
-## CoordinateType *(Inherited)*
+## CoordinateType
 
 **Signature:** `CoordinateType`
 
-**Summary:**
-
-## ValidationSpecification *(Inherited)*
+## ValidationSpecification
 
 **Signature:** `ValidationSpecification`
-
-**Summary:**

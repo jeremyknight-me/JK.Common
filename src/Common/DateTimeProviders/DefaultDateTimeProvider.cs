@@ -1,6 +1,8 @@
 ﻿namespace JK.Common.DateTimeProviders;
 
-/// <inheritdoc/>
+/// <summary>
+/// Default implementation of <see cref="IDateTimeProvider"/> that returns the current system time.
+/// </summary>
 public sealed class DefaultDateTimeProvider : IDateTimeProvider
 {
     /// <inheritdoc/>

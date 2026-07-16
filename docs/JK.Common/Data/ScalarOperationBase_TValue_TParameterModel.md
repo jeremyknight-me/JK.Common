@@ -15,7 +15,7 @@ Provides a base class for scalar operations with parameter models.
 **Signature:** `ScalarOperationBase<TValue, TParameterModel>(IAdoConnectionFactory connectionFactory)`
 
 **Summary:**
-Initializes a new instance of the **ScalarOperationBase&lt;T, T2&gt;** class.
+Initializes a new instance of the **`ScalarOperationBase<TValue, TParameterModel>`** class.
 
 **Parameters:**
 

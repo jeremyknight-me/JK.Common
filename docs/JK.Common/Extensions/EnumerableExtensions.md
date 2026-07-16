@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **IEnumerable&lt;T&gt;**.
+Helper and utility extension methods for **`IEnumerable<T>`**.
 
 ## ForEach<T>(IEnumerable<T> source, Action<T> action)
 

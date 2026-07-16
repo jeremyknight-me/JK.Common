@@ -5,7 +5,11 @@
 ## Types
 ### [DefaultDateTimeOffsetProvider](DefaultDateTimeOffsetProvider.md)
 
+Default implementation of **IDateTimeOffsetProvider** that returns the current system time offset.
+
 ### [DefaultDateTimeProvider](DefaultDateTimeProvider.md)
+
+Default implementation of **IDateTimeProvider** that returns the current system time.
 
 ### [IDateTimeOffsetProvider](IDateTimeOffsetProvider.md)
 

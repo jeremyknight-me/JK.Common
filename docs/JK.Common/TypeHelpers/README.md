@@ -37,7 +37,7 @@ Class which contains methods for GZip compression.
 
 ### [ProjectionComparer\<TSource\>](ProjectionComparer_TSource.md)
 
-Provides an **IEqualityComparer&lt;T&gt;** implementation that compares objects by a projected value.
+Provides an **`IEqualityComparer<TSource>`** implementation that compares objects by a projected value.
 
 ### [RegexHelper](RegexHelper.md)
 

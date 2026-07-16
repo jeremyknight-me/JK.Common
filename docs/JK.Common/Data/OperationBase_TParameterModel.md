@@ -13,17 +13,15 @@ Provides a base class for operations with parameter models.
 **Signature:** `OperationBase<TParameterModel>(IAdoConnectionFactory connectionFactory)`
 
 **Summary:**
-Initializes a new instance of the **OperationBase&lt;T&gt;** class.
+Initializes a new instance of the **`OperationBase<TParameterModel>`** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-## Dispose *(Inherited)*
+## Dispose
 
 **Signature:** `Dispose()`
-
-**Summary:**
 
 ## ConfigureCommand
 

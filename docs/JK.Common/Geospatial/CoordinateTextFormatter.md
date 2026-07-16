@@ -17,38 +17,26 @@ Initializes a new instance of the **CoordinateTextFormatter** class.
 
 - **coordinateToUse** — The coordinate to format as text.
 
-## ToStringDegrees *(Inherited)*
+## ToStringDegrees
 
 **Signature:** `ToStringDegrees()`
 
-**Summary:**
-
-## ToStringDegreesMinutes *(Inherited)*
+## ToStringDegreesMinutes
 
 **Signature:** `ToStringDegreesMinutes()`
 
-**Summary:**
-
-## ToStringDegreesMinutesSeconds *(Inherited)*
+## ToStringDegreesMinutesSeconds
 
 **Signature:** `ToStringDegreesMinutesSeconds()`
 
-**Summary:**
-
-## ToStringDegreesDirection *(Inherited)*
+## ToStringDegreesDirection
 
 **Signature:** `ToStringDegreesDirection()`
 
-**Summary:**
-
-## ToStringDegreesMinutesDirection *(Inherited)*
+## ToStringDegreesMinutesDirection
 
 **Signature:** `ToStringDegreesMinutesDirection()`
 
-**Summary:**
-
-## ToStringDegreesMinutesSecondsDirection *(Inherited)*
+## ToStringDegreesMinutesSecondsDirection
 
 **Signature:** `ToStringDegreesMinutesSecondsDirection()`
-
-**Summary:**

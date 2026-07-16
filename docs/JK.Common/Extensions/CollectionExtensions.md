@@ -4,9 +4,9 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **ICollection&lt;T&gt;** and **IReadOnlyCollection&lt;T&gt;**.
+Helper and utility extension methods for **`ICollection<T>`** and **`IReadOnlyCollection<T>`**.
 
-## AddIfNotNull *(Inherited)*
+## AddIfNotNull
 
 **Signature:** `AddIfNotNull<T>(ICollection<T>, T)`
 
@@ -17,7 +17,7 @@ Adds the specified item to the collection if the item is not **null**.
 
 - **item** — The item to add to the collection.
 
-## AddRangeIfNotNull *(Inherited)*
+## AddRangeIfNotNull
 
 **Signature:** `AddRangeIfNotNull<T>(ICollection<T>, IEnumerable<T>)`
 
@@ -30,7 +30,7 @@ Adds the specified items to the collection if they are not **null**.
 
 **Remarks:** Each item in **items** will be checked for **null** before being added.
 
-## HasItems *(Inherited)*
+## HasItems
 
 **Signature:** `HasItems`
 
@@ -39,7 +39,7 @@ Determines whether the collection has any items.
 
 **Returns:** **true** if the collection has items; otherwise, **false**.
 
-## HasItems *(Inherited)*
+## HasItems
 
 **Signature:** `HasItems`
 

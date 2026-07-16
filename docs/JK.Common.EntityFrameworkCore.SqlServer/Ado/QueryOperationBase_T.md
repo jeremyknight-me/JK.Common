@@ -13,7 +13,7 @@ Base class for ADO.NET query operations that return a collection of results.
 **Signature:** `QueryOperationBase<T>(DbContext dbContext, CommandType adoCommandType, String adoCommandText)`
 
 **Summary:**
-Initializes a new instance of the **QueryOperationBase&lt;T&gt;** class.
+Initializes a new instance of the **`QueryOperationBase<T>`** class.
 
 **Parameters:**
 

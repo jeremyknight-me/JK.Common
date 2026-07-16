@@ -13,7 +13,7 @@ Provides a base class for non-query operations with parameter models.
 **Signature:** `NonQueryOperationBase<TParameterModel>(IAdoConnectionFactory connectionFactory)`
 
 **Summary:**
-Initializes a new instance of the **NonQueryOperationBase&lt;T&gt;** class.
+Initializes a new instance of the **`NonQueryOperationBase<TParameterModel>`** class.
 
 **Parameters:**
 

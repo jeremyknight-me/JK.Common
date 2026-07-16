@@ -4,20 +4,16 @@
 
 **Namespace:** `JK.Common.DateTimeProviders`
 
-## Now *(Inherited)*
+Default implementation of **IDateTimeProvider** that returns the current system time.
+
+## Now
 
 **Signature:** `Now`
 
-**Summary:**
-
-## Today *(Inherited)*
+## Today
 
 **Signature:** `Today`
 
-**Summary:**
-
-## UtcNow *(Inherited)*
+## UtcNow
 
 **Signature:** `UtcNow`
-
-**Summary:**

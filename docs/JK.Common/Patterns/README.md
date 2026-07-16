@@ -2,7 +2,7 @@
 
 # JK.Common.Patterns
 
-## Types
-- [ServiceLocator](ServiceLocator.md)
-- [Singleton](Singleton.md)
-- [Specification](Specification.md)
+## Namespaces
+- [ServiceLocator](ServiceLocator/README.md)
+- [Singleton](Singleton/README.md)
+- [Specification](Specification/README.md)

@@ -6,7 +6,7 @@
 
 Extension methods for the DateTime object.
 
-## AddWorkDays *(Inherited)*
+## AddWorkDays
 
 **Signature:** `AddWorkDays(DateTime, Int32)`
 
@@ -19,7 +19,7 @@ Adds given number of business days to a date.
 
 **Returns:** The date the given amount of business days from the start date.
 
-## IsBetween *(Inherited)*
+## IsBetween
 
 **Signature:** `IsBetween(DateTime, DateTime, DateTime)`
 
@@ -34,7 +34,7 @@ Determines whether or not a given date is between (inclusive) the given start an
 
 **Returns:** True if date falls within range, otherwise false
 
-## IsSqlDate *(Inherited)*
+## IsSqlDate
 
 **Signature:** `IsSqlDate`
 
@@ -45,7 +45,7 @@ Determines whether or not a given date is valid to place in a SQL datetime colum
 
 **Remarks:** The minimum date a 'datetime' date type in SQL can hold is January 1, 1753
 
-## IsWeekday *(Inherited)*
+## IsWeekday
 
 **Signature:** `IsWeekday`
 
@@ -54,11 +54,11 @@ Determines if given date is a weekday.
 
 **Returns:** True if is a weekday, otherwise false.
 
-## IsWeekend *(Inherited)*
+## IsWeekend
 
 **Signature:** `IsWeekend`
 
 **Summary:**
-Determines if given date is a weekday.
+Determines if given date is a weekend.
 
 **Returns:** True if is a weekend, otherwise false.

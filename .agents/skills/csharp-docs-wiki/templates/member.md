@@ -1,9 +1,11 @@
 ## {{ Heading }}{{ InheritedSuffix }}
 
 **Signature:** `{{ Signature }}`
+{% if Summary != "" %}
 
 **Summary:**
 {{ Summary }}
+{% endif %}
 {% if HasParams %}
 
 **Parameters:**

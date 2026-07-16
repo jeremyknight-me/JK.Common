@@ -13,7 +13,7 @@ Base class for ADO.NET operations that return a single scalar value.
 **Signature:** `ScalarOperationBase<T>(DbContext context, CommandType adoCommandType, String adoCommandText)`
 
 **Summary:**
-Initializes a new instance of the **ScalarOperationBase&lt;T&gt;** class.
+Initializes a new instance of the **`ScalarOperationBase<T>`** class.
 
 **Parameters:**
 

@@ -222,15 +222,16 @@ public class XmlDocParser
         }
 
         var signature = BuildSignature(full, displayName, kind, typeParamNames, methodGenericTypeParams);
-        var isInherited = member.Element("inheritdoc") != null;
         XElement? source = member;
+        var isInherited = false;
 
-        if (isInherited && member.Element("inheritdoc") is { } inheritdoc)
+        if (member.Element("inheritdoc") is { } inheritdoc)
         {
             var cref = inheritdoc.Attribute("cref")?.Value;
             if (cref != null && _generatedMembers.TryGetValue(cref, out var target))
             {
                 source = target;
+                isInherited = !cref.Contains("<G>$");
             }
         }
 
@@ -438,7 +439,7 @@ public class XmlDocParser
             names.Add(i == 0 ? "T" : $"T{i + 1}");
         }
 
-        return $"&lt;{string.Join(", ", names)}&gt;";
+        return $"<{string.Join(", ", names)}>";
     }
 
     private static string NormalizeGenericSpacing(string type)
@@ -497,11 +498,19 @@ public class XmlDocParser
                         if (typeParamNames != null && typeParamNames.Count > 0)
                         {
                             crName = Helpers.ResolveGenericArgs(crName, typeParamNames, methodGenericTypeParams?.Count ?? 0);
+                            crName = Helpers.ResolveAngleBracketGenericArgs(crName, typeParamNames, methodGenericTypeParams?.Count ?? 0);
                         }
 
                         crName = Regexes.GenericTick().Replace(crName, m => FormatGenericArity(m.Value));
                         var crDisplay = el.Value.Length > 0 ? el.Value : crName.Split('.').Last();
-                        parts.Add($"**{crDisplay}**");
+                        if (crDisplay.Contains('<'))
+                        {
+                            parts.Add($"**`{crDisplay}`**");
+                        }
+                        else
+                        {
+                            parts.Add($"**{crDisplay}**");
+                        }
                         break;
                     case "see" when el.Attribute("langword") != null:
                         parts.Add($"**{el.Attribute("langword")!.Value}**");
@@ -574,9 +583,11 @@ public class XmlDocParser
         if (typeParamNames != null && typeParamNames.Count > 0)
         {
             result = Helpers.ResolveGenericArgs(result, typeParamNames, methodGenericTypeParams?.Count ?? 0);
+            result = Helpers.ResolveAngleBracketGenericArgs(result, typeParamNames, methodGenericTypeParams?.Count ?? 0);
         }
 
         result = Regexes.GenericTick().Replace(result, m => FormatGenericArity(m.Value));
+        result = result.Replace("&lt;", "<").Replace("&gt;", ">").Replace("&amp;", "&");
         return result;
     }
 }

@@ -4,9 +4,9 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **IQueryable&lt;T&gt;**.
+Helper and utility extension methods for **`IQueryable<T>`**.
 
-## SortBy<T, T2>(IQueryable<T>, Func<T, T2>, Boolean) *(Inherited)*
+## SortBy<T, T2>(IQueryable<T>, Func<T, T2>, Boolean)
 
 **Signature:** `SortBy<T, T2>(IQueryable<T>, Func<T, T2>, Boolean)`
 
@@ -19,9 +19,9 @@ Sorts the elements of a sequence in ascending or descending order according to a
 
 - **isAscending** — True to sort ascending, false for descending.
 
-**Returns:** An **IQueryable&lt;T&gt;** whose elements are sorted according to a key.
+**Returns:** An **`IQueryable<T>`** whose elements are sorted according to a key.
 
-## SortBy<T>(IQueryable<T>, String, Boolean) *(Inherited)*
+## SortBy<T>(IQueryable<T>, String, Boolean)
 
 **Signature:** `SortBy<T>(IQueryable<T>, String, Boolean)`
 
@@ -34,9 +34,9 @@ Sorts the elements of a sequence in ascending or descending order according to a
 
 - **ascending** — True to sort ascending, false for descending.
 
-**Returns:** An **IQueryable&lt;T&gt;** whose elements are sorted according to the property name.
+**Returns:** An **`IQueryable<T>`** whose elements are sorted according to the property name.
 
-## WhereIf *(Inherited)*
+## WhereIf
 
 **Signature:** `WhereIf<T>(IQueryable<T>, Boolean, Expression<Func<T, Boolean>>)`
 
@@ -49,4 +49,4 @@ Filters a sequence based on a condition.
 
 - **predicate** — A function to test each element for a condition.
 
-**Returns:** An **IQueryable&lt;T&gt;** that contains elements from the input sequence that satisfy the condition if true, otherwise the original sequence.
+**Returns:** An **`IQueryable<T>`** that contains elements from the input sequence that satisfy the condition if true, otherwise the original sequence.

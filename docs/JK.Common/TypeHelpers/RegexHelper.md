@@ -153,8 +153,6 @@ Determines whether the input string is a valid US or Canadian zip code.
 
 **Signature:** `AlphabeticalRegex()`
 
-**Summary:**
-
 **Remarks:** Pattern: 
  ```
 ^[a-zA-Z]+$
@@ -175,8 +173,6 @@ RegexOptions.IgnoreCase
 
 **Signature:** `AlphanumericRegex()`
 
-**Summary:**
-
 **Remarks:** Pattern: 
  ```
 ^[a-zA-Z0-9]+$
@@ -196,8 +192,6 @@ RegexOptions.IgnoreCase
 ## DecimalRegex
 
 **Signature:** `DecimalRegex()`
-
-**Summary:**
 
 **Remarks:** Pattern: 
  ```
@@ -235,8 +229,6 @@ RegexOptions.IgnoreCase
 ## DecimalOrCurrencyRegex
 
 **Signature:** `DecimalOrCurrencyRegex()`
-
-**Summary:**
 
 **Remarks:** Pattern: 
  ```
@@ -281,8 +273,6 @@ RegexOptions.IgnoreCase
 
 **Signature:** `EmailAddressRegex()`
 
-**Summary:**
-
 **Remarks:** Pattern: 
  ```
 ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$
@@ -308,8 +298,6 @@ RegexOptions.IgnoreCase
 
 **Signature:** `IntegerRegex()`
 
-**Summary:**
-
 **Remarks:** Pattern: 
  ```
 ^-?\\d+$
@@ -330,8 +318,6 @@ RegexOptions.IgnoreCase
 ## IPv4Regex
 
 **Signature:** `IPv4Regex()`
-
-**Summary:**
 
 **Remarks:** Pattern: 
  ```
@@ -411,8 +397,6 @@ RegexOptions.IgnoreCase
 
 **Signature:** `SocialSecurityNumberRegex()`
 
-**Summary:**
-
 **Remarks:** Pattern: 
  ```
 ^(?!000)(?!666)(?!9)\\d{3}([- ]?)(?!00)\\d{2}\\1(?!0000)\\d{4}$
@@ -447,8 +431,6 @@ RegexOptions.IgnoreCase
 ## UnitedStatesPhoneNumberRegex
 
 **Signature:** `UnitedStatesPhoneNumberRegex()`
-
-**Summary:**
 
 **Remarks:** Pattern: 
  ```
@@ -521,11 +503,9 @@ RegexOptions.IgnoreCase
 
 **Signature:** `UrlRegex()`
 
-**Summary:**
-
 **Remarks:** Pattern: 
  ```
-^(ht|f)tp(s?)\\:\\/\\/[0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*(:(0-9)*)*(\\/?)([a-zA-Z0-9\\-\\.\\?\\,\\'\\/\\\\\\+&amp;%\\$#_]*)?$
+^(ht|f)tp(s?)\\:\\/\\/[0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*(:(0-9)*)*(\\/?)([a-zA-Z0-9\\-\\.\\?\\,\\'\\/\\\\\\+&%\\$#_]*)?$
 ``` 
  Options: 
  ```
@@ -561,15 +541,13 @@ RegexOptions.IgnoreCase
                 ○ Match '/' greedily, optionally.
             ○ Optional (greedy).
                 ○ 7th capture group.
-                    ○ Match a character in the set [#-'+-9;?A-Z\\_a-z\u212A] atomically any number of times.
+                    ○ Match a character in the set [#-'+-9?A-Z\\_a-z\u212A] atomically any number of times.
             ○ Match if at the end of the string or if before an ending newline.
 ```
 
 ## ZipCodeRegex
 
 **Signature:** `ZipCodeRegex()`
-
-**Summary:**
 
 **Remarks:** Pattern: 
  ```

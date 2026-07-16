@@ -6,7 +6,7 @@
 
 Helper and utility extension methods for **Boolean**.
 
-## ConvertToText *(Inherited)*
+## ConvertToText
 
 **Signature:** `ConvertToText(Boolean, String, String)`
 
