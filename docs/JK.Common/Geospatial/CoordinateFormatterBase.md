@@ -8,7 +8,10 @@ Base class for formatting coordinates in various display formats.
 
 ## CoordinateFormatterBase
 
-**Summary:** Initializes a new instance of the **CoordinateFormatterBase** class.
+**Signature:** `CoordinateFormatterBase(CoordinateBase coordinateToUse)`
+
+**Summary:**
+Initializes a new instance of the **CoordinateFormatterBase** class.
 
 **Parameters:**
 

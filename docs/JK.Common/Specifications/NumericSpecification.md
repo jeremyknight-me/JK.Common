@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid numeric value.
 
 - **candidate** — The string to evaluate.
 
-**Returns:** **true** if the candidate is not null, not whitespace, and can be parsed as a double; otherwise, **false** .
+**Returns:** **true** if the candidate is not null, not whitespace, and can be parsed as a double; otherwise, **false**.

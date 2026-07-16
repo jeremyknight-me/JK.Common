@@ -17,4 +17,4 @@ Determines whether the specified **DateTime** is a weekday (not Saturday or Sund
 
 - **candidate** — The date to evaluate.
 
-**Returns:** **true** if the date is a weekday; otherwise, **false** .
+**Returns:** **true** if the date is a weekday; otherwise, **false**.

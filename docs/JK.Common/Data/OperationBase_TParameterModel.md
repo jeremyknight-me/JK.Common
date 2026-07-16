@@ -10,17 +10,18 @@ Provides a base class for operations with parameter models.
 
 ## OperationBase<TParameterModel>
 
-**Summary:** Initializes a new instance of the **OperationBaseT** class.
+**Signature:** `OperationBase<TParameterModel>(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **`OperationBase<TParameterModel>`** class.
 
 **Parameters:**
 
 - **connectionFactory** — The connection factory to use.
 
-## Dispose *(Inherited)*
+## Dispose
 
 **Signature:** `Dispose()`
-
-**Summary:**
 
 ## ConfigureCommand
 
@@ -46,7 +47,7 @@ Creates and configures a command using the specified parameter model.
 
 - **parameterModel** — The parameter model to use for command configuration.
 
-**Returns:** The configured **IDbCommand** .
+**Returns:** The configured **IDbCommand**.
 
 ## OpenConnection
 

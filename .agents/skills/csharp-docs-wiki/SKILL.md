@@ -51,27 +51,35 @@ When invoked, the agent should:
 3. Filter to projects with `GenerateDocumentationFile` enabled
 4. Build each project: `dotnet build <csproj> -f net10.0`
 5. Collect the resulting XML documentation files from `bin/Debug/net10.0/`
-6. Pass all XML files to the tool:
-
-```bash
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/Project1.xml bin/Debug/net10.0/Project2.xml
-```
+6. Locate the templates directory at `<skill-base-directory>/templates` which contains `type.md` and `member.md`
+7. Pass all XML files and the templates directory to the tool
 
 ### Usage
 
 ```bash
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] [--output <path>]
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --help
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files <xml-file> [xml-file ...] --templatePath <path> [--output <path>]
 ```
 
 - `--files` — One or more paths to XML documentation files (required)
+- `--templatePath` — Path to the templates directory containing `type.md` and `member.md` (required)
 - `--output` — Output directory (default: `./docs`)
+- `--help` — Show usage and option details
+- Unknown arguments are treated as errors (strict parsing)
 
 ### Example
 
 ```bash
-# Agent builds projects, then runs the tool
-dotnet build src/MyProject/MyProject.csproj -f net10.0
-dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- --files bin/Debug/net10.0/MyProject.xml
+# Agent builds projects that emit XML documentation, then runs the tool
+dotnet build path/to/MyProject.csproj -f net10.0
+dotnet build path/to/MyProject.Data.csproj -f net10.0
+
+dotnet run --file .agents/skills/csharp-docs-wiki/XmlDocsToWiki.cs -- \
+  --files \
+    path/to/MyProject/bin/Debug/net10.0/MyProject.xml \
+    path/to/MyProject.Data/bin/Debug/net10.0/MyProject.Data.xml \
+  --templatePath <skill-base-directory>/templates \
+  --output docs
 ```
 
 ## Output structure
@@ -109,7 +117,7 @@ The tool uses the project name as the top-level folder (or `RootNamespace` if se
 ## Features
 
 - **Cross-platform**: Runs on any OS with .NET SDK (no PowerShell dependency)
-- **Template-based output**: Customize documentation by editing templates in `templates/`
+- **Template-based output**: Customize documentation by editing Liquid templates in `templates/` (powered by [Fluid](https://github.com/sebastienros/fluid))
 - **Nested types**: Included in parent type's file
 - **Inherited members**: Marked with "(Inherited)" indicator
 - **XML tag support**: Converts `<see>`, `<code>`, `<example>`, `<list>`, etc. to Markdown
@@ -117,14 +125,14 @@ The tool uses the project name as the top-level folder (or `RootNamespace` if se
 
 ## Templates
 
-Templates use a simple syntax:
+Templates use [Liquid](https://shopify.github.io/liquid/) syntax via the [Fluid](https://github.com/sebastienros/fluid) template engine:
 
 | Feature | Syntax | Example |
 |---|---|---|
-| Variable | `{Variable}` | `{TypeName}` |
-| Loop | `{#each Items}...{/each}` | `{#each Methods}{Body}{/each}` |
-| Conditional | `{#if Condition}...{/if}` | `{#if HasReturns}{Returns}{/if}` |
-| Literal `{` | `{{` | `{{not a variable}}` |
+| Variable | `{{ Variable }}` | `{{ TypeName }}` |
+| Loop | `{% for item in Items %}...{% endfor %}` | `{% for m in Methods %}{{ m.Body }}{% endfor %}` |
+| Conditional | `{% if Condition %}...{% endif %}` | `{% if HasReturns %}**Returns:** {{ Returns }}{% endif %}` |
+| Nested access | `{{ item.Property }}` | `{{ param.Name }}` |
 
 Template files are in `templates/`:
 

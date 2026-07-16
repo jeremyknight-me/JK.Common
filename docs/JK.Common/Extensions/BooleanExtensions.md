@@ -4,11 +4,11 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **Boolean** .
+Helper and utility extension methods for **Boolean**.
 
-## ConvertToText *(Inherited)*
+## ConvertToText
 
-**Signature:** `ConvertToText(Boolean, String trueText, String falseText)`
+**Signature:** `ConvertToText(Boolean, String, String)`
 
 **Summary:**
 Converts a boolean value to its corresponding text representation.

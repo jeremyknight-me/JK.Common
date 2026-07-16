@@ -8,7 +8,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class.
+**Signature:** `Longitude(Decimal degrees)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class.
 
 **Parameters:**
 
@@ -16,39 +19,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class.
+**Signature:** `Longitude(Int32 degrees, Decimal minutes)`
 
-**Parameters:**
-
-- **degrees** — The degrees component of the longitude.
-
-- **minutes** — The minutes component of the longitude.
-
-## Longitude
-
-**Summary:** Initializes a new instance of the **Longitude** class.
-
-**Parameters:**
-
-- **degrees** — The degrees component of the longitude.
-
-- **minutes** — The minutes component of the longitude.
-
-- **seconds** — The seconds component of the longitude.
-
-## Longitude
-
-**Summary:** Initializes a new instance of the **Longitude** class with a direction.
-
-**Parameters:**
-
-- **degrees** — The degrees component of the longitude.
-
-- **direction** — The cardinal direction of the longitude.
-
-## Longitude
-
-**Summary:** Initializes a new instance of the **Longitude** class with minutes and a direction.
+**Summary:**
+Initializes a new instance of the **Longitude** class.
 
 **Parameters:**
 
@@ -56,11 +30,12 @@ Represents a longitude ("x" axis) coordinate.
 
 - **minutes** — The minutes component of the longitude.
 
-- **direction** — The cardinal direction of the longitude.
-
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class with minutes, seconds, and a direction.
+**Signature:** `Longitude(Int32 degrees, Int32 minutes, Decimal seconds)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class.
 
 **Parameters:**
 
@@ -70,45 +45,67 @@ Represents a longitude ("x" axis) coordinate.
 
 - **seconds** — The seconds component of the longitude.
 
+## Longitude
+
+**Signature:** `Longitude(Decimal degrees, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class with a direction.
+
+**Parameters:**
+
+- **degrees** — The degrees component of the longitude.
+
 - **direction** — The cardinal direction of the longitude.
 
-## GetValidDirections *(Inherited)*
+## Longitude
+
+**Signature:** `Longitude(Int32 degrees, Decimal minutes, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class with minutes and a direction.
+
+**Parameters:**
+
+- **degrees** — The degrees component of the longitude.
+
+- **minutes** — The minutes component of the longitude.
+
+- **direction** — The cardinal direction of the longitude.
+
+## Longitude
+
+**Signature:** `Longitude(Int32 degrees, Int32 minutes, Decimal seconds, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class with minutes, seconds, and a direction.
+
+**Parameters:**
+
+- **degrees** — The degrees component of the longitude.
+
+- **minutes** — The minutes component of the longitude.
+
+- **seconds** — The seconds component of the longitude.
+
+- **direction** — The cardinal direction of the longitude.
+
+## GetValidDirections
 
 **Signature:** `GetValidDirections()`
 
-**Summary:**
-Gets the valid directions for the coordinate type.
+## SetIsNegative
 
-**Returns:** A collection of valid directions.
+**Signature:** `SetIsNegative(Direction)`
 
-## SetIsNegative *(Inherited)*
-
-**Signature:** `SetIsNegative(Direction direction)`
-
-**Summary:**
-Sets whether the coordinate is negative based on the direction.
-
-**Parameters:**
-
-- **direction** — The direction to evaluate.
-
-## Direction *(Inherited)*
+## Direction
 
 **Signature:** `Direction`
 
-**Summary:**
-Gets the cardinal direction of the coordinate.
-
-## CoordinateType *(Inherited)*
+## CoordinateType
 
 **Signature:** `CoordinateType`
 
-**Summary:**
-Gets the coordinate type (latitude or longitude).
-
-## ValidationSpecification *(Inherited)*
+## ValidationSpecification
 
 **Signature:** `ValidationSpecification`
-
-**Summary:**
-Gets the validation specification for the coordinate.

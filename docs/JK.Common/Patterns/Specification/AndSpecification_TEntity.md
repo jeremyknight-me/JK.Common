@@ -10,7 +10,10 @@ Generic And specification.
 
 ## AndSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **AndSpecificationT** class.
+**Signature:** `AndSpecification<TEntity>(ISpecification<TEntity> left, ISpecification<TEntity> right)`
+
+**Summary:**
+Initializes a new instance of the **`AndSpecification<TEntity>`** class.
 
 **Parameters:**
 
@@ -18,15 +21,6 @@ Generic And specification.
 
 - **right** — The right entity.
 
-## IsSatisfiedBy *(Inherited)*
+## IsSatisfiedBy
 
-**Signature:** `IsSatisfiedBy(TEntity candidate)`
-
-**Summary:**
-Determines whether the specified candidate is satisfied by TEntity.
-
-**Parameters:**
-
-- **candidate** — The candidate.
-
-**Returns:** True if is satisfied by the specified candidate; otherwise false.
+**Signature:** `IsSatisfiedBy(TEntity)`

@@ -12,7 +12,10 @@ Provides a base class for query operations with parameter models.
 
 ## QueryOperationBase<TQueryModel, TParameterModel>
 
-**Summary:** Initializes a new instance of the **QueryOperationBaseT** class.
+**Signature:** `QueryOperationBase<TQueryModel, TParameterModel>(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **`QueryOperationBase<TQueryModel, TParameterModel>`** class.
 
 **Parameters:**
 

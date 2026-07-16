@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid United States ZIP c
 
 - **candidate** — The string to evaluate as a ZIP code.
 
-**Returns:** **true** if the candidate is a valid ZIP code; otherwise, **false** .
+**Returns:** **true** if the candidate is a valid ZIP code; otherwise, **false**.

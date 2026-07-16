@@ -3,4 +3,7 @@
 # JK.Common.Patterns.Singleton
 
 ## Types
-- [LazySingleton](LazySingleton.md)
+### [LazySingleton](LazySingleton.md)
+
+Example of singleton pattern LazyT implementation
+

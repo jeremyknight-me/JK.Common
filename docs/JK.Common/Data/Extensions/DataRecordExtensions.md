@@ -6,13 +6,12 @@
 
 Extension methods for IDataRecord
 
-## GetValueOrDefault(IDataRecord, String name) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, String)
 
-**Signature:** `GetValueOrDefault<T>(IDataRecord, String name)`
+**Signature:** `GetValueOrDefault<T>(IDataRecord, String)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -20,13 +19,12 @@ Gets the value of the given field from the data reader or the
 
 **Returns:** The given field's value or the default for the object type.
 
-## GetValueOrDefault(IDataRecord, String name, T defaultValue) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, String, T)
 
-**Signature:** `GetValueOrDefault<T>(IDataRecord, String name, T defaultValue)`
+**Signature:** `GetValueOrDefault<T>(IDataRecord, String, T)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -36,13 +34,12 @@ Gets the value of the given field from the data reader or the
 
 **Returns:** The given field's value or the given default.
 
-## GetValueOrDefault(IDataRecord, Int32 index) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, Int32)
 
-**Signature:** `GetValueOrDefault<T>(IDataRecord, Int32 index)`
+**Signature:** `GetValueOrDefault<T>(IDataRecord, Int32)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -50,13 +47,12 @@ Gets the value of the given field from the data reader or the
 
 **Returns:** The given field's value or the default for the object type.
 
-## GetValueOrDefault(IDataRecord, Int32 index, T defaultValue) *(Inherited)*
+## GetValueOrDefault<T>(IDataRecord, Int32, T)
 
-**Signature:** `GetValueOrDefault<T>(IDataRecord, Int32 index, T defaultValue)`
+**Signature:** `GetValueOrDefault<T>(IDataRecord, Int32, T)`
 
 **Summary:**
-Gets the value of the given field from the data reader or the 
-            default for the object type.
+Gets the value of the given field from the data reader or the default for the object type.
 
 **Parameters:**
 
@@ -66,9 +62,9 @@ Gets the value of the given field from the data reader or the
 
 **Returns:** The given field's value or the given default.
 
-## GetValueOrNull(IDataRecord, String name) *(Inherited)*
+## GetValueOrNull<T>(IDataRecord, String)
 
-**Signature:** `GetValueOrNull<T>(IDataRecord, String name)`
+**Signature:** `GetValueOrNull<T>(IDataRecord, String)`
 
 **Summary:**
 Gets the value of the given field from the data reader or null.
@@ -79,9 +75,9 @@ Gets the value of the given field from the data reader or null.
 
 **Returns:** The given field's value or null.
 
-## GetValueOrNull(IDataRecord, Int32 index) *(Inherited)*
+## GetValueOrNull<T>(IDataRecord, Int32)
 
-**Signature:** `GetValueOrNull<T>(IDataRecord, Int32 index)`
+**Signature:** `GetValueOrNull<T>(IDataRecord, Int32)`
 
 **Summary:**
 Gets the value of the given field from the data reader or null.
@@ -92,9 +88,9 @@ Gets the value of the given field from the data reader or null.
 
 **Returns:** The given field's value or null.
 
-## HasColumn *(Inherited)*
+## HasColumn
 
-**Signature:** `HasColumn(IDataRecord, String columnName)`
+**Signature:** `HasColumn(IDataRecord, String)`
 
 **Summary:**
 Determine whether or not the given column exists in the record.
@@ -105,9 +101,9 @@ Determine whether or not the given column exists in the record.
 
 **Returns:** True if column found, otherwise false.
 
-## IsDbNull *(Inherited)*
+## IsDbNull
 
-**Signature:** `IsDbNull(IDataRecord, String name)`
+**Signature:** `IsDbNull(IDataRecord, String)`
 
 **Summary:**
 Determines whether the given field is null.

@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid United States Socia
 
 - **candidate** — The string to evaluate as a Social Security Number.
 
-**Returns:** **true** if the candidate is a valid SSN; otherwise, **false** .
+**Returns:** **true** if the candidate is a valid SSN; otherwise, **false**.

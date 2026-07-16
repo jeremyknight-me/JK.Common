@@ -10,14 +10,15 @@ Specification that negates the result of another specification.
 
 ## NotSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **NotSpecificationT** class.
+**Signature:** `NotSpecification<TEntity>(ISpecification<TEntity> specificationToUse)`
+
+**Summary:**
+Initializes a new instance of the **`NotSpecification<TEntity>`** class.
 
 **Parameters:**
 
 - **specificationToUse** — The specification to negate.
 
-## IsSatisfiedBy *(Inherited)*
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(TEntity)`
-
-**Summary:**

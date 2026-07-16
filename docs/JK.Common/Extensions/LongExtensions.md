@@ -6,29 +6,29 @@
 
 Extension methods for **Int64** values.
 
-## IsPrime *(Inherited)*
+## IsPrime
 
 **Signature:** `IsPrime(Int64)`
 
 **Summary:**
 Determines whether the specified number is a prime number.
 
-**Returns:** **true** if the number is prime; otherwise, **false** .
+**Returns:** **true** if the number is prime; otherwise, **false**.
 
-## IsEven *(Inherited)*
+## IsEven
 
 **Signature:** `IsEven`
 
 **Summary:**
 Determines whether the specified number is even.
 
-**Returns:** **true** if the number is even; otherwise, **false** .
+**Returns:** **true** if the number is even; otherwise, **false**.
 
-## IsOdd *(Inherited)*
+## IsOdd
 
 **Signature:** `IsOdd`
 
 **Summary:**
 Determines whether the specified number is odd.
 
-**Returns:** **true** if the number is odd; otherwise, **false** .
+**Returns:** **true** if the number is odd; otherwise, **false**.

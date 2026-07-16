@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid date and time.
 
 - **candidate** — The string to evaluate as a date and time.
 
-**Returns:** **true** if the candidate is not null or empty and can be parsed as a **DateTime** ; otherwise, **false** .
+**Returns:** **true** if the candidate is not null or empty and can be parsed as a **DateTime**; otherwise, **false**.

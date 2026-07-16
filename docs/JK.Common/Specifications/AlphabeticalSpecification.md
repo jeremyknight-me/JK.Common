@@ -17,4 +17,4 @@ Determines whether the specified candidate string is alphabetical.
 
 - **candidate** — The string to evaluate as alphabetical.
 
-**Returns:** **true** if the candidate is alphabetical; otherwise, **false** .
+**Returns:** **true** if the candidate is alphabetical; otherwise, **false**.

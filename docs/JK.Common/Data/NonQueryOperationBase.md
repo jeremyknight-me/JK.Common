@@ -8,7 +8,10 @@ Provides a base class for non-query operations without parameter models.
 
 ## NonQueryOperationBase
 
-**Summary:** Initializes a new instance of the **NonQueryOperationBase** class.
+**Signature:** `NonQueryOperationBase(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **NonQueryOperationBase** class.
 
 **Parameters:**
 

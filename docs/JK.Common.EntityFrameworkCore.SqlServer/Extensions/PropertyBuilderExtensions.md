@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Extensions`
 
-Extension methods for configuring SQL Server column types on **PropertyBuilder&lt;T&gt;** .
+Extension methods for configuring SQL Server column types on **`PropertyBuilder<T>`**.
 
 ## HasColumnTypeUniqueIdentifier(PropertyBuilder<Guid> propertyBuilder)
 

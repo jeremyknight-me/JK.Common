@@ -1,37 +1,39 @@
-## {Heading}{InheritedSuffix}
+## {{ Heading }}{{ InheritedSuffix }}
 
-**Signature:** `{Signature}`
+**Signature:** `{{ Signature }}`
+{% if Summary != "" %}
 
 **Summary:**
-{Summary}
+{{ Summary }}
+{% endif %}
+{% if HasParams %}
 
-{#if HasParams}
 **Parameters:**
-{#each Params}
-- **{Name}** — {Description}
-{/each}
-{/if}
+{%- for param in Params %}
+- **{{ param.Name }}** — {{ param.Description }}
+{%- endfor %}
+{% endif %}
+{% if HasReturns %}
 
-{#if HasReturns}
-**Returns:** {Returns}
-{/if}
+**Returns:** {{ Returns }}
+{% endif %}
+{% if HasExceptions %}
 
-{#if HasExceptions}
 **Exceptions:**
-{#each Exceptions}
-- **{Type}**: {Description}
-{/each}
-{/if}
+{%- for ex in Exceptions %}
+- **{{ ex.Type }}**: {{ ex.Description }}
+{%- endfor %}
+{% endif %}
+{% if HasExample %}
 
-{#if HasExample}
 **Example:**
-{Example}
-{/if}
+{{ Example }}
+{% endif %}
+{% if HasRemarks %}
 
-{#if HasRemarks}
-**Remarks:** {Remarks}
-{/if}
+**Remarks:** {{ Remarks }}
+{% endif %}
+{% for see in SeeAlso %}
 
-{#each SeeAlso}
-- See: **{Value}**
-{/each}
+- See: **{{ see }}**
+{% endfor %}

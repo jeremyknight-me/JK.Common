@@ -10,7 +10,10 @@ Base class for ADO.NET query operations that return a collection of results.
 
 ## QueryOperationBase<T>
 
-**Summary:** Initializes a new instance of the **QueryOperationBaseT** class.
+**Signature:** `QueryOperationBase<T>(DbContext dbContext, CommandType adoCommandType, String adoCommandText)`
+
+**Summary:**
+Initializes a new instance of the **`QueryOperationBase<T>`** class.
 
 **Parameters:**
 
@@ -34,10 +37,10 @@ Executes the query and returns the results.
 **Signature:** `ParseRecord(IDataRecord dataRecord)`
 
 **Summary:**
-Parses a data record into an instance of **T** .
+Parses a data record into an instance of **T**.
 
 **Parameters:**
 
 - **dataRecord** — The data record to parse.
 
-**Returns:** An instance of **T** .
+**Returns:** An instance of **T**.

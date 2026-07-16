@@ -1,6 +1,6 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > StringValidatorBase
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > StringValidatorBase<T>
 
-# StringValidatorBase
+# StringValidatorBase<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
@@ -19,8 +19,6 @@ Determine if the given string is valid.
 
 **Returns:** True if valid, otherwise false.
 
-## IsValid *(Inherited)*
+## IsValid
 
 **Signature:** `IsValid(ValidationContext<T>, String)`
-
-**Summary:**

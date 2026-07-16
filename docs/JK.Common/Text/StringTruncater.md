@@ -8,7 +8,10 @@ Class which truncates strings.
 
 ## StringTruncater
 
-**Summary:** Initializes a new instance of the **StringTruncater** class.
+**Signature:** `StringTruncater(String originalText)`
+
+**Summary:**
+Initializes a new instance of the **StringTruncater** class.
 
 **Parameters:**
 
@@ -16,14 +19,16 @@ Class which truncates strings.
 
 ## StringTruncater
 
-**Summary:** Initializes a new instance of the **StringTruncater** class.
+**Signature:** `StringTruncater(String originalText, String indicator)`
+
+**Summary:**
+Initializes a new instance of the **StringTruncater** class.
 
 **Parameters:**
 
 - **originalText** — Text to be truncated.
 
-- **indicator** — Indicator to be placed within the truncated text to indicate that 
-            a truncation has taken place.
+- **indicator** — Indicator to be placed within the truncated text to indicate that a truncation has taken place.
 
 ## TruncateToLength
 
@@ -43,5 +48,4 @@ Truncates the original text to a given length.
 **Signature:** `Indicator`
 
 **Summary:**
-Gets or sets the indicator to concatenate to the end of truncated text.
-            Ex: '...'
+Gets or sets the indicator to concatenate to the end of truncated text. Ex: '...'

@@ -10,7 +10,10 @@ Generic CompositeSpecification.
 
 ## CompositeSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the CompositeSpecification class.
+**Signature:** `CompositeSpecification<TEntity>(ISpecification<TEntity> leftEntity, ISpecification<TEntity> rightEntity)`
+
+**Summary:**
+Initializes a new instance of the CompositeSpecification class.
 
 **Parameters:**
 

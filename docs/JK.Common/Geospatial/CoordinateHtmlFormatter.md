@@ -8,62 +8,35 @@ Formats a **CoordinateBase** as HTML in various display formats.
 
 ## CoordinateHtmlFormatter
 
-**Summary:** Initializes a new instance of the **CoordinateHtmlFormatter** class.
+**Signature:** `CoordinateHtmlFormatter(CoordinateBase coordinateToUse)`
+
+**Summary:**
+Initializes a new instance of the **CoordinateHtmlFormatter** class.
 
 **Parameters:**
 
 - **coordinateToUse** — The coordinate to format as HTML.
 
-## ToStringDegrees *(Inherited)*
+## ToStringDegrees
 
 **Signature:** `ToStringDegrees()`
 
-**Summary:**
-Returns the coordinate as a string in degrees format.
-
-**Returns:** The coordinate in degrees format.
-
-## ToStringDegreesMinutes *(Inherited)*
+## ToStringDegreesMinutes
 
 **Signature:** `ToStringDegreesMinutes()`
 
-**Summary:**
-Returns the coordinate as a string in degrees and minutes format.
-
-**Returns:** The coordinate in degrees and minutes format.
-
-## ToStringDegreesMinutesSeconds *(Inherited)*
+## ToStringDegreesMinutesSeconds
 
 **Signature:** `ToStringDegreesMinutesSeconds()`
 
-**Summary:**
-Returns the coordinate as a string in degrees, minutes, and seconds format.
-
-**Returns:** The coordinate in degrees, minutes, and seconds format.
-
-## ToStringDegreesDirection *(Inherited)*
+## ToStringDegreesDirection
 
 **Signature:** `ToStringDegreesDirection()`
 
-**Summary:**
-Returns the coordinate as a string in degrees and direction format.
-
-**Returns:** The coordinate in degrees and direction format.
-
-## ToStringDegreesMinutesDirection *(Inherited)*
+## ToStringDegreesMinutesDirection
 
 **Signature:** `ToStringDegreesMinutesDirection()`
 
-**Summary:**
-Returns the coordinate as a string in degrees, minutes, and direction format.
-
-**Returns:** The coordinate in degrees, minutes, and direction format.
-
-## ToStringDegreesMinutesSecondsDirection *(Inherited)*
+## ToStringDegreesMinutesSecondsDirection
 
 **Signature:** `ToStringDegreesMinutesSecondsDirection()`
-
-**Summary:**
-Returns the coordinate as a string in degrees, minutes, seconds, and direction format.
-
-**Returns:** The coordinate in degrees, minutes, seconds, and direction format.

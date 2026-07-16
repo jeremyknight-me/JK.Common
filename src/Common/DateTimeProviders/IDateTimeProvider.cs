@@ -11,7 +11,7 @@ public interface IDateTimeProvider
     DateTime Now { get; }
 
     /// <summary>
-    /// Returns a Dat<see cref="DateTime"/>eTime representing the current date. The date part
+    /// Returns a <see cref="DateTime"/> representing the current date. The date part
     /// of the returned value is the current date, and the time-of-day part of
     /// the returned value is zero (midnight).
     /// </summary>

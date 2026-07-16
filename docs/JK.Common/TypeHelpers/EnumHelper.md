@@ -11,9 +11,7 @@ Class which contains enum utility methods.
 **Signature:** `ConvertToListItems(Type type)`
 
 **Summary:**
-Gets a list of the items within an enum. Values will be filled with 
-            the constant given to each enum value and the Display will be filled with
-            either the enum value or the ComponentModel DescriptionAttribute.
+Gets a list of the items within an enum. Values will be filled with the constant given to each enum value and the Display will be filled with either the enum value or the ComponentModel DescriptionAttribute.
 
 **Parameters:**
 
@@ -47,7 +45,7 @@ Gets the display name for the specified enum value, using the DisplayAttribute i
 
 **Returns:** The display name if found; otherwise, the enum value name.
 
-## GetByByte(Byte value)
+## GetByByte<T>(Byte value)
 
 **Signature:** `GetByByte<T>(Byte value)`
 
@@ -60,7 +58,7 @@ Gets an Enumeration value by its associated byte value.
 
 **Returns:** Enumeration value of type T.
 
-## GetByByte(Nullable<Byte> value)
+## GetByByte<T>(Nullable<Byte> value)
 
 **Signature:** `GetByByte<T>(Nullable<Byte> value)`
 
@@ -73,7 +71,7 @@ Gets an Enumeration value by its associated nullable byte value.
 
 **Returns:** Enumeration value of type T, or null if value is null.
 
-## GetByte(T value)
+## GetByte<T>(T value)
 
 **Signature:** `GetByte<T>(T value)`
 
@@ -86,7 +84,7 @@ Gets the byte value associated with the given enumeration type value.
 
 **Returns:** Byte value.
 
-## GetByte(Nullable<T> value)
+## GetByte<T>(Nullable<T> value)
 
 **Signature:** `GetByte<T>(Nullable<T> value)`
 
@@ -99,7 +97,7 @@ Gets the nullable byte value associated with the given enumeration type value.
 
 **Returns:** Nullable byte value.
 
-## GetByInteger(Int32 value)
+## GetByInteger<T>(Int32 value)
 
 **Signature:** `GetByInteger<T>(Int32 value)`
 
@@ -112,7 +110,7 @@ Gets an Enumeration value by its associated integer value.
 
 **Returns:** Enumeration value of type T.
 
-## GetByInteger(Nullable<Int32> value)
+## GetByInteger<T>(Nullable<Int32> value)
 
 **Signature:** `GetByInteger<T>(Nullable<Int32> value)`
 
@@ -125,7 +123,7 @@ Gets an Enumeration value by its associated nullable integer value.
 
 **Returns:** Enumeration value of type T, or null if value is null.
 
-## GetInteger(T value)
+## GetInteger<T>(T value)
 
 **Signature:** `GetInteger<T>(T value)`
 
@@ -138,7 +136,7 @@ Gets the integer value associated with the given enumeration type value.
 
 **Returns:** Integer value.
 
-## GetInteger(Nullable<T> value)
+## GetInteger<T>(Nullable<T> value)
 
 **Signature:** `GetInteger<T>(Nullable<T> value)`
 

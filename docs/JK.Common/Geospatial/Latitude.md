@@ -8,7 +8,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class.
+**Signature:** `Latitude(Decimal degrees)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class.
 
 **Parameters:**
 
@@ -16,39 +19,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class.
+**Signature:** `Latitude(Int32 degrees, Decimal minutes)`
 
-**Parameters:**
-
-- **degrees** — The degrees component of the latitude.
-
-- **minutes** — The minutes component of the latitude.
-
-## Latitude
-
-**Summary:** Initializes a new instance of the **Latitude** class.
-
-**Parameters:**
-
-- **degrees** — The degrees component of the latitude.
-
-- **minutes** — The minutes component of the latitude.
-
-- **seconds** — The seconds component of the latitude.
-
-## Latitude
-
-**Summary:** Initializes a new instance of the **Latitude** class with a direction.
-
-**Parameters:**
-
-- **degrees** — The degrees component of the latitude.
-
-- **direction** — The cardinal direction of the latitude.
-
-## Latitude
-
-**Summary:** Initializes a new instance of the **Latitude** class with minutes and a direction.
+**Summary:**
+Initializes a new instance of the **Latitude** class.
 
 **Parameters:**
 
@@ -56,11 +30,12 @@ Represents a latitude ("y" axis) coordinate.
 
 - **minutes** — The minutes component of the latitude.
 
-- **direction** — The cardinal direction of the latitude.
-
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class with minutes, seconds, and a direction.
+**Signature:** `Latitude(Int32 degrees, Int32 minutes, Decimal seconds)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class.
 
 **Parameters:**
 
@@ -70,45 +45,67 @@ Represents a latitude ("y" axis) coordinate.
 
 - **seconds** — The seconds component of the latitude.
 
+## Latitude
+
+**Signature:** `Latitude(Decimal degrees, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class with a direction.
+
+**Parameters:**
+
+- **degrees** — The degrees component of the latitude.
+
 - **direction** — The cardinal direction of the latitude.
 
-## GetValidDirections *(Inherited)*
+## Latitude
+
+**Signature:** `Latitude(Int32 degrees, Decimal minutes, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class with minutes and a direction.
+
+**Parameters:**
+
+- **degrees** — The degrees component of the latitude.
+
+- **minutes** — The minutes component of the latitude.
+
+- **direction** — The cardinal direction of the latitude.
+
+## Latitude
+
+**Signature:** `Latitude(Int32 degrees, Int32 minutes, Decimal seconds, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class with minutes, seconds, and a direction.
+
+**Parameters:**
+
+- **degrees** — The degrees component of the latitude.
+
+- **minutes** — The minutes component of the latitude.
+
+- **seconds** — The seconds component of the latitude.
+
+- **direction** — The cardinal direction of the latitude.
+
+## GetValidDirections
 
 **Signature:** `GetValidDirections()`
 
-**Summary:**
-Gets the valid directions for the coordinate type.
+## SetIsNegative
 
-**Returns:** A collection of valid directions.
+**Signature:** `SetIsNegative(Direction)`
 
-## SetIsNegative *(Inherited)*
-
-**Signature:** `SetIsNegative(Direction direction)`
-
-**Summary:**
-Sets whether the coordinate is negative based on the direction.
-
-**Parameters:**
-
-- **direction** — The direction to evaluate.
-
-## Direction *(Inherited)*
+## Direction
 
 **Signature:** `Direction`
 
-**Summary:**
-Gets the cardinal direction of the coordinate.
-
-## CoordinateType *(Inherited)*
+## CoordinateType
 
 **Signature:** `CoordinateType`
 
-**Summary:**
-Gets the coordinate type (latitude or longitude).
-
-## ValidationSpecification *(Inherited)*
+## ValidationSpecification
 
 **Signature:** `ValidationSpecification`
-
-**Summary:**
-Gets the validation specification for the coordinate.

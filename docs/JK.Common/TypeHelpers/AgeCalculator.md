@@ -8,11 +8,17 @@ Calculates age in years from a start date to a given end date.
 
 ## AgeCalculator
 
-**Summary:** Initializes a new instance of the **AgeCalculator** class.
+**Signature:** `AgeCalculator()`
+
+**Summary:**
+Initializes a new instance of the **AgeCalculator** class.
 
 ## AgeCalculator
 
-**Summary:** Initializes a new instance of the **AgeCalculator** class.
+**Signature:** `AgeCalculator(IDateTimeProvider dateTimeProvider)`
+
+**Summary:**
+Initializes a new instance of the **AgeCalculator** class.
 
 **Parameters:**
 
@@ -36,7 +42,7 @@ Calculates the age in years from the specified **startDate** to today.
 **Signature:** `Calculate(DateOnly startDate, DateOnly endDate)`
 
 **Summary:**
-Calculates the age in years from the specified **startDate** to the specified **endDate** .
+Calculates the age in years from the specified **startDate** to the specified **endDate**.
 
 **Parameters:**
 
@@ -64,7 +70,7 @@ Calculates the age in years from the specified **startDate** to today.
 **Signature:** `Calculate(DateTime startDate, DateTime endDate)`
 
 **Summary:**
-Calculates the age in years from the specified **startDate** to the specified **endDate** .
+Calculates the age in years from the specified **startDate** to the specified **endDate**.
 
 **Parameters:**
 

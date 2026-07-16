@@ -10,7 +10,10 @@ Generic Or specification.
 
 ## OrSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **OrSpecificationT** class.
+**Signature:** `OrSpecification<TEntity>(ISpecification<TEntity> left, ISpecification<TEntity> right)`
+
+**Summary:**
+Initializes a new instance of the **`OrSpecification<TEntity>`** class.
 
 **Parameters:**
 
@@ -18,8 +21,6 @@ Generic Or specification.
 
 - **right** — The right entity.
 
-## IsSatisfiedBy *(Inherited)*
+## IsSatisfiedBy
 
 **Signature:** `IsSatisfiedBy(TEntity)`
-
-**Summary:**

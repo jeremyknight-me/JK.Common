@@ -8,7 +8,10 @@ This class builds a delimited string.
 
 ## StringDelimiter
 
-**Summary:** Initializes a new instance of the StringDelimiter class.
+**Signature:** `StringDelimiter(String delimiter)`
+
+**Summary:**
+Initializes a new instance of the StringDelimiter class.
 
 **Parameters:**
 

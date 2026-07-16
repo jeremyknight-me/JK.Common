@@ -17,4 +17,4 @@ Determines whether the specified candidate string is alphanumeric.
 
 - **candidate** — The string to evaluate as alphanumeric.
 
-**Returns:** **true** if the candidate is alphanumeric; otherwise, **false** .
+**Returns:** **true** if the candidate is alphanumeric; otherwise, **false**.

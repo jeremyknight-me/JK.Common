@@ -4,14 +4,14 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Extension methods for **ReadOnlySpan&lt;T&gt;** .
+Extension methods for **`ReadOnlySpan<T>`**.
 
 ## Parse
 
 **Signature:** `Parse<T>(ReadOnlySpan<Char> input, IFormatProvider formatProvider)`
 
 **Summary:**
-Parses a **ReadOnlySpan&lt;T&gt;** into a specified type.
+Parses a **`ReadOnlySpan<T>`** into a specified type.
 
 **Parameters:**
 

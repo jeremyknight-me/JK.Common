@@ -21,4 +21,4 @@ Generates a Fibonacci sequence starting with the specified numbers up to the giv
 
 - **limit** — The number of elements to generate in the sequence.
 
-**Returns:** An **IEnumerable&lt;T&gt;** containing the Fibonacci sequence.
+**Returns:** An **`IEnumerable<T>`** containing the Fibonacci sequence.
