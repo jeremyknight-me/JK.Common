@@ -8,7 +8,10 @@ Base object for latitudes and longitudes coordinates.
 
 ## CoordinateBase
 
-**Summary:** Initializes a new instance of the **CoordinateBase** class.
+**Signature:** `CoordinateBase(Decimal degrees, Decimal minutes, Decimal seconds)`
+
+**Summary:**
+Initializes a new instance of the **CoordinateBase** class.
 
 **Parameters:**
 
@@ -20,7 +23,10 @@ Base object for latitudes and longitudes coordinates.
 
 ## CoordinateBase
 
-**Summary:** Initializes a new instance of the **CoordinateBase** class with a direction.
+**Signature:** `CoordinateBase(Decimal degrees, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **CoordinateBase** class with a direction.
 
 **Parameters:**
 
@@ -30,7 +36,10 @@ Base object for latitudes and longitudes coordinates.
 
 ## CoordinateBase
 
-**Summary:** Initializes a new instance of the **CoordinateBase** class with minutes and a direction.
+**Signature:** `CoordinateBase(Decimal degrees, Decimal minutes, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **CoordinateBase** class with minutes and a direction.
 
 **Parameters:**
 
@@ -42,7 +51,10 @@ Base object for latitudes and longitudes coordinates.
 
 ## CoordinateBase
 
-**Summary:** Initializes a new instance of the **CoordinateBase** class with minutes, seconds, and a direction.
+**Signature:** `CoordinateBase(Decimal degrees, Decimal minutes, Decimal seconds, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **CoordinateBase** class with minutes, seconds, and a direction.
 
 **Parameters:**
 

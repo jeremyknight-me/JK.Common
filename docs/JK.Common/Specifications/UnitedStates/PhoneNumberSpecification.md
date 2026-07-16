@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid United States phone
 
 - **candidate** — The string to evaluate as a phone number.
 
-**Returns:** **true** if the candidate is a valid United States phone number; otherwise, **false** .
+**Returns:** **true** if the candidate is a valid United States phone number; otherwise, **false**.

@@ -17,7 +17,7 @@ Determines whether the input string contains only alphabetical characters.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is alphabetical; otherwise, **false** .
+**Returns:** **true** if the string is alphabetical; otherwise, **false**.
 
 ## IsAlphanumeric
 
@@ -30,7 +30,7 @@ Determines whether the input string contains only alphanumeric characters.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is alphanumeric; otherwise, **false** .
+**Returns:** **true** if the string is alphanumeric; otherwise, **false**.
 
 ## IsDecimal
 
@@ -43,7 +43,7 @@ Determines whether the input string is a valid decimal number.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is a decimal; otherwise, **false** .
+**Returns:** **true** if the string is a decimal; otherwise, **false**.
 
 ## IsDecimalOrCurrency
 
@@ -56,7 +56,7 @@ Determines whether the input string is a valid decimal or currency value.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is a decimal or currency; otherwise, **false** .
+**Returns:** **true** if the string is a decimal or currency; otherwise, **false**.
 
 ## IsEmailAddress
 
@@ -69,7 +69,7 @@ Determines whether the input string is a valid email address.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is an email address; otherwise, **false** .
+**Returns:** **true** if the string is an email address; otherwise, **false**.
 
 ## IsInteger
 
@@ -82,7 +82,7 @@ Determines whether the input string is a valid integer.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is an integer; otherwise, **false** .
+**Returns:** **true** if the string is an integer; otherwise, **false**.
 
 ## IsIPv4
 
@@ -95,7 +95,7 @@ Determines whether the input string is a valid IPv4 address.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is an IPv4 address; otherwise, **false** .
+**Returns:** **true** if the string is an IPv4 address; otherwise, **false**.
 
 ## IsSocialSecurityNumber
 
@@ -108,7 +108,7 @@ Determines whether the input string is a valid US Social Security Number.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is a valid SSN; otherwise, **false** .
+**Returns:** **true** if the string is a valid SSN; otherwise, **false**.
 
 ## IsUnitedStatesPhoneNumber
 
@@ -121,7 +121,7 @@ Determines whether the input string is a valid United States phone number.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is a valid US phone number; otherwise, **false** .
+**Returns:** **true** if the string is a valid US phone number; otherwise, **false**.
 
 ## IsUrl
 
@@ -134,7 +134,7 @@ Determines whether the input string is a valid URL.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is a valid URL; otherwise, **false** .
+**Returns:** **true** if the string is a valid URL; otherwise, **false**.
 
 ## IsZipCode
 
@@ -147,7 +147,7 @@ Determines whether the input string is a valid US or Canadian zip code.
 
 - **value** — The string to validate.
 
-**Returns:** **true** if the string is a valid zip code; otherwise, **false** .
+**Returns:** **true** if the string is a valid zip code; otherwise, **false**.
 
 ## AlphabeticalRegex
 

@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **Object** .
+Helper and utility extension methods for **Object**.
 
 ## IsNull
 
@@ -17,7 +17,7 @@ Determines whether the object is null.
 
 - **value** — The value to check.
 
-**Returns:** **true** if the value is null; otherwise, **false** .
+**Returns:** **true** if the value is null; otherwise, **false**.
 
 ## IsNotNull
 
@@ -30,4 +30,4 @@ Determines whether the object is not null.
 
 - **value** — The value to check.
 
-**Returns:** **true** if the value is not null; otherwise, **false** .
+**Returns:** **true** if the value is not null; otherwise, **false**.

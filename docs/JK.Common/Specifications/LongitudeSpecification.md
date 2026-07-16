@@ -17,4 +17,4 @@ Determines whether the specified candidate value is a valid longitude.
 
 - **candidate** — The longitude value to evaluate.
 
-**Returns:** **true** if the candidate is between -180 and 180 (inclusive); otherwise, **false** .
+**Returns:** **true** if the candidate is between -180 and 180 (inclusive); otherwise, **false**.

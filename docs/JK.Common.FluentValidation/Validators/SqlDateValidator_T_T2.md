@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > LongitudeValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > SqlDateValidator<T, T2>
 
-# LongitudeValidator
+# SqlDateValidator<T, T2>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator that validates that a double property is a valid longitude.
+Validator that validates that a date property is a valid SQL date.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 
@@ -14,7 +14,7 @@ Validator that validates that a double property is a valid longitude.
 
 ## IsValid *(Inherited)*
 
-**Signature:** `IsValid(ValidationContext<T>, Decimal)`
+**Signature:** `IsValid(ValidationContext<T>, T2)`
 
 **Summary:**
 

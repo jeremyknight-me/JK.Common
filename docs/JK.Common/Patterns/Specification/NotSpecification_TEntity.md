@@ -10,7 +10,10 @@ Specification that negates the result of another specification.
 
 ## NotSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **NotSpecificationT** class.
+**Signature:** `NotSpecification<TEntity>(ISpecification<TEntity> specificationToUse)`
+
+**Summary:**
+Initializes a new instance of the **NotSpecification&lt;T&gt;** class.
 
 **Parameters:**
 

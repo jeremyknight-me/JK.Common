@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > UnitedStatesPhoneNumberValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > AlphabeticalValidator<T>
 
-# UnitedStatesPhoneNumberValidator
+# AlphabeticalValidator<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator to determine whether or not a string property is a valid United States phone number.
+Validator to determine whether or not a string property contains only alphabetical characters.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 

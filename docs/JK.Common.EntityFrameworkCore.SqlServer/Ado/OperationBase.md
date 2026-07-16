@@ -4,11 +4,14 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Ado`
 
-Base class for ADO.NET operations executed through a **DbContext** .
+Base class for ADO.NET operations executed through a **DbContext**.
 
 ## OperationBase
 
-**Summary:** Initializes a new instance of the **OperationBase** class.
+**Signature:** `OperationBase(DbContext dbContext)`
+
+**Summary:**
+Initializes a new instance of the **OperationBase** class.
 
 **Parameters:**
 
@@ -38,7 +41,7 @@ Creates and configures an ADO command with the specified command type and text.
 
 - **commandText** — The ADO command text.
 
-**Returns:** A configured **IDbCommand** .
+**Returns:** A configured **IDbCommand**.
 
 ## Context
 

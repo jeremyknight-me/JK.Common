@@ -17,4 +17,4 @@ Determines whether the specified candidate string is not null, empty, or whitesp
 
 - **candidate** — The string to evaluate.
 
-**Returns:** **true** if the candidate is not null, not empty, and not whitespace; otherwise, **false** .
+**Returns:** **true** if the candidate is not null, not empty, and not whitespace; otherwise, **false**.

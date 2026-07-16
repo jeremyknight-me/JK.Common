@@ -8,7 +8,7 @@ Extension methods for the **String** object.
 
 ## ConvertFromBase64 *(Inherited)*
 
-**Signature:** `ConvertFromBase64(String, Encoding encoding)`
+**Signature:** `ConvertFromBase64(String, Encoding)`
 
 **Summary:**
 Converts a Base64-encoded string to its decoded string representation using the specified encoding.
@@ -21,7 +21,7 @@ Converts a Base64-encoded string to its decoded string representation using the 
 
 ## ConvertToBase64 *(Inherited)*
 
-**Signature:** `ConvertToBase64(String, Encoding encoding)`
+**Signature:** `ConvertToBase64(String, Encoding)`
 
 **Summary:**
 Converts the current string to its Base64-encoded representation using the specified encoding.
@@ -37,9 +37,9 @@ Converts the current string to its Base64-encoded representation using the speci
 **Signature:** `IsNull(String)`
 
 **Summary:**
-Determines whether the string is **null** .
+Determines whether the string is **null**.
 
-**Remarks:** Returns **true** if the string is **null** ; otherwise, **false** .
+**Remarks:** Returns **true** if the string is **null**; otherwise, **false**.
 
 ## IsNullOrEmpty *(Inherited)*
 
@@ -48,16 +48,16 @@ Determines whether the string is **null** .
 **Summary:**
 Determines whether the string is **null** or an empty string.
 
-**Remarks:** Returns **true** if the string is **null** or an empty string; otherwise, **false** .
+**Remarks:** Returns **true** if the string is **null** or an empty string; otherwise, **false**.
 
 ## IsNullOrWhiteSpace *(Inherited)*
 
 **Signature:** `IsNullOrWhiteSpace(String)`
 
 **Summary:**
-Determines whether the string is **null** , empty, or consists only of white-space characters.
+Determines whether the string is **null**, empty, or consists only of white-space characters.
 
-**Remarks:** Returns **true** if the string is **null** , empty, or consists only of white-space characters; otherwise, **false** .
+**Remarks:** Returns **true** if the string is **null**, empty, or consists only of white-space characters; otherwise, **false**.
 
 ## RemoveUnitedStatesCurrencyFormat *(Inherited)*
 
@@ -79,7 +79,7 @@ Removes XML/HTML from given text block.
 
 ## ReplaceWithEmpty *(Inherited)*
 
-**Signature:** `ReplaceWithEmpty(String, String textToReplace)`
+**Signature:** `ReplaceWithEmpty(String, String)`
 
 **Summary:**
 Replaces all occurrences of a specified string in the current string with an empty string.
@@ -101,10 +101,10 @@ Reverses the characters within a string.
 
 ## Right *(Inherited)*
 
-**Signature:** `Right(String, Int32 length)`
+**Signature:** `Right(String, Int32)`
 
 **Summary:**
-Returns the specified number of characters from the end of string. Same as **Last** .
+Returns the specified number of characters from the end of string. Same as **Last**.
 
 **Parameters:**
 
@@ -148,9 +148,9 @@ Converts a null string to an empty string.
 
 **Returns:** An empty string if null; otherwise, the original string.
 
-## Truncate(String, Int32 length) *(Inherited)*
+## Truncate(String, Int32) *(Inherited)*
 
-**Signature:** `Truncate(String, Int32 length)`
+**Signature:** `Truncate(String, Int32)`
 
 **Summary:**
 Trims a block of text to a specified length. The string will be trimmed to the previous space coming before the length position passed. Relies on **StringTruncater**
@@ -161,9 +161,9 @@ Trims a block of text to a specified length. The string will be trimmed to the p
 
 **Returns:** Truncated, or shortened, text.
 
-## Truncate(String, Int32 length, String indicator) *(Inherited)*
+## Truncate(String, Int32, String) *(Inherited)*
 
-**Signature:** `Truncate(String, Int32 length, String indicator)`
+**Signature:** `Truncate(String, Int32, String)`
 
 **Summary:**
 Trims a block of text to a specified length. The string will be trimmed to the previous space coming before the length position passed. Relies on **StringTruncater**
@@ -178,7 +178,7 @@ Trims a block of text to a specified length. The string will be trimmed to the p
 
 ## Parse *(Inherited)*
 
-**Signature:** `Parse<T>(String, IFormatProvider formatProvider)`
+**Signature:** `Parse<T>(String, IFormatProvider)`
 
 **Summary:**
 Parses a string into a specified type.

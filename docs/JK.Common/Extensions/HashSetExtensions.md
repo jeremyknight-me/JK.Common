@@ -4,14 +4,14 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **HashSet&lt;T&gt;** .
+Helper and utility extension methods for **HashSet&lt;T&gt;**.
 
 ## AddRange *(Inherited)*
 
-**Signature:** `AddRange<T>(HashSet<T>, IEnumerable<T> items)`
+**Signature:** `AddRange<T>(HashSet<T>, IEnumerable<T>)`
 
 **Summary:**
-Adds a range of values to the **HashSet&lt;T&gt;** .
+Adds a range of values to the **HashSet&lt;T&gt;**.
 
 **Parameters:**
 
@@ -19,10 +19,10 @@ Adds a range of values to the **HashSet&lt;T&gt;** .
 
 ## AddRangeIfNotNull *(Inherited)*
 
-**Signature:** `AddRangeIfNotNull<T>(HashSet<T>, IEnumerable<T> items)`
+**Signature:** `AddRangeIfNotNull<T>(HashSet<T>, IEnumerable<T>)`
 
 **Summary:**
-Adds a range of values to the **HashSet&lt;T&gt;** only if each value is not **null** .
+Adds a range of values to the **HashSet&lt;T&gt;** only if each value is not **null**.
 
 **Parameters:**
 
@@ -32,13 +32,13 @@ Adds a range of values to the **HashSet&lt;T&gt;** only if each value is not **n
 
 ## AddIfNotNull *(Inherited)*
 
-**Signature:** `AddIfNotNull<T>(HashSet<T>, T value)`
+**Signature:** `AddIfNotNull<T>(HashSet<T>, T)`
 
 **Summary:**
-Adds the specified value to the **HashSet&lt;T&gt;** if it is not **null** .
+Adds the specified value to the **HashSet&lt;T&gt;** if it is not **null**.
 
 **Parameters:**
 
-- **value** — The value to add to the set. If **null** , the value is ignored.
+- **value** — The value to add to the set. If **null**, the value is ignored.
 
 **Returns:** **true** if the value was added to the set; **false** if the value was **null** or already present.

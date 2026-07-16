@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > ZipCodeValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > AlphaNumericValidator<T>
 
-# ZipCodeValidator
+# AlphaNumericValidator<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator that validates that a string property is a valid zip code.
+Validator that validates that a string property contains alphanumeric characters.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 

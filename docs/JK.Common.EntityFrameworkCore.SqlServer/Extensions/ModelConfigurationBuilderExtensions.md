@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Extensions`
 
-Extension methods for **ModelConfigurationBuilder** .
+Extension methods for **ModelConfigurationBuilder**.
 
 ## ApplyConventionPreferences
 

@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid IPv4 address.
 
 - **candidate** — The string to evaluate as an IPv4 address.
 
-**Returns:** **true** if the candidate is a valid IPv4 address; otherwise, **false** .
+**Returns:** **true** if the candidate is a valid IPv4 address; otherwise, **false**.

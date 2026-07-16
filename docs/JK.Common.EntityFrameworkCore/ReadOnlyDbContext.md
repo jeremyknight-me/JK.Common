@@ -8,11 +8,17 @@ A read-only **DbContext** that disables change tracking and throws on save attem
 
 ## ReadOnlyDbContext
 
-**Summary:** Initializes a new instance of the **ReadOnlyDbContext** class.
+**Signature:** `ReadOnlyDbContext()`
+
+**Summary:**
+Initializes a new instance of the **ReadOnlyDbContext** class.
 
 ## ReadOnlyDbContext
 
-**Summary:** Initializes a new instance of the **ReadOnlyDbContext** class.
+**Signature:** `ReadOnlyDbContext(DbContextOptions options)`
+
+**Summary:**
+Initializes a new instance of the **ReadOnlyDbContext** class.
 
 **Parameters:**
 

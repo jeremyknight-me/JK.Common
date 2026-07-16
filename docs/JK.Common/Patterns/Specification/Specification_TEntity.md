@@ -19,32 +19,15 @@ Abstraction on ISpecification that supplies And, Or and Not.
 **Signature:** `And(ISpecification<TEntity>)`
 
 **Summary:**
-Initializes a new instance of the **AndSpecificationT** class.
-
-**Parameters:**
-
-- **left** — The left entity.
-
-- **right** — The right entity.
 
 ## Not *(Inherited)*
 
 **Signature:** `Not()`
 
 **Summary:**
-Performs the 'not' operators on this instance.
-
-**Returns:** Returns a new specification of type Not.
 
 ## Or *(Inherited)*
 
 **Signature:** `Or(ISpecification<TEntity>)`
 
 **Summary:**
-Initializes a new instance of the **AndSpecificationT** class.
-
-**Parameters:**
-
-- **left** — The left entity.
-
-- **right** — The right entity.

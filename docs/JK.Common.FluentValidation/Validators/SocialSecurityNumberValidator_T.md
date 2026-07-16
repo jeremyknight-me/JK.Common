@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > AlphaNumericValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > SocialSecurityNumberValidator<T>
 
-# AlphaNumericValidator
+# SocialSecurityNumberValidator<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator that validates that a string property contains alphanumeric characters.
+Validator to determine whether or not a string property is a valid United States social security number.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 

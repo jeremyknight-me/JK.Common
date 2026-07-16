@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **DateOnly** .
+Helper and utility extension methods for **DateOnly**.
 
 ## op_Subtraction *(Inherited)*
 
@@ -25,7 +25,7 @@ Calculates the number of days between two DateOnly instances.
 
 ## AddWorkDays *(Inherited)*
 
-**Signature:** `AddWorkDays(DateOnly, Int32 days)`
+**Signature:** `AddWorkDays(DateOnly, Int32)`
 
 **Summary:**
 Adds given number of business days to a date.
@@ -38,7 +38,7 @@ Adds given number of business days to a date.
 
 ## IsBetween *(Inherited)*
 
-**Signature:** `IsBetween(DateOnly, DateOnly start, DateOnly end)`
+**Signature:** `IsBetween(DateOnly, DateOnly, DateOnly)`
 
 **Summary:**
 Determines whether or not a given date is between (inclusive) the given start and end dates.

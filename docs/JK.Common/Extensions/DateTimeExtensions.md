@@ -8,7 +8,7 @@ Extension methods for the DateTime object.
 
 ## AddWorkDays *(Inherited)*
 
-**Signature:** `AddWorkDays(DateTime, Int32 days)`
+**Signature:** `AddWorkDays(DateTime, Int32)`
 
 **Summary:**
 Adds given number of business days to a date.
@@ -21,7 +21,7 @@ Adds given number of business days to a date.
 
 ## IsBetween *(Inherited)*
 
-**Signature:** `IsBetween(DateTime, DateTime start, DateTime end)`
+**Signature:** `IsBetween(DateTime, DateTime, DateTime)`
 
 **Summary:**
 Determines whether or not a given date is between (inclusive) the given start and end dates.

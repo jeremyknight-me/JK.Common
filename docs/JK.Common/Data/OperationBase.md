@@ -8,7 +8,10 @@ Provides a base class for operations without parameter models.
 
 ## OperationBase
 
-**Summary:** Initializes a new instance of the **OperationBase** class.
+**Signature:** `OperationBase(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **OperationBase** class.
 
 **Parameters:**
 
@@ -38,7 +41,7 @@ Configures the command.
 **Summary:**
 Creates and configures a command.
 
-**Returns:** The configured **IDbCommand** .
+**Returns:** The configured **IDbCommand**.
 
 ## OpenConnection
 

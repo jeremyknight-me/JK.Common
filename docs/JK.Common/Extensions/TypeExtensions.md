@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **Type** .
+Helper and utility extension methods for **Type**.
 
 ## DoesImplement *(Inherited)*
 
@@ -22,23 +22,23 @@ Determines whether or not a type implements the given interface.
 **Summary:**
 Attempts to get the underlying **Type** from an Entity Framework proxied type.
 
-**Returns:** Underlying entity **Type** .
+**Returns:** Underlying entity **Type**.
 
 ## IsNullable(Type) *(Inherited)*
 
 **Signature:** `IsNullable(Type)`
 
 **Summary:**
-Determines whether or not a type is nullable (including **Nullable&lt;T&gt;** , aka T?)
+Determines whether or not a type is nullable (including **Nullable&lt;T&gt;**, aka T?)
 
 **Returns:** True if nullable, otherwise false
 
-## IsNullable(Type) *(Inherited)*
+## IsNullable<T>(Type) *(Inherited)*
 
 **Signature:** `IsNullable<T>(Type)`
 
 **Summary:**
-Determines whether or not a type is nullable (including **Nullable&lt;T&gt;** , aka T?)
+Determines whether or not a type is nullable (including **Nullable&lt;T&gt;**, aka T?)
 
 **Returns:** True if nullable, otherwise false
 

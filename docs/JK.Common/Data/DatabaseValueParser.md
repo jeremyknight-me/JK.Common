@@ -6,7 +6,7 @@
 
 Static class which adds database value parsing.
 
-## GetValueOrDefault(Object value)
+## GetValueOrDefault<T>(Object value)
 
 **Signature:** `GetValueOrDefault<T>(Object value)`
 
@@ -19,7 +19,7 @@ Gets the value of an object or returns the objects default type.
 
 **Returns:** Object's type default if DBNull, otherwise the object's value.
 
-## GetValueOrDefault(Object value, T defaultValue)
+## GetValueOrDefault<T>(Object value, T defaultValue)
 
 **Signature:** `GetValueOrDefault<T>(Object value, T defaultValue)`
 

@@ -13,7 +13,7 @@ Extension methods for **Int64** values.
 **Summary:**
 Determines whether the specified number is a prime number.
 
-**Returns:** **true** if the number is prime; otherwise, **false** .
+**Returns:** **true** if the number is prime; otherwise, **false**.
 
 ## IsEven *(Inherited)*
 
@@ -22,7 +22,7 @@ Determines whether the specified number is a prime number.
 **Summary:**
 Determines whether the specified number is even.
 
-**Returns:** **true** if the number is even; otherwise, **false** .
+**Returns:** **true** if the number is even; otherwise, **false**.
 
 ## IsOdd *(Inherited)*
 
@@ -31,4 +31,4 @@ Determines whether the specified number is even.
 **Summary:**
 Determines whether the specified number is odd.
 
-**Returns:** **true** if the number is odd; otherwise, **false** .
+**Returns:** **true** if the number is odd; otherwise, **false**.

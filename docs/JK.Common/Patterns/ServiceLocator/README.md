@@ -3,5 +3,11 @@
 # JK.Common.Patterns.ServiceLocator
 
 ## Types
-- [DefaultServiceLocator](DefaultServiceLocator.md)
-- [IServiceLocator](IServiceLocator.md)
+### [DefaultServiceLocator](DefaultServiceLocator.md)
+
+Implementation of Service Locator design pattern.
+
+### [IServiceLocator](IServiceLocator.md)
+
+Service Locator design pattern interface.
+

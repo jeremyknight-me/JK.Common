@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > LatitudeValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > LongitudeValidator<T>
 
-# LatitudeValidator
+# LongitudeValidator<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator that validates that a double property is a valid latitude.
+Validator that validates that a double property is a valid longitude.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 

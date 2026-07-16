@@ -11,24 +11,15 @@ Implementation of Service Locator design pattern.
 **Signature:** `Locate<T>()`
 
 **Summary:**
-Locates and returns a service if registered.
-
-**Returns:** Service of type T if found.
 
 ## Register *(Inherited)*
 
-**Signature:** `Register<T>(T service)`
+**Signature:** `Register<T>(T)`
 
 **Summary:**
-Registers a service of the given type.
-
-**Parameters:**
-
-- **service** — Service to register.
 
 ## Unregister *(Inherited)*
 
 **Signature:** `Unregister<T>()`
 
 **Summary:**
-Unregisters, or removes, a service from the Service Locator.

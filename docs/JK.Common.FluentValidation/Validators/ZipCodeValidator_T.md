@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > SocialSecurityNumberValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > ZipCodeValidator<T>
 
-# SocialSecurityNumberValidator
+# ZipCodeValidator<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator to determine whether or not a string property is a valid United States social security number.
+Validator that validates that a string property is a valid zip code.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 

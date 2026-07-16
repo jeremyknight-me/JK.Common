@@ -2,7 +2,6 @@
 
 # JK.Common.EntityFrameworkCore
 
-## Types
-- [AuditableEntity](AuditableEntity.md)
-- [IAuditableEntity](IAuditableEntity.md)
-- [ReadOnlyDbContext](ReadOnlyDbContext.md)
+## Namespaces
+- [JK.Common.EntityFrameworkCore.Extensions](JK.Common.EntityFrameworkCore/Extensions/README.md)
+- [JK.Common.EntityFrameworkCore.Interceptors](JK.Common.EntityFrameworkCore/Interceptors/README.md)

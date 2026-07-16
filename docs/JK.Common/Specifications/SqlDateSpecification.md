@@ -17,4 +17,4 @@ Determines whether the specified **DateTime** is valid for a SQL 'datetime' colu
 
 - **candidate** — The date to evaluate.
 
-**Returns:** **true** if the date is valid for SQL; otherwise, **false** .
+**Returns:** **true** if the date is valid for SQL; otherwise, **false**.

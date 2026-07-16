@@ -9,20 +9,7 @@
 {%- endfor %}
 {% for ctor in Constructors %}
 
-## {{ ctor.DisplayName }}
-
-**Summary:** {{ ctor.Summary }}
-{% if ctor.HasParams %}
-
-**Parameters:**
-{%- for p in ctor.Params %}
-- **{{ p.Name }}** — {{ p.Description }}
-{%- endfor %}
-{%- endif %}
-{% if ctor.HasRemarks %}
-
-**Remarks:** {{ ctor.Remarks }}
-{%- endif %}
+{{ ctor.Body }}
 {%- endfor %}
 {% for method in Methods %}
 

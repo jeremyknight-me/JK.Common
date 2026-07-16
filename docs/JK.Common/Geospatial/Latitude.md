@@ -8,7 +8,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class.
+**Signature:** `Latitude(Decimal degrees)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class.
 
 **Parameters:**
 
@@ -16,7 +19,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class.
+**Signature:** `Latitude(Int32 degrees, Decimal minutes)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class.
 
 **Parameters:**
 
@@ -26,7 +32,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class.
+**Signature:** `Latitude(Int32 degrees, Int32 minutes, Decimal seconds)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class.
 
 **Parameters:**
 
@@ -38,7 +47,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class with a direction.
+**Signature:** `Latitude(Decimal degrees, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class with a direction.
 
 **Parameters:**
 
@@ -48,7 +60,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class with minutes and a direction.
+**Signature:** `Latitude(Int32 degrees, Decimal minutes, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class with minutes and a direction.
 
 **Parameters:**
 
@@ -60,7 +75,10 @@ Represents a latitude ("y" axis) coordinate.
 
 ## Latitude
 
-**Summary:** Initializes a new instance of the **Latitude** class with minutes, seconds, and a direction.
+**Signature:** `Latitude(Int32 degrees, Int32 minutes, Decimal seconds, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Latitude** class with minutes, seconds, and a direction.
 
 **Parameters:**
 
@@ -77,38 +95,27 @@ Represents a latitude ("y" axis) coordinate.
 **Signature:** `GetValidDirections()`
 
 **Summary:**
-Gets the valid directions for the coordinate type.
-
-**Returns:** A collection of valid directions.
 
 ## SetIsNegative *(Inherited)*
 
-**Signature:** `SetIsNegative(Direction direction)`
+**Signature:** `SetIsNegative(Direction)`
 
 **Summary:**
-Sets whether the coordinate is negative based on the direction.
-
-**Parameters:**
-
-- **direction** — The direction to evaluate.
 
 ## Direction *(Inherited)*
 
 **Signature:** `Direction`
 
 **Summary:**
-Gets the cardinal direction of the coordinate.
 
 ## CoordinateType *(Inherited)*
 
 **Signature:** `CoordinateType`
 
 **Summary:**
-Gets the coordinate type (latitude or longitude).
 
 ## ValidationSpecification *(Inherited)*
 
 **Signature:** `ValidationSpecification`
 
 **Summary:**
-Gets the validation specification for the coordinate.

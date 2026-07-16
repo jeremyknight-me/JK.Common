@@ -8,7 +8,10 @@ Class which truncates strings.
 
 ## StringTruncater
 
-**Summary:** Initializes a new instance of the **StringTruncater** class.
+**Signature:** `StringTruncater(String originalText)`
+
+**Summary:**
+Initializes a new instance of the **StringTruncater** class.
 
 **Parameters:**
 
@@ -16,7 +19,10 @@ Class which truncates strings.
 
 ## StringTruncater
 
-**Summary:** Initializes a new instance of the **StringTruncater** class.
+**Signature:** `StringTruncater(String originalText, String indicator)`
+
+**Summary:**
+Initializes a new instance of the **StringTruncater** class.
 
 **Parameters:**
 

@@ -10,7 +10,10 @@ Provides a base class for operations with parameter models.
 
 ## OperationBase<TParameterModel>
 
-**Summary:** Initializes a new instance of the **OperationBaseT** class.
+**Signature:** `OperationBase<TParameterModel>(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **OperationBase&lt;T&gt;** class.
 
 **Parameters:**
 
@@ -46,7 +49,7 @@ Creates and configures a command using the specified parameter model.
 
 - **parameterModel** — The parameter model to use for command configuration.
 
-**Returns:** The configured **IDbCommand** .
+**Returns:** The configured **IDbCommand**.
 
 ## OpenConnection
 

@@ -17,4 +17,4 @@ Determines whether the specified candidate value is a valid latitude.
 
 - **candidate** — The latitude value to evaluate.
 
-**Returns:** **true** if the candidate is between -90 and 90 (inclusive); otherwise, **false** .
+**Returns:** **true** if the candidate is between -90 and 90 (inclusive); otherwise, **false**.

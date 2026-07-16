@@ -8,7 +8,7 @@ Provides an **IEqualityComparer&lt;T&gt;** implementation that compares objects 
 
 **Type Parameter:** `TSource` — The type of objects to compare.
 
-## CompareBy(Func<TSource, T> selector)
+## CompareBy<T>(Func<TSource, T> selector)
 
 **Signature:** `CompareBy<T>(Func<TSource, T> selector)`
 
@@ -21,7 +21,7 @@ Creates an **IEqualityComparer&lt;T&gt;** that compares objects by the value ret
 
 **Returns:** An **IEqualityComparer&lt;T&gt;** that compares objects by the projected value.
 
-## CompareBy(Func<TSource, T> selector, IEqualityComparer<T> comparer)
+## CompareBy<T>(Func<TSource, T> selector, IEqualityComparer<T> comparer)
 
 **Signature:** `CompareBy<T>(Func<TSource, T> selector, IEqualityComparer<T> comparer)`
 

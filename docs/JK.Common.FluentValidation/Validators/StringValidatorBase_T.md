@@ -1,6 +1,6 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > StringValidatorBase
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > StringValidatorBase<T>
 
-# StringValidatorBase
+# StringValidatorBase<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 

@@ -8,7 +8,10 @@ Specification to determine if a string's length does not exceed a maximum value.
 
 ## MaximumLengthSpecification
 
-**Summary:** Initializes a new instance of the **MaximumLengthSpecification** class.
+**Signature:** `MaximumLengthSpecification(Int32 maximumLengthToUse)`
+
+**Summary:**
+Initializes a new instance of the **MaximumLengthSpecification** class.
 
 **Parameters:**
 
@@ -25,7 +28,7 @@ Determines whether the specified candidate string's length is less than or equal
 
 - **candidate** — The string to evaluate.
 
-**Returns:** **true** if the candidate's length is less than or equal to **MaximumLength** ; otherwise, **false** .
+**Returns:** **true** if the candidate's length is less than or equal to **MaximumLength**; otherwise, **false**.
 
 ## MaximumLength
 

@@ -10,7 +10,10 @@ Provides a base class for scalar operations without parameter models.
 
 ## ScalarOperationBase<TValue>
 
-**Summary:** Initializes a new instance of the **ScalarOperationBaseT** class.
+**Signature:** `ScalarOperationBase<TValue>(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **ScalarOperationBase&lt;T&gt;** class.
 
 **Parameters:**
 

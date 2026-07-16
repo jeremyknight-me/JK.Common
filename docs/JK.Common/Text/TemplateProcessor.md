@@ -8,7 +8,10 @@ Class which places values from objects into a given template.
 
 ## TemplateProcessor
 
-**Summary:** Initializes a new instance of the **TemplateProcessor** class.
+**Signature:** `TemplateProcessor(String template)`
+
+**Summary:**
+Initializes a new instance of the **TemplateProcessor** class.
 
 **Parameters:**
 
@@ -16,7 +19,10 @@ Class which places values from objects into a given template.
 
 ## TemplateProcessor
 
-**Summary:** Initializes a new instance of the **TemplateProcessor** class.
+**Signature:** `TemplateProcessor(String template, String tokenStart, String tokenEnd)`
+
+**Summary:**
+Initializes a new instance of the **TemplateProcessor** class.
 
 **Parameters:**
 

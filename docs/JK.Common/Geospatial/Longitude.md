@@ -8,7 +8,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class.
+**Signature:** `Longitude(Decimal degrees)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class.
 
 **Parameters:**
 
@@ -16,7 +19,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class.
+**Signature:** `Longitude(Int32 degrees, Decimal minutes)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class.
 
 **Parameters:**
 
@@ -26,7 +32,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class.
+**Signature:** `Longitude(Int32 degrees, Int32 minutes, Decimal seconds)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class.
 
 **Parameters:**
 
@@ -38,7 +47,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class with a direction.
+**Signature:** `Longitude(Decimal degrees, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class with a direction.
 
 **Parameters:**
 
@@ -48,7 +60,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class with minutes and a direction.
+**Signature:** `Longitude(Int32 degrees, Decimal minutes, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class with minutes and a direction.
 
 **Parameters:**
 
@@ -60,7 +75,10 @@ Represents a longitude ("x" axis) coordinate.
 
 ## Longitude
 
-**Summary:** Initializes a new instance of the **Longitude** class with minutes, seconds, and a direction.
+**Signature:** `Longitude(Int32 degrees, Int32 minutes, Decimal seconds, Direction direction)`
+
+**Summary:**
+Initializes a new instance of the **Longitude** class with minutes, seconds, and a direction.
 
 **Parameters:**
 
@@ -77,38 +95,27 @@ Represents a longitude ("x" axis) coordinate.
 **Signature:** `GetValidDirections()`
 
 **Summary:**
-Gets the valid directions for the coordinate type.
-
-**Returns:** A collection of valid directions.
 
 ## SetIsNegative *(Inherited)*
 
-**Signature:** `SetIsNegative(Direction direction)`
+**Signature:** `SetIsNegative(Direction)`
 
 **Summary:**
-Sets whether the coordinate is negative based on the direction.
-
-**Parameters:**
-
-- **direction** — The direction to evaluate.
 
 ## Direction *(Inherited)*
 
 **Signature:** `Direction`
 
 **Summary:**
-Gets the cardinal direction of the coordinate.
 
 ## CoordinateType *(Inherited)*
 
 **Signature:** `CoordinateType`
 
 **Summary:**
-Gets the coordinate type (latitude or longitude).
 
 ## ValidationSpecification *(Inherited)*
 
 **Signature:** `ValidationSpecification`
 
 **Summary:**
-Gets the validation specification for the coordinate.

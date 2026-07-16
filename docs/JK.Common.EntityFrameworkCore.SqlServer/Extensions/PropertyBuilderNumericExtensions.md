@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Extensions`
 
-Extension methods for configuring SQL Server numeric column types on **PropertyBuilder&lt;T&gt;** .
+Extension methods for configuring SQL Server numeric column types on **PropertyBuilder&lt;T&gt;**.
 
 ## HasColumnTypeDecimal(PropertyBuilder<Decimal> propertyBuilder, Int32 precision, Int32 scale)
 

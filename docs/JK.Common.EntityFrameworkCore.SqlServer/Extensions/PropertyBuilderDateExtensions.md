@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Extensions`
 
-Extension methods for configuring SQL Server date and time column types on **PropertyBuilder&lt;T&gt;** .
+Extension methods for configuring SQL Server date and time column types on **PropertyBuilder&lt;T&gt;**.
 
 ## HasColumnTypeDateTime(PropertyBuilder<DateTime> propertyBuilder)
 

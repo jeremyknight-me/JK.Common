@@ -8,7 +8,7 @@ Extension methods for the DateTimeOffset object.
 
 ## AddWorkDays *(Inherited)*
 
-**Signature:** `AddWorkDays(DateTimeOffset, Int32 days)`
+**Signature:** `AddWorkDays(DateTimeOffset, Int32)`
 
 **Summary:**
 Adds given number of business days to a date.
@@ -21,7 +21,7 @@ Adds given number of business days to a date.
 
 ## IsBetween *(Inherited)*
 
-**Signature:** `IsBetween(DateTimeOffset, DateTimeOffset start, DateTimeOffset end)`
+**Signature:** `IsBetween(DateTimeOffset, DateTimeOffset, DateTimeOffset)`
 
 **Summary:**
 Determines whether or not a given date is between (inclusive) the given start and end dates.

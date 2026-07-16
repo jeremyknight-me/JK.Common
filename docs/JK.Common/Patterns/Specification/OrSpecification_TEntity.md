@@ -10,7 +10,10 @@ Generic Or specification.
 
 ## OrSpecification<TEntity>
 
-**Summary:** Initializes a new instance of the **OrSpecificationT** class.
+**Signature:** `OrSpecification<TEntity>(ISpecification<TEntity> left, ISpecification<TEntity> right)`
+
+**Summary:**
+Initializes a new instance of the **OrSpecification&lt;T&gt;** class.
 
 **Parameters:**
 

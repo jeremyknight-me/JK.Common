@@ -17,4 +17,4 @@ Determines whether the specified candidate string is a valid email address.
 
 - **candidate** — The string to evaluate as an email address.
 
-**Returns:** **true** if the candidate is a valid email address; otherwise, **false** .
+**Returns:** **true** if the candidate is a valid email address; otherwise, **false**.

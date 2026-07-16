@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Extension methods for **ReadOnlySpan&lt;T&gt;** .
+Extension methods for **ReadOnlySpan&lt;T&gt;**.
 
 ## Parse
 

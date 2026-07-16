@@ -10,7 +10,10 @@ Provides a base class for non-query operations with parameter models.
 
 ## NonQueryOperationBase<TParameterModel>
 
-**Summary:** Initializes a new instance of the **NonQueryOperationBaseT** class.
+**Signature:** `NonQueryOperationBase<TParameterModel>(IAdoConnectionFactory connectionFactory)`
+
+**Summary:**
+Initializes a new instance of the **NonQueryOperationBase&lt;T&gt;** class.
 
 **Parameters:**
 

@@ -3,4 +3,7 @@
 # JK.Common.Data.Extensions
 
 ## Types
-- [DataRecordExtensions](DataRecordExtensions.md)
+### [DataRecordExtensions](DataRecordExtensions.md)
+
+Extension methods for IDataRecord
+

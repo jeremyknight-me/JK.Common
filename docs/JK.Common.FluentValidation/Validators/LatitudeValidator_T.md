@@ -1,10 +1,10 @@
-[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > SqlDateValidator
+[Docs](../../README.md) > [JK.Common.FluentValidation](../README.md) > LatitudeValidator<T>
 
-# SqlDateValidator
+# LatitudeValidator<T>
 
 **Namespace:** `JK.Common.FluentValidation.Validators`
 
-Validator that validates that a date property is a valid SQL date.
+Validator that validates that a double property is a valid latitude.
 
 ## GetDefaultMessageTemplate *(Inherited)*
 
@@ -14,7 +14,7 @@ Validator that validates that a date property is a valid SQL date.
 
 ## IsValid *(Inherited)*
 
-**Signature:** `IsValid(ValidationContext<T>, T2)`
+**Signature:** `IsValid(ValidationContext<T>, Decimal)`
 
 **Summary:**
 

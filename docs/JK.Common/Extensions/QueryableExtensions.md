@@ -4,11 +4,11 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Helper and utility extension methods for **IQueryable&lt;T&gt;** .
+Helper and utility extension methods for **IQueryable&lt;T&gt;**.
 
-## SortBy(IQueryable<T>, Func<T, T2> keySelector, Boolean isAscending) *(Inherited)*
+## SortBy<T, T2>(IQueryable<T>, Func<T, T2>, Boolean) *(Inherited)*
 
-**Signature:** `SortBy<T, T2>(IQueryable<T>, Func<T, T2> keySelector, Boolean isAscending)`
+**Signature:** `SortBy<T, T2>(IQueryable<T>, Func<T, T2>, Boolean)`
 
 **Summary:**
 Sorts the elements of a sequence in ascending or descending order according to a key.
@@ -21,9 +21,9 @@ Sorts the elements of a sequence in ascending or descending order according to a
 
 **Returns:** An **IQueryable&lt;T&gt;** whose elements are sorted according to a key.
 
-## SortBy(IQueryable<T>, String propertyName, Boolean ascending) *(Inherited)*
+## SortBy<T>(IQueryable<T>, String, Boolean) *(Inherited)*
 
-**Signature:** `SortBy<T>(IQueryable<T>, String propertyName, Boolean ascending)`
+**Signature:** `SortBy<T>(IQueryable<T>, String, Boolean)`
 
 **Summary:**
 Sorts the elements of a sequence in ascending or descending order according to a property name.
@@ -38,7 +38,7 @@ Sorts the elements of a sequence in ascending or descending order according to a
 
 ## WhereIf *(Inherited)*
 
-**Signature:** `WhereIf<T>(IQueryable<T>, Boolean condition, Expression<Func<T, Boolean>> predicate)`
+**Signature:** `WhereIf<T>(IQueryable<T>, Boolean, Expression<Func<T, Boolean>>)`
 
 **Summary:**
 Filters a sequence based on a condition.

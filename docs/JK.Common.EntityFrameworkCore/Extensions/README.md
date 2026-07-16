@@ -3,4 +3,7 @@
 # JK.Common.EntityFrameworkCore.Extensions
 
 ## Types
-- [ModelBuilderExtensions](ModelBuilderExtensions.md)
+### [ModelBuilderExtensions](ModelBuilderExtensions.md)
+
+Extension methods for **ModelBuilder**.
+

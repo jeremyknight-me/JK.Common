@@ -4,11 +4,14 @@
 
 **Namespace:** `JK.Common.EntityFrameworkCore.SqlServer.Ado`
 
-Base class for ADO.NET non-query operations (INSERT, UPDATE, DELETE) executed through a **DbContext** .
+Base class for ADO.NET non-query operations (INSERT, UPDATE, DELETE) executed through a **DbContext**.
 
 ## NonQueryOperationBase
 
-**Summary:** Initializes a new instance of the **NonQueryOperationBase** class.
+**Signature:** `NonQueryOperationBase(DbContext context, CommandType adoCommandType, String adoCommandText)`
+
+**Summary:**
+Initializes a new instance of the **NonQueryOperationBase** class.
 
 **Parameters:**
 

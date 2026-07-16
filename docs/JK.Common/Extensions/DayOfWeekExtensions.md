@@ -4,7 +4,7 @@
 
 **Namespace:** `JK.Common.Extensions`
 
-Extension methods for **DayOfWeek** .
+Extension methods for **DayOfWeek**.
 
 ## IsWeekday *(Inherited)*
 
