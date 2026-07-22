@@ -1,4 +1,4 @@
-﻿namespace JK.Common.Generators.Polyfills.Fills;
+﻿namespace JK.Common.Polyfills.Fills;
 
 internal struct IsExternalInitPolyfill : IGeneratedPolyfill
 {
