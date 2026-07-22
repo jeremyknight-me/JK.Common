@@ -1,6 +1,6 @@
-using JK.Common.Generators.SqlBulkInsert.Attributes;
+﻿using JK.Common.Data.Sql.BulkInsert.Attributes;
 
-namespace JK.Common.Generators.SqlBulkInsert.Tests;
+namespace JK.Common.Data.Sql.BulkInsert.Tests;
 
 [BulkInsertable("Employees")]
 public class SampleType

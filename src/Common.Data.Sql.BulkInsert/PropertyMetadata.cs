@@ -1,4 +1,4 @@
-﻿namespace JK.Common.Generators.SqlBulkInsert;
+﻿namespace JK.Common.Data.Sql.BulkInsert;
 
 internal sealed record PropertyMetadata
 {

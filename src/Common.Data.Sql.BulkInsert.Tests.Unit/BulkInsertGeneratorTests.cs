@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace JK.Common.Generators.SqlBulkInsert.Tests;
+namespace JK.Common.Data.Sql.BulkInsert.Tests;
 
 public class BulkInsertGeneratorTests
 {

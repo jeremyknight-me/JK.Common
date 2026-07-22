@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="JK.Common.Generators.SqlBulkInsert.Tests" />
+    <InternalsVisibleTo Include="JK.Common.Data.Sql.BulkInsert.Tests" />
   </ItemGroup>
 
 </Project>

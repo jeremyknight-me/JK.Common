@@ -1,4 +1,4 @@
-namespace JK.Common.Generators.SqlBulkInsert.Tests;
+namespace JK.Common.Data.Sql.BulkInsert.Tests;
 
 [Collection("Sequential")]
 public class BulkInsertIntegrationTests : IClassFixture<MsSqlContainerFixture>, IAsyncLifetime

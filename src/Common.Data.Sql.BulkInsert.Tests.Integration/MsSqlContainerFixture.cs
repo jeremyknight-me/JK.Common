@@ -3,7 +3,7 @@ using Testcontainers.MsSql;
 using Testcontainers.Xunit;
 using Xunit.Sdk;
 
-namespace JK.Common.Generators.SqlBulkInsert.Tests;
+namespace JK.Common.Data.Sql.BulkInsert.Tests;
 
 public sealed class MsSqlContainerFixture : DbContainerFixture<MsSqlBuilder, MsSqlContainer>
 {

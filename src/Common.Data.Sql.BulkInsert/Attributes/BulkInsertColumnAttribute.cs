@@ -1,4 +1,4 @@
-﻿namespace JK.Common.Generators.SqlBulkInsert.Attributes;
+﻿namespace JK.Common.Data.Sql.BulkInsert.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 public sealed class BulkInsertColumnAttribute : Attribute

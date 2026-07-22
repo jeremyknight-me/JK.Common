@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace JK.Common.Generators.SqlBulkInsert;
+namespace JK.Common.Data.Sql.BulkInsert;
 
 internal static class StringBuilderExtensions
 {
