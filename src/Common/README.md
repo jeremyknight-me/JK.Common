@@ -25,8 +25,6 @@ dotnet add package JK.Common
 From repository root:
 
 ```bash
-dotnet restore
-cd src/Common
-dotnet build JK.Common.csproj
-dotnet test JK.Common.Tests.csproj
+dotnet build src/Common/JK.Common.csproj
+dotnet test src/Common.Tests/JK.Common.Tests.csproj
 ```

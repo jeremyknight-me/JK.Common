@@ -8,6 +8,8 @@ A utility library providing helpers and operations for SQL Server data access, f
 - `SqlConnectionFactory` helpers and configuration patterns for creating connections consistently.
 - `SqlBulkCopySettings` to centralize settings used by bulk operations.
 
+> **Note:** `SqlBulkInsertOperation`, `SqlBulkCopySettings`, and `SqlBulkCopyExtensions` are obsolete. Use [JK.Common.Data.Sql.BulkInsert](../Common.Data.Sql.BulkInsert/README.md) for a source-generated alternative.
+
 ## Supported frameworks
 
 - `net10.0`, `net9.0`, `net8.0`, `netstandard2.0`
@@ -18,13 +20,11 @@ A utility library providing helpers and operations for SQL Server data access, f
 dotnet add package JK.Common.Data.Sql
 ```
 
-## Build & Test
+## Build & test
 
 From repository root:
 
 ```bash
-dotnet restore
-cd src/Common.Data.Sql
-dotnet build
-dotnet test
+dotnet build src/Common.Data.Sql/JK.Common.Data.Sql.csproj
+dotnet test src/Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj
 ```
