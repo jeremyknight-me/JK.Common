@@ -10,7 +10,7 @@ A Roslyn source generator that emits polyfill source files for missing language 
 
 ### Key features
 
-- Conditionally emits polyfills only when the consuming project does not already define them.
+- Polyfills use conditional compilation to include only when consuming project's target framework does not already support the feature.
 - Zero runtime dependency — polyfills are source-generated at compile time.
 
 ## Supported frameworks

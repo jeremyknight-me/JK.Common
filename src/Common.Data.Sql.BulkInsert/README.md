@@ -31,7 +31,7 @@ The generator produces a `CustomerBulkInserter` static class which can be used t
 
 ```csharp
 List<Customer> customers = [/* ... */];
-await CustomerBulkInserter.ExecuteAsync(connection, customers);
+CustomerBulkInserter.Execute(connection, customers);
 ```
 
 ## Supported frameworks

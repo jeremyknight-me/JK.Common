@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="JK.Common.Data.Sql.BulkInsert.Tests" />
+    <InternalsVisibleTo Include="JK.Common.Data.Sql.BulkInsert.Tests.Integration" />
+    <InternalsVisibleTo Include="JK.Common.Data.Sql.BulkInsert.Tests.Unit" />
   </ItemGroup>
 
 </Project>
