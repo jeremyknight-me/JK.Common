@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
-using JK.Common.Generators.Polyfills.Fills;
+using JK.Common.Polyfills.Fills;
 
-namespace JK.Common.Generators.Polyfills;
+namespace JK.Common.Polyfills;
 
 /// <summary>
 /// A source generator that emits polyfill source files for missing language and runtime features.

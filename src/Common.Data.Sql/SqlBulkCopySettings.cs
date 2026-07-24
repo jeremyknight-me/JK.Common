@@ -5,7 +5,7 @@ namespace JK.Common.Data.Sql;
 /// <summary>
 /// Settings for configuring <see cref="SqlBulkCopy"/> operations.
 /// </summary>
-[Obsolete("SqlBulkCopy has moved to new source generated library: JK.Common.Generators.SqlBulkInsert")]
+[Obsolete("SqlBulkCopy has moved to new source generated library: JK.Common.Data.Sql.BulkInsert")]
 public class SqlBulkCopySettings
 {
     /// <summary>

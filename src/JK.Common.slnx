@@ -14,14 +14,14 @@
     <Project Path="Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj" />
     <Project Path="Common.FluentValidation/JK.Common.FluentValidation.csproj" />
   </Folder>
-  <Folder Name="/Common.Generators.Polyfills/">
-    <Project Path="Common.Generators.Polyfills.Tests/JK.Common.Generators.Polyfills.Tests.csproj" />
-    <Project Path="Common.Generators.Polyfills/JK.Common.Generators.Polyfills.csproj" />
+  <Folder Name="/Common.Polyfills/">
+    <Project Path="Common.Polyfills.Tests/JK.Common.Polyfills.Tests.csproj" />
+    <Project Path="Common.Polyfills/JK.Common.Polyfills.csproj" />
   </Folder>
-  <Folder Name="/Common.Generators.SqlBulkInsert/">
-    <Project Path="Common.Generators.SqlBulkInsert.Tests.Integration/JK.Common.Generators.SqlBulkInsert.Tests.Integration.csproj" />
-    <Project Path="Common.Generators.SqlBulkInsert.Tests.Unit/JK.Common.Generators.SqlBulkInsert.Tests.Unit.csproj" />
-    <Project Path="Common.Generators.SqlBulkInsert/JK.Common.Generators.SqlBulkInsert.csproj" />
+  <Folder Name="/Common.Data.Sql.BulkInsert/">
+    <Project Path="Common.Data.Sql.BulkInsert.Tests.Integration/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj" />
+    <Project Path="Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj" />
+    <Project Path="Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj" />
   </Folder>
   <Folder Name="/Common/">
     <Project Path="Common.Tests/JK.Common.Tests.csproj" />

@@ -23,7 +23,6 @@ dotnet add package JK.Common.EntityFrameworkCore
 From repository root:
 
 ```bash
-dotnet restore
 dotnet build src/Common.EntityFrameworkCore/JK.Common.EntityFrameworkCore.csproj
 dotnet test src/Common.EntityFrameworkCore.Tests/JK.Common.EntityFrameworkCore.Tests.csproj
 ```

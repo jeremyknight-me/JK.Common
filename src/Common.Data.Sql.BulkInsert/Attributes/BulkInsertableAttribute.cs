@@ -1,4 +1,4 @@
-﻿namespace JK.Common.Generators.SqlBulkInsert.Attributes;
+﻿namespace JK.Common.Data.Sql.BulkInsert.Attributes;
 
 [AttributeUsage(AttributeTargets.Class)]
 public sealed class BulkInsertableAttribute : Attribute

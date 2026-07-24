@@ -6,7 +6,7 @@ namespace JK.Common.Data.Sql.Extensions;
 /// <summary>
 /// Extension methods for <see cref="SqlBulkCopy"/>.
 /// </summary>
-[Obsolete("SqlBulkCopy has moved to new source generated library: JK.Common.Generators.SqlBulkInsert")]
+[Obsolete("SqlBulkCopy has moved to new source generated library: JK.Common.Data.Sql.BulkInsert")]
 public static class SqlBulkCopyExtensions
 {
     extension(SqlBulkCopy bulk)

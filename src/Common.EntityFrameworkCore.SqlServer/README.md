@@ -22,8 +22,6 @@ dotnet add package JK.Common.EntityFrameworkCore.SqlServer
 From repository root:
 
 ```bash
-dotnet restore
 dotnet build src/Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj
+dotnet test src/Common.EntityFrameworkCore.Tests/JK.Common.EntityFrameworkCore.Tests.csproj
 ```
-
-Run EFCore-related tests via the root test project(s) targeting EF Core.

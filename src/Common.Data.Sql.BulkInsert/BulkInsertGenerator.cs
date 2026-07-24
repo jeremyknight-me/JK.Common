@@ -1,9 +1,9 @@
 ﻿using System.Text;
-using JK.Common.Generators.SqlBulkInsert.Attributes;
+using JK.Common.Data.Sql.BulkInsert.Attributes;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
-namespace JK.Common.Generators.SqlBulkInsert;
+namespace JK.Common.Data.Sql.BulkInsert;
 
 [Generator]
 public sealed class BulkInsertGenerator : IIncrementalGenerator

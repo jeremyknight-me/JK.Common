@@ -1,7 +1,7 @@
-﻿using JK.Common.Generators.SqlBulkInsert.Attributes;
+﻿using JK.Common.Data.Sql.BulkInsert.Attributes;
 using Microsoft.CodeAnalysis;
 
-namespace JK.Common.Generators.SqlBulkInsert;
+namespace JK.Common.Data.Sql.BulkInsert;
 
 internal static class NamedTypeSymbolExtensions
 {

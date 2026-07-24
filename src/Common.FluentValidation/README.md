@@ -22,7 +22,6 @@ dotnet add package JK.Common.FluentValidation
 From repository root:
 
 ```bash
-dotnet restore
 dotnet build src/Common.FluentValidation/JK.Common.FluentValidation.csproj
 dotnet test src/Common.FluentValidation.Tests/JK.Common.FluentValidation.Tests.csproj
 ```
