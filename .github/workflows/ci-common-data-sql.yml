@@ -17,21 +17,27 @@ permissions:
   contents: read
   pull-requests: read
 
+env:
+  LIBRARY_PROJECT_PATH: ./src/Common.Data.Sql/JK.Common.Data.Sql.csproj
+  TEST_PROJECT_PATH: ./src/Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj
+
 jobs:
   build:
 
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
     - name: Setup .NET SDKs
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v6
       with:
         dotnet-version: |
           10.x
           9.x
           8.x
     - name: Build
-      run: dotnet build ./src/Common.Data.Sql/JK.Common.Data.Sql.csproj -c Release
+      run: dotnet build $env:LIBRARY_PROJECT_PATH -c Release
+    - name: Format 
+      run: dotnet format $env:LIBRARY_PROJECT_PATH --severity error --verify-no-changes
     - name: Test
-      run: dotnet test ./src/Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj --verbosity normal
+      run: dotnet test $env:TEST_PROJECT_PATH --verbosity normal

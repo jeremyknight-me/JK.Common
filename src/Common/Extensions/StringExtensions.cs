@@ -13,7 +13,6 @@ public static class StringExtensions
 {
     extension(string text)
     {
-        
         /// <summary>
         /// Converts a Base64-encoded string to its decoded string representation using the specified encoding.
         /// </summary>
