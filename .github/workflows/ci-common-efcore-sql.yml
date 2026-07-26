@@ -19,7 +19,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -32,3 +32,5 @@ jobs:
           8.x
     - name: Build
       run: dotnet build ./src/Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj -c Release
+    - name: Format 
+      run: dotnet format ./src/Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj --severity error --verify-no-changes

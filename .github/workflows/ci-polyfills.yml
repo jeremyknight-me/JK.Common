@@ -20,7 +20,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v7
@@ -29,6 +29,8 @@ jobs:
       with:
         dotnet-version: 10.x
     - name: Build 
-      run: dotnet build ./src/Common.Polyfills/JK.Common.Polyfills.csproj -c Release 
+      run: dotnet build ./src/Common.Polyfills/JK.Common.Polyfills.csproj -c Release
+    - name: Format 
+      run: dotnet format ./src/Common.Polyfills/JK.Common.Polyfills.csproj --severity error --verify-no-changes
     - name: Test 
       run: dotnet test ./src/Common.Polyfills.Tests/JK.Common.Polyfills.Tests.csproj --verbosity normal

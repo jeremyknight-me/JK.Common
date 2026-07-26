@@ -20,7 +20,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -33,5 +33,7 @@ jobs:
           8.x
     - name: Build
       run: dotnet build ./src/Common.Data.Sql/JK.Common.Data.Sql.csproj -c Release
+    - name: Format 
+      run: dotnet format ./src/Common.Data.Sql/JK.Common.Data.Sql.csproj --severity error --verify-no-changes
     - name: Test
       run: dotnet test ./src/Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj --verbosity normal

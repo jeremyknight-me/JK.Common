@@ -32,6 +32,8 @@ jobs:
         dotnet-version: 10.x
     - name: Build 
       run: dotnet build ./src/Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj -c Release 
+    - name: Format 
+      run: dotnet format ./src/Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj --severity error --verify-no-changes
     - name: Unit Tests
       run: dotnet test ./src/Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj --verbosity normal
     - name: Integration Tests 
