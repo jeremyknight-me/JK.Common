@@ -33,6 +33,6 @@ jobs:
     - name: Build 
       run: dotnet build ./src/Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj -c Release 
     - name: Unit Tests
-      run: dotnet test ./src/Common.Data.Sql.BulkInsert.Tests/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj --verbosity normal
+      run: dotnet test ./src/Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj --verbosity normal
     - name: Integration Tests 
-      run: dotnet test ./src/Common.Data.Sql.BulkInsert.Tests/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj --verbosity normal
+      run: dotnet test ./src/Common.Data.Sql.BulkInsert.Tests.Integration/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj --verbosity normal
