@@ -1,0 +1,34 @@
+name: 'Common.Polyfills CI'
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'src/Common.Polyfills/**'
+      - 'src/Common.Polyfills.Tests/**'
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - 'src/Common.Polyfills/**'
+      - 'src/Common.Polyfills.Tests/**'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v7
+    - name: Setup .NET SDKs
+      uses: actions/setup-dotnet@v6
+      with:
+        dotnet-version: 10.x
+    - name: Build 
+      run: dotnet build ./src/Common.Polyfills/JK.Common.Polyfills.csproj -c Release 
+    - name: Test 
+      run: dotnet test ./src/Common.Polyfills.Tests/JK.Common.Polyfills.Tests.csproj --verbosity normal
