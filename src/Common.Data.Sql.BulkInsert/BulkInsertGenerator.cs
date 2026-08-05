@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using JK.Common.Data.Sql.BulkInsert.Attributes;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
@@ -34,6 +35,12 @@ public sealed class BulkInsertGenerator : IIncrementalGenerator
             var tableName = typeSymbol.GetTableName();
             PropertyMetadata[] props = typeSymbol.GetBulkInsertPropertyMetadata();
 
+            Type bulkInsertGenerator = typeof(BulkInsertGenerator);
+            var generatedCodeTool = bulkInsertGenerator.FullName;
+            var generatedCodeVersion = bulkInsertGenerator.Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
+                ?? "0.0.0";
+            generatedCodeVersion = generatedCodeVersion.Split('+')[0];
+
             var namespaceDeclaration = string.IsNullOrEmpty(ns)
                 ? string.Empty
                 : $"namespace {ns};";
@@ -52,6 +59,7 @@ public sealed class BulkInsertGenerator : IIncrementalGenerator
 
                 {{namespaceDeclaration}}
 
+                [System.CodeDom.Compiler.GeneratedCode("{{generatedCodeTool}}", "{{generatedCodeVersion}}")]
                 public static class {{inserterClassName}}
                 {
                     public const string TableName = "{{tableName}}";

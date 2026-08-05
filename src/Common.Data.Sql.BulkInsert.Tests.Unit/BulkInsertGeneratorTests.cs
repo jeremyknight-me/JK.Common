@@ -1,9 +1,23 @@
-﻿using System.Data;
+﻿using System.CodeDom.Compiler;
+using System.Data;
+using System.Reflection;
 
 namespace JK.Common.Data.Sql.BulkInsert.Tests;
 
 public class BulkInsertGeneratorTests
 {
+    [Fact]
+    public void GeneratedClass_HasGeneratedCodeAttribute()
+    {
+        GeneratedCodeAttribute? attribute = Attribute.GetCustomAttribute(
+            typeof(SampleTypeBulkInserter),
+            typeof(GeneratedCodeAttribute)) as GeneratedCodeAttribute;
+
+        Assert.NotNull(attribute);
+        Assert.Equal("JK.Common.Data.Sql.BulkInsert.BulkInsertGenerator", attribute.Tool);
+        Assert.Equal("1.0.0", attribute.Version);
+    }
+
     [Fact]
     public void TableName_ReturnsCorrectValue()
     {
