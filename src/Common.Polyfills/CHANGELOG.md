@@ -13,4 +13,3 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 - Added Roslyn source generator `PolyfillGenerator` that emits polyfill source files for missing language and runtime features.
 - Added `IsExternalInit` polyfill to enable `init`-only property setters on frameworks older than .NET 5.
-- Polyfills use conditional compilation to emit only when the consuming project's target framework does not already support the feature.
