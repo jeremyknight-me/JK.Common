@@ -1,0 +1,60 @@
+name: DotNet parameterized workflow
+
+on:
+  workflow_call:
+    inputs:
+      library_project:
+        description: Relative project path under src/
+        required: true
+        type: string
+      test_projects:
+        description: Optional newline-separated relative test project paths under src/
+        required: false
+        type: string
+        default: ''
+      runs_on:
+        description: Runner image to use
+        required: false
+        type: string
+        default: ubuntu-latest
+      dotnet_versions:
+        description: .NET SDK versions to install
+        required: false
+        type: string
+        default: |
+          10.x
+          9.x
+          8.x
+
+jobs:
+  build:
+    runs-on: ${{ inputs.runs_on }}
+
+    defaults:
+      run:
+        working-directory: src
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup .NET SDKs
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: ${{ inputs.dotnet_versions }}
+
+      - name: Build
+        run: dotnet build ${{ inputs.library_project }} -c Release
+
+      - name: Format
+        run: dotnet format ${{ inputs.library_project }} --severity error --verify-no-changes
+
+      - name: Test projects
+        if: ${{ inputs.test_projects != '' }}
+        shell: bash
+        run: |
+          while IFS= read -r project; do
+            [ -n "$project" ] || continue
+            dotnet test "$project" --verbosity normal
+          done <<'EOF'
+          ${{ inputs.test_projects }}
+          EOF
