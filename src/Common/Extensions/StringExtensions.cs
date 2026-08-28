@@ -157,7 +157,7 @@ public static class StringExtensions
         }
 
         /// <summary>
-        /// Returns the specified number of characters from the end of string. Same as <see cref="Last"/>.
+        /// Returns the specified number of characters from the end of string.
         /// </summary>
         /// <param name="length">Number of characters to get from end of string.</param>
         /// <returns>Returns the last X characters of the string.</returns>
