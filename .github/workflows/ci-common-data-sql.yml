@@ -17,30 +17,15 @@ permissions:
   contents: read
   pull-requests: read
 
-env:
-  LIBRARY_PROJECT_PATH: Common.Data.Sql/JK.Common.Data.Sql.csproj
-  TEST_PROJECT_PATH: Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj
-
 jobs:
   build:
-    runs-on: windows-latest
-
-    defaults:
-      run:
-        working-directory: src
-
-    steps:
-    - uses: actions/checkout@v7
-    - name: Setup .NET SDKs
-      uses: actions/setup-dotnet@v6
-      with:
-        dotnet-version: |
-          10.x
-          9.x
-          8.x
-    - name: Build
-      run: dotnet build $env:LIBRARY_PROJECT_PATH -c Release
-    - name: Format 
-      run: dotnet format $env:LIBRARY_PROJECT_PATH --severity error --verify-no-changes
-    - name: Test
-      run: dotnet test $env:TEST_PROJECT_PATH --verbosity normal
+    uses: ./.github/workflows/dotnet-parameterized.yml
+    with:
+      library_project: Common.Data.Sql/JK.Common.Data.Sql.csproj
+      test_projects: |
+        Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj
+      runs_on: windows-latest
+      dotnet_versions: |
+        10.x
+        9.x
+        8.x

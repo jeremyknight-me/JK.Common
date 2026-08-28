@@ -21,23 +21,11 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: src
-
-    steps:
-    - uses: actions/checkout@v7
-    - name: Setup .NET SDKs
-      uses: actions/setup-dotnet@v6
-      with:
-        dotnet-version: 10.x
-    - name: Build 
-      run: dotnet build Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj -c Release 
-    - name: Format 
-      run: dotnet format Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj --severity error --verify-no-changes
-    - name: Unit Tests
-      run: dotnet test Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj --verbosity normal
-    - name: Integration Tests 
-      run: dotnet test Common.Data.Sql.BulkInsert.Tests.Integration/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj --verbosity normal
+    uses: ./.github/workflows/dotnet-parameterized.yml
+    with:
+      library_project: Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj
+      test_projects: |
+        Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj
+        Common.Data.Sql.BulkInsert.Tests.Integration/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj
+      runs_on: ubuntu-latest
+      dotnet_versions: 10.x
