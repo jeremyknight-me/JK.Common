@@ -18,13 +18,16 @@ permissions:
   pull-requests: read
 
 env:
-  LIBRARY_PROJECT_PATH: ./src/Common.Data.Sql/JK.Common.Data.Sql.csproj
-  TEST_PROJECT_PATH: ./src/Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj
+  LIBRARY_PROJECT_PATH: Common.Data.Sql/JK.Common.Data.Sql.csproj
+  TEST_PROJECT_PATH: Common.Data.Sql.Tests/JK.Common.Data.Sql.Tests.csproj
 
 jobs:
   build:
-
     runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: src
 
     steps:
     - uses: actions/checkout@v7

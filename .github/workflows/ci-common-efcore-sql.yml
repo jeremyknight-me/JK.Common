@@ -17,12 +17,15 @@ permissions:
   pull-requests: read
 
 env:
-  LIBRARY_PROJECT_PATH: ./src/Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj
+  LIBRARY_PROJECT_PATH: Common.EntityFrameworkCore.SqlServer/JK.Common.EntityFrameworkCore.SqlServer.csproj
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: src
 
     steps:
     - uses: actions/checkout@v7
