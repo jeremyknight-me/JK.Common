@@ -42,6 +42,24 @@ public class BulkInsertIntegrationTests : IClassFixture<MsSqlContainerFixture>, 
     }
 
     [Fact]
+    public async Task ExecuteAsync_InsertsAllRows()
+    {
+        List<SampleType> items =
+        [
+            new() { FirstName = "John", LastName = "Doe", Age = 30 },
+            new() { FirstName = "Jane", LastName = "Smith", Age = 25 }
+        ];
+
+        using SqlConnection connection = await CreateOpenConnectionAsync();
+        await SampleTypeBulkInserter.ExecuteAsync(connection, items, cancellationToken: TestContext.Current.CancellationToken);
+
+        using SqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT COUNT(*) FROM Employees";
+        int count = Convert.ToInt32(await command.ExecuteScalarAsync(TestContext.Current.CancellationToken));
+        Assert.Equal(2, count);
+    }
+
+    [Fact]
     public async Task Execute_VerifiesInsertedValues()
     {
         List<SampleType> items =

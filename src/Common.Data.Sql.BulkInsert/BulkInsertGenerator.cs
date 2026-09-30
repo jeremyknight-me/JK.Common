@@ -55,6 +55,8 @@ public sealed class BulkInsertGenerator : IIncrementalGenerator
                 using System.Linq;
                 using System.Reflection;
                 using System.Text.RegularExpressions;
+                using System.Threading;
+                using System.Threading.Tasks;
                 using Microsoft.Data.SqlClient;
 
                 {{namespaceDeclaration}}
@@ -102,6 +104,37 @@ public sealed class BulkInsertGenerator : IIncrementalGenerator
                             try
                             {
                                 bulk.WriteToServer(table);
+                            }
+                            catch (SqlException ex)
+                            {
+                                ThrowIfColumnLengthException(bulk, ex);
+                                throw;
+                            }
+                        }
+                    }
+
+                    public static async Task ExecuteAsync(SqlConnection connection, IEnumerable<{{name}}> items, int batchSize = 0, CancellationToken cancellationToken = default)
+                    {
+                        using (SqlBulkCopy bulk = new SqlBulkCopy(connection, SqlBulkCopyOptions.KeepNulls | SqlBulkCopyOptions.UseInternalTransaction, null))
+                        {
+                            if (connection.State != ConnectionState.Open)
+                            {
+                                await connection.OpenAsync(cancellationToken);
+                            }
+
+                            List<{{name}}> itemList = items.ToList();
+                            bulk.BatchSize = batchSize == 0 ? itemList.Count : batchSize;
+                            bulk.DestinationTableName = TableName;
+
+                            foreach (KeyValuePair<string, string> mapping in ColumnMappings)
+                            {
+                                bulk.ColumnMappings.Add(mapping.Key, mapping.Value);
+                            }
+
+                            DataTable table = BuildDataTable(itemList);
+                            try
+                            {
+                                await bulk.WriteToServerAsync(table, cancellationToken);
                             }
                             catch (SqlException ex)
                             {
