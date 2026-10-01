@@ -46,9 +46,15 @@ dotnet add package JK.Common.Data.Sql.BulkInsert
 
 ## Build & Test
 
-From repository root:
+Run the commands from the `src` directory so `global.json` selects the Microsoft.Testing.Platform test runner:
 
 ```bash
-dotnet build src/Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj
-dotnet test src/Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj
+dotnet build Common.Data.Sql.BulkInsert/JK.Common.Data.Sql.BulkInsert.csproj
+dotnet test Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj
+```
+
+The unit tests do not require Docker. To run the integration tests, start Docker first and run:
+
+```bash
+dotnet test Common.Data.Sql.BulkInsert.Tests.Integration/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj
 ```
