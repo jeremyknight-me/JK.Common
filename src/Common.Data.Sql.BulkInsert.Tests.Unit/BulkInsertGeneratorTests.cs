@@ -1,6 +1,5 @@
 ﻿using System.CodeDom.Compiler;
 using System.Data;
-using System.Reflection;
 
 namespace JK.Common.Data.Sql.BulkInsert.Tests;
 
