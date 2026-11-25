@@ -11,7 +11,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Added
 
-- Added support for .NET 10.
+- Added support for .NET 10 and .NET 11.
 - Added XML documentation to numerous methods and classes.
 - Added `AddIfNotNull` extension method in `CollectionExtensions`.
 - Added `AgeCalculator` for calculating age based on specified date.
