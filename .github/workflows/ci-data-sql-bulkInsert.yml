@@ -28,4 +28,6 @@ jobs:
         Common.Data.Sql.BulkInsert.Tests.Unit/JK.Common.Data.Sql.BulkInsert.Tests.Unit.csproj
         Common.Data.Sql.BulkInsert.Tests.Integration/JK.Common.Data.Sql.BulkInsert.Tests.Integration.csproj
       runs_on: ubuntu-latest
-      dotnet_versions: 10.x
+      dotnet_versions: |
+        11.x
+        10.x

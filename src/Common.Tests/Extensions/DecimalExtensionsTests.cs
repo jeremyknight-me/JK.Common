@@ -4,10 +4,15 @@ namespace JK.Common.Tests.Extensions;
 
 public class DecimalExtensionsTests
 {
+    public static TheoryData<decimal, decimal> DecimalPartData => new()
+    {
+        { 0m, 1.0m },
+        { 0.1m, 1.1m },
+        { 0.25m, 1.25m }
+    };
+
     [Theory]
-    [InlineData(0, 1.0)]
-    [InlineData(0.1, 1.1)]
-    [InlineData(0.25, 1.25)]
+    [MemberData(nameof(DecimalPartData))]
     public void GetDecimalPart_Theories(decimal expected, decimal value)
     {
         var actual = value.DecimalPart;
