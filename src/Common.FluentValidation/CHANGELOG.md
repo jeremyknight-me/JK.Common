@@ -11,7 +11,7 @@ Unless otherwise noted, all changes made by [@jeremyknight-me](https://github.co
 
 ### Changed
 
-- Added support for .NET 10.
+- Added support for .NET 10 and .NET 11.
 - Upgraded FluentValidation from 11.x to 12.x. This forces a minimum .NET version of .NET 8.
 
 ### Removed
