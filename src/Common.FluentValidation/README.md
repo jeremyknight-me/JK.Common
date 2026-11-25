@@ -9,7 +9,7 @@ A collection of reusable `FluentValidation` validators and extension helpers for
 
 ## Supported frameworks
 
-- `net10.0`, `net9.0`, `net8.0`
+- `net11.0`, `net10.0`, `net9.0`, `net8.0`
 
 ## Install
 

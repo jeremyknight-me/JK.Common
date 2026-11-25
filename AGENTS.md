@@ -66,7 +66,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 - Utility library: extension methods, new classes, and improvements to existing classes.
 - `/src` contains all source code including unit tests.
-- Target frameworks: .NET 10, 9, and 8; Entity Framework Core.
+- Target frameworks: .NET 11, 10, 9, and 8; Entity Framework Core.
 - Always use the latest C# language version.
 
 ### C# Coding Standards

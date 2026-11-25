@@ -10,7 +10,7 @@ A utility library containing boilerplate code, extension methods, new classes, a
 
 ## Supported frameworks
 
-- `net10.0`, `net9.0`, `net8.0`, `netstandard2.0`
+- `net11.0`, `net10.0`, `net9.0`, `net8.0`, `netstandard2.0`
 
 ## Install
 

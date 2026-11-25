@@ -26,6 +26,7 @@ jobs:
         Common.Tests/JK.Common.Tests.csproj
       runs_on: windows-latest
       dotnet_versions: |
+        11.x
         10.x
         9.x
         8.x

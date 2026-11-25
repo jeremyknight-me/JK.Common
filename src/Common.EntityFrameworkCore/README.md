@@ -10,7 +10,7 @@ A set of utilities and extensions for `Microsoft.EntityFrameworkCore` that simpl
 
 ## Supported frameworks
 
-- `net10.0`, `net9.0`, `net8.0`
+- `net11.0`, `net10.0`, `net9.0`, `net8.0`
 
 ## Install
 

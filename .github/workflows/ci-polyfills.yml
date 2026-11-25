@@ -25,4 +25,6 @@ jobs:
       test_projects: |
         Common.Polyfills.Tests/JK.Common.Polyfills.Tests.csproj
       runs_on: ubuntu-latest
-      dotnet_versions: 10.x
+      dotnet_versions: |
+        11.x
+        10.x
